@@ -1,0 +1,70 @@
+/*
++++++++++++++++++++++++++++++++++++++++++++++++++
+POLICES
++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+@font-face {
+  font-family: "NotCourierSans";
+  src: local("NotCourierSans.ttf"), format("truetype");
+  font-weight:  400;
+  font-style:   regular;
+  font-variant: normal;
+  font-stretch: normal;
+  font-family: "OSP-DIN";
+  src: local("OSP-DIN.ttf"), format("truetype");
+  font-weight:  400;
+  font-style:   regular;
+  font-variant: normal;
+  font-stretch: normal;
+}
+ 
+/*
++++++++++++++++++++++++++++++++++++++++++++++++++
+MAIN
++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+body {
+	font-family: NotCourierSans, monospace;
+	background-color: #666666;
+}
+
+#switchTypeLive{
+	resize: none;
+	width: 420px;
+	height: 380px;
+}
+/*
++++++++++++++++++++++++++++++++++++++++++++++++++
+TYPOGRAPHY
++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+.format1 {
+font-size: 160px;
+text-align: center;
+}
+
+.format2 {
+font-size: 40px;
+text-align: center;
+line-height: 80px;
+}
+.format3 {
+font-size: 30px;
+text-align: justify;
+line-height: 40px;
+}
+
+.format4 {
+font-size: 20px;
+text-align: justify;
+line-height: 20px;
+}
+
+.format5 {
+font-size: 10px;
+text-align: justify;
+line-height: 20px;
+}
