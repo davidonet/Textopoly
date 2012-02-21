@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "NotCourierSans";
+  src: local("NotCourierSans.ttf"), format("truetype");
+  font-weight:  400;
+  font-style:   regular;
+  font-variant: normal;
+  font-stretch: normal;
+  font-family: "OSP-DIN";
+  src: local("OSP-DIN.ttf"), format("truetype");
+  font-weight:  400;
+  font-style:   regular;
+  font-variant: normal;
+  font-stretch: normal;
+}   
