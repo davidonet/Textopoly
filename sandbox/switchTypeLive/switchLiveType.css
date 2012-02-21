@@ -6,7 +6,7 @@ POLICES
 
 @font-face {
   font-family: "NotCourierSans";
-  src: local("NotCourierSans.ttf"), format("truetype");
+  src: local("fonts/NotCourierSans.ttf"), format("truetype");
   font-weight:  400;
   font-style:   regular;
   font-variant: normal;
