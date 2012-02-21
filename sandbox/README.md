@@ -1,7 +1,7 @@
 # TEXTOPOLY SANDBOX
 
 ## dragTest
-    Test de drag dans un div
+Test de drag dans un div
 
 ## zoomTest
-    Test du plugin jQuery [ZoomOoz.js](http://janne.aukia.com/zoomooz/)
+Test du plugin jQuery ZoomOoz.jsh: ttp://janne.aukia.com/zoomooz/
