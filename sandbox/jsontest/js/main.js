@@ -1,9 +1,11 @@
 $(document).ready(function() {
+	// Opening json file
 	$.getJSON('data/section.json', function(data, textStatus, jqXHR) {
 		var minX = data["minX"];
 		var minY = data["minY"];
-		var stepX = 64;
-		var stepY = 48;
+		var stepY = document.height / 20;
+		var stepX = stepY * 4 / 3;
+
 		$.each(data["texts"], function(index, aValue) {
 			var aX = (aValue["x"] - minX) * stepX;
 			var aY = (aValue["y"] - minY) * stepY;
@@ -24,11 +26,16 @@ $(document).ready(function() {
 				newTxt.text(aValue["t"]);
 			else if(aValue["i"]) {
 				var newImg = $(document.createElement("img")).addClass("msg");
-				newImg.attr({src:aValue["i"]});
+				newImg.attr({
+					src : aValue["i"]
+				});
 				newTxt.append(newImg);
 			}
 
 			$("body").append(newTxt);
 		});
+	});
+	$(window).resize(function() {
+		window.location.reload()
 	});
 });
