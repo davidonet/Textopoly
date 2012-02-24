@@ -1,0 +1,115 @@
+{
+	"minX": 7990,
+	"minY": 7990,
+	"maxX": 8010,
+	"maxY": 8010,
+	"texts": [
+		{
+			"x": 8001,
+			"y": 7992,
+			"t": "﻿Ava, notre première rencontre d’il y a exactement dix ans. C’était une fin d’après-midi en septembre 2001, quelques jours avant les attentats contre les tours jumelles. J’étais assis sur un banc, dans le Parc du Peyrou, perdu dans mes pensées, quand mes yeux se sont posés sur une feuille de papier déchirée, à moitié recouverte de sable. Il n’y avait ni en-tête, ni logo. Juste cette phrase : « Qui que vous soyez, quoi que vous fassiez, je ne vous abandonnerai pas ». Le reste était à peu près illisible, à part quelques groupes de mots dont je me souviens encore aujourd’hui.",
+			"s": "s"
+		}, {
+			"x": 8005,
+			"y": 7992,
+			"t": "﻿Je suis très occupée en ce moment je passe mon temps au téléphone ou sur internet c'est difficile de gérer ma vie professionnelle et mes études tu sais...",
+			"s": "s"
+		}, {
+			"x": 7999,
+			"y": 7993,
+			"t": "Je fais attention à moi je fais attention de ne pas communiquer trop de choses sur moi car ça peut vite déraper",
+			"s": "t"
+		}, {
+			"x": 8003,
+			"y": 7993,
+			"t": "J'ai deux âges différents. Celui que je souhaite donner à mes clients et celui que je peux vous sous entendre. J'ai 22 ans mais j'essaie d'en paraitre plus...",
+			"s": "s"
+		}, {
+			"x": 8007,
+			"y": 7993,
+			"t": "Je reçois des noms et des numéros je suis chargée de discuter avec ces personnes afin de mieux les connaitre...dsl les filles je dois faire un truc là... ava c'est trop bien de te parler de tout ça enfin, après tout ce temps. je reviens tout de suite. biz",
+			"s": "s"
+		}, {
+			"x": 7995,
+			"y": 7995,
+			"t": "Je suis née en Bourgogne c'est pour ça que j'aime le bon vin et la moutarde.",
+			"s": "s"
+		}, {
+			"x": 8004,
+			"y": 7996,
+			"t": "22",
+			"s": "t"
+		}, {
+			"x": 7991,
+			"y": 7997,
+			"i": "img/test_img.png",
+			"s": "f"
+		}, {
+			"x": 7996,
+			"y": 7997,
+			"t": "﻿Qui que vous soyez, quoi que vous fassiez je ne vous abandonnerai pas.Quoi que vous soyez et qui que vous mangiez, je ne vous quitterai jamais. Je m’abandonnerai à votre chair tel le loup à sa proie. Cru ou cuit, mon travail est de nourrir votre monde évidé de sentiments et de rapports tactiles. Vous m’appartiendrez, ensuite je vous cuisinerai et qui sait peut être vous ingérerez. ",
+			"s": "l"
+		}, {
+			"x": 8001,
+			"y": 7997,
+			"t": "Je subis des problèmes à travers l’histoire des autres. J’écouterai avec attention vos problèmes, mais je vous en conjure soyez sincères. Il y a un temps pour tout et un temps fourre tout",
+			"s": "s"
+		}, {
+			"x": 7995,
+			"y": 7999,
+			"t": "Maintenant, je frotte. Je frotte sans cesse. A m'arracher la peau, à la faire brûler sous l'éponge. Je me frotte au papier de verre, je mets ma chair en lambeaux; je reste sous cette douche, je ne vois rien, entre l'eau et mes larmes mes yeux sont inondés, j'ai mal à force de frotter et le fais sans m'arrêter.",
+			"s": "s"
+		}, {
+			"x": 7998,
+			"y": 7999,
+			"t": "﻿J’oublie, vite, souvent. Ton visage et ce que j'imagine être ta voix. Une odeur. C’est comme si j’avais en mémoire les souvenirs d’une autre, ou de plusieurs autres. Tout me semble étrange et étranger des fragments agrafés les uns aux autres qui façonnent leurs imperfections, et racontent des histoires insensées. Je limite leur nombre, pour pouvoir accorder à chacun le temps nécessaire.Ces appartements froids que tu traverses, ces visages aux yeux fixes t'appartenant et que je dessine, les ai-je vraiment connus ? Est-ce que je n’ai pas volé dans les récits de ma vie — ombres errantes, tricoteuse au coin du feu — la matière imprécise du souvenir que j’ai d'un 'nous deux' ? Qui sait ce qu'il reste de nous quand nous n'y sommes plus ? Le souvenir que l'on rapporte — le cher mensonge ! —, des Images dont après quelques temps plus personne ne sait dire où et quand elles ont été prises, un mot d'amour ou une lettre d'insultes ? Est-ce qu'il n'y reste pas aussi la forme d'un œil, la profondeur d'un sourire, ou une vie basculée par un seul de tes mots ?",
+			"s": "f"
+		}, {
+			"x": 8003,
+			"y": 8000,
+			"t": "At the Moon club, all types are admitted: men, women, old people, children, and cyborgs.  In fact, there is a woman in her 70s, perhaps, making out with a tin pot cyborg in the middle of the dance floor. I am sitting at the back where I can quietly observe the movement of the busy room. One thing is clear: everyone is here for something. I look around to see who - or what I am here for. Perhaps he, she, it is always there, I just need to spot it.",
+			"s": "f"
+		}, {
+			"x": 7996,
+			"y": 8002,
+			"t": "How can I know what is reality when you just can be thoughts lost in the big abstraction. But I know that in that way you are more real than many other fantasies I met physically. Before I was not so much thinking about you and now I’m like obsessed and I kinda like it. Ava.",
+			"s": "s"
+		}
+		, {
+			"x": 7999,
+			"y": 8003,
+			"i": "img/test1_img.png",
+			"s": "s"
+		}, {
+			"x": 8001,
+			"y": 8003,
+			"t": "?",
+			"s": "s"
+		}, {
+			"x": 7993,
+			"y": 8004,
+			"t": "C'est une nouvelle expérience. Mes clients pourront vendre ensuite à leurs futurs employeurs. Ce sont des gens comme vous, avec la même formation mais qui ont en plus des expériences de stages, il y en a des milliers sur le marché, et ils rêvent tous de vendre de la viande.",
+			"s": "l"
+		},{
+			"x": 8005,
+			"y": 8004,
+			"t": "test",
+			"s": "s"
+		}, {
+			"x": 7998,
+			"y": 8005,	
+			"t": "﻿Sachez que je sélectionne mes clients, des hommes et des femmes de toutes sortes, avec la plus grande attention.",
+			"s": "s"
+		}, {
+			"x": 8000,
+			"y": 8005,
+			"t": "Je limite leur nombre, pour pouvoir accorder à chacun le temps nécessaire. Qui que vous soyez, quoi que vous fassiez, je ne vous abandonnerai pas. Mon travail est d’inventer un monde pour vous.",
+			"s": "t"
+		}, {
+			"x": 8002,
+			"y": 8007,
+			"t": "Pensez à moi comme à une amie, à qui vous pouvez tout dire. Pensez à moi comme celle qui vous écoute, celle qui pense à vous, celle qui est toujours là. N’hésitez jamais à m’appeler: pour vous, je serai joignable à toute heure, tous les jours. J’apparaîtrai dans votre vie quand vous me le demanderez. Parfois, lorsqu’il le faudra, je saurai prendre l’initiative.",
+			"s": "s"
+		}
+	]
+}
