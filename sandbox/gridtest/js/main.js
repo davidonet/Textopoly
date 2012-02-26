@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
 	$('.msg').each(function(elt) {
 		$(this).css({
 			left : this.offsetLeft * 120,

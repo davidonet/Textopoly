@@ -7,8 +7,8 @@ $(document).ready(function() {
 		var stepX = stepY * 4 / 3;
 
 		$.each(data["texts"], function(index, aValue) {
-			var aX = (aValue["x"] - minX) * stepX;
-			var aY = (aValue["y"] - minY) * stepY;
+			var aX = (aValue["position"]["x"] - minX) * stepX;
+			var aY = (aValue["position"]["y"] - minY) * stepY;
 			var newTxt = $(document.createElement("div")).addClass("msg");
 			var aWidth = stepX * 2;
 			var aHeight = stepY * 2;
