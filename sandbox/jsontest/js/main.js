@@ -8,11 +8,11 @@ $(document).ready(function() {
 		var stepX = stepY * 4 / 3;
 
 		$.each(data["texts"], function(index, aValue) {
-			var aX = (aValue["position"][0] - minX) * stepX;
-			var aY = (aValue["position"][1] - minY) * stepY;
+			var aX = Math.floor((aValue["position"][0] - minX) * stepX);
+			var aY = Math.floor((aValue["position"][1] - minY) * stepY);
 			var newTxt = $(document.createElement("div")).addClass("msg");
-			var aWidth = stepX * 2;
-			var aHeight = stepY * 2;
+			var aWidth = Math.floor(stepX * 2);
+			var aHeight = Math.floor(stepY * 2);
 			if((aValue["s"] == "l") || (aValue["s"] == "f"))
 				aWidth *= 2;
 			if((aValue["s"] == "t") || (aValue["s"] == "f"))
