@@ -1,0 +1,32 @@
+body {
+	background-color: #eee;
+}
+.msg {
+	display: block;
+	position: absolute;
+	background-color: #aaa;
+}
+.small {
+	width: 240px;
+	height: 180px;
+}
+.long {
+	width: 480px;
+	height: 180px;
+}
+.tall{
+	width: 240px;
+	height: 360px;
+}
+.fat {
+	width: 480px;
+	height: 360px;
+}
+
+img{
+	width: 100%;
+	height: 100%;
+}
+
+
+
