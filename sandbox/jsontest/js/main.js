@@ -4,7 +4,7 @@ $(document).ready(function() {
 		console.log(data);
 		var minX = data["minX"];
 		var minY = data["minY"];
-		var stepY = document.height / 20;
+		var stepY = $(document).height() / 20;
 		var stepX = stepY * 4 / 3;
 
 		$.each(data["texts"], function(index, aValue) {

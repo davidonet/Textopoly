@@ -31,6 +31,12 @@ Proposition de format d'échange avec la base de données
 			// l : long
 			// f : fat
 			
+			"a": 
+			// id unique de l'auteur
+			
+			"d": 
+			// date de création 
+			
 		}, ...
 
 ### gridtest

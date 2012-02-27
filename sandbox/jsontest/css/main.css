@@ -1,11 +1,11 @@
 body {
-	background-color: #eee;
+	background-color: #fafff8;
 }
 .msg {
 	display: block;
 	position: absolute;
-	background-color: #aaa;
 	overflow:hidden;
+	font-size:6pt;
 }
 
 img.msg
@@ -16,19 +16,19 @@ img.msg
 
 .small {
 	width: 240px;
-	height: 180px;
+	height: 160px;
 }
 .long {
 	width: 480px;
-	height: 180px;
+	height: 160px;
 }
 .tall{
 	width: 240px;
-	height: 360px;
+	height: 320px;
 }
 .fat {
 	width: 480px;
-	height: 360px;
+	height: 320px;
 }
 
 img{
