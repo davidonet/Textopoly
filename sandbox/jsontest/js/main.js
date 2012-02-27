@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	// Opening json file
-	$.getJSON('data/section.json', function(data, textStatus, jqXHR) {
+	$.getJSON('http://textopoly.herokuapp.com/section?callback=?', function(data, textStatus, jqXHR) {
+		console.log(data);
 		var minX = data["minX"];
 		var minY = data["minY"];
 		var stepY = document.height / 20;

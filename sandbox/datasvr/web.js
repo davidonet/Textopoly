@@ -8,7 +8,7 @@ db.bind('txt', {
 });
 
 var connect = require('connect');
-var jsonp   = require('connect-jsonp');
+var jsonp = require('connect-jsonp');
 
 var server = connect.createServer(connect.logger({
 	format : ':method :url'
@@ -33,7 +33,11 @@ function app(app) {
 		db.txt.allTxt(function(err, items) {
 			var response = {
 				success : true,
-				content : items
+				minX : 7990,
+				minY : 7990,
+				maxX : 8010,
+				maxY : 8010,
+				texts : items
 			};
 			res.end(JSON.stringify(response));
 		});
