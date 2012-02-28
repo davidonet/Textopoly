@@ -1,13 +1,16 @@
 var mongo = require('mongoskin');
-var db = mongo.db('mongodb://davido:9ricer4@staff.mongohq.com:10064/textopoly');
+var sensible = require('./sensible');
+var db = mongo.db(sensible.mongourl());
 
 db.bind('txt', {
-	allTxt : function(fn) {
-		this.find().toArray(fn);
+	boxedTxt : function(box, fn) {
+		this.find({"position" : {"$within" : { "$box" : box}}}).toArray(fn);
 	}
 });
 
 var connect = require('connect');
+var url = require('url');
+var qs = require('qs');
 var jsonp = require('connect-jsonp');
 
 var server = connect.createServer(connect.logger({
@@ -23,20 +26,24 @@ function app(app) {
 		res.writeHead(200, {
 			'Content-Type' : 'text/html; charset=utf-8'
 		});
-		res.end('<script type="text/javascript" src="/section?callback=console.log"></script>');
+		res.end('<script type="text/javascript" src="/section?Xm=-3&XM=2&Ym=-2&YM=2&callback=console.log"></script>');
 	});
 	// requested after the script tag is rendered, result is evaluated
 	app.get('/section', function(req, res) {
+
+		var myParam = qs.parse(url.parse(req.url).query);
 		res.writeHead(200, {
 			'Content-Type' : 'application/json; charset=utf-8'
 		});
-		db.txt.allTxt(function(err, items) {
+		var aBoundingBox = [[Number(myParam.Xm), Number(myParam.Ym)], [Number(myParam.XM), Number(myParam.YM)]];
+		
+		db.txt.boxedTxt(aBoundingBox,function(err, items) {
 			var response = {
 				success : true,
-				minX : 7990,
-				minY : 7990,
-				maxX : 8010,
-				maxY : 8010,
+				minX : myParam.Xm,
+				minY : myParam.Ym,
+				maxX : myParam.XM,
+				maxY : myParam.YM,
 				texts : items
 			};
 			res.end(JSON.stringify(response));
