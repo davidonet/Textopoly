@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	// Opening json file
-	$.getJSON('http://textopoly.herokuapp.com/section?callback=?', function(data, textStatus, jqXHR) {
+	$.getJSON('http://data.textopoly.org:3000/section?Xm=-20&XM=20&Ym=-20&YM=20&callback=?', function(data, textStatus, jqXHR) {
 		console.log(data);
 		var minX = data["minX"];
 		var minY = data["minY"];
-		var stepY = $(document).height() / 20;
+		var stepY = $(document).height() / (data["maxY"]-data["minY"]);
 		var stepX = stepY * 4 / 3;
 
 		$.each(data["texts"], function(index, aValue) {

@@ -11,7 +11,7 @@ db.bind('txt', {
 var connect = require('connect');
 var url = require('url');
 var qs = require('qs');
-var jsonp = require('connect-jsonp');
+var jsonp = require('./connect-jsonp')
 
 var server = connect.createServer(connect.logger({
 	format : ':method :url'
