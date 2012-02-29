@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	// Opening json file
 	$.getJSON('http://data.textopoly.org:3000/section?xmin=-20&xmax=20&ymin=-20&ymax=20&callback=?', function(data, textStatus, jqXHR) {
-		var minX = data["minX"];
-		var minY = data["minY"];
-		var stepY = $(document).height() / (data["maxY"]-data["minY"]);
+		var minX = data["xmin"];
+		var minY = data["ymin"];
+		var stepY = $(document).height() / (data["xmax"]-data["ymin"]);
 		var stepX = stepY * 4 / 3;
 
 		$.each(data["texts"], function(index, aValue) {

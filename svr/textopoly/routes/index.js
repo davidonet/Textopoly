@@ -7,7 +7,6 @@ exports.index = function(req, res) {
 		title : 'Express'
 	})
 };
-
 var mongo = require('mongoskin');
 var sensible = require('../sensible');
 var db = mongo.db(sensible.mongourl());
@@ -23,7 +22,6 @@ db.bind('txt', {
 		}).toArray(fn);
 	}
 });
-
 
 exports.section = function(req, res) {
 	res.header('Content-Type', 'application/json');
@@ -56,6 +54,9 @@ exports.section = function(req, res) {
 			ymax : ymax,
 			texts : items
 		};
-		res.send(req.query.callback + '(' + JSON.stringify(response) + ');');
+		if(req.query.callback)
+			res.send(req.query.callback + '(' + JSON.stringify(response) + ');');
+		else
+			res.send(JSON.stringify(response));
 	});
 };
