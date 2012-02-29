@@ -2,14 +2,17 @@
  * GET home page.
  */
 
-exports.index = function(req, res) {
-	res.render('index', {
-		title : 'Express'
-	})
-};
 var mongo = require('mongoskin');
 var sensible = require('../sensible');
 var db = mongo.db(sensible.mongourl());
+
+function normalizePos(nTxt) {
+	if(nTxt.position == undefined) {
+		nTxt.position = new Array(Number(nTxt.x), Number(nTxt.y))
+		delete nTxt.x;
+		delete nTxt.y;
+	}
+}
 
 db.bind('txt', {
 	boxedTxt : function(box, fn) {
@@ -20,31 +23,40 @@ db.bind('txt', {
 				}
 			}
 		}).toArray(fn);
+	},
+	insertTxt : function(nTxt, fn) {
+		nTxt.d = new Date();
+		normalizePos(nTxt);
+		var myColl = this;
+		this.findOne({
+			position : nTxt.position
+		}, function(err, aTxt) {
+			if(aTxt) {
+				fn("already exist", aTxt);
+			} else {
+				myColl.insert(nTxt, function(err) {
+					fn(err, nTxt);
+				});
+			}
+		});
+	},
+	removeTxt : function(nTxt, fn) {
+		normalizePos(nTxt);
+		this.remove(nTxt, function(err){
+			fn({success:true});
+		});
 	}
 });
 
 exports.section = function(req, res) {
-	res.header('Content-Type', 'application/json');
-	res.header('Charset', 'utf-8');
 
-	var xmin, ymin, xmax, ymax;
-	if(req.query.xmin)
-		xmin = Number(req.query.xmin);
-	else
-		xmin = -5;
-	if(req.query.ymin)
-		ymin = Number(req.query.ymin);
-	else
-		ymin = -5;
-	if(req.query.xmax)
-		xmax = Number(req.query.xmax);
-	else
-		xmax = 5;
-	if(req.query.ymax)
-		ymax = Number(req.query.ymax);
-	else
-		ymax = 5;
+	var xmin = (req.query.xmin ? Number(req.query.xmin) : 0);
+	var xmax = (req.query.xmax ? Number(req.query.xmax) : xmin + 1);
+	var ymin = (req.query.ymin ? Number(req.query.ymin) : 0);
+	var ymax = (req.query.ymax ? Number(req.query.ymax) : ymin) + 1;
+
 	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
+
 	db.txt.boxedTxt(aBoundingBox, function(err, items) {
 		var response = {
 			success : true,
@@ -54,9 +66,18 @@ exports.section = function(req, res) {
 			ymax : ymax,
 			texts : items
 		};
-		if(req.query.callback)
-			res.send(req.query.callback + '(' + JSON.stringify(response) + ');');
-		else
-			res.send(JSON.stringify(response));
+		res.json(response);
 	});
 };
+
+exports.insert = function(req, res) {
+	db.txt.insertTxt(req.body, function(err, aTxt) {
+		res.json(aTxt);
+	});
+}
+
+exports.remove = function(req, res) {
+	db.txt.removeTxt(req.body, function(err) {
+		res.json(err);
+	});
+}
