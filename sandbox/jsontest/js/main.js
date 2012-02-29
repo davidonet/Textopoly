@@ -1,14 +1,14 @@
 $(document).ready(function() {
 	// Opening json file
-	$.getJSON('http://data.textopoly.org:3000/section?xmin=-20&xmax=20&ymin=-20&ymax=20&callback=?', function(data, textStatus, jqXHR) {
+	$.getJSON('http://data.textopoly.org:3000/section?xmin=-110&xmax=110&ymin=-110&ymax=110&callback=?', function(data, textStatus, jqXHR) {
 		var minX = data["xmin"];
 		var minY = data["ymin"];
 		var stepY = $(document).height() / (data["xmax"]-data["ymin"]);
 		var stepX = stepY * 4 / 3;
 
 		$.each(data["texts"], function(index, aValue) {
-			var aX = Math.floor((aValue["position"][0] - minX) * stepX);
-			var aY = Math.floor((aValue["position"][1] - minY) * stepY);
+			var aX = Math.floor((aValue["p"][0] - minX) * stepX);
+			var aY = Math.floor((aValue["p"][1] - minY) * stepY);
 			var newTxt = $(document.createElement("div")).addClass("msg");
 			var aWidth = Math.floor(stepX * 2);
 			var aHeight = Math.floor(stepY * 2);

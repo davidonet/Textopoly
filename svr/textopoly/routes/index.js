@@ -7,8 +7,8 @@ var sensible = require('../sensible');
 var db = mongo.db(sensible.mongourl());
 
 function normalizePos(nTxt) {
-	if(nTxt.position == undefined) {
-		nTxt.position = new Array(Number(nTxt.x), Number(nTxt.y))
+	if(nTxt.p == undefined) {
+		nTxt.p = new Array(Number(nTxt.x), Number(nTxt.y))
 		delete nTxt.x;
 		delete nTxt.y;
 	}
@@ -17,7 +17,7 @@ function normalizePos(nTxt) {
 db.bind('txt', {
 	boxedTxt : function(box, fn) {
 		this.find({
-			"position" : {
+			"p" : {
 				"$within" : {
 					"$box" : box
 				}
@@ -29,7 +29,7 @@ db.bind('txt', {
 		normalizePos(nTxt);
 		var myColl = this;
 		this.findOne({
-			position : nTxt.position
+			p : nTxt.p
 		}, function(err, aTxt) {
 			if(aTxt) {
 				fn("already exist", aTxt);
