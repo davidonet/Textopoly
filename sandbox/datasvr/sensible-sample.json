@@ -1,3 +1,0 @@
-exports.mongourl = function (){
- 	return 'mongodb://<user>:<password>@<server>/textopoly';
-}

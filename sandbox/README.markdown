@@ -37,6 +37,9 @@ Proposition de format d'échange avec la base de données
 			"d": 
 			// date de création 
 			
+			"c":
+			// couleur du billet
+			
 		}, ...
 
 ### gridtest

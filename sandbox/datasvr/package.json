@@ -1,9 +1,0 @@
-{
-	"name": "node-example",
-	"version": "0.0.1",
-	"dependencies": {
-		"connect": "1.8.x",
-		"mongoskin": "0.3.x",
-		"connect-jsonp":"0.0.5"
-	}
-}
