@@ -3,12 +3,24 @@
  */
 
 var mongo = require('mongoskin');
-var sensible = require('./sensible');
 
-var express = require('express'), routes = require('./routes');
+var express = require('express'), routes = require('./routes'), models = require('./models/mongodrv');
 
 var app = module.exports = express.createServer()
 var io = require('socket.io').listen(app);
+
+io.sockets.on('connection', function(socket) {
+	socket.on('book', function(data) {
+		db.txt.insertTxt(data, function(err, aTxt) {
+			socket.broadcast.emit('book', aTxt);
+		});
+	});
+	socket.on('unbook', function(data) {
+		db.txt.removeTxt(data, function(err) {
+			socket.broadcast.emit('unbook', data);
+		});
+	});
+});
 // Configuration
 
 app.configure(function() {
@@ -31,24 +43,11 @@ app.configure('development', function() {
 app.configure('production', function() {
 	app.use(express.errorHandler());
 });
-
 // Routes
 app.get('/section', routes.section);
 app.post('/insert', routes.insert);
 app.post('/remove', routes.remove);
-app.get('/view',routes.view);
-
-io.sockets.on('connection', function(socket) {
-	socket.emit('news', {
-		hello : 'world'
-	});
-	socket.on('book', function(data) {
-		console.log(data);
-	});
-	socket.on('unbook', function(data) {
-		console.log(data);
-	});
-});
+app.get('/view', routes.view);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
