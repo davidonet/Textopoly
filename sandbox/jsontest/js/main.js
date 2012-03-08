@@ -3,7 +3,7 @@ $(document).ready(function() {
 	$.getJSON('http://data.textopoly.org:3000/section?xmin=-110&xmax=110&ymin=-110&ymax=110&callback=?', function(data, textStatus, jqXHR) {
 		var minX = data["xmin"];
 		var minY = data["ymin"];
-		var stepY = $(document).height() / (data["xmax"]-data["ymin"]);
+		var stepY = $(document).height() / (data["ymax"]-data["ymin"]);
 		var stepX = stepY * 4 / 3;
 
 		$.each(data["texts"], function(index, aValue) {

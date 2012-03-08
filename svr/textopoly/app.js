@@ -31,11 +31,12 @@ app.configure('development', function() {
 app.configure('production', function() {
 	app.use(express.errorHandler());
 });
-// Routes
 
+// Routes
 app.get('/section', routes.section);
 app.post('/insert', routes.insert);
 app.post('/remove', routes.remove);
+app.get('/view',routes.view);
 
 io.sockets.on('connection', function(socket) {
 	socket.emit('news', {

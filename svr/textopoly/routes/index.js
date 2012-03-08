@@ -42,8 +42,10 @@ db.bind('txt', {
 	},
 	removeTxt : function(nTxt, fn) {
 		normalizePos(nTxt);
-		this.remove(nTxt, function(err){
-			fn({success:true});
+		this.remove(nTxt, function(err) {
+			fn({
+				success : true
+			});
 		});
 	}
 });
@@ -79,5 +81,35 @@ exports.insert = function(req, res) {
 exports.remove = function(req, res) {
 	db.txt.removeTxt(req.body, function(err) {
 		res.json(err);
+	});
+}
+
+exports.view = function(req, res) {
+	var zoom = 'z' + (req.query.zoom ? req.query.zoom : '2');
+	var xmin = (req.query.xmin ? Number(req.query.xmin) : 0);
+	var xmax = (req.query.xmax ? Number(req.query.xmax) : xmin + 1);
+	var ymin = (req.query.ymin ? Number(req.query.ymin) : 0);
+	var ymax = (req.query.ymax ? Number(req.query.ymax) : ymin) + 1;
+	var stepX = 120;
+	var stepY = 80;
+	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
+
+	db.txt.boxedTxt(aBoundingBox, function(err, items) {
+		items.forEach(function(value, index) {
+			value.absx = (value.p[0] - xmin) * stepX;
+			value.absy = (value.p[1] - ymin) * stepY;
+			console.log(stepX + " x " + value.p[0] + " = " + value.absx);
+		});
+		var response = {
+			title : 'Textopoly | ' + aBoundingBox,
+			zoom : zoom,
+			xmin : xmin,
+			ymin : ymin,
+			xmax : xmax,
+			ymax : ymax,
+			texts : items
+		};
+
+		res.render('view.jade', response);
 	});
 }

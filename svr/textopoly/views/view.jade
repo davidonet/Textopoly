@@ -1,0 +1,5 @@
+div.grid(class=zoom)
+  each txt in texts
+    div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s) 
+      p #{txt.t} 
+      div.coord (#{txt.p}) 
