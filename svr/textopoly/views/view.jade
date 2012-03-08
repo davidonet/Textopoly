@@ -7,6 +7,8 @@ div.grid#map(class='z'+params.zoom)
         div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s) 
           p #{txt.t} 
           div.coord (#{txt.p})
+      else
+        div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;background-color:#{txt.c};',class=txt.s)
     else
       div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;background-color:#{txt.c};',class=txt.s)
         p.author #{txt.a}
