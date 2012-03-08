@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	// Opening json file
-	$.getJSON('http://data.textopoly.org:3000/section?xmin=-110&xmax=110&ymin=-110&ymax=110&callback=?', function(data, textStatus, jqXHR) {
+	$.getJSON('http://data.textopoly.org:3000/section?xmin=-10&xmax=10&ymin=-10&ymax=10&callback=?', function(data, textStatus, jqXHR) {
 		var minX = data["xmin"];
 		var minY = data["ymin"];
 		var stepY = $(document).height() / (data["ymax"]-data["ymin"]);
