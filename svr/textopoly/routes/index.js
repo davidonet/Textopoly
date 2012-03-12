@@ -27,12 +27,14 @@ exports.section = function(req, res) {
 exports.insert = function(req, res) {
 	db.txt.insertTxt(req.body, function(err, aTxt) {
 		res.json(aTxt);
+		io.sockets.emit('book', aTxt);
 	});
 }
 
 exports.remove = function(req, res) {
 	db.txt.removeTxt(req.body, function(err) {
 		res.json(err);
+		io.sockets.emit('unbook',req.body);
 	});
 }
 
