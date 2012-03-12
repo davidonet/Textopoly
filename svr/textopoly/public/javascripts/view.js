@@ -1,4 +1,4 @@
-var socket = io.connect('http://192.168.1.79');
+var socket = io.connect();
 socket.on('book', function(data) {
 	$('.msg#' + 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1])).fadeOut(function() {
 		this.remove();
