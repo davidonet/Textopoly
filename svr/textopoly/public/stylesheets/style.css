@@ -70,8 +70,8 @@ h2 {
 	font:20px "OSPDIN",sans-serif;
 }
 .z1> .msg {
-	font:28px "NotCourierSansRegular",fixed;
-	border:1px dotted rgba(0, 0, 100, 0.3);
+	font:12px "NotCourierSansRegular",fixed;
+	border: 1px solid #000;
 }
 .z1> .msg.s {
 	width:480px;
