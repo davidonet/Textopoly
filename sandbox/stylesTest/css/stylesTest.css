@@ -90,10 +90,10 @@ body {
 
 .z1 > .msg.s.l4 > p{
 	margin-top: 40px;
-	font-size: 220px;
+	font-size: 250px;
 	line-height: 160px;
 	text-align: center;
-	letter-spacing: 15px;
+	letter-spacing: -50px;
 }
 .z1 > .msg.s.l15 > p{
 	margin-top: 60px;
