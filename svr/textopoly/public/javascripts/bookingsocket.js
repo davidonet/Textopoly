@@ -3,7 +3,6 @@ socket.on('book', function(data) {
 	$('.msg#' + 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1])).fadeOut(function() {
 		this.remove();
 	});
-
 	var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s);
 	newTxt.hide();
 	newTxt.attr('id', 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1]));
@@ -28,6 +27,7 @@ socket.on('book', function(data) {
 
 socket.on('unbook', function(data) {
 	$('.msg#' + 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1])).fadeOut(function() {
-		this.remove();
+		$(this).remove();
 	});
 });
+

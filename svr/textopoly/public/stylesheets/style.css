@@ -48,10 +48,6 @@ h2 {
 	z-index:1;
 }
 
-.warning
- {
- 	border:2px solid red;
- }
 .msg> .coord {
 	color:#e1e1f6;
 	width:100%;
