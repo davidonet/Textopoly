@@ -27,12 +27,14 @@ exports.section = function(req, res) {
 exports.insert = function(req, res) {
 	db.txt.insertTxt(req.body, function(err, aTxt) {
 		res.json(aTxt);
+		io.sockets.emit('book', aTxt);
 	});
 }
 
 exports.remove = function(req, res) {
 	db.txt.removeTxt(req.body, function(err) {
 		res.json(err);
+		io.sockets.emit('unbook', req.body);
 	});
 }
 
@@ -76,6 +78,25 @@ exports.view = function(req, res) {
 		items.forEach(function(value, index) {
 			value.absx = (value.p[0] - xmin) * stepX;
 			value.absy = (value.p[1] - ymin) * stepY;
+			value.absid = 'x' + (8000 + value.p[0]) + 'y' + (8000 + value.p[1]);
+			var txtlen = value.t.length;
+			value.lclass = '';
+			if(txtlen < 4) {
+				value.lclass = 'l4';
+			} else if(txtlen < 15) {
+				value.lclass = 'l15';
+			} else if(txtlen < 50) {
+				value.lclass = 'l50';
+			} else if(txtlen < 150) {
+				value.lclass = 'l150';
+			} else if(txtlen < 300) {
+				value.lclass = 'l300';
+			} else if(txtlen < 601) {
+				value.lclass = 'l600';
+			} else {
+				value.lclass = 'warning';
+				console.log(txtlen + "@("+value.p[0]+','+value.p[1]+')');
+			}
 		});
 		var response = {
 			title : 'Textopoly | ' + aBoundingBox,

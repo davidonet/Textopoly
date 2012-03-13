@@ -29,7 +29,11 @@ db.bind('txt', {
 			p : nTxt.p
 		}, function(err, aTxt) {
 			if(aTxt) {
-				fn("already exist", aTxt);
+				myColl.remove(aTxt, function(err) {
+					myColl.insert(nTxt, function(err) {
+						fn(err, nTxt);
+					});
+				});
 			} else {
 				myColl.insert(nTxt, function(err) {
 					fn(err, nTxt);

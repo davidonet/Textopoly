@@ -7,8 +7,8 @@ var mongo = require('mongoskin');
 var express = require('express'), routes = require('./routes'), models = require('./models/mongodrv');
 
 var app = module.exports = express.createServer()
-var io = require('socket.io').listen(app);
-
+global.io = require('socket.io').listen(app);
+io.set('log level', 0);
 io.sockets.on('connection', function(socket) {
 	socket.on('book', function(data) {
 		db.txt.insertTxt(data, function(err, aTxt) {
