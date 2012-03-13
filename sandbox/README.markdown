@@ -2,6 +2,9 @@
 
 ## WORK IN PROGRESS
 
+### uiProto
+Prototypage de l'interface utilisateur du site
+
 ### stylesTest
 Test de tous les css des éléments .msg à tous les niveaux de zoom
 
