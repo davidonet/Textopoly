@@ -1,0 +1,13 @@
+.msg {
+	border: solid 1px;
+	background: url("baseline.png") repeat;
+}
+
+div#wrap {
+
+	border-left: dashed red 2px;
+	border-right: dashed red 2px;
+}
+
+div#map{
+}

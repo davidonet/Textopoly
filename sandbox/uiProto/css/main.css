@@ -65,7 +65,6 @@ body {
 .msg {
 	display: block;
 	position: absolute;
-	border: 1px dashed #babdb6;
 }
 .msg > p {
 	font-family: "NotCourierSansRegular", monospace;

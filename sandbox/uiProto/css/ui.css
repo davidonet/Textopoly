@@ -18,8 +18,7 @@ div#wrap {
 	width: 960px;
 	margin: 0 auto;
 	margin-bottom: -30px; /*sticky footer*/
-	border-left: dashed red 2px;
-	border-right: dashed red 2px;
+
 }
 div#header {
 	position: relative;
@@ -42,11 +41,12 @@ div#header > #top {
 
 div#zoom{
 	position: relative;
+	z-index: 1000;
 	float:left;
 	width: 20px;
 	height: 300px;
 	background-color: #FFFFFF; /*ie hack*/
-	background-color: rgba(255,255,0,0.8);
+	background-color: rgba(255,255,255,0.8);
 }
 
 .clearfooter {
