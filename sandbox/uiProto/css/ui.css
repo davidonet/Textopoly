@@ -11,6 +11,15 @@ div#map {
 	top: 0px;
 	left: 0px;
 }
+div#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	width: 960px;
+	margin: 0 auto;
+	margin-bottom: -80px; /*sticky footer*/
+	/* border: dashed red 2px; visu dev*/
+}
 div#header {
 	position: relative;
 	z-index: 1000;
@@ -20,13 +29,15 @@ div#header {
 	margin: 0px auto;
 	background-color: rgba(255,255,255,0.8);
 }
-
+.clearfooter {
+	height: 40px;/*hauteur du footer*/
+	clear: both;
+}
 div#footer {
 	position: relative;
 	z-index: 1000;
 	width: 960px;
 	height: 40px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: rgba(255,255,0,0.8);
+	margin: 0px auto;
+	background-color: rgba(255,255,255,0.8);
 }
