@@ -1,124 +1,97 @@
 /*TANGO COLOR PALETTE
-http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette
+ http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette
  */
 
 /* TESTERS*/
 
-.clr{
-	height:50px;
-		width:50px;
-		display: inline-block;
+.clr {
+	height: 50px;
+	width: 50px;
+	display: inline-block;
 }
-
 /* REGULAR COLORS*/
 
 .butter {
-	background-color: #edd400;
+	background-color: #edd400; /* Butter */
 }
-
 .orange {
-	background-color: #f57900;
+	background-color: #f57900; /* Scarlet Red */
 }
-
 .chocolate {
-	background-color: #c17d11;
+	background-color: #c17d11; /* Chocolate */
 }
-
 .chameleon {
-	background-color: #73d216;
+	background-color: #73d216; /* Chameleon */
 }
-
 .skyblue {
-	background-color: #3465a4;
+	background-color: #3465a4; /* Sky Blue */
 }
-
 .plum {
-	background-color: #75507b;
+	background-color: #75507b; /* Plum */
 }
-
 .scarletred {
-	background-color: #cc0000;
+	background-color: #cc0000; /* Scarlet Red */
 }
-
 .aluminium1 {
-	background-color: #d3d7cf;
+	background-color: #d3d7cf; /* Aluminium 1 */
 }
-
 .aluminium2 {
-	background-color: #555753;
+	background-color: #555753; /* Aluminium 2 */
 }
-
 /* LIGHT COLORS*/
 
 .butterL {
-	background-color: #fce94f;
+	background-color: #fce94f; /* Butter Lighter */
 }
-
 .orangeL {
-	background-color: #fcaf3e;
+	background-color: #fcaf3e; /* Orange Lighter */
 }
-
 .chocolateL {
-	background-color: #e9b96e;
+	background-color: #e9b96e; /* Chocolate Lighter */
 }
-
 .chameleonL {
-	background-color: #8ae234;
+	background-color: #8ae234; /* Chameleon Lighter */
 }
-
 .skyblueL {
-	background-color: #729fcf;
+	background-color: #729fcf; /* Sky Blue Lighter */
 }
-
 .plumL {
-	background-color: #ad7fa8;
+	background-color: #ad7fa8; /* Plum Lighter */
 }
-
 .scarletredL {
-	background-color: #ef2929;
+	background-color: #ef2929; /* Scarlet Red Lighter */
 }
-
 .aluminium1L {
-	background-color: #eeeeec;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
 }
-
 .aluminium2L {
-	background-color: #888a85;
+	background-color: #888a85; /* Aluminium 2 Lighter */
 }
-
 /* DARK COLORS*/
 .butterD {
-	background-color: #c4a000;
+	background-color: #c4a000;  /* Butter Darker */
 }
-
 .orangeD {
-	background-color: #ce5c00;
+	background-color: #ce5c00; /* Orange Darker */
 }
-
 .chocolateD {
-	background-color: #8f5902;
+	background-color: #8f5902; /* Chocolate Darker */
 }
-
 .chameleonD {
-	background-color: #4e9a06;
+	background-color: #4e9a06; /* Chameleon Darker */
 }
-
 .skyblueD {
-	background-color: #204a87;
+	background-color: #204a87; /* Sky Blue Darker */
 }
-
 .plumD {
-	background-color: #5c3566;
+	background-color: #5c3566; /* Plum Darker */
 }
-
 .scarletredD {
-	background-color: #a40000;
+	background-color: #a40000; /* Scarlet Red Darker */
 }
-
 .aluminium1D {
-	background-color: #babdb6;
+	background-color: #babdb6; /* Aluminium 1 Darker */
 }
-
 .aluminium2D {
-	background-color: #2e3436;
+	background-color: #2e3436; /* Aluminium 2 Darker */
 }
