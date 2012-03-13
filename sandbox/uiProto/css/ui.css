@@ -18,6 +18,7 @@ div#wrap {
 	width: 960px;
 	margin: 0 auto;
 	margin-bottom: -80px; /*sticky footer*/
+	margin-bottom: -40px; /*sticky footer*/
 	/* border: dashed red 2px; visu dev*/
 }
 div#header {
@@ -28,6 +29,7 @@ div#header {
 	top: 0px;
 	margin: 0px auto;
 	background-color: rgba(255,255,255,0.8);
+	background-color: #FFFFFF; /*ie hack/*
 }
 .clearfooter {
 	height: 40px;/*hauteur du footer*/
@@ -40,4 +42,5 @@ div#footer {
 	height: 40px;
 	margin: 0px auto;
 	background-color: rgba(255,255,255,0.8);
+	background-color: #FFFFFF; /*ie hack/*
 }
