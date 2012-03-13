@@ -61,10 +61,10 @@
 }
 .z1 > .msg.s.l600 > p {
 	margin-top: 16px;
+	font-size: 14px;
 	line-height: 20px;
 	text-align: justify;
 	letter-spacing: 2px;
-	font-size: 14px;
 }
 /* STYLES DES MSG ZOOM 1:1 LONG*/
 
