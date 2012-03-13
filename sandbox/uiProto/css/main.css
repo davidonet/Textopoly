@@ -34,27 +34,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-/* CLEARFIX HACK*/
-/* For modern browsers */
-.cf:before,
-.cf:after {
-    content:"";
-    display:table;
-}
-
-.cf:after {
-    clear:both;
-}
-
-/* For IE 6/7 (trigger hasLayout) */
-.cf {
-    zoom:1;
-}
-/* End hide from IE-mac */
-
-
-
 /* FONTFACE*/
 @font-face {
 	font-family:'NotCourierSansRegular';
