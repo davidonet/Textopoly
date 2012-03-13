@@ -1,8 +1,32 @@
 /* ZONING DE L'INTERFACE */
 
-#content {
-	width: 100px;
-	height: 100px;
+div#content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	overflow: hidden;
-	border: red 5px;
+}
+div#map {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+div#header {
+	position: relative;
+	z-index: 1000;
+	width: 960px;
+	height: 120px;
+	top: 0px;
+	margin: 0px auto;
+	background-color: rgba(255,255,255,0.8);
+}
+
+div#footer {
+	position: relative;
+	z-index: 1000;
+	width: 960px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgba(255,255,0,0.8);
 }
