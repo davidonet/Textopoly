@@ -2,6 +2,9 @@
 
 ## WORK IN PROGRESS
 
+### stylesTest
+Test de tous les css des éléments .msg à tous les niveaux de zoom
+
 
 ### jsontest
 Proposition de format d'échange avec la base de données
