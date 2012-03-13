@@ -1,0 +1,8 @@
+/* ZONING DE L'INTERFACE */
+
+#content {
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	border: red 5px;
+}
