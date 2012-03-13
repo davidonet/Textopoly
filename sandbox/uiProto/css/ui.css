@@ -17,8 +17,9 @@ div#wrap {
 	height: 100%;
 	width: 960px;
 	margin: 0 auto;
-	margin-bottom: -40px; /*sticky footer*/
-	/* border: dashed red 2px; visu dev*/
+	margin-bottom: -30px; /*sticky footer*/
+ border-left: dashed red 2px;
+  border-right: dashed red 2px;
 }
 div#header {
 	position: relative;
@@ -27,20 +28,46 @@ div#header {
 	height: 120px;
 	top: 0px;
 	margin: 0px auto;
+	background-color: #FFFFFF; /*ie hack*/
 	background-color: rgba(255,255,255,0.8);
-	background-color: #FFFFFF; /*ie hack/*
+}
 
+div#header > #top {
+	position: relative;
+	width: 940px;
+	height: 4px;
+	top: 0px;
+	margin: 0px auto;
+	background-color: #000000; /*ie hack*/
 }
 .clearfooter {
-	height: 40px;/*hauteur du footer*/
 	clear: both;
 }
 div#footer {
 	position: relative;
 	z-index: 1000;
 	width: 960px;
-	height: 40px;
+	height: 30px;
 	margin: 0px auto;
-	background-color: rgba(255,255,255,0.8);
-	background-color: #FFFFFF; /*ie hack/*
+	background-color: #FFFFFF; /*ie hack*/
+	background: rgba(255,255,255,0.8);
+	border-top: #000000 dashed 1px;
+}
+div#header > h1{
+	display:block;
+	float:left;
+	margin-top:20px;
+	margin-left:10px;
+	font-family: "FuturaCondensedMedium", sans-serif;
+	font-size: 72px;
+	line-height:60px;
+}
+div#footer > h1{
+	display:block;
+	float:left;
+	margin-top:5px;
+	margin-left:10px;
+	font-family: "FuturaCondensedMedium", sans-serif;
+	font-size: 18px;
+	line-height:20px;
 }
