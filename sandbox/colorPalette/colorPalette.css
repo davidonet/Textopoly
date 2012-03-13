@@ -1,0 +1,124 @@
+/*TANGO COLOR PALETTE
+http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette
+ */
+
+/* TESTERS*/
+
+.clr{
+	height:50px;
+		width:50px;
+		display: inline-block;
+}
+
+/* REGULAR COLORS*/
+
+.butter {
+	background-color: #edd400;
+}
+
+.orange {
+	background-color: #f57900;
+}
+
+.chocolate {
+	background-color: #c17d11;
+}
+
+.chameleon {
+	background-color: #73d216;
+}
+
+.skyblue {
+	background-color: #3465a4;
+}
+
+.plum {
+	background-color: #75507b;
+}
+
+.scarletred {
+	background-color: #cc0000;
+}
+
+.aluminium1 {
+	background-color: #d3d7cf;
+}
+
+.aluminium2 {
+	background-color: #555753;
+}
+
+/* LIGHT COLORS*/
+
+.butterL {
+	background-color: #fce94f;
+}
+
+.orangeL {
+	background-color: #fcaf3e;
+}
+
+.chocolateL {
+	background-color: #e9b96e;
+}
+
+.chameleonL {
+	background-color: #8ae234;
+}
+
+.skyblueL {
+	background-color: #729fcf;
+}
+
+.plumL {
+	background-color: #ad7fa8;
+}
+
+.scarletredL {
+	background-color: #ef2929;
+}
+
+.aluminium1L {
+	background-color: #eeeeec;
+}
+
+.aluminium2L {
+	background-color: #888a85;
+}
+
+/* DARK COLORS*/
+.butterD {
+	background-color: #c4a000;
+}
+
+.orangeD {
+	background-color: #ce5c00;
+}
+
+.chocolateD {
+	background-color: #8f5902;
+}
+
+.chameleonD {
+	background-color: #4e9a06;
+}
+
+.skyblueD {
+	background-color: #204a87;
+}
+
+.plumD {
+	background-color: #5c3566;
+}
+
+.scarletredD {
+	background-color: #a40000;
+}
+
+.aluminium1D {
+	background-color: #babdb6;
+}
+
+.aluminium2D {
+	background-color: #2e3436;
+}
