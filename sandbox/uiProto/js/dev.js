@@ -6,9 +6,7 @@ $(document).ready(function() {
 	$('div#map').draggable({
 		appendTo : 'div#content',
 	});
-	
-		$('div#map').addClass('grid');
-		
+			
 	
 
 });
