@@ -81,8 +81,8 @@ exports.view = function(req, res) {
 			value.absid = 'x' + (8000 + value.p[0]) + 'y' + (8000 + value.p[1]);
 			var txtlen = value.t.length;
 			value.lclass = '';
-			if(txtlen < 5) {
-				value.lclass = 'l5';
+			if(txtlen < 4) {
+				value.lclass = 'l4';
 			} else if(txtlen < 15) {
 				value.lclass = 'l15';
 			} else if(txtlen < 50) {
