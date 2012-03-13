@@ -27,16 +27,15 @@ div#header {
 	height: 120px;
 	top: 0px;
 	margin: 0px auto;
-	background-color: #FFFFFF; /*ie hack*/
-	background-color: rgba(255,255,255,0.8);
-}
+		background-color: #eeeeec; /* Aluminium 1 Lighter */
+	}
 div#header > #top {
 	position: relative;
 	width: 940px;
 	height: 4px;
 	top: 0px;
 	margin: 0px auto;
-	background-color: #000000; 
+	background-color: #edd400; /* Butter */
 }
 
 div#zoom{
@@ -44,9 +43,9 @@ div#zoom{
 	z-index: 1000;
 	float:left;
 	width: 20px;
-	height: 300px;
-	background-color: #FFFFFF; /*ie hack*/
-	background-color: rgba(255,255,255,0.8);
+	height: 0px;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+
 }
 
 .clearfooter {
@@ -58,9 +57,8 @@ div#footer {
 	width: 960px;
 	height: 30px;
 	margin: 0px auto;
-	background-color: #FFFFFF; /*ie hack*/
-	background: rgba(255,255,255,0.8);
-	border-top: #000000 dashed 1px;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	border-top: #2e3436 /* Aluminium 2 Darker */ dashed 1px;
 }
 
 
@@ -74,6 +72,7 @@ div#header > h1 {
 	font-family: "FuturaCondensedMedium", sans-serif;
 	font-size: 72px;
 	line-height: 60px;
+	color: #2e3436; /* Aluminium 2 Darker */
 }
 div#footer > h1 {
 	display: block;
@@ -83,4 +82,5 @@ div#footer > h1 {
 	font-family: "FuturaCondensedMedium", sans-serif;
 	font-size: 18px;
 	line-height: 20px;
+	color: #2e3436; /* Aluminium 2 Darker */
 }
