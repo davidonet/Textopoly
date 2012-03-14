@@ -1,5 +1,10 @@
 
 
+.msg{
+	border: 1px solid #333;
+	background-image:url(../../uiProto/img/baseline50.png) ;
+}
+
 /* TAILLES DES MSG ZOOM 1:4 */
 
 .z4 > .msg.s {
