@@ -1,8 +1,21 @@
-.msg {
-	border: solid 1px;
-	background: url("baseline.png") repeat;
+.msg{
+	border: dashed 1px;
+	overflow: auto;
+
 }
 
+.z1 > .msg {
+	background: url("baseline.png") repeat;
+}
+.z2 > .msg {
+	background: url("baseline.png") repeat;
+}
+.z4 > .msg {
+	background: url("baseline2.png") repeat;
+}
+.z10 > .msg {
+	background-color: white;
+}
 div#uiWrap {
 
 	border: dashed red 1px;
