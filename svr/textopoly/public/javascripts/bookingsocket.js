@@ -5,7 +5,7 @@ define(["/socket.io/socket.io.js"], function() {
 		$('.msg#' + 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1])).fadeOut(function() {
 			this.remove();
 		});
-		var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s);
+		var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c);
 		newTxt.hide();
 		newTxt.attr('id', 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1]));
 		newTxt.css({
@@ -13,10 +13,10 @@ define(["/socket.io/socket.io.js"], function() {
 			top : (data.p[1] - params.ymin) * params.stepy + 'px',
 		});
 		if(data.t) {
-			var newContent = $(document.createElement("p")).addClass(data.c).text(data.t);
+			var newContent = $(document.createElement("p")).text(data.t);
 			newTxt.fadeIn();
 		} else {
-			var newContent = $(document.createElement("p")).addClass("author").addClass(data.c).text(data.a);
+			var newContent = $(document.createElement("p")).addClass("author").text(data.a);
 			newTxt.fadeIn();
 		}
 		newTxt.append(newContent);
