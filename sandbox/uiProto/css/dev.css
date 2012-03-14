@@ -5,8 +5,9 @@
 
 div#wrap {
 
-	border-left: dashed red 2px;
-	border-right: dashed red 2px;
+	border: dashed red 2px;
+		z-index:2000;
+
 }
 
 div#map{
