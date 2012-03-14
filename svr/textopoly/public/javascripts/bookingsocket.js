@@ -13,13 +13,10 @@ define(["/socket.io/socket.io.js"], function() {
 			top : (data.p[1] - params.ymin) * params.stepy + 'px',
 		});
 		if(data.t) {
-			var newContent = $(document.createElement("p")).text(data.t);
+			var newContent = $(document.createElement("p")).addClass(data.c).text(data.t);
 			newTxt.fadeIn();
 		} else {
-			var newContent = $(document.createElement("p")).addClass("author").text(data.a);
-			newTxt.css({
-				'background-color' : data.c
-			});
+			var newContent = $(document.createElement("p")).addClass("author").addClass(data.c).text(data.a);
 			newTxt.fadeIn();
 		}
 		newTxt.append(newContent);
