@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	$('.coord').hide();
-		$('.anchorpoint').hide();
+		$('.anchorpoint > p').hide();
 
 	// masque les coordonnées
 });

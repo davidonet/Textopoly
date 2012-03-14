@@ -12,6 +12,7 @@ div#map {
 	left: 0px;
 }
 div#uiWrap {
+	position:relative;
 	width: 960px;
 	height: 100%;
 	margin-left: auto;
@@ -28,7 +29,7 @@ div#header {
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
 div#header > #top {
-	position: absolute;
+	position: relative;
 	width: 940px;
 	height: 4px;
 	top: 0px;
@@ -84,3 +85,5 @@ div#footer > h1 {
 	text-transform: uppercase;
 	color: #2e3436; /* Aluminium 2 Darker */
 }
+
+
