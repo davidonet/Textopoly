@@ -2,13 +2,10 @@ script(type='text/javascript')
   var params=!{JSON.stringify(params)}; 
 div.grid#map(class='z'+params.zoom)
   each txt in texts
-    if txt.t
-      if( params.zoom < 20)
-        div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c,id=txt.absid) 
-          p #{txt.t} 
-          div.coord (#{txt.p})
+    div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c,id=txt.absid) 
+      if txt.t
+        if( params.zoom < 20)
+            p #{txt.t} 
+            div.coord (#{txt.p})      
       else
-        div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.c,id=txt.absid)
-    else
-      div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.c,id=txt.absid)
         p.author #{txt.a}

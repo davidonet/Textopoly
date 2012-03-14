@@ -114,9 +114,11 @@ exports.view = function(req, res) {
 			value.absid = 'x' + (8000 + value.p[0]) + 'y' + (8000 + value.p[1]);
 			var txtlen = 0;
 			if(value.t)
-				txtlen = value.t.length; 
+				txtlen = value.t.length;
 			value.lclass = '';
-			if(txtlen < 4) {
+			if(txtlen < 1) {
+				value.lclass = 'l0';
+			} else if(txtlen < 4) {
 				value.lclass = 'l4';
 			} else if(txtlen < 15) {
 				value.lclass = 'l15';
@@ -142,20 +144,19 @@ exports.view = function(req, res) {
 			if('f' == value.s)
 				reserveABlock(aX + 2, aY + 2);
 		});
-		
 		/**
 		 * Debug Booked array //////////////////////////////
-		
-		for(var i = ymin, j = ymax + 4; i < j; i++) {
-			var aLine = "";
-			for(var k = xmin, l = xmax + 4; k < l; k++) {
-				aLine += borderArray[xyToIndex(k, i)]
-			}
-			console.log(aLine);
-		}
-		///////////////////////////////////////////////////
-		*/
-		
+
+		 for(var i = ymin, j = ymax + 4; i < j; i++) {
+		 var aLine = "";
+		 for(var k = xmin, l = xmax + 4; k < l; k++) {
+		 aLine += borderArray[xyToIndex(k, i)]
+		 }
+		 console.log(aLine);
+		 }
+		 ///////////////////////////////////////////////////
+		 */
+
 		var compOutput = encode(reservedArray);
 		var response = {
 			title : 'Textopoly | ' + aBoundingBox,

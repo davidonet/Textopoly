@@ -17,6 +17,7 @@ define(["/socket.io/socket.io.js"], function() {
 			newTxt.fadeIn();
 		} else {
 			var newContent = $(document.createElement("p")).addClass("author").text(data.a);
+			newTxt.addClass('l0');
 			newTxt.fadeIn();
 		}
 		newTxt.append(newContent);

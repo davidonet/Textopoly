@@ -204,25 +204,25 @@ h2 {
 	width: 24px;
 	height: 16px;
 }
-.z40 > .butter, .z20 > .butter {
+.l0.butter, .z40 > .butter, .z20 > .butter {
 	background-color: #edd400; /* Butter */
 }
-.z40 > .orange, .z20 > .orange {
+.l0.orange, .z40 > .orange, .z20 > .orange {
 	background-color: #f57900; /* Scarlet Red */
 }
-.z40 > .chocolate, .z20 > .chocolate {
+.l0.chocolate, .z40 > .chocolate, .z20 > .chocolate {
 	background-color: #c17d11; /* Chocolate */
 }
-.z40 > .chameleon, .z20 > .chameleon {
+.l0.chameleon, .z40 > .chameleon, .z20 > .chameleon {
 	background-color: #73d216; /* Chameleon */
 }
-.z40 > .skyblue, .z20 > .skyblue {
+.l0.skyblue, .z40 > .skyblue, .z20 > .skyblue {
 	background-color: #3465a4; /* Sky Blue */
 }
-.z40 > .plum, .z20 > .plum {
+.l0.plum, .z40 > .plum, .z20 > .plum {
 	background-color: #75507b; /* Plum */
 }
-.z40 > .scarletred, .z20 > .scarletred {
+.l0.scarletred, .z40 > .scarletred, .z20 > .scarletred {
 	background-color: #cc0000; /* Scarlet Red */
 }
 a {
