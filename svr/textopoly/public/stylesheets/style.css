@@ -1,3 +1,40 @@
+/* RESET*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+ v2.0 | 20110126
+ License: none (public domain)
+ */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* FONTFACE*/
 @font-face {
 	font-family: 'NotCourierSansRegular';
 	src: url('fonts/notcouriersans-webfont.eot');
@@ -6,96 +43,80 @@
 	font-style: normal;
 }
 @font-face {
-	font-family: 'OSPDIN';
-	src: url('fonts/osp-din-webfont.eot');
-	src: url('fonts/osp-din-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/osp-din-webfont.woff') format('woff'), url('fonts/osp-din-webfont.ttf') format('truetype'), url('fonts/osp-din-webfont.svg#OSPDIN') format('svg');
+	font-family: 'FuturaCondensedMedium';
+	src: url('fonts/futura_c-webfont.eot');
+	src: url('fonts/futura_c-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/futura_c-webfont.woff') format('woff'), url('fonts/futura_c-webfont.ttf') format('truetype'), url('fonts/futura_c-webfont.svg#') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
+/* VALEURS GLOBALES*/
+
 body {
-	padding: 50px;
-	font: 14px "NotCourierSansRegular", fixed;
-	background-image: url('bg.png');
-	background-position-x: 60px;
-	background-position-y: 40px;
-}
-h1 {
-	font: 32px "OSPDIN", sans-serif;
-	text-align: right;
-}
-h2 {
-	font: 28px "OSPDIN", sans-serif;
-	text-align: left;
+	background: #d3d7cf; /* Aluminium 1 */
+	height: 100%;
 }
 .msg {
 	display: block;
 	position: absolute;
-	overflow: hidden;
-}
-.msg > p {
-	margin-left: 5px;
-	margin-right: 5px;
-	text-align: justify;
-}
-.msg > p.author {
-	font: 20px "OSPDIN", sans-serif;
-	margin-left: 0px;
-	margin-right: 0px;
-	text-align: center;
-	color: #eee;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
 }
 .anchorpoint {
-	background-color: green;
-	opacity: 0.2;
-	position: absolute;
 	display: block;
+	position: absolute;
 }
-.anchorpoint > p {
-	visibility: hidden;
+.msg > p {
+	font-family: "NotCourierSansRegular", monospace;
+	color: #2e3436; /* Aluminium 2 Darker */
+}
+/* MSG SURVOLS */
+.anchorpoint {
+	-webkit-transition: background 2s;
 }
 .anchorpoint:hover {
-	opacity: 0.7;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	-webkit-transition: background 1s;
 }
-.anchorpoint:hover > p {
-	visibility: visible;
-	color: #fff;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 15%;
-	text-align: center;
-	z-index: 1;
-	font: 20px "OSPDIN", sans-serif;
+.butter, .orange, .chocolate, .chameleon, .skyblue, .plum, .scarletred {
+	-webkit-transition: background 2s;
 }
-.msg > .coord {
-	color: #00B7FF;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 30%;
-	text-align: center;
-	z-index: -1;
-	opacity: .7;
+.butter:hover {
+	background-color: #fce94f; /* Butter Lighter */
+	background-color: rgba(252, 233, 79, 1); /* Butter Lighter */
+	-webkit-transition: background 1s;
 }
-.z1 > .msg > .coord {
-	font: 120px "OSPDIN", sans-serif;
+.orange:hover {
+	background-color: #fcaf3e; /* Orange Lighter */
+	background-color: rgba(252, 175, 62, 1); /* Orange Lighter */
+	-webkit-transition: background 1s;
 }
-.z2 > .msg > .coord {
-	font: 60px "OSPDIN", sans-serif;
+.chocolate:hover {
+	background-color: #e9b96e; /* Chocolate Lighter */
+	background-color: rgba(233, 185, 110, 1); /* Chocolate Lighter */
+	-webkit-transition: background 1s;
 }
-.z4 > .msg > .coord {
-	font: 30px "OSPDIN", sans-serif;
+.chameleon:hover {
+	background-color: #8ae234; /* Chameleon Lighter */
+	background-color: rgba(138, 226, 52, 1); /* Chameleon Lighter */
+	-webkit-transition: background 1s;
 }
-.z10 > .msg > .coord {
-	font: 20px "OSPDIN", sans-serif;
+.skyblue:hover {
+	background-color: #729fcf; /* Sky Blue Lighter */
+	background-color: rgba(114, 159, 207, 1); /* Sky Blue Lighter */
+	-webkit-transition: background 1s;
 }
-.z1 > .msg {
-	font: 12px "NotCourierSansRegular", fixed;
-	border: 1px solid #000;
+.plum:hover {
+	background-color: #ad7fa8; /* Plum Lighter */
+	background-color: rgba(173, 127, 168, 1); /* Plum Lighter */
+	-webkit-transition: background 1s;
 }
+.scarletred:hover {
+	background-color: #ef2929; /* Scarlet Red Lighter */
+	background-color: rgba(239, 41, 41, 1); /* Scarlet Red Lighter */
+	-webkit-transition: background 1s;
+}
+
+/* TAILLES DES MSG ZOOM 1:1 */
+
 .z1 > .msg.s {
 	width: 480px;
 	height: 320px;
@@ -112,10 +133,192 @@ h2 {
 	width: 960px;
 	height: 640px;
 }
-.z2 > .msg {
-	font: 14px "NotCourierSansRegular", fixed;
-	border: 1px dotted rgba(0, 0, 100, 0.3);
+/* STYLES DES MSG ZOOM 1:1 */
+
+.z1 > .msg > p {
+	margin-left: 20px;
+	margin-right: 20px;
 }
+/* STYLES DES MSG ZOOM 1:1 SMALL*/
+
+.z1 > .msg.s.l4 > p {
+	margin-top: -12px;
+	font-size: 216px;
+	line-height: 320px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z1 > .msg.s.l15 > p {
+	margin-top: 8px;
+	font-size: 144px;
+	line-height: 80px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z1 > .msg.s.l50 > p {
+	margin-top: -4px;
+	font-size: 48px;
+	line-height: 80px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z1 > .msg.s.l150 > p {
+	margin-top: 0px;
+	font-size: 36px;
+	line-height: 40px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z1 > .msg.s.l300 > p {
+	margin-top: 14px;
+	font-size: 24px;
+	line-height: 20px;
+	text-align: left;
+	letter-spacing: 4px;
+}
+.z1 > .msg.s.l600 > p {
+	margin-top: 16px;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: justify;
+	letter-spacing: 2px;
+}
+/* STYLES DES MSG ZOOM 1:1 LONG*/
+
+.z1 > .msg.l.l4 > p {
+	margin-top: -38px;
+	font-size: 372px;
+	line-height: 320px;
+	text-align: center;
+	letter-spacing: 120px;
+}
+.z1 > .msg.l.l15 > p {
+	margin-top: 114px;
+	font-size: 120px;
+	line-height: 80px;
+	text-align: center;
+	letter-spacing: -24px;
+}
+.z1 > .msg.l.l50 > p {
+	margin-top: 2px;
+	font-size: 96px;
+	line-height: 80px;
+	text-align: right;
+	letter-spacing: 0px;
+}
+.z1 > .msg.l.l150 > p {
+	margin-top: 12px;
+	font-size: 60px;
+	line-height: 40px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z1 > .msg.l.l300 > p {
+	margin-top: 0px;
+	font-size: 36px;
+	line-height: 40px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z1 > .msg.l.l600 > p {
+	margin-top: 34px;
+	font-size: 24px;
+	line-height: 20px;
+	text-align: justify;
+	letter-spacing: 4px;
+}
+/* STYLES DES MSG ZOOM 1:1 TALL*/
+
+.z1 > .msg.t.l4 > p {
+	margin-top: 116px;
+	font-size: 324px;
+	line-height: 320px;
+	text-align: justify;
+	letter-spacing: -80px;
+}
+.z1 > .msg.t.l15 > p {
+	margin-top: 10px;
+	font-size: 140px;
+	line-height: 200px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z1 > .msg.t.l50 > p {
+	margin-top: 2px;
+	font-size: 96px;
+	line-height: 80px;
+	text-align: right;
+	letter-spacing: 0px;
+}
+.z1 > .msg.t.l150 > p {
+	margin-top: 0px;
+	font-size: 36px;
+	line-height: 80px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z1 > .msg.t.l300 > p {
+	margin-top: 0px;
+	font-size: 36px;
+	line-height: 40px;
+	text-align: left;
+	letter-spacing: -2px;
+}
+.z1 > .msg.t.l600 > p {
+	margin-top: 4px;
+	font-size: 24px;
+	line-height: 40px;
+	text-align: justify;
+	letter-spacing: -4px;
+}
+/* STYLES DES MSG ZOOM 1:1 FAT*/
+
+.z1 > .msg.f.l4 > p {
+	margin-top: 2px;
+	font-size: 444px;
+	line-height: 640px;
+	text-align: center;
+	letter-spacing: 68px;
+}
+.z1 > .msg.f.l15 > p {
+	margin-top: 80px;
+	font-size: 240px;
+	line-height: 160px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z1 > .msg.f.l50 > p {
+	margin-top: 0px;
+	font-size: 108px;
+	line-height: 160px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z1 > .msg.f.l150 > p {
+	margin-top: -8px;
+	font-size: 72px;
+	line-height: 80px;
+	text-align: left;
+	letter-spacing: 2px;
+}
+.z1 > .msg.f.l300 > p {
+	margin-top: 36px;
+	font-size: 50px;
+	line-height: 40px;
+	text-align: center;
+	letter-spacing: 10px;
+}
+.z1 > .msg.f.l600 > p {
+	margin-top: 0px;
+	font-size: 36px;
+	line-height: 40px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+
+
+/* TAILLES DES MSG ZOOM 1:2 */
+
 .z2 > .msg.s {
 	width: 240px;
 	height: 160px;
@@ -132,10 +335,193 @@ h2 {
 	width: 480px;
 	height: 320px;
 }
-.z4 > .msg {
-	font: 8px "NotCourierSansRegular", fixed;
-	border: 1px dotted rgba(0, 0, 100, 0.3);
+/* STYLES DES MSG ZOOM 1:2 */
+
+.z2 > .msg > p {
+	margin-left: 10px;
+	margin-right: 10px;
 }
+/* STYLES DES MSG ZOOM 1:2 SMALL*/
+
+.z2 > .msg.s.l4 > p {
+	margin-top: 0px;
+	font-size: 108px;
+	line-height: 160px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z2 > .msg.s.l15 > p {
+	margin-top: 9px;
+	font-size: 72px;
+	line-height: 40px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z2 > .msg.s.l50 > p {
+	margin-top: 4px;
+	font-size: 24px;
+	line-height: 40px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z2 > .msg.s.l150 > p {
+	margin-top: -4px;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z2 > .msg.s.l300 > p {
+	margin-top: 1px;
+	font-size: 12px;
+	line-height: 10px;
+	text-align: left;
+	letter-spacing: 3px;
+}
+.z2 > .msg.s.l600 > p {
+	margin-top: 3px;
+	font-size: 7px;
+	line-height: 10px;
+	text-align: justify;
+	letter-spacing: 1px;
+
+}
+/* STYLES DES MSG ZOOM 1:2 LONG*/
+
+.z2 > .msg.l.l4 > p {
+	margin-top: -22px;
+	font-size: 186px;
+	line-height: 160px;
+	text-align: center;
+	letter-spacing: 60px;
+}
+.z2 > .msg.l.l15 > p {
+	margin-top: 54px;
+	font-size: 60px;
+	line-height: 40px;
+	text-align: center;
+	letter-spacing: -12px;
+}
+.z2 > .msg.l.l50 > p {
+	margin-top: -3px;
+	font-size: 48px;
+	line-height: 40px;
+	text-align: right;
+	letter-spacing: 0px;
+}
+.z2 > .msg.l.l150 > p {
+	margin-top: 12px;
+	font-size: 30px;
+	line-height: 20px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z2 > .msg.l.l300 > p {
+	margin-top: -3px;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z2 > .msg.l.l600 > p {
+	margin-top: 2px;
+	font-size: 12px;
+	line-height: 10px;
+	text-align: justify;
+	letter-spacing: 4px;
+}
+/* STYLES DES MSG ZOOM 1:2 TALL*/
+
+.z2 > .msg.t.l4 > p {
+	margin-top: 64px;
+	font-size: 162px;
+	line-height: 160px;
+	text-align: justify;
+	letter-spacing: -40px;
+}
+.z2 > .msg.t.l15 > p {
+	margin-top: 1px;
+	font-size: 70px;
+	line-height: 100px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z2 > .msg.t.l50 > p {
+	margin-top: -3px;
+	font-size: 48px;
+	line-height: 40px;
+	text-align: right;
+	letter-spacing: 0px;
+}
+.z2 > .msg.t.l150 > p {
+	margin-top: 6px;
+	font-size: 18px;
+	line-height: 40px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z2 > .msg.t.l300 > p {
+	margin-top: 15px;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: left;
+	letter-spacing: -1px;
+}
+.z2 > .msg.t.l600 > p {
+	margin-top: 18px;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: justify;
+	letter-spacing: -2px;
+}
+/* STYLES DES MSG ZOOM 1:2 FAT*/
+
+.z2 > .msg.f.l4 > p {
+	margin-top: -12px;
+	font-size: 222px;
+	line-height: 320px;
+	text-align: center;
+	letter-spacing: 34px;
+}
+.z2 > .msg.f.l15 > p {
+	margin-top: 36px;
+	font-size: 120px;
+	line-height: 80px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z2 > .msg.f.l50 > p {
+	margin-top: -4px;
+	font-size: 54px;
+	line-height: 80px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z2 > .msg.f.l150 > p {
+	margin-top: 1px;
+	font-size: 36px;
+	line-height: 40px;
+	text-align: left;
+	letter-spacing: 1px;
+}
+.z2 > .msg.f.l300 > p {
+	margin-top: 14px;
+	font-size: 25px;
+	line-height: 20px;
+	text-align: center;
+	letter-spacing: 5px;
+}
+.z2 > .msg.f.l600 > p {
+	margin-top: 16px;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+
+
+/* TAILLES DES MSG ZOOM 1:4 */
+
 .z4 > .msg.s {
 	width: 120px;
 	height: 80px;
@@ -152,10 +538,205 @@ h2 {
 	width: 240px;
 	height: 160px;
 }
-.z10 > .msg {
-	font: 4px "NotCourierSansRegular", fixed;
-	border: 1px dotted rgba(0, 0, 100, 0.3);
+/* STYLES DES MSG ZOOM 1:4 */
+
+.z4 > .msg > p {
+	margin-left: 5px;
+	margin-right: 5px;
 }
+/* STYLES DES MSG ZOOM 1:4 SMALL*/
+
+.z4 > .msg.s.l4 > p {
+	margin-top: -2px;
+	font-size: 54px;
+	line-height: 80px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z4 > .msg.s.l15 > p {
+	margin-top: 5px;
+	font-size: 36px;
+	line-height: 20px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z4 > .msg.s.l50 > p {
+	margin-top: 0px;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z4 > .msg.s.l150 > p {
+	margin-top: 0px;
+	font-size: 9px;
+	line-height: 10px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z4 > .msg.s.l300 > p {
+	margin-top: 1px;
+	font-size: 6px;
+	line-height: 5px;
+	text-align: left;
+	letter-spacing: 1px;
+}
+.z4 > .msg.s.l600 > p {
+	margin-top: 4px;
+	font-size: 4px;
+	line-height: px;
+	text-align: justify;
+	letter-spacing: 1px;
+
+}
+/* STYLES DES MSG ZOOM 1:4 LONG*/
+
+.z4 > .msg.l.l4 > p {
+	margin-top: -8px;
+	font-size: 93px;
+	line-height: 80px;
+	text-align: center;
+	letter-spacing: 30px;
+}
+.z4 > .msg.l.l15 > p {
+	margin-top: 26px;
+	font-size: 30px;
+	line-height: 20px;
+	text-align: center;
+	letter-spacing: -6px;
+}
+.z4 > .msg.l.l50 > p {
+	margin-top: 0px;
+	font-size: 24px;
+	line-height: 20px;
+	text-align: right;
+	letter-spacing: 0px;
+}
+.z4 > .msg.l.l150 > p {
+	margin-top: 5px;
+	font-size: 15px;
+	line-height: 10px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z4 > .msg.l.l300 > p {
+	margin-top: 5px;
+	font-size: 9px;
+	line-height: 10px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z4 > .msg.l.l600 > p {
+	margin-top: 5px;
+	font-size: 7px;
+	line-height: 5px;
+	text-align: justify;
+	letter-spacing: 1px;
+}
+/* STYLES DES MSG ZOOM 1:4 TALL*/
+
+.z4 > .msg.t.l4 > p {
+	margin-top: 31px;
+	font-size: 81px;
+	line-height: 80px;
+	text-align: justify;
+	letter-spacing: -20px;
+}
+.z4 > .msg.t.l15 > p {
+	margin-top: 1px;
+	font-size: 35px;
+	line-height: 50px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z4 > .msg.t.l50 > p {
+	margin-top: 0px;
+	font-size: 24px;
+	line-height: 20px;
+	text-align: right;
+	letter-spacing: 0px;
+}
+.z4 > .msg.t.l150 > p {
+	margin-top: 3px;
+	font-size: 9px;
+	line-height: 20px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z4 > .msg.t.l300 > p {
+	margin-top: 8px;
+	font-size: 9px;
+	line-height: 10px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z4 > .msg.t.l600 > p {
+	margin-top: 0 px;
+	font-size: 6px;
+	line-height: 9px;
+	text-align: justify;
+	letter-spacing: -1px;
+}
+/* STYLES DES MSG ZOOM 1:4 FAT*/
+
+.z4 > .msg.f.l4 > p {
+	margin-top: -6px;
+	font-size: 111px;
+	line-height: 160px;
+	text-align: center;
+	letter-spacing: 17px;
+}
+.z4 > .msg.f.l15 > p {
+	margin-top: 18px;
+	font-size: 60px;
+	line-height: 40px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z4 > .msg.f.l50 > p {
+	margin-top: -2px;
+	font-size: 27px;
+	line-height: 40px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z4 > .msg.f.l150 > p {
+	margin-top: 0px;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z4 > .msg.f.l300 > p {
+	margin-top: 10px;
+	font-size: 14px;
+	line-height: 10px;
+	text-align: center;
+	letter-spacing: 2px;
+}
+.z4 > .msg.f.l600 > p {
+	margin-top: 4px;
+	font-size: 9px;
+	line-height: 9px;
+	text-align: justify;
+	letter-spacing: 1px;
+}
+
+/*
+.msg{
+	
+	border: 1px dashed #000;
+	background-color: #eeeeec;
+}
+.msg>p{
+		color: black;
+	
+}
+
+*/
+
+/* TAILLES DES MSG ZOOM 1:10 */
+
 .z10 > .msg.s {
 	width: 48px;
 	height: 32px;
@@ -172,6 +753,191 @@ h2 {
 	width: 96px;
 	height: 64px;
 }
+/* STYLES DES MSG ZOOM 1:10 */
+
+.z10 > .msg > p {
+	margin-left: 2px;
+	margin-right: 2px;
+}
+/* STYLES DES MSG ZOOM 1:10 SMALL*/
+
+.z10 > .msg.s.l4 > p {
+	margin-top: px;
+	font-size: 21px;
+	line-height: 32px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z10 > .msg.s.l15 > p {
+	margin-top: 3px;
+	font-size: 14px;
+	line-height: 8px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z10 > .msg.s.l50 > p {
+	margin-top: 1px;
+	font-size: 5px;
+	line-height: 8px;
+	text-align: left;
+	letter-spacing: px;
+}
+.z10 > .msg.s.l150 > p {
+	margin-top: 0px;
+	font-size: 3px;
+	line-height: 4px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z10 > .msg.s.l300 > p {
+	margin-top: 0px;
+	font-size: 3px;
+	line-height: 2px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z10 > .msg.s.l600 > p {
+	margin-top: 0px;
+	font-size: 1px;
+	line-height: 2px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+/* STYLES DES MSG ZOOM 1:10 LONG*/
+
+.z10 > .msg.l.l4 > p {
+	margin-top: -3px;
+	font-size: 37px;
+	line-height: 32px;
+	text-align: center;
+	letter-spacing: 10px;
+}
+.z10 > .msg.l.l15 > p {
+	margin-top: 8px;
+	font-size: 15px;
+	line-height: 8px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z10 > .msg.l.l50 > p {
+	margin-top: 3px;
+	font-size: 9px;
+	line-height: 8px;
+	text-align: right;
+	letter-spacing: 0px;
+}
+.z10 > .msg.l.l150 > p {
+	margin-top: 1px;
+	font-size: 6px;
+	line-height: 4px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z10 > .msg.l.l300 > p {
+	margin-top: 2px;
+	font-size: 3px;
+	line-height: 4px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z10 > .msg.l.l600 > p {
+	margin-top: 0px;
+	font-size: 2px;
+	line-height: 2px;
+	text-align: justify;
+	letter-spacing: 1px;
+}
+/* STYLES DES MSG ZOOM 1:10 TALL*/
+
+.z10 > .msg.t.l4 > p {
+	margin-top: 15px;
+	font-size: 25px;
+	line-height: 32px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z10 > .msg.t.l15 > p {
+	margin-top: 2px;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z10 > .msg.t.l50 > p {
+	margin-top: 0px;
+	font-size: 9px;
+	line-height: 8px;
+	text-align: right;
+	letter-spacing: 0px;
+}
+.z10 > .msg.t.l150 > p {
+	margin-top: 2px;
+	font-size: 3px;
+	line-height: 8px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+.z10 > .msg.t.l300 > p {
+	margin-top: 2px;
+	font-size: 3px;
+	line-height: 4px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z10 > .msg.t.l600 > p {
+	margin-top: 2px;
+	font-size: 2px;
+	line-height: 4px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+/* STYLES DES MSG ZOOM 1:10 FAT*/
+
+.z10 > .msg.f.l4 > p {
+	margin-top: -5px;
+	font-size: 44px;
+	line-height: 64px;
+	text-align: center;
+	letter-spacing: 4px;
+}
+.z10 > .msg.f.l15 > p {
+	margin-top: 6px;
+	font-size: 24px;
+	line-height: 16px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z10 > .msg.f.l50 > p {
+	margin-top: 0px;
+	font-size: 10px;
+	line-height: 16px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+.z10 > .msg.f.l150 > p {
+	margin-top: 3px;
+	font-size: 7px;
+	line-height: 8px;
+	text-align: left;
+	letter-spacing: 0px;
+}
+.z10 > .msg.f.l300 > p {
+	margin-top: 3px;
+	font-size: 5px;
+	line-height: 4px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+.z10 > .msg.f.l600 > p {
+	margin-top: 4px;
+	font-size: 3px;
+	line-height: 4px;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+
+/* TAILLES DES MSG ZOOM 1:20 */
+
 .z20 > .msg.s {
 	width: 24px;
 	height: 16px;
@@ -188,6 +954,40 @@ h2 {
 	width: 48px;
 	height: 32px;
 }
+
+/* COULEURS DES MSG */
+
+
+.z20 > .butter {
+	background-color: #c4a000;  /* Butter Ddarker */
+}
+.z20 >.orange {
+	background-color: #ce5c00; /* Orange darker */
+}
+.z20 >.chocolate {
+	background-color: #8f5902; /* Chocolate darker */
+}
+.z20 >.chameleon {
+	background-color: #4e9a06; /* Chameleon darker */
+}
+.z20 >.skyblue {
+	background-color: #204a87; /* Sky Blue darker */
+}
+.z20 >.plum {
+	background-color: #5c3566; /* Plum darker */
+}
+.z20 >.scarletred {
+	background-color: #a40000; /* Scarlet Red darker */
+}
+.z20 >.aluminium1 {
+	background-color: #babdb6; /* Aluminium 1 darker */
+}
+.z20 >.aluminium2 {
+	background-color: #2e3436; /* Aluminium 2 darker */
+}
+
+/* TAILLES DES MSG ZOOM 1:40 */
+
 .z40 > .msg.s {
 	width: 12px;
 	height: 8px;
@@ -204,27 +1004,34 @@ h2 {
 	width: 24px;
 	height: 16px;
 }
-.l0.butter, .z40 > .butter, .z20 > .butter {
-	background-color: #edd400; /* Butter */
+
+/* COULEURS DES MSG */
+
+
+.z40 > .butter {
+	background-color: #c4a000;  /* Butter Ddarker */
 }
-.l0.orange, .z40 > .orange, .z20 > .orange {
-	background-color: #f57900; /* Scarlet Red */
+.z40 >.orange {
+	background-color: #ce5c00; /* Orange darker */
 }
-.l0.chocolate, .z40 > .chocolate, .z20 > .chocolate {
-	background-color: #c17d11; /* Chocolate */
+.z40 >.chocolate {
+	background-color: #8f5902; /* Chocolate darker */
 }
-.l0.chameleon, .z40 > .chameleon, .z20 > .chameleon {
-	background-color: #73d216; /* Chameleon */
+.z40 >.chameleon {
+	background-color: #4e9a06; /* Chameleon darker */
 }
-.l0.skyblue, .z40 > .skyblue, .z20 > .skyblue {
-	background-color: #3465a4; /* Sky Blue */
+.z40 >.skyblue {
+	background-color: #204a87; /* Sky Blue darker */
 }
-.l0.plum, .z40 > .plum, .z20 > .plum {
-	background-color: #75507b; /* Plum */
+.z40 >.plum {
+	background-color: #5c3566; /* Plum darker */
 }
-.l0.scarletred, .z40 > .scarletred, .z20 > .scarletred {
-	background-color: #cc0000; /* Scarlet Red */
+.z40 >.scarletred {
+	background-color: #a40000; /* Scarlet Red darker */
 }
-a {
-	color: #00B7FF;
+.z40 >.aluminium1 {
+	background-color: #babdb6; /* Aluminium 1 darker */
+}
+.z40 >.aluminium2 {
+	background-color: #2e3436; /* Aluminium 2 darker */
 }
