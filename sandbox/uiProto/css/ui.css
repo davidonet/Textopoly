@@ -12,29 +12,25 @@ div#map {
 	left: 0px;
 }
 div#wrap {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
 	width: 960px;
+		height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: -30px; /*sticky footer*/
-
 }
 div#header {
-	position: relative;
-	z-index: 1000;
+	position: absolute;
+	clear:both;
+	z-index: 1500;
 	width: 960px;
 	height: 120px;
 	top: 0px;
 	margin: 0px auto;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 
 	}
 div#header > #top {
-	position: relative;
+	position: absolute;
 	width: 940px;
 	height: 4px;
 	top: 0px;
@@ -42,28 +38,33 @@ div#header > #top {
 background-color:	#2e3436 /* Aluminium 2 Darker */
 }
 
-div#zoom{
-
-	z-index: 1000;
-	float:left;
+div#zoomWrap {
+	position: absolute;
+	top:120px;
+	bottom: 30px;
 	width: 24px;
+}
+
+div#zoom{
+	position:absolute;
+	top:50%;
+	margin-top:-100px;
+	z-index: 1000;
 	height: 200px;
-	margin-left:10px;
+	width: 24px;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
 
-.clear{
-	clear: both;
-}
 div#footer {
-	position: relative;
-	z-index: 1000;
+	position: absolute;
+	bottom:0px;
+	z-index: 2000;
 	width: 960px;
 	height: 30px;
-	margin: 0px auto;
-	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	border-top: #2e3436 dashed 1px;
+
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
 
@@ -86,7 +87,8 @@ div#footer > h1 {
 	margin-top: 5px;
 	margin-left: 10px;
 	font-family: "FuturaCondensedMedium", sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 20px;
+	text-transform: uppercase;
 	color: #2e3436; /* Aluminium 2 Darker */
 }

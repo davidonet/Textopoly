@@ -5,8 +5,12 @@
 
 div#wrap {
 
-	border: dashed red 2px;
-		z-index:2000;
+	border: dashed red 1px;
+
+}
+div#zoomWrap {
+
+	border: dashed blue 1px;
 
 }
 
