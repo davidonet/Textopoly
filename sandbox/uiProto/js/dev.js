@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 	// masque les coordonnées
 	$('div#map').draggable({
-		appendTo : 'body',
+		appendTo : 'div#content'
 	});
 			
 	
