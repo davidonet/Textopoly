@@ -61,19 +61,58 @@ body {
 	background: #d3d7cf; /* Aluminium 1 */
 	height: 100%;
 }
-/* ZONING DE L'INTERFACE */
 
 .msg {
 	display: block;
 	position: absolute;
 }
+
+.anchorpoint {
+	display: block;
+	position: absolute;
+}
+
 .msg > p {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
 }
-.msg:hover {
-	background: #fce94f; /* Butter Lighter */
+
+/* MSG SURVOLS */
+
+.z1 > .anchorpoint:hover{
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */	
 }
-.msg.warning {
-	border: 2px dashed #cc0000;
+.z2 > .anchorpoint:hover{
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */	
+}
+
+.butter:hover {
+	background-color: #fce94f; /* Butter Lighter */
+	background-color: rgba(252, 233, 79, 1); /* Butter Lighter */
+}
+.orange:hover {
+	background-color: #fcaf3e; /* Orange Lighter */
+	background-color: rgba(252, 175, 62, 1); /* Orange Lighter */
+}
+.chocolate:hover {
+	background-color: #e9b96e; /* Chocolate Lighter */
+	background-color: rgba(233, 185, 110, 1); /* Chocolate Lighter */
+}
+.chameleon:hover {
+	background-color: #8ae234; /* Chameleon Lighter */
+	background-color:rgba(138, 226, 52, 1); /* Chameleon Lighter */
+}
+.skyblue:hover {
+	background-color: #729fcf; /* Sky Blue Lighter */
+	background-color: rgba(114, 159, 207, 1); /* Sky Blue Lighter */
+}
+.plum:hover {
+	background-color: #ad7fa8; /* Plum Lighter */
+	background-color: rgba(173, 127, 168, 1); /* Plum Lighter */
+}
+.scarletred:hover {
+	background-color: #ef2929; /* Scarlet Red Lighter */
+	background-color: rgba(239, 41, 41, 1); /* Scarlet Red Lighter */
 }
