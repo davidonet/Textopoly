@@ -11,7 +11,7 @@ div#map {
 	top: 0px;
 	left: 0px;
 }
-div#wrap {
+div#uiWrap {
 	width: 960px;
 		height: 100%;
 	margin-left: auto;
