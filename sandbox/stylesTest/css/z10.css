@@ -1,3 +1,16 @@
+/*
+.msg{
+	
+	border: 1px dashed #000;
+	background-color: #eeeeec;
+}
+.msg>p{
+		color: black;
+	
+}
+
+*/
+
 /* TAILLES DES MSG ZOOM 1:10 */
 
 .z10 > .msg.s {
@@ -25,177 +38,176 @@
 /* STYLES DES MSG ZOOM 1:10 SMALL*/
 
 .z10 > .msg.s.l4 > p {
-	margin-top: -6px;
-	font-size: 108px;
-	line-height: 160px;
+	margin-top: px;
+	font-size: 21px;
+	line-height: 32px;
 	text-align: center;
 	letter-spacing: 0px;
 }
 .z10 > .msg.s.l15 > p {
-	margin-top: 4px;
-	font-size: 72px;
-	line-height: 40px;
+	margin-top: 3px;
+	font-size: 14px;
+	line-height: 8px;
 	text-align: center;
 	letter-spacing: 0px;
 }
 .z10 > .msg.s.l50 > p {
-	margin-top: -2px;
-	font-size: 24px;
-	line-height: 40px;
+	margin-top: 1px;
+	font-size: 5px;
+	line-height: 8px;
 	text-align: left;
-	letter-spacing: 0px;
+	letter-spacing: px;
 }
 .z10 > .msg.s.l150 > p {
 	margin-top: 0px;
-	font-size: 18px;
-	line-height: 20px;
+	font-size: 3px;
+	line-height: 4px;
 	text-align: left;
 	letter-spacing: 0px;
 }
 .z10 > .msg.s.l300 > p {
-	margin-top: 7px;
-	font-size: 12px;
-	line-height: 10px;
+	margin-top: 0px;
+	font-size: 3px;
+	line-height: 2px;
 	text-align: left;
-	letter-spacing: 2px;
+	letter-spacing: 0px;
 }
 .z10 > .msg.s.l600 > p {
-	margin-top: 8px;
-	font-size: 7px;
-	line-height: 10px;
+	margin-top: 0px;
+	font-size: 1px;
+	line-height: 2px;
 	text-align: justify;
-	letter-spacing: 1px;
-
+	letter-spacing: 0px;
 }
 /* STYLES DES MSG ZOOM 1:10 LONG*/
 
 .z10 > .msg.l.l4 > p {
-	margin-top: -19px;
-	font-size: 186px;
-	line-height: 160px;
+	margin-top: -3px;
+	font-size: 37px;
+	line-height: 32px;
 	text-align: center;
-	letter-spacing: 60px;
+	letter-spacing: 10px;
 }
 .z10 > .msg.l.l15 > p {
-	margin-top: 57px;
-	font-size: 60px;
-	line-height: 40px;
+	margin-top: 8px;
+	font-size: 15px;
+	line-height: 8px;
 	text-align: center;
-	letter-spacing: -12px;
+	letter-spacing: 0px;
 }
 .z10 > .msg.l.l50 > p {
-	margin-top: 1px;
-	font-size: 48px;
-	line-height: 40px;
+	margin-top: 3px;
+	font-size: 9px;
+	line-height: 8px;
 	text-align: right;
 	letter-spacing: 0px;
 }
 .z10 > .msg.l.l150 > p {
-	margin-top: 6px;
-	font-size: 30px;
-	line-height: 20px;
+	margin-top: 1px;
+	font-size: 6px;
+	line-height: 4px;
 	text-align: center;
 	letter-spacing: 0px;
 }
 .z10 > .msg.l.l300 > p {
-	margin-top: 0px;
-	font-size: 18px;
-	line-height: 20px;
+	margin-top: 2px;
+	font-size: 3px;
+	line-height: 4px;
 	text-align: justify;
 	letter-spacing: 0px;
 }
 .z10 > .msg.l.l600 > p {
-	margin-top: 17px;
-	font-size: 12px;
-	line-height: 10px;
+	margin-top: 0px;
+	font-size: 2px;
+	line-height: 2px;
 	text-align: justify;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 }
 /* STYLES DES MSG ZOOM 1:10 TALL*/
 
 .z10 > .msg.t.l4 > p {
-	margin-top: 58px;
-	font-size: 162px;
-	line-height: 160px;
+	margin-top: 15px;
+	font-size: 25px;
+	line-height: 32px;
 	text-align: justify;
-	letter-spacing: -40px;
+	letter-spacing: 0px;
 }
 .z10 > .msg.t.l15 > p {
-	margin-top: 5px;
-	font-size: 70px;
-	line-height: 100px;
+	margin-top: 2px;
+	font-size: 14px;
+	line-height: 20px;
 	text-align: justify;
 	letter-spacing: 0px;
 }
 .z10 > .msg.t.l50 > p {
-	margin-top: 1px;
-	font-size: 48px;
-	line-height: 40px;
+	margin-top: 0px;
+	font-size: 9px;
+	line-height: 8px;
 	text-align: right;
 	letter-spacing: 0px;
 }
 .z10 > .msg.t.l150 > p {
-	margin-top: 0px;
-	font-size: 18px;
-	line-height: 40px;
+	margin-top: 2px;
+	font-size: 3px;
+	line-height: 8px;
 	text-align: justify;
 	letter-spacing: 0px;
 }
 .z10 > .msg.t.l300 > p {
-	margin-top: 0px;
-	font-size: 18px;
-	line-height: 20px;
+	margin-top: 2px;
+	font-size: 3px;
+	line-height: 4px;
 	text-align: left;
-	letter-spacing: -1px;
+	letter-spacing: 0px;
 }
 .z10 > .msg.t.l600 > p {
 	margin-top: 2px;
-	font-size: 12px;
-	line-height: 20px;
+	font-size: 2px;
+	line-height: 4px;
 	text-align: justify;
-	letter-spacing: -2px;
+	letter-spacing: 0px;
 }
 /* STYLES DES MSG ZOOM 1:10 FAT*/
 
 .z10 > .msg.f.l4 > p {
-	margin-top: 1px;
-	font-size: 222px;
-	line-height: 320px;
+	margin-top: -5px;
+	font-size: 44px;
+	line-height: 64px;
 	text-align: center;
-	letter-spacing: 34px;
+	letter-spacing: 4px;
 }
 .z10 > .msg.f.l15 > p {
-	margin-top: 40px;
-	font-size: 120px;
-	line-height: 80px;
+	margin-top: 6px;
+	font-size: 24px;
+	line-height: 16px;
 	text-align: left;
 	letter-spacing: 0px;
 }
 .z10 > .msg.f.l50 > p {
 	margin-top: 0px;
-	font-size: 54px;
-	line-height: 80px;
+	font-size: 10px;
+	line-height: 16px;
 	text-align: center;
 	letter-spacing: 0px;
 }
 .z10 > .msg.f.l150 > p {
-	margin-top: -4px;
-	font-size: 36px;
-	line-height: 40px;
+	margin-top: 3px;
+	font-size: 7px;
+	line-height: 8px;
 	text-align: left;
-	letter-spacing: 1px;
+	letter-spacing: 0px;
 }
 .z10 > .msg.f.l300 > p {
-	margin-top: 18px;
-	font-size: 25px;
-	line-height: 20px;
+	margin-top: 3px;
+	font-size: 5px;
+	line-height: 4px;
 	text-align: center;
-	letter-spacing: 5px;
+	letter-spacing: 1px;
 }
 .z10 > .msg.f.l600 > p {
-	margin-top: 0px;
-	font-size: 18px;
-	line-height: 20px;
+	margin-top: 4px;
+	font-size: 3px;
+	line-height: 4px;
 	text-align: justify;
 	letter-spacing: 0px;
 }
