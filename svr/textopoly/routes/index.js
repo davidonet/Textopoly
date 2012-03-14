@@ -74,6 +74,39 @@ exports.view = function(req, res) {
 	}
 	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
 
+	var reservedArray = new Array((4 + xmax - xmin) * (4 + ymax - ymin));
+
+	for(var i = 0, j = reservedArray.length; i < j; i++) {
+		reservedArray[i] = 0;
+	}
+	function xyToIndex(anX, anY) {
+		return (anX - xmin) + ((4 + xmax - xmin) * (anY - ymin));
+	}
+
+	function reserveABlock(aX, aY) {
+
+		reservedArray[xyToIndex(aX, aY)] = 1;
+		reservedArray[xyToIndex(aX + 1, aY)] = 1;
+		reservedArray[xyToIndex(aX, aY + 1)] = 1;
+		reservedArray[xyToIndex(aX + 1, aY + 1)] = 1;
+	}
+
+	function encode(input) {
+		var encoding = [];
+		var prev, count, i;
+		for( count = 1, prev = input[0], i = 1; i < input.length; i++) {
+			if(input[i] != prev) {
+				encoding.push([count, prev]);
+				count = 1;
+				prev = input[i];
+			} else
+				count++;
+		}
+		encoding.push([count, prev]);
+		return encoding;
+	}
+
+
 	db.txt.boxedTxt(aBoundingBox, function(err, items) {
 		items.forEach(function(value, index) {
 			value.absx = (value.p[0] - xmin) * stepX;
@@ -95,9 +128,33 @@ exports.view = function(req, res) {
 				value.lclass = 'l600';
 			} else {
 				value.lclass = 'warning';
-				console.log(txtlen + "@("+value.p[0]+','+value.p[1]+')');
+				console.log(txtlen + "@(" + value.p[0] + ',' + value.p[1] + ')');
 			}
+
+			var aX = value.p[0], aY = value.p[1];
+			reserveABlock(aX, aY);
+			if(('l' == value.s) || ('f' == value.s))
+				reserveABlock(aX + 2, aY);
+			if(('t' == value.s) || ('f' == value.s))
+				reserveABlock(aX, aY + 2);
+			if('f' == value.s)
+				reserveABlock(aX + 2, aY + 2);
 		});
+		
+		/**
+		 * Debug Booked array //////////////////////////////
+		
+		for(var i = ymin, j = ymax + 4; i < j; i++) {
+			var aLine = "";
+			for(var k = xmin, l = xmax + 4; k < l; k++) {
+				aLine += borderArray[xyToIndex(k, i)]
+			}
+			console.log(aLine);
+		}
+		///////////////////////////////////////////////////
+		*/
+		
+		var compOutput = encode(reservedArray);
 		var response = {
 			title : 'Textopoly | ' + aBoundingBox,
 			params : {
@@ -107,7 +164,8 @@ exports.view = function(req, res) {
 				xmax : xmax,
 				ymax : ymax,
 				stepx : stepX,
-				stepy : stepY
+				stepy : stepY,
+				booked : compOutput
 			},
 			texts : items
 		};
