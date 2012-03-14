@@ -49,9 +49,9 @@ for(var i = params.ymin + 1, j = params.ymax + 1; i < j; i++) {
 
 		if((1 == xy01 || 1 == xy10) && (0 == c))
 			borderArray[xyToIndex(k, i)] = 1;
-			
-		if(1 == xy11 && 0 == xy01 && 0 == x0 && 0 == x1 && 0 == y1 )
-			borderArray[xyToIndex(k-1, i)] = 1;
+
+		if(1 == xy11 && 0 == xy01 && 0 == x0 && 0 == x1 && 0 == y1)
+			borderArray[xyToIndex(k - 1, i)] = 1;
 
 	}
 
@@ -72,11 +72,7 @@ for(var i = params.ymin + 1, j = params.ymax + 1; i < j; i++) {
 			borderArray[xyToIndex(k, i)] = 0;
 		if(1 == y1)
 			borderArray[xyToIndex(k, i)] = 0;
-
-		if(((1 == x0) || (1 == y0 )) && (1 == xy11))
-			borderArray[xyToIndex(k, i)] = 0;
-
-		if((1 == x1) && ((1 == y1) && (1 == xy00)))
+		if(1 == xy11)
 			borderArray[xyToIndex(k, i)] = 0;
 	}
 }
@@ -92,7 +88,7 @@ function anchorPoint() {
 					height : 2 * params.stepy + 'px',
 
 				});
-				var newContent = $(document.createElement("p")).text('('+i+','+k+')');
+				var newContent = $(document.createElement("p")).text('(' + i + ',' + k + ')');
 				newTxt.append(newContent);
 				$('#map').append(newTxt);
 			}
