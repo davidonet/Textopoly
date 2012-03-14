@@ -1,0 +1,18 @@
+/* TAILLES DES MSG ZOOM 1:20 */
+
+.z20 > .msg.s {
+	width: 24px;
+	height: 16px;
+}
+.z20 > .msg.l {
+	width: 48px;
+	height: 16px;
+}
+.z20 > .msg.t {
+	width: 24px;
+	height: 32px;
+}
+.z20 > .msg.f {
+	width: 48px;
+	height: 32px;
+}
