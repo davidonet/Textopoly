@@ -1,10 +1,4 @@
 
-
-.msg{
-	border: 1px solid #333;
-	background-image:url(../../uiProto/img/baseline50.png) ;
-}
-
 /* TAILLES DES MSG ZOOM 1:4 */
 
 .z4 > .msg.s {
@@ -112,8 +106,8 @@
 	letter-spacing: 0px;
 }
 .z4 > .msg.l.l600 > p {
-	margin-top: 8px;
-	font-size: 6px;
+	margin-top: 5px;
+	font-size: 7px;
 	line-height: 5px;
 	text-align: justify;
 	letter-spacing: 1px;
@@ -156,9 +150,9 @@
 	letter-spacing: 0px;
 }
 .z4 > .msg.t.l600 > p {
-	margin-top: 9px;
+	margin-top: 0 px;
 	font-size: 6px;
-	line-height: 8px;
+	line-height: 9px;
 	text-align: justify;
 	letter-spacing: -1px;
 }
@@ -193,16 +187,16 @@
 	letter-spacing: 0px;
 }
 .z4 > .msg.f.l300 > p {
-	margin-top: 9px;
-	font-size: 12px;
+	margin-top: 10px;
+	font-size: 14px;
 	line-height: 10px;
 	text-align: center;
 	letter-spacing: 2px;
 }
 .z4 > .msg.f.l600 > p {
-	margin-top: 0px;
+	margin-top: 4px;
 	font-size: 9px;
-	line-height: 10px;
+	line-height: 9px;
 	text-align: justify;
-	letter-spacing: 0px;
+	letter-spacing: 1px;
 }
