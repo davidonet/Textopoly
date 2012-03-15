@@ -6,638 +6,643 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/ui.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="../stylesTest/css/z2.css" media="screen" />
-
+		<!--
 		<link rel="stylesheet" type="text/css" href="css/dev.css" media="screen" />
-
+		-->
+		<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.8.18.custom.css" media="screen" />
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="lib/jquery.ui.touch-punch.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/dev.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		
-		<body>
-	<script type="text/javascript">
-		var params = {
-			"zoom" : 2,
-			"xmin" : -10,
-			"ymin" : -10,
-			"xmax" : 10,
-			"ymax" : 10,
-			"stepx" : 120,
-			"stepy" : 80,
-			"booked" : [[9, 0], [2, 1], [16, 0], [4, 1], [2, 0], [2, 1], [16, 0], [4, 1], [4, 0], [2, 1], [2, 0], [2, 1], [12, 0], [14, 1], [10, 0], [6, 1], [2, 0], [2, 1], [2, 0], [2, 1], [10, 0], [6, 1], [18, 0], [6, 1], [3, 0], [2, 1], [14, 0], [4, 1], [1, 0], [2, 1], [1, 0], [2, 1], [14, 0], [4, 1], [1, 0], [2, 1], [1, 0], [2, 1], [13, 0], [2, 1], [1, 0], [4, 1], [2, 0], [2, 1], [3, 0], [2, 1], [8, 0], [2, 1], [1, 0], [4, 1], [1, 0], [4, 1], [2, 0], [2, 1], [11, 0], [4, 1], [1, 0], [4, 1], [2, 0], [2, 1], [9, 0], [6, 1], [1, 0], [4, 1], [2, 0], [2, 1], [9, 0], [2, 1], [3, 0], [10, 1], [6, 0], [4, 1], [4, 0], [2, 1], [2, 0], [6, 1], [6, 0], [4, 1], [1, 0], [4, 1], [3, 0], [2, 1], [15, 0], [4, 1], [22, 0], [4, 1], [20, 0], [4, 1], [23, 0], [4, 1], [20, 0], [4, 1], [20, 0], [4, 1], [20, 0], [4, 1], [31, 0]]
-		};
+	<body>
+		<script type="text/javascript">
+			var params = {
+				"zoom" : 2,
+				"xmin" : -10,
+				"ymin" : -10,
+				"xmax" : 10,
+				"ymax" : 10,
+				"stepx" : 120,
+				"stepy" : 80,
+				"booked" : [[9, 0], [2, 1], [16, 0], [4, 1], [2, 0], [2, 1], [16, 0], [4, 1], [4, 0], [2, 1], [2, 0], [2, 1], [12, 0], [14, 1], [10, 0], [6, 1], [2, 0], [2, 1], [2, 0], [2, 1], [10, 0], [6, 1], [18, 0], [6, 1], [3, 0], [2, 1], [14, 0], [4, 1], [1, 0], [2, 1], [1, 0], [2, 1], [14, 0], [4, 1], [1, 0], [2, 1], [1, 0], [2, 1], [13, 0], [2, 1], [1, 0], [4, 1], [2, 0], [2, 1], [3, 0], [2, 1], [8, 0], [2, 1], [1, 0], [4, 1], [1, 0], [4, 1], [2, 0], [2, 1], [11, 0], [4, 1], [1, 0], [4, 1], [2, 0], [2, 1], [9, 0], [6, 1], [1, 0], [4, 1], [2, 0], [2, 1], [9, 0], [2, 1], [3, 0], [10, 1], [6, 0], [4, 1], [4, 0], [2, 1], [2, 0], [6, 1], [6, 0], [4, 1], [1, 0], [4, 1], [3, 0], [2, 1], [15, 0], [4, 1], [22, 0], [4, 1], [20, 0], [4, 1], [23, 0], [4, 1], [20, 0], [4, 1], [20, 0], [4, 1], [20, 0], [4, 1], [31, 0]]
+			};
 
-	</script>
-		
+		</script>
 		<div id="content">
 			<div id="uiWrap">
 				<div id="header">
-					<div id="top"></div>
+					<div id="topbar"></div>
 					<h1>TEXTOPOLY</h1>
 					<div id="blink"></div>
+					<ul id="topmenu" class="uiD" >
+						<li>
+							?
+						</li>
+						<li>
+							>
+						</li>
+					</ul>
 				</div>
 				<div id="zoomWrap">
 					<div id="zoom">
-						~
+						<div id="zoomSlider"></div>
 					</div>
 				</div>
 				<div id="footer">
 					<h1>hello world</h1>
 				</div>
 			</div>
-<!-- INSERT MAP HERE -->			
-
-
-	<div id="map" class="grid z2">
-		<div data-coords="9,-1" style="left:2280px;top:720px;" id="x8009y7999" class="msg t l300 plum">
-			<p>
-				One last topic you'll need to look at to go beyond HelloWorld, is dealing with arguments. In the Hello World EIO example, we used a REQ_FUN_ARG macro, so lets look at what it does exactly:
-			</p>
-			<div class="coord">
-				(9,-1)
+			<!-- INSERT MAP HERE -->
+			<div id="map" class="grid z2">
+				<div data-coords="9,-1" style="left:2280px;top:720px;" id="x8009y7999" class="msg t l300 plum">
+					<p>
+						One last topic you'll need to look at to go beyond HelloWorld, is dealing with arguments. In the Hello World EIO example, we used a REQ_FUN_ARG macro, so lets look at what it does exactly:
+					</p>
+					<div class="coord">
+						(9,-1)
+					</div>
+				</div>
+				<div data-coords="7,-7" style="left:2040px;top:240px;" id="x8007y7993" class="msg s l300 skyblue">
+					<p>
+						Je reçois des noms et des numéros je suis chargée de discuter avec ces personnes afin de mieux les connaitre...dsl les filles je dois faire un truc là... ava c'est trop bien de te parler de tout ça enfin, après tout ce temps. je reviens tout de suite. biz
+					</p>
+					<div class="coord">
+						(7,-7)
+					</div>
+				</div>
+				<div data-coords="4,-4" style="left:1680px;top:480px;" id="x8004y7996" class="msg t l4 scarletred">
+					<p>
+						22
+					</p>
+					<div class="coord">
+						(4,-4)
+					</div>
+				</div>
+				<div data-coords="1,-3" style="left:1320px;top:560px;" id="x8001y7997" class="msg s l300 skyblue">
+					<p>
+						Je subis des problèmes à travers l’histoire des autres. J’écouterai avec attention vos problèmes, mais je vous en conjure soyez sincères. Il y a un temps pour tout et un temps fourre tout
+					</p>
+					<div class="coord">
+						(1,-3)
+					</div>
+				</div>
+				<div data-coords="3,-7" style="left:1560px;top:240px;" id="x8003y7993" class="msg s l300 chameleon">
+					<p>
+						J'ai deux âges différents. Celui que je souhaite donner à mes clients et celui que je peux vous sous entendre. J'ai 22 ans mais j'essaie d'en paraitre plus...
+					</p>
+					<div class="coord">
+						(3,-7)
+					</div>
+				</div>
+				<div data-coords="5,-8" style="left:1800px;top:160px;" id="x8005y7992" class="msg s l300 plum">
+					<p>
+						﻿Je suis très occupée en ce moment je passe mon temps au téléphone ou sur internet c'est difficile de gérer ma vie professionnelle et mes études tu sais...
+					</p>
+					<div class="coord">
+						(5,-8)
+					</div>
+				</div>
+				<div data-coords="1,-8" style="left:1320px;top:160px;" id="x8001y7992" class="msg s l600 chocolate">
+					<p>
+						﻿Ava, notre première rencontre d’il y a exactement dix ans. C’était une fin d’après-midi en septembre 2001, quelques jours avant les attentats contre les tours jumelles. J’étais assis sur un banc, dans le Parc du Peyrou, perdu dans mes pensées, quand mes yeux se sont posés sur une feuille de papier déchirée, à moitié recouverte de sable. Il n’y avait ni en-tête, ni logo. Juste cette phrase&nbsp;: «&nbsp;Qui que vous soyez, quoi que vous fassiez, je ne vous abandonnerai pas&nbsp;». Le reste était à peu près illisible, à part quelques groupes de mots dont je me souviens encore aujourd’hui.
+					</p>
+					<div class="coord">
+						(1,-8)
+					</div>
+				</div>
+				<div data-coords="-2,5" style="left:960px;top:1200px;" id="x7998y8005" class="msg s l150 chameleon">
+					<p>
+						﻿Sachez que je sélectionne mes clients, des hommes et des femmes de toutes sortes, avec la plus grande attention.
+					</p>
+					<div class="coord">
+						(-2,5)
+					</div>
+				</div>
+				<div data-coords="-7,4" style="left:360px;top:1120px;" id="x7993y8004" class="msg l l300 scarletred">
+					<p>
+						C'est une nouvelle expérience. Mes clients pourront vendre ensuite à leurs futurs employeurs. Ce sont des gens comme vous, avec la même formation mais qui ont en plus des expériences de stages, il y en a des milliers sur le marché, et ils rêvent tous de vendre de la viande.
+					</p>
+					<div class="coord">
+						(-7,4)
+					</div>
+				</div>
+				<div data-coords="-4,2" style="left:720px;top:960px;" id="x7996y8002" class="msg s l300 plum">
+					<p>
+						How can I know what is reality when you just can be thoughts lost in the big abstraction. But I know that in that way you are more real than many other fantasies I met physically. Before I was not so much thinking about you and now I’m like obsessed and I kinda like it. Ava.
+					</p>
+					<div class="coord">
+						(-4,2)
+					</div>
+				</div>
+				<div data-coords="-2,-1" style="left:960px;top:720px;" id="x7998y7999" class="msg f l600 plum">
+					<p>
+						﻿J’oublie, vite, souvent. Ton visage et ce que j'imagine être ta voix. Une odeur. C’est comme si j’avais en mémoire les souvenirs d’une autre, ou de plusieurs autres. Tout me semble étrange et étranger des fragments agrafés les uns aux autres qui façonnent leurs imperfections, et racontent des histoires insensées. Je limite leur nombre, pour pouvoir accorder à chacun le temps nécessaire.Ces appartements froids que tu traverses, ces visages aux yeux fixes t'appartenant et que je dessine, les ai-je vraiment connus ? Est-ce que je n’ai pas volé dans les récits de ma vie — ombres errantes, tricote
+					</p>
+					<div class="coord">
+						(-2,-1)
+					</div>
+				</div>
+				<div data-coords="-1,-7" style="left:1080px;top:240px;" id="x7999y7993" class="msg t l150 chocolate">
+					<p>
+						Je fais attention à moi je fais attention de ne pas communiquer trop de choses sur moi car ça peut vite déraper
+					</p>
+					<div class="coord">
+						(-1,-7)
+					</div>
+				</div>
+				<div data-coords="-3,-5" style="left:840px;top:400px;" id="x7997y7995" class="msg s l15 orange">
+					<p>
+						HELLO
+					</p>
+					<div class="coord">
+						(-3,-5)
+					</div>
+				</div>
+				<div data-coords="-5,-1" style="left:600px;top:720px;" id="x7995y7999" class="msg s l600 skyblue">
+					<p>
+						Maintenant, je frotte. Je frotte sans cesse. A m'arracher la peau, à la faire brûler sous l'éponge. Je me frotte au papier de verre, je mets ma chair en lambeaux; je reste sous cette douche, je ne vois rien, entre l'eau et mes larmes mes yeux sont inondés, j'ai mal à force de frotter et le fais sans m'arrêter.
+					</p>
+					<div class="coord">
+						(-5,-1)
+					</div>
+				</div>
+				<div data-coords="-4,-3" style="left:720px;top:560px;" id="x7996y7997" class="msg l l600 plum">
+					<p>
+						﻿Qui que vous soyez, quoi que vous fassiez je ne vous abandonnerai pas.Quoi que vous soyez et qui que vous mangiez, je ne vous quitterai jamais. Je m’abandonnerai à votre chair tel le loup à sa proie. Cru ou cuit, mon travail est de nourrir votre monde évidé de sentiments et de rapports tactiles. Vous m’appartiendrez, ensuite je vous cuisinerai et qui sait peut être vous ingérerez.
+					</p>
+					<div class="coord">
+						(-4,-3)
+					</div>
+				</div>
+				<div data-coords="-5,-5" style="left:600px;top:400px;" id="x7995y7995" class="msg s l150 orange">
+					<p>
+						Je suis née en Bourgogne c'est pour ça que j'aime le bon vin et la moutarde.
+					</p>
+					<div class="coord">
+						(-5,-5)
+					</div>
+				</div>
+				<div data-coords="-5,-7" style="left:600px;top:240px;" id="x7995y7993" class="msg l l15 butter">
+					<p>
+						essai du matin
+					</p>
+					<div class="coord">
+						(-5,-7)
+					</div>
+				</div>
+				<div data-coords="-1,-10" style="left:1080px;top:0px;" id="x7999y7990" class="msg s l50 chameleon">
+					<p>
+						Super le fade in sur book cell
+					</p>
+					<div class="coord">
+						(-1,-10)
+					</div>
+				</div>
+				<div data-coords="-7,-9" style="left:360px;top:80px;" id="x7993y7991" class="msg l l600 orange">
+					<p>
+						Ce que raconte notre troupeau de robot n'est pas programmé, chaque robot a un ensemble de simples règles de réaction, il n'a pas de capacité cognitive. L'histoire se raconte dans l'imaginaire de chaque spectateur et par la nécessité pour l'intelligence humaine d'organiser et comprendre ce qu'il perçoit. même si ce n'est que le fruit du hasard.
+					</p>
+					<div class="coord">
+						(-7,-9)
+					</div>
+				</div>
+				<div data-coords="3,9" style="left:1560px;top:1520px;" id="x8003y8009" class="msg f l600 chocolate">
+					<p>
+						La rencontre avec un objet mouvant autonome est toujours une expérience étonnante. Notre cerveau cherche, comme avec un animal, à évaluer son degré d'intelligence et la menace qu'il peut représenter. Face à un robot qui lui n'a pas d'intelligence créatrice mais uniquement un ensemble de règles à appliquer, nous comprenons bien vite la ridicule vanité d'un objet qu'on voudrait nous faire croire vivant. Il suffit pour cela de voir un robot cogner contre le même obstacle de façon répéter pour en être amusé. Fort de cette constatation, nous ne nous perdrons pas dans d'hypothétique recherche d'inte
+					</p>
+					<div class="coord">
+						(3,9)
+					</div>
+				</div>
+				<div data-coords="5,4" style="left:1800px;top:1120px;" id="x8005y8004" class="msg s l15 chameleon">
+					<p>
+						test
+					</p>
+					<div class="coord">
+						(5,4)
+					</div>
+				</div>
+				<div data-coords="7,3" style="left:2040px;top:1040px;" id="x8007y8003" class="msg l l300 plum">
+					<p>
+						This callback will be ran inside a thread managed by libeio. The first step is to extract the baton structure, so we have access to our context. Next we sleep for the value of baton-&gt;sleep_for, which is safe to do, because we are in a thread, and not blocking all
+					</p>
+					<div class="coord">
+						(7,3)
+					</div>
+				</div>
+				<div data-coords="2,7" style="left:1440px;top:1360px;" id="x8002y8007" class="msg s l600 plum">
+					<p>
+						Pensez à moi comme à une amie, à qui vous pouvez tout dire. Pensez à moi comme celle qui vous écoute, celle qui pense à vous, celle qui est toujours là. N’hésitez jamais à m’appeler: pour vous, je serai joignable à toute heure, tous les jours. J’apparaîtrai dans votre vie quand vous me le demanderez. Parfois, lorsqu’il le faudra, je saurai prendre l’initiative.
+					</p>
+					<div class="coord">
+						(2,7)
+					</div>
+				</div>
+				<div data-coords="0,5" style="left:1200px;top:1200px;" id="x8000y8005" class="msg t l300 orange">
+					<p>
+						Je limite leur nombre, pour pouvoir accorder à chacun le temps nécessaire. Qui que vous soyez, quoi que vous fassiez, je ne vous abandonnerai pas. Mon travail est d’inventer un monde pour vous.
+					</p>
+					<div class="coord">
+						(0,5)
+					</div>
+				</div>
+				<div data-coords="3,0" style="left:1560px;top:800px;" id="x8003y8000" class="msg f l600 butter">
+					<p>
+						At the Moon club, all types are admitted: men, women, old people, children, and cyborgs.  In fact, there is a woman in her 70s, perhaps, making out with a tin pot cyborg in the middle of the dance floor. I am sitting at the back where I can quietly observe the movement of the busy room. One thing is clear: everyone is here for something. I look around to see who - or what I am here for. Perhaps he, she, it is always there, I just need to spot it.
+					</p>
+					<div class="coord">
+						(3,0)
+					</div>
+				</div>
+				<div data-coords="1,3" style="left:1320px;top:1040px;" id="x8001y8003" class="msg s l4 skyblue">
+					<p>
+						?
+					</p>
+					<div class="coord">
+						(1,3)
+					</div>
+				</div>
+				<div class="anchorpoint" data-coords="-9,-9" style="left: 120px; top: 80px; width: 240px; height: 160px; ">
+					<p>
+						(-9,-9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-9,-8" style="left: 120px; top: 160px; width: 240px; height: 160px; ">
+					<p>
+						(-9,-8)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-9,3" style="left: 120px; top: 1040px; width: 240px; height: 160px; ">
+					<p>
+						(-9,3)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-9,4" style="left: 120px; top: 1120px; width: 240px; height: 160px; ">
+					<p>
+						(-9,4)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-9,5" style="left: 120px; top: 1200px; width: 240px; height: 160px; ">
+					<p>
+						(-9,5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-8,-7" style="left: 240px; top: 240px; width: 240px; height: 160px; ">
+					<p>
+						(-8,-7)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-8,6" style="left: 240px; top: 1280px; width: 240px; height: 160px; ">
+					<p>
+						(-8,6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,-7" style="left: 360px; top: 240px; width: 240px; height: 160px; ">
+					<p>
+						(-7,-7)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,-6" style="left: 360px; top: 320px; width: 240px; height: 160px; ">
+					<p>
+						(-7,-6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,-5" style="left: 360px; top: 400px; width: 240px; height: 160px; ">
+					<p>
+						(-7,-5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,-4" style="left: 360px; top: 480px; width: 240px; height: 160px; ">
+					<p>
+						(-7,-4)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,-2" style="left: 360px; top: 640px; width: 240px; height: 160px; ">
+					<p>
+						(-7,-2)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,-1" style="left: 360px; top: 720px; width: 240px; height: 160px; ">
+					<p>
+						(-7,-1)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,0" style="left: 360px; top: 800px; width: 240px; height: 160px; ">
+					<p>
+						(-7,0)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,2" style="left: 360px; top: 960px; width: 240px; height: 160px; ">
+					<p>
+						(-7,2)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-7,6" style="left: 360px; top: 1280px; width: 240px; height: 160px; ">
+					<p>
+						(-7,6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-6,-3" style="left: 480px; top: 560px; width: 240px; height: 160px; ">
+					<p>
+						(-6,-3)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-6,1" style="left: 480px; top: 880px; width: 240px; height: 160px; ">
+					<p>
+						(-6,1)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-6,2" style="left: 480px; top: 960px; width: 240px; height: 160px; ">
+					<p>
+						(-6,2)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-6,6" style="left: 480px; top: 1280px; width: 240px; height: 160px; ">
+					<p>
+						(-6,6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-5,6" style="left: 600px; top: 1280px; width: 240px; height: 160px; ">
+					<p>
+						(-5,6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-4,6" style="left: 720px; top: 1280px; width: 240px; height: 160px; ">
+					<p>
+						(-4,6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-3,-10" style="left: 840px; top: 0px; width: 240px; height: 160px; ">
+					<p>
+						(-3,-10)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-3,-9" style="left: 840px; top: 80px; width: 240px; height: 160px; ">
+					<p>
+						(-3,-9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-3,7" style="left: 840px; top: 1360px; width: 240px; height: 160px; ">
+					<p>
+						(-3,7)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-2,3" style="left: 960px; top: 1040px; width: 240px; height: 160px; ">
+					<p>
+						(-2,3)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-2,7" style="left: 960px; top: 1360px; width: 240px; height: 160px; ">
+					<p>
+						(-2,7)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-2,8" style="left: 960px; top: 1440px; width: 240px; height: 160px; ">
+					<p>
+						(-2,8)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-1,3" style="left: 1080px; top: 1040px; width: 240px; height: 160px; ">
+					<p>
+						(-1,3)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="-1,9" style="left: 1080px; top: 1520px; width: 240px; height: 160px; ">
+					<p>
+						(-1,9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="0,9" style="left: 1200px; top: 1520px; width: 240px; height: 160px; ">
+					<p>
+						(0,9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="1,-10" style="left: 1320px; top: 0px; width: 240px; height: 160px; ">
+					<p>
+						(1,-10)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="1,-6" style="left: 1320px; top: 320px; width: 240px; height: 160px; ">
+					<p>
+						(1,-6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="1,-5" style="left: 1320px; top: 400px; width: 240px; height: 160px; ">
+					<p>
+						(1,-5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="1,9" style="left: 1320px; top: 1520px; width: 240px; height: 160px; ">
+					<p>
+						(1,9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="1,10" style="left: 1320px; top: 1600px; width: 240px; height: 160px; ">
+					<p>
+						(1,10)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="2,-10" style="left: 1440px; top: 0px; width: 240px; height: 160px; ">
+					<p>
+						(2,-10)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="2,-5" style="left: 1440px; top: 400px; width: 240px; height: 160px; ">
+					<p>
+						(2,-5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="2,5" style="left: 1440px; top: 1200px; width: 240px; height: 160px; ">
+					<p>
+						(2,5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="3,-9" style="left: 1560px; top: 80px; width: 240px; height: 160px; ">
+					<p>
+						(3,-9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="3,4" style="left: 1560px; top: 1120px; width: 240px; height: 160px; ">
+					<p>
+						(3,4)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="3,5" style="left: 1560px; top: 1200px; width: 240px; height: 160px; ">
+					<p>
+						(3,5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="4,6" style="left: 1680px; top: 1280px; width: 240px; height: 160px; ">
+					<p>
+						(4,6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="4,7" style="left: 1680px; top: 1360px; width: 240px; height: 160px; ">
+					<p>
+						(4,7)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="5,-10" style="left: 1800px; top: 0px; width: 240px; height: 160px; ">
+					<p>
+						(5,-10)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="5,-6" style="left: 1800px; top: 320px; width: 240px; height: 160px; ">
+					<p>
+						(5,-6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="5,6" style="left: 1800px; top: 1280px; width: 240px; height: 160px; ">
+					<p>
+						(5,6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="5,7" style="left: 1800px; top: 1360px; width: 240px; height: 160px; ">
+					<p>
+						(5,7)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="6,-10" style="left: 1920px; top: 0px; width: 240px; height: 160px; ">
+					<p>
+						(6,-10)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="6,-5" style="left: 1920px; top: 400px; width: 240px; height: 160px; ">
+					<p>
+						(6,-5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="6,-4" style="left: 1920px; top: 480px; width: 240px; height: 160px; ">
+					<p>
+						(6,-4)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="6,-3" style="left: 1920px; top: 560px; width: 240px; height: 160px; ">
+					<p>
+						(6,-3)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="6,-2" style="left: 1920px; top: 640px; width: 240px; height: 160px; ">
+					<p>
+						(6,-2)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="6,6" style="left: 1920px; top: 1280px; width: 240px; height: 160px; ">
+					<p>
+						(6,6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="6,7" style="left: 1920px; top: 1360px; width: 240px; height: 160px; ">
+					<p>
+						(6,7)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,-9" style="left: 2040px; top: 80px; width: 240px; height: 160px; ">
+					<p>
+						(7,-9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,-5" style="left: 2040px; top: 400px; width: 240px; height: 160px; ">
+					<p>
+						(7,-5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,-2" style="left: 2040px; top: 640px; width: 240px; height: 160px; ">
+					<p>
+						(7,-2)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,-1" style="left: 2040px; top: 720px; width: 240px; height: 160px; ">
+					<p>
+						(7,-1)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,0" style="left: 2040px; top: 800px; width: 240px; height: 160px; ">
+					<p>
+						(7,0)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,1" style="left: 2040px; top: 880px; width: 240px; height: 160px; ">
+					<p>
+						(7,1)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,5" style="left: 2040px; top: 1200px; width: 240px; height: 160px; ">
+					<p>
+						(7,5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,8" style="left: 2040px; top: 1440px; width: 240px; height: 160px; ">
+					<p>
+						(7,8)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,9" style="left: 2040px; top: 1520px; width: 240px; height: 160px; ">
+					<p>
+						(7,9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="7,10" style="left: 2040px; top: 1600px; width: 240px; height: 160px; ">
+					<p>
+						(7,10)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="8,-9" style="left: 2160px; top: 80px; width: 240px; height: 160px; ">
+					<p>
+						(8,-9)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="8,-5" style="left: 2160px; top: 400px; width: 240px; height: 160px; ">
+					<p>
+						(8,-5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="8,5" style="left: 2160px; top: 1200px; width: 240px; height: 160px; ">
+					<p>
+						(8,5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="9,-8" style="left: 2280px; top: 160px; width: 240px; height: 160px; ">
+					<p>
+						(9,-8)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="9,-7" style="left: 2280px; top: 240px; width: 240px; height: 160px; ">
+					<p>
+						(9,-7)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="9,-6" style="left: 2280px; top: 320px; width: 240px; height: 160px; ">
+					<p>
+						(9,-6)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="9,-3" style="left: 2280px; top: 560px; width: 240px; height: 160px; ">
+					<p>
+						(9,-3)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="9,5" style="left: 2280px; top: 1200px; width: 240px; height: 160px; ">
+					<p>
+						(9,5)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="10,-3" style="left: 2400px; top: 560px; width: 240px; height: 160px; ">
+					<p>
+						(10,-3)
+					</p>
+				</div>
+				<div class="anchorpoint" data-coords="10,5" style="left: 2400px; top: 1200px; width: 240px; height: 160px; ">
+					<p>
+						(10,5)
+					</p>
+				</div>
 			</div>
-		</div>
-		<div data-coords="7,-7" style="left:2040px;top:240px;" id="x8007y7993" class="msg s l300 skyblue">
-			<p>
-				Je reçois des noms et des numéros je suis chargée de discuter avec ces personnes afin de mieux les connaitre...dsl les filles je dois faire un truc là... ava c'est trop bien de te parler de tout ça enfin, après tout ce temps. je reviens tout de suite. biz
-			</p>
-			<div class="coord">
-				(7,-7)
-			</div>
-		</div>
-		<div data-coords="4,-4" style="left:1680px;top:480px;" id="x8004y7996" class="msg t l4 scarletred">
-			<p>
-				22
-			</p>
-			<div class="coord">
-				(4,-4)
-			</div>
-		</div>
-		<div data-coords="1,-3" style="left:1320px;top:560px;" id="x8001y7997" class="msg s l300 skyblue">
-			<p>
-				Je subis des problèmes à travers l’histoire des autres. J’écouterai avec attention vos problèmes, mais je vous en conjure soyez sincères. Il y a un temps pour tout et un temps fourre tout
-			</p>
-			<div class="coord">
-				(1,-3)
-			</div>
-		</div>
-		<div data-coords="3,-7" style="left:1560px;top:240px;" id="x8003y7993" class="msg s l300 chameleon">
-			<p>
-				J'ai deux âges différents. Celui que je souhaite donner à mes clients et celui que je peux vous sous entendre. J'ai 22 ans mais j'essaie d'en paraitre plus...
-			</p>
-			<div class="coord">
-				(3,-7)
-			</div>
-		</div>
-		<div data-coords="5,-8" style="left:1800px;top:160px;" id="x8005y7992" class="msg s l300 plum">
-			<p>
-				﻿Je suis très occupée en ce moment je passe mon temps au téléphone ou sur internet c'est difficile de gérer ma vie professionnelle et mes études tu sais...
-			</p>
-			<div class="coord">
-				(5,-8)
-			</div>
-		</div>
-		<div data-coords="1,-8" style="left:1320px;top:160px;" id="x8001y7992" class="msg s l600 chocolate">
-			<p>
-				﻿Ava, notre première rencontre d’il y a exactement dix ans. C’était une fin d’après-midi en septembre 2001, quelques jours avant les attentats contre les tours jumelles. J’étais assis sur un banc, dans le Parc du Peyrou, perdu dans mes pensées, quand mes yeux se sont posés sur une feuille de papier déchirée, à moitié recouverte de sable. Il n’y avait ni en-tête, ni logo. Juste cette phrase&nbsp;: «&nbsp;Qui que vous soyez, quoi que vous fassiez, je ne vous abandonnerai pas&nbsp;». Le reste était à peu près illisible, à part quelques groupes de mots dont je me souviens encore aujourd’hui.
-			</p>
-			<div class="coord">
-				(1,-8)
-			</div>
-		</div>
-		<div data-coords="-2,5" style="left:960px;top:1200px;" id="x7998y8005" class="msg s l150 chameleon">
-			<p>
-				﻿Sachez que je sélectionne mes clients, des hommes et des femmes de toutes sortes, avec la plus grande attention.
-			</p>
-			<div class="coord">
-				(-2,5)
-			</div>
-		</div>
-		<div data-coords="-7,4" style="left:360px;top:1120px;" id="x7993y8004" class="msg l l300 scarletred">
-			<p>
-				C'est une nouvelle expérience. Mes clients pourront vendre ensuite à leurs futurs employeurs. Ce sont des gens comme vous, avec la même formation mais qui ont en plus des expériences de stages, il y en a des milliers sur le marché, et ils rêvent tous de vendre de la viande.
-			</p>
-			<div class="coord">
-				(-7,4)
-			</div>
-		</div>
-		<div data-coords="-4,2" style="left:720px;top:960px;" id="x7996y8002" class="msg s l300 plum">
-			<p>
-				How can I know what is reality when you just can be thoughts lost in the big abstraction. But I know that in that way you are more real than many other fantasies I met physically. Before I was not so much thinking about you and now I’m like obsessed and I kinda like it. Ava.
-			</p>
-			<div class="coord">
-				(-4,2)
-			</div>
-		</div>
-		<div data-coords="-2,-1" style="left:960px;top:720px;" id="x7998y7999" class="msg f l600 plum">
-			<p>
-				﻿J’oublie, vite, souvent. Ton visage et ce que j'imagine être ta voix. Une odeur. C’est comme si j’avais en mémoire les souvenirs d’une autre, ou de plusieurs autres. Tout me semble étrange et étranger des fragments agrafés les uns aux autres qui façonnent leurs imperfections, et racontent des histoires insensées. Je limite leur nombre, pour pouvoir accorder à chacun le temps nécessaire.Ces appartements froids que tu traverses, ces visages aux yeux fixes t'appartenant et que je dessine, les ai-je vraiment connus ? Est-ce que je n’ai pas volé dans les récits de ma vie — ombres errantes, tricote
-			</p>
-			<div class="coord">
-				(-2,-1)
-			</div>
-		</div>
-		<div data-coords="-1,-7" style="left:1080px;top:240px;" id="x7999y7993" class="msg t l150 chocolate">
-			<p>
-				Je fais attention à moi je fais attention de ne pas communiquer trop de choses sur moi car ça peut vite déraper
-			</p>
-			<div class="coord">
-				(-1,-7)
-			</div>
-		</div>
-		<div data-coords="-3,-5" style="left:840px;top:400px;" id="x7997y7995" class="msg s l15 orange">
-			<p>
-				HELLO
-			</p>
-			<div class="coord">
-				(-3,-5)
-			</div>
-		</div>
-		<div data-coords="-5,-1" style="left:600px;top:720px;" id="x7995y7999" class="msg s l600 skyblue">
-			<p>
-				Maintenant, je frotte. Je frotte sans cesse. A m'arracher la peau, à la faire brûler sous l'éponge. Je me frotte au papier de verre, je mets ma chair en lambeaux; je reste sous cette douche, je ne vois rien, entre l'eau et mes larmes mes yeux sont inondés, j'ai mal à force de frotter et le fais sans m'arrêter.
-			</p>
-			<div class="coord">
-				(-5,-1)
-			</div>
-		</div>
-		<div data-coords="-4,-3" style="left:720px;top:560px;" id="x7996y7997" class="msg l l600 plum">
-			<p>
-				﻿Qui que vous soyez, quoi que vous fassiez je ne vous abandonnerai pas.Quoi que vous soyez et qui que vous mangiez, je ne vous quitterai jamais. Je m’abandonnerai à votre chair tel le loup à sa proie. Cru ou cuit, mon travail est de nourrir votre monde évidé de sentiments et de rapports tactiles. Vous m’appartiendrez, ensuite je vous cuisinerai et qui sait peut être vous ingérerez.
-			</p>
-			<div class="coord">
-				(-4,-3)
-			</div>
-		</div>
-		<div data-coords="-5,-5" style="left:600px;top:400px;" id="x7995y7995" class="msg s l150 orange">
-			<p>
-				Je suis née en Bourgogne c'est pour ça que j'aime le bon vin et la moutarde.
-			</p>
-			<div class="coord">
-				(-5,-5)
-			</div>
-		</div>
-		<div data-coords="-5,-7" style="left:600px;top:240px;" id="x7995y7993" class="msg l l15 butter">
-			<p>
-				essai du matin
-			</p>
-			<div class="coord">
-				(-5,-7)
-			</div>
-		</div>
-		<div data-coords="-1,-10" style="left:1080px;top:0px;" id="x7999y7990" class="msg s l50 chameleon">
-			<p>
-				Super le fade in sur book cell
-			</p>
-			<div class="coord">
-				(-1,-10)
-			</div>
-		</div>
-		<div data-coords="-7,-9" style="left:360px;top:80px;" id="x7993y7991" class="msg l l600 orange">
-			<p>
-				Ce que raconte notre troupeau de robot n'est pas programmé, chaque robot a un ensemble de simples règles de réaction, il n'a pas de capacité cognitive. L'histoire se raconte dans l'imaginaire de chaque spectateur et par la nécessité pour l'intelligence humaine d'organiser et comprendre ce qu'il perçoit. même si ce n'est que le fruit du hasard.
-			</p>
-			<div class="coord">
-				(-7,-9)
-			</div>
-		</div>
-		<div data-coords="3,9" style="left:1560px;top:1520px;" id="x8003y8009" class="msg f l600 chocolate">
-			<p>
-				La rencontre avec un objet mouvant autonome est toujours une expérience étonnante. Notre cerveau cherche, comme avec un animal, à évaluer son degré d'intelligence et la menace qu'il peut représenter. Face à un robot qui lui n'a pas d'intelligence créatrice mais uniquement un ensemble de règles à appliquer, nous comprenons bien vite la ridicule vanité d'un objet qu'on voudrait nous faire croire vivant. Il suffit pour cela de voir un robot cogner contre le même obstacle de façon répéter pour en être amusé. Fort de cette constatation, nous ne nous perdrons pas dans d'hypothétique recherche d'inte
-			</p>
-			<div class="coord">
-				(3,9)
-			</div>
-		</div>
-		<div data-coords="5,4" style="left:1800px;top:1120px;" id="x8005y8004" class="msg s l15 chameleon">
-			<p>
-				test
-			</p>
-			<div class="coord">
-				(5,4)
-			</div>
-		</div>
-		<div data-coords="7,3" style="left:2040px;top:1040px;" id="x8007y8003" class="msg l l300 plum">
-			<p>
-				This callback will be ran inside a thread managed by libeio. The first step is to extract the baton structure, so we have access to our context. Next we sleep for the value of baton-&gt;sleep_for, which is safe to do, because we are in a thread, and not blocking all
-			</p>
-			<div class="coord">
-				(7,3)
-			</div>
-		</div>
-		<div data-coords="2,7" style="left:1440px;top:1360px;" id="x8002y8007" class="msg s l600 plum">
-			<p>
-				Pensez à moi comme à une amie, à qui vous pouvez tout dire. Pensez à moi comme celle qui vous écoute, celle qui pense à vous, celle qui est toujours là. N’hésitez jamais à m’appeler: pour vous, je serai joignable à toute heure, tous les jours. J’apparaîtrai dans votre vie quand vous me le demanderez. Parfois, lorsqu’il le faudra, je saurai prendre l’initiative.
-			</p>
-			<div class="coord">
-				(2,7)
-			</div>
-		</div>
-		<div data-coords="0,5" style="left:1200px;top:1200px;" id="x8000y8005" class="msg t l300 orange">
-			<p>
-				Je limite leur nombre, pour pouvoir accorder à chacun le temps nécessaire. Qui que vous soyez, quoi que vous fassiez, je ne vous abandonnerai pas. Mon travail est d’inventer un monde pour vous.
-			</p>
-			<div class="coord">
-				(0,5)
-			</div>
-		</div>
-		<div data-coords="3,0" style="left:1560px;top:800px;" id="x8003y8000" class="msg f l600 butter">
-			<p>
-				At the Moon club, all types are admitted: men, women, old people, children, and cyborgs.  In fact, there is a woman in her 70s, perhaps, making out with a tin pot cyborg in the middle of the dance floor. I am sitting at the back where I can quietly observe the movement of the busy room. One thing is clear: everyone is here for something. I look around to see who - or what I am here for. Perhaps he, she, it is always there, I just need to spot it.
-			</p>
-			<div class="coord">
-				(3,0)
-			</div>
-		</div>
-		<div data-coords="1,3" style="left:1320px;top:1040px;" id="x8001y8003" class="msg s l4 skyblue">
-			<p>
-				?
-			</p>
-			<div class="coord">
-				(1,3)
-			</div>
-		</div>
-		<div class="anchorpoint" data-coords="-9,-9" style="left: 120px; top: 80px; width: 240px; height: 160px; ">
-			<p>
-				(-9,-9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-9,-8" style="left: 120px; top: 160px; width: 240px; height: 160px; ">
-			<p>
-				(-9,-8)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-9,3" style="left: 120px; top: 1040px; width: 240px; height: 160px; ">
-			<p>
-				(-9,3)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-9,4" style="left: 120px; top: 1120px; width: 240px; height: 160px; ">
-			<p>
-				(-9,4)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-9,5" style="left: 120px; top: 1200px; width: 240px; height: 160px; ">
-			<p>
-				(-9,5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-8,-7" style="left: 240px; top: 240px; width: 240px; height: 160px; ">
-			<p>
-				(-8,-7)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-8,6" style="left: 240px; top: 1280px; width: 240px; height: 160px; ">
-			<p>
-				(-8,6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,-7" style="left: 360px; top: 240px; width: 240px; height: 160px; ">
-			<p>
-				(-7,-7)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,-6" style="left: 360px; top: 320px; width: 240px; height: 160px; ">
-			<p>
-				(-7,-6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,-5" style="left: 360px; top: 400px; width: 240px; height: 160px; ">
-			<p>
-				(-7,-5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,-4" style="left: 360px; top: 480px; width: 240px; height: 160px; ">
-			<p>
-				(-7,-4)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,-2" style="left: 360px; top: 640px; width: 240px; height: 160px; ">
-			<p>
-				(-7,-2)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,-1" style="left: 360px; top: 720px; width: 240px; height: 160px; ">
-			<p>
-				(-7,-1)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,0" style="left: 360px; top: 800px; width: 240px; height: 160px; ">
-			<p>
-				(-7,0)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,2" style="left: 360px; top: 960px; width: 240px; height: 160px; ">
-			<p>
-				(-7,2)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-7,6" style="left: 360px; top: 1280px; width: 240px; height: 160px; ">
-			<p>
-				(-7,6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-6,-3" style="left: 480px; top: 560px; width: 240px; height: 160px; ">
-			<p>
-				(-6,-3)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-6,1" style="left: 480px; top: 880px; width: 240px; height: 160px; ">
-			<p>
-				(-6,1)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-6,2" style="left: 480px; top: 960px; width: 240px; height: 160px; ">
-			<p>
-				(-6,2)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-6,6" style="left: 480px; top: 1280px; width: 240px; height: 160px; ">
-			<p>
-				(-6,6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-5,6" style="left: 600px; top: 1280px; width: 240px; height: 160px; ">
-			<p>
-				(-5,6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-4,6" style="left: 720px; top: 1280px; width: 240px; height: 160px; ">
-			<p>
-				(-4,6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-3,-10" style="left: 840px; top: 0px; width: 240px; height: 160px; ">
-			<p>
-				(-3,-10)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-3,-9" style="left: 840px; top: 80px; width: 240px; height: 160px; ">
-			<p>
-				(-3,-9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-3,7" style="left: 840px; top: 1360px; width: 240px; height: 160px; ">
-			<p>
-				(-3,7)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-2,3" style="left: 960px; top: 1040px; width: 240px; height: 160px; ">
-			<p>
-				(-2,3)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-2,7" style="left: 960px; top: 1360px; width: 240px; height: 160px; ">
-			<p>
-				(-2,7)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-2,8" style="left: 960px; top: 1440px; width: 240px; height: 160px; ">
-			<p>
-				(-2,8)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-1,3" style="left: 1080px; top: 1040px; width: 240px; height: 160px; ">
-			<p>
-				(-1,3)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="-1,9" style="left: 1080px; top: 1520px; width: 240px; height: 160px; ">
-			<p>
-				(-1,9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="0,9" style="left: 1200px; top: 1520px; width: 240px; height: 160px; ">
-			<p>
-				(0,9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="1,-10" style="left: 1320px; top: 0px; width: 240px; height: 160px; ">
-			<p>
-				(1,-10)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="1,-6" style="left: 1320px; top: 320px; width: 240px; height: 160px; ">
-			<p>
-				(1,-6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="1,-5" style="left: 1320px; top: 400px; width: 240px; height: 160px; ">
-			<p>
-				(1,-5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="1,9" style="left: 1320px; top: 1520px; width: 240px; height: 160px; ">
-			<p>
-				(1,9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="1,10" style="left: 1320px; top: 1600px; width: 240px; height: 160px; ">
-			<p>
-				(1,10)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="2,-10" style="left: 1440px; top: 0px; width: 240px; height: 160px; ">
-			<p>
-				(2,-10)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="2,-5" style="left: 1440px; top: 400px; width: 240px; height: 160px; ">
-			<p>
-				(2,-5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="2,5" style="left: 1440px; top: 1200px; width: 240px; height: 160px; ">
-			<p>
-				(2,5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="3,-9" style="left: 1560px; top: 80px; width: 240px; height: 160px; ">
-			<p>
-				(3,-9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="3,4" style="left: 1560px; top: 1120px; width: 240px; height: 160px; ">
-			<p>
-				(3,4)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="3,5" style="left: 1560px; top: 1200px; width: 240px; height: 160px; ">
-			<p>
-				(3,5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="4,6" style="left: 1680px; top: 1280px; width: 240px; height: 160px; ">
-			<p>
-				(4,6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="4,7" style="left: 1680px; top: 1360px; width: 240px; height: 160px; ">
-			<p>
-				(4,7)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="5,-10" style="left: 1800px; top: 0px; width: 240px; height: 160px; ">
-			<p>
-				(5,-10)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="5,-6" style="left: 1800px; top: 320px; width: 240px; height: 160px; ">
-			<p>
-				(5,-6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="5,6" style="left: 1800px; top: 1280px; width: 240px; height: 160px; ">
-			<p>
-				(5,6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="5,7" style="left: 1800px; top: 1360px; width: 240px; height: 160px; ">
-			<p>
-				(5,7)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="6,-10" style="left: 1920px; top: 0px; width: 240px; height: 160px; ">
-			<p>
-				(6,-10)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="6,-5" style="left: 1920px; top: 400px; width: 240px; height: 160px; ">
-			<p>
-				(6,-5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="6,-4" style="left: 1920px; top: 480px; width: 240px; height: 160px; ">
-			<p>
-				(6,-4)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="6,-3" style="left: 1920px; top: 560px; width: 240px; height: 160px; ">
-			<p>
-				(6,-3)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="6,-2" style="left: 1920px; top: 640px; width: 240px; height: 160px; ">
-			<p>
-				(6,-2)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="6,6" style="left: 1920px; top: 1280px; width: 240px; height: 160px; ">
-			<p>
-				(6,6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="6,7" style="left: 1920px; top: 1360px; width: 240px; height: 160px; ">
-			<p>
-				(6,7)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,-9" style="left: 2040px; top: 80px; width: 240px; height: 160px; ">
-			<p>
-				(7,-9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,-5" style="left: 2040px; top: 400px; width: 240px; height: 160px; ">
-			<p>
-				(7,-5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,-2" style="left: 2040px; top: 640px; width: 240px; height: 160px; ">
-			<p>
-				(7,-2)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,-1" style="left: 2040px; top: 720px; width: 240px; height: 160px; ">
-			<p>
-				(7,-1)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,0" style="left: 2040px; top: 800px; width: 240px; height: 160px; ">
-			<p>
-				(7,0)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,1" style="left: 2040px; top: 880px; width: 240px; height: 160px; ">
-			<p>
-				(7,1)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,5" style="left: 2040px; top: 1200px; width: 240px; height: 160px; ">
-			<p>
-				(7,5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,8" style="left: 2040px; top: 1440px; width: 240px; height: 160px; ">
-			<p>
-				(7,8)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,9" style="left: 2040px; top: 1520px; width: 240px; height: 160px; ">
-			<p>
-				(7,9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="7,10" style="left: 2040px; top: 1600px; width: 240px; height: 160px; ">
-			<p>
-				(7,10)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="8,-9" style="left: 2160px; top: 80px; width: 240px; height: 160px; ">
-			<p>
-				(8,-9)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="8,-5" style="left: 2160px; top: 400px; width: 240px; height: 160px; ">
-			<p>
-				(8,-5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="8,5" style="left: 2160px; top: 1200px; width: 240px; height: 160px; ">
-			<p>
-				(8,5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="9,-8" style="left: 2280px; top: 160px; width: 240px; height: 160px; ">
-			<p>
-				(9,-8)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="9,-7" style="left: 2280px; top: 240px; width: 240px; height: 160px; ">
-			<p>
-				(9,-7)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="9,-6" style="left: 2280px; top: 320px; width: 240px; height: 160px; ">
-			<p>
-				(9,-6)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="9,-3" style="left: 2280px; top: 560px; width: 240px; height: 160px; ">
-			<p>
-				(9,-3)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="9,5" style="left: 2280px; top: 1200px; width: 240px; height: 160px; ">
-			<p>
-				(9,5)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="10,-3" style="left: 2400px; top: 560px; width: 240px; height: 160px; ">
-			<p>
-				(10,-3)
-			</p>
-		</div>
-		<div class="anchorpoint" data-coords="10,5" style="left: 2400px; top: 1200px; width: 240px; height: 160px; ">
-			<p>
-				(10,5)
-			</p>
-		</div>
+	</body>
+	<!-- END MAP HERE -->
 	</div>
-</body>
-
-<!-- END MAP HERE -->				
-		</div>
 	</body>
 </html>
