@@ -1,6 +1,6 @@
 .msg{
 	border: dashed 1px;
-	overflow: auto;
+	overflow: hidden;
 
 }
 
@@ -16,6 +16,8 @@
 .z10 > .msg {
 	background-color: white;
 }
+
+
 div#uiWrap {
 
 	border: dashed red 1px;

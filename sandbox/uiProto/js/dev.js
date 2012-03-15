@@ -1,14 +1,21 @@
 $(document).ready(function() {
 
-	$('.coord').hide();
-		$('.anchorpoint > p').hide();
-//	$('#map').hide();
-
 	// masque les coordonnées
-	$('div#map').draggable({
-		appendTo : 'div#content'
-	});
-			
-	
+	$('.coord').hide();
+	$('.anchorpoint > p').hide();
+	//	$('#map').hide();
 
+	// drag map
+	$('div#map').draggable();
+
+	// blinking ;-)
+	function blink() {
+		$("#blink").fadeTo(600, 0).fadeTo(400, 1, function() {
+			blink()
+		});
+	}
+
+	$(function() {
+		blink();
+	});
 });
