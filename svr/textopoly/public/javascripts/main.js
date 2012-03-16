@@ -2,13 +2,14 @@ require(["jquery","https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-
 	$(function() {
 		$(document).ready(function() {
 			// masque les infos de debug
-			//$('.coord').hide();
-			
+			$('.coord').hide();
+
 			require(["bookingsocket"], function() {
 			});
 			require(["gridinteraction"], function() {
 				anchorPoint();
-				//$('.fz > p').hide();
+				$('.fz > p').hide();
+			
 			});
 			
 			// drag map

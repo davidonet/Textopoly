@@ -18,6 +18,7 @@
 body {
 	background: #d3d7cf; /* Aluminium 1 */
 	height: 100%;
+	-webkit-user-select: none;
 }
 .msg {
 	display: block;
