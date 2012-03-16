@@ -11,7 +11,7 @@ require(["jquery","https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-
 			});
 			// drag map
 			$('div#map').draggable({
-				appendTo : 'div#content'
+				appendTo : 'body'
 			});
 
 		});
