@@ -11,10 +11,9 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 				$('.fz > p').hide();
 
 			});
-			require(["jquery.ui.touch-punch.js", "jquery.ui.touch-punch.js"], function(draggable) {
-				// drag map
+
+						// drag map
 				$('div#map').draggable();
-			});
 			// blinking ;-)
 			function blink() {
 				$("#blink").fadeTo(1200, 0).fadeTo(800, 1, function() {
