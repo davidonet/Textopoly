@@ -1,0 +1,47 @@
+/* TAILLES DES MSG ZOOM 1:40 */
+
+.z40 > .msg.s {
+	width: 12px;
+	height: 8px;
+}
+.z40 > .msg.l {
+	width: 24px;
+	height: 8px;
+}
+.z40 > .msg.t {
+	width: 12px;
+	height: 16px;
+}
+.z40 > .msg.f {
+	width: 24px;
+	height: 16px;
+}
+/* COULEURS DES MSG */
+
+.z40 > .butter {
+	background-color: #c4a000;  /* Butter Ddarker */
+}
+.z40 > .orange {
+	background-color: #ce5c00; /* Orange darker */
+}
+.z40 > .chocolate {
+	background-color: #8f5902; /* Chocolate darker */
+}
+.z40 > .chameleon {
+	background-color: #4e9a06; /* Chameleon darker */
+}
+.z40 > .skyblue {
+	background-color: #204a87; /* Sky Blue darker */
+}
+.z40 > .plum {
+	background-color: #5c3566; /* Plum darker */
+}
+.z40 > .scarletred {
+	background-color: #a40000; /* Scarlet Red darker */
+}
+.z40 > .aluminium1 {
+	background-color: #babdb6; /* Aluminium 1 darker */
+}
+.z40 > .aluminium2 {
+	background-color: #2e3436; /* Aluminium 2 darker */
+}

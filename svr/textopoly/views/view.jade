@@ -1,11 +1,28 @@
 script(type='text/javascript')
-  var params=!{JSON.stringify(params)}; 
-div.grid#map(class='z'+params.zoom)
-  each txt in texts
-    div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c,id=txt.absid) 
-      if txt.t
-        if( params.zoom < 20)
-            p #{txt.t} 
-            div.coord (#{txt.p})      
-      else
-        p.author #{txt.a}
+  var params=!{JSON.stringify(params)};
+
+div#content
+  div#uiWrap
+    div#header
+      div#topbar
+      h1 TEXTOPOLY
+      div#blink
+      ul#topmenu
+       li ?
+       li >
+    div#zoomWrap
+      div#zoom
+        div#zoomSlider
+    div#footer
+      h1 Chemins de lecteurs
+    
+
+  div.grid#map(class='z'+params.zoom)
+    each txt in texts
+      div.msg(data-coords=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c,id=txt.absid) 
+        if txt.t
+          if( params.zoom < 20)
+              p #{txt.t} 
+              div.coord (#{txt.p})      
+        else
+          p.author #{txt.a}

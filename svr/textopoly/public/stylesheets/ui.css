@@ -1,0 +1,183 @@
+/* ZONING DE L'INTERFACE */
+
+div#content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+div#map {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+div#uiWrap {
+	position: relative;
+	width: 960px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+div#header {
+	position: absolute;
+	z-index: 1500;
+	width: 960px;
+	height: 120px;
+	top: 0px;
+	margin: 0px auto;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+}
+div#header > #topbar {
+	position: relative;
+	width: 940px;
+	height: 4px;
+	top: 0px;
+	margin: 0px auto;
+	background-color: #2e3436  /* Aluminium 2 Darker */
+}
+div#zoomWrap {
+	position: absolute;
+	top: 120px;
+	bottom: 30px;
+	width: 24px;
+}
+div#zoom {
+	position: absolute;
+	top: 50%;
+	margin-top: -100px;
+	z-index: 1000;
+	height: 200px;
+	width: 24px;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+}
+div#main {
+	position: absolute;
+	top: 140px;
+	margin-left: 10px;
+}
+div#footer {
+	position: absolute;
+	bottom: 0px;
+	z-index: 2000;
+	width: 960px;
+	height: 30px;
+	border-top: #2e3436 dashed 1px;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+}
+
+/* MISE EN FORME*/
+
+/* HEADER */
+
+div#header > h1 {
+	display: block;
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	height: 84px;
+	font-family: "FuturaCondensedMedium", sans-serif;
+	font-size: 64px;
+	color: #2e3436; /* Aluminium 2 Darker */
+	/* background-color: red; /* Aluminium 2 Darker */
+
+}
+div#header > div#blink {
+	display: block;
+	float: left;
+	margin-top: 15px;
+	margin-left: 10px;
+	width: 3px;
+	height: 72px;
+	background-color: #2e3436; /* Aluminium 2 Darker */
+}
+ul#topmenu {
+	z-index: 2000;
+	display: block;
+	float: right;
+	width: 100px;
+	list-style: none;
+	text-align: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+ul#topmenu li {
+	display: inline;
+	padding: 5px;
+	width: 20px;
+	width: 20px;
+}
+/* ZOOM */
+
+div#zoomSlider {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	top: 10px;
+	height: 180px;
+}
+/* FOOTER */
+
+div#footer > h1 {
+	display: block;
+	float: left;
+	margin-top: 5px;
+	margin-left: 10px;
+	font-family: "FuturaCondensedMedium", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	text-transform: uppercase;
+	color: #2e3436; /* Aluminium 2 Darker */
+}
+/* MSG SURVOLS */
+.fz {
+	position: absolute;
+	display: block;
+	-webkit-transition: background 2s;
+
+}
+.z1, .z2, .z4, .fz:hover {
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	-webkit-transition: background 1s;
+}
+.butter, .orange, .chocolate, .chameleon, .skyblue, .plum, .scarletred {
+	-webkit-transition: background 2s;
+}
+.butter:hover {
+	background-color: #fce94f; /* Butter Lighter */
+	background-color: rgba(252, 233, 79, 1); /* Butter Lighter */
+	-webkit-transition: background 1s;
+}
+.orange:hover {
+	background-color: #fcaf3e; /* Orange Lighter */
+	background-color: rgba(252, 175, 62, 1); /* Orange Lighter */
+	-webkit-transition: background 1s;
+}
+.chocolate:hover {
+	background-color: #e9b96e; /* Chocolate Lighter */
+	background-color: rgba(233, 185, 110, 1); /* Chocolate Lighter */
+	-webkit-transition: background 1s;
+}
+.chameleon:hover {
+	background-color: #8ae234; /* Chameleon Lighter */
+	background-color: rgba(138, 226, 52, 1); /* Chameleon Lighter */
+	-webkit-transition: background 1s;
+}
+.skyblue:hover {
+	background-color: #729fcf; /* Sky Blue Lighter */
+	background-color: rgba(114, 159, 207, 1); /* Sky Blue Lighter */
+	-webkit-transition: background 1s;
+}
+.plum:hover {
+	background-color: #ad7fa8; /* Plum Lighter */
+	background-color: rgba(173, 127, 168, 1); /* Plum Lighter */
+	-webkit-transition: background 1s;
+}
+.scarletred:hover {
+	background-color: #ef2929; /* Scarlet Red Lighter */
+	background-color: rgba(239, 41, 41, 1); /* Scarlet Red Lighter */
+	-webkit-transition: background 1s;
+}

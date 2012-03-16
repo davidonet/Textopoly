@@ -29,5 +29,6 @@ div#zoomWrap {
 
 }
 
-div#map{
+div#content{
+		background-image: url("dev/bg.png") repeat;
 }
