@@ -81,7 +81,7 @@ function anchorPoint() {
 		for(var k = params.ymin, l = params.ymax + 4; k < l; k++) {
 			if(1 == borderArray[xyToIndex(i, k)]) {
 				var newTxt = $(document.createElement("div")).addClass('fz');
-				newTxt.attr('data-coords',[i,k]);
+				newTxt.attr('dc',[i,k]);
 				newTxt.css({
 					left : (i - params.xmin) * params.stepx + 'px',
 					top : (k - params.ymin) * params.stepy + 'px',
@@ -92,7 +92,7 @@ function anchorPoint() {
 				var newContent = $(document.createElement("p")).text('(' + i + ',' + k + ')');
 				newTxt.append(newContent);
 				$(newTxt).on('click', function(event) {
-				  console.log($(this).attr('data-coords'));
+				  console.log($(this).attr('dc'));
 				});
 				$('#map').append(newTxt);
 				
