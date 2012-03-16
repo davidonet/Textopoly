@@ -80,14 +80,11 @@ function anchorPoint() {
 	for(var i = params.xmin, j = params.xmax + 4; i < j; i++) {
 		for(var k = params.ymin, l = params.ymax + 4; k < l; k++) {
 			if(1 == borderArray[xyToIndex(i, k)]) {
-				var newTxt = $(document.createElement("div")).addClass('fz');
+				var newTxt = $(document.createElement("div")).addClass('fz').addClass('s').addClass('msg');
 				newTxt.attr('dc',[i,k]);
 				newTxt.css({
 					left : (i - params.xmin) * params.stepx + 'px',
 					top : (k - params.ymin) * params.stepy + 'px',
-					width : 2 * params.stepx + 'px',
-					height : 2 * params.stepy + 'px',
-
 				});
 				var newContent = $(document.createElement("p")).text('(' + i + ',' + k + ')');
 				newTxt.append(newContent);
