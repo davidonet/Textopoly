@@ -18,30 +18,39 @@
 }
 /* COULEURS DES MSG */
 
+.z20 > .msg.butter,.z20 >.msg.orange,.z20 >.msg.chocolate,.z20 >.msg.chameleon,.z20 >.msg.skyblue,.z20 >.msg.plum,.z20 >.msg.scarletred {
+	background-color: #555753; 
+
+}
+
+
+
+/*
 .z20 > .butter {
-	background-color: #c4a000;  /* Butter Ddarker */
+	background-color: #c4a000;
 }
 .z20 > .orange {
-	background-color: #ce5c00; /* Orange darker */
+	background-color: #ce5c00;
 }
 .z20 > .chocolate {
-	background-color: #8f5902; /* Chocolate darker */
+	background-color: #8f5902;
 }
 .z20 > .chameleon {
-	background-color: #4e9a06; /* Chameleon darker */
+	background-color: #4e9a06; 
 }
 .z20 > .skyblue {
-	background-color: #204a87; /* Sky Blue darker */
+	background-color: #204a87; 
 }
 .z20 > .plum {
-	background-color: #5c3566; /* Plum darker */
-}
+	background-color: #5c3566; 
+	
 .z20 > .scarletred {
-	background-color: #a40000; /* Scarlet Red darker */
+	background-color: #a40000; 
 }
 .z20 > .aluminium1 {
-	background-color: #babdb6; /* Aluminium 1 darker */
+	background-color: #babdb6;
 }
 .z20 > .aluminium2 {
-	background-color: #2e3436; /* Aluminium 2 darker */
+	background-color: #2e3436;
 }
+*/

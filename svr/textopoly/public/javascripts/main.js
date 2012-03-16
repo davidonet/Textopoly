@@ -1,4 +1,4 @@
-require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"], function($) {
+require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js","jquery.ui.touch-punch"], function($) {
 	$(function() {
 		$(document).ready(function() {
 			// masque les infos de debug
@@ -11,19 +11,9 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 				$('.fz > p').hide();
 
 			});
-
-						// drag map
-				$('div#map').draggable();
-			// blinking ;-)
-			function blink() {
-				$("#blink").fadeTo(1200, 0).fadeTo(800, 1, function() {
-					blink()
-				});
-			}
-
-			$(function() {
-				blink();
-			});
+			// drag map
+			$('div#map').draggable();
+			
 		});
 	});
 });
