@@ -41,6 +41,7 @@ div#zoomWrap {
 	top: 120px;
 	bottom: 30px;
 	width: 24px;
+	margin-left:10px;
 }
 div#zoom {
 	position: absolute;
@@ -140,7 +141,6 @@ div#footer > h1 {
 }
 .z1, .z2, .z4, .fz:hover {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	-webkit-transition: background 1s;
 }
 .butter, .orange, .chocolate, .chameleon, .skyblue, .plum, .scarletred {
@@ -148,36 +148,65 @@ div#footer > h1 {
 }
 .z20>.butter:hover,.z40>.butter:hover, .butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
-	background-color: rgba(252, 233, 79, 1); /* Butter Lighter */
 	-webkit-transition: background 1s;
 }
 .z20>.orange:hover,.z40>.orange:hover, .orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
-	background-color: rgba(252, 175, 62, 1); /* Orange Lighter */
 	-webkit-transition: background 1s;
 }
 .z20>.chocolate:hover,.z40>.chocolate:hover, .chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
-	background-color: rgba(233, 185, 110, 1); /* Chocolate Lighter */
 	-webkit-transition: background 1s;
 }
 .z20>.chameleon:hover,.z40>.chameleon:hover, .chameleon:hover {
 	background-color: #8ae234; /* Chameleon Lighter */
-	background-color: rgba(138, 226, 52, 1); /* Chameleon Lighter */
 	-webkit-transition: background 1s;
 }
 .z20>.skyblue:hover,.z40>.skyblue:hover, .skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
-	background-color: rgba(114, 159, 207, 1); /* Sky Blue Lighter */
 	-webkit-transition: background 1s;
 }
 .z20>.plum:hover,.z40>.plum:hover, .plum:hover {
 	background-color: #ad7fa8; /* Plum Lighter */
-	background-color: rgba(173, 127, 168, 1); /* Plum Lighter */
 	-webkit-transition: background 1s;
 }
 .z20>.scarletred:hover,.z40>.scarletred:hover, .scarletred:hover {
 	background-color: #ef2929; /* Scarlet Red Lighter */
-	background-color: rgba(239, 41, 41, 1); /* Scarlet Red Lighter */
 	-webkit-transition: background 1s;
+}
+
+/* ZONES EN COURS D'ÉCRITURE */
+
+p.author {
+	font-family: "FuturaCondensedMedium", sans-serif;
+	text-align:center;
+	color: #d3d7cf; /* Aluminium 1 */
+}
+
+.z1>.msg p.author{
+	font-size:72px;
+	letter-spacing: 10px;
+	margin-top:110px;
+}
+
+.z2>.msg p.author{
+	font-size:36px;
+	letter-spacing: 5px;
+	margin-top:55px;
+}
+
+.z4>.msg p.author{
+	font-size:18px;
+	letter-spacing: 2px;
+	margin-top:27px;
+}
+
+.z10>.msg p.author{
+	font-size:12px;
+	letter-spacing: 1px;
+	margin-top:8px;
+}
+
+.l0.scarletred{
+	background-color: #ef2929; /* Scarlet Red Lighter */
 }
