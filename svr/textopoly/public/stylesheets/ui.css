@@ -140,37 +140,54 @@ div#footer > h1 {
 .z1, .z2, .z4, .fz:hover {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	-webkit-transition: background 1s;
+		-moz-transition: background 1s;
+
 }
 .msg.butter, .msg.orange, .msg.chocolate, .msg.chameleon, .msg.skyblue, .msg.plum, .msg.scarletred {
 	-webkit-transition: background 2s;
+		-moz-transition: background 2s;
+
 }
 .z20 > .msg.butter:hover, .z40 > .msg.butter:hover, .msg.butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
 	-webkit-transition: background 1s;
+		-moz-transition: background 1s;
+
 }
 .z20 > .msg.orange:hover, .z40 > .msg.orange:hover, .msg.orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
 	-webkit-transition: background 1s;
+		-moz-transition: background 1s;
+
 }
 .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover, .msg.chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
 	-webkit-transition: background 1s;
+		-moz-transition: background 1s;
+
 }
 .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover, .msg.chameleon:hover {
 	background-color: #8ae234; /* Chameleon Lighter */
 	-webkit-transition: background 1s;
+		-moz-transition: background 1s;
+
 }
 .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover, .msg.skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
 	-webkit-transition: background 1s;
+		-moz-transition: background 1s;
+
 }
 .z20 > .msg.plum:hover, .z40 > .msg.plum:hover, .msg.plum:hover {
 	background-color: #ad7fa8; /* Plum Lighter */
 	-webkit-transition: background 1s;
+		-moz-transition: background 1s;
+
 }
 .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover, .msg.scarletred:hover {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 	-webkit-transition: background 1s;
+	-moz-transition: background 1s;
 }
 /* ZONES EN COURS D'ÉCRITURE */
 
