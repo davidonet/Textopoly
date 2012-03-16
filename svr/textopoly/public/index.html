@@ -40,84 +40,105 @@
 		</script>
 	</head>
 	<body>
-		<h1>Textopoly | developer center</h1>
-		<h2>Book a text cell</h2>
-		<div>
-			<label>X</label>
-			<input id="bookX" name="x" type="number" min="-100" max="100"/>
-			<label>Y</label>
-			<input id="bookY" name="y" type="number" min="-100" max="100"/>
-			<label>Size</label>
-			<select id="bookS" name="s">
-				<option value="s">Small</option>
-				<option value="l">Long</option>
-				<option value="t">Tall</option>
-				<option value="f">Fat</option>
-			</select>
-			<label>Color</label>
-			<select id="bookC" name="c" value="butter">
-				<option>butter</option>
-				<option>orange</option>
-				<option>chocolate</option>
-				<option>chameleon</option>
-				<option>skyblue</option>
-				<option>plum</option>
-				<option>scarletred</option>
-			</select>
-			<label>Author</label>
-			<select id='bookA' name="a">
-				<option>davidonet</option>
-				<option>zakxxi</option>
-			</select>
-			<input type="button" value="Book" onclick="book()" />
-			<input type="button" value="unBook" onclick="unbook()"/>
+		<div id="uiWrap">
+			<div id="header">
+				<div id="topbar"></div>
+				<h1>TEXTOPOLY</h1>
+				<div id="blink"></div>
+			</div>
+			<div id="main">
+				<h1>developer center</h1>
+				<h2>Book a text cell</h2>
+				<div>
+					<label>X</label>
+					<input id="bookX" name="x" type="number" min="-100" max="100"/>
+					<label>Y</label>
+					<input id="bookY" name="y" type="number" min="-100" max="100"/>
+					<label>Size</label>
+					<select id="bookS" name="s">
+						<option value="s">Small</option>
+						<option value="l">Long</option>
+						<option value="t">Tall</option>
+						<option value="f">Fat</option>
+					</select>
+					<label>Color</label>
+					<select id="bookC" name="c" value="butter">
+						<option>butter</option>
+						<option>orange</option>
+						<option>chocolate</option>
+						<option>chameleon</option>
+						<option>skyblue</option>
+						<option>plum</option>
+						<option>scarletred</option>
+					</select>
+					<label>Author</label>
+					<select id='bookA' name="a">
+						<option>davidonet</option>
+						<option>zakxxi</option>
+					</select>
+					<input type="button" value="Book" onclick="book()" />
+					<input type="button" value="unBook" onclick="unbook()"/>
+				</div>
+				<hr>
+				<h2>Insert a new text</h2>
+				<form action="/insert"  method="post">
+					<div>
+						<textarea name="t" rows="9" maxlength="600" cols="70"></textarea>
+					</div>
+					<div>
+						<label>X</label>
+						<input name="x" type="number" min="-100" max="100"/>
+						<label>Y</label>
+						<input name="y" type="number" min="-100" max="100"/>
+						<label>Size</label>
+						<select name="s">
+							<option value="s">Small</option>
+							<option value="l">Long</option>
+							<option value="t">Tall</option>
+							<option value="f">Fat</option>
+						</select>
+						<label>Author</label>
+						<select name="a">
+							<option>davidonet</option>
+							<option>zakxxi</option>
+						</select>
+						<label>Color</label>
+						<select name="c" value="butter">
+							<option>butter</option>
+							<option>orange</option>
+							<option>chocolate</option>
+							<option>chameleon</option>
+							<option>skyblue</option>
+							<option>plum</option>
+							<option>scarletred</option>
+						</select>
+						<input type="submit" value="Insert" />
+					</div>
+				</form>
+				<hr/>
+				<h2>Delete a text cell</h2>
+				<form action="/remove" method="post">
+					<div>
+						<label>X</label>
+						<input name="x" type="number" min="-100" max="100"/>
+						<label>Y</label>
+						<input name="y" type="number" min="-100" max="100"/>
+						<input type="submit" value="Remove" />
+				</form>
+			</div>
 		</div>
-		<hr>
-		<h2>Insert a new text</h2>
-		<form action="/insert"  method="post">
-			<div>
-				<textarea name="t" rows="9" maxlength="600" cols="70"></textarea>
-			</div>
-			<div>
-				<label>X</label>
-				<input name="x" type="number" min="-100" max="100"/>
-				<label>Y</label>
-				<input name="y" type="number" min="-100" max="100"/>
-				<label>Size</label>
-				<select name="s">
-					<option value="s">Small</option>
-					<option value="l">Long</option>
-					<option value="t">Tall</option>
-					<option value="f">Fat</option>
-				</select>
-				<label>Author</label>
-				<select name="a">
-					<option>davidonet</option>
-					<option>zakxxi</option>
-				</select>
-				<label>Color</label>
-				<select name="c" value="butter">
-					<option>butter</option>
-					<option>orange</option>
-					<option>chocolate</option>
-					<option>chameleon</option>
-					<option>skyblue</option>
-					<option>plum</option>
-					<option>scarletred</option>
-				</select>
-				<input type="submit" value="Insert" />
-			</div>
-		</form>
-		<hr/>
-		<h2>Delete a text cell</h2>
-		<form action="/remove" method="post">
-			<div>
-				<label>X</label>
-				<input name="x" type="number" min="-100" max="100"/>
-				<label>Y</label>
-				<input name="y" type="number" min="-100" max="100"/>
-				<input type="submit" value="Remove" />
-		</form>
-		<script></script>
+		<script>
+			// blinking ;-)
+			function blink() {
+				$("#blink").fadeTo(1200, 0).fadeTo(800, 1, function() {
+					blink()
+				});
+			}
+
+			$(function() {
+				blink();
+			});
+
+		</script>
 	</body>
 </html>
