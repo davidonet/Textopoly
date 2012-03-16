@@ -13,16 +13,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 			});
 			// drag map
 			$('div#map').draggable();
-			// blinking ;-)
-			function blink() {
-				$("#blink").fadeTo(1200, 0).fadeTo(800, 1, function() {
-					blink()
-				});
-			}
-
-			$(function() {
-				blink();
-			});
+			
 		});
 	});
 });
