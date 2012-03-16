@@ -80,7 +80,7 @@ function anchorPoint() {
 	for(var i = params.xmin, j = params.xmax + 4; i < j; i++) {
 		for(var k = params.ymin, l = params.ymax + 4; k < l; k++) {
 			if(1 == borderArray[xyToIndex(i, k)]) {
-				var newTxt = $(document.createElement("div")).addClass('anchorpoint');
+				var newTxt = $(document.createElement("div")).addClass('fz');
 				newTxt.attr('data-coords',[i,k]);
 				newTxt.css({
 					left : (i - params.xmin) * params.stepx + 'px',

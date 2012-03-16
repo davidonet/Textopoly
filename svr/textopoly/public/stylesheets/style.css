@@ -68,10 +68,12 @@ body {
 	color: #2e3436; /* Aluminium 2 Darker */
 }
 /* MSG SURVOLS */
-.anchorpoint {
+.fz {
 	-webkit-transition: background 2s;
+	position: absolute;
+	display: block;
 }
-.anchorpoint:hover {
+.fz:hover {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	-webkit-transition: background 1s;
@@ -114,7 +116,6 @@ body {
 	background-color: rgba(239, 41, 41, 1); /* Scarlet Red Lighter */
 	-webkit-transition: background 1s;
 }
-
 /* TAILLES DES MSG ZOOM 1:1 */
 
 .z1 > .msg.s {
@@ -315,8 +316,6 @@ body {
 	text-align: justify;
 	letter-spacing: 0px;
 }
-
-
 /* TAILLES DES MSG ZOOM 1:2 */
 
 .z2 > .msg.s {
@@ -384,7 +383,6 @@ body {
 	line-height: 10px;
 	text-align: justify;
 	letter-spacing: 1px;
-
 }
 /* STYLES DES MSG ZOOM 1:2 LONG*/
 
@@ -518,8 +516,6 @@ body {
 	text-align: justify;
 	letter-spacing: 0px;
 }
-
-
 /* TAILLES DES MSG ZOOM 1:4 */
 
 .z4 > .msg.s {
@@ -587,7 +583,6 @@ body {
 	line-height: 4px;
 	text-align: justify;
 	letter-spacing: 1px;
-
 }
 /* STYLES DES MSG ZOOM 1:4 LONG*/
 
@@ -721,19 +716,18 @@ body {
 	text-align: justify;
 	letter-spacing: 1px;
 }
-
 /*
-.msg{
-	
-	border: 1px dashed #000;
-	background-color: #eeeeec;
-}
-.msg>p{
-		color: black;
-	
-}
+ .msg{
 
-*/
+ border: 1px dashed #000;
+ background-color: #eeeeec;
+ }
+ .msg>p{
+ color: black;
+
+ }
+
+ */
 
 /* TAILLES DES MSG ZOOM 1:10 */
 
@@ -935,7 +929,6 @@ body {
 	text-align: justify;
 	letter-spacing: 0px;
 }
-
 /* TAILLES DES MSG ZOOM 1:20 */
 
 .z20 > .msg.s {
@@ -954,38 +947,35 @@ body {
 	width: 48px;
 	height: 32px;
 }
-
 /* COULEURS DES MSG */
-
 
 .z20 > .butter {
 	background-color: #c4a000;  /* Butter Ddarker */
 }
-.z20 >.orange {
+.z20 > .orange {
 	background-color: #ce5c00; /* Orange darker */
 }
-.z20 >.chocolate {
+.z20 > .chocolate {
 	background-color: #8f5902; /* Chocolate darker */
 }
-.z20 >.chameleon {
+.z20 > .chameleon {
 	background-color: #4e9a06; /* Chameleon darker */
 }
-.z20 >.skyblue {
+.z20 > .skyblue {
 	background-color: #204a87; /* Sky Blue darker */
 }
-.z20 >.plum {
+.z20 > .plum {
 	background-color: #5c3566; /* Plum darker */
 }
-.z20 >.scarletred {
+.z20 > .scarletred {
 	background-color: #a40000; /* Scarlet Red darker */
 }
-.z20 >.aluminium1 {
+.z20 > .aluminium1 {
 	background-color: #babdb6; /* Aluminium 1 darker */
 }
-.z20 >.aluminium2 {
+.z20 > .aluminium2 {
 	background-color: #2e3436; /* Aluminium 2 darker */
 }
-
 /* TAILLES DES MSG ZOOM 1:40 */
 
 .z40 > .msg.s {
@@ -1004,34 +994,32 @@ body {
 	width: 24px;
 	height: 16px;
 }
-
 /* COULEURS DES MSG */
-
 
 .z40 > .butter {
 	background-color: #c4a000;  /* Butter Ddarker */
 }
-.z40 >.orange {
+.z40 > .orange {
 	background-color: #ce5c00; /* Orange darker */
 }
-.z40 >.chocolate {
+.z40 > .chocolate {
 	background-color: #8f5902; /* Chocolate darker */
 }
-.z40 >.chameleon {
+.z40 > .chameleon {
 	background-color: #4e9a06; /* Chameleon darker */
 }
-.z40 >.skyblue {
+.z40 > .skyblue {
 	background-color: #204a87; /* Sky Blue darker */
 }
-.z40 >.plum {
+.z40 > .plum {
 	background-color: #5c3566; /* Plum darker */
 }
-.z40 >.scarletred {
+.z40 > .scarletred {
 	background-color: #a40000; /* Scarlet Red darker */
 }
-.z40 >.aluminium1 {
+.z40 > .aluminium1 {
 	background-color: #babdb6; /* Aluminium 1 darker */
 }
-.z40 >.aluminium2 {
+.z40 > .aluminium2 {
 	background-color: #2e3436; /* Aluminium 2 darker */
 }
