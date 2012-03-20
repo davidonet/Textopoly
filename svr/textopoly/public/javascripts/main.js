@@ -78,7 +78,6 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 						case 5:
 							$(location).attr('href', '/view?zoom=1');
 							break;
-
 					}
 
 				}
@@ -90,7 +89,11 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 				left:(params.xmin * params.stepx)+$(document).width()/2,
 				top:(params.ymin * params.stepy)+$(document).height()/2
 			});
-			
+	
+			$('div#map').css({
+				width:(params.xmax-params.xmin)* params.stepx,
+				height:(params.ymax-params.ymin)* params.stepy
+				});
 		});
-	});
+		});
 });
