@@ -137,7 +137,7 @@ div#footer > h1 {
 	display: block;
 	-webkit-transition: background 2s;
 }
-.z1, .z2, .z4, .fz:hover {
+.fz:hover {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	-webkit-transition: background 1s;
 		-moz-transition: background 1s;
