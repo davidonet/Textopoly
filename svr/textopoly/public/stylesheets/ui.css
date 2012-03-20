@@ -10,6 +10,7 @@ div#map {
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	cursor:move;
 }
 div#uiWrap {
 	position: relative;
@@ -27,6 +28,7 @@ div#header {
 	margin: 0px auto;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	cursor:default;
 }
 div#header > #topbar {
 	position: relative;
@@ -139,50 +141,44 @@ div#footer > h1 {
 }
 .fz:hover {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	cursor:text;
 	-webkit-transition: background 1s;
-		-moz-transition: background 1s;
-
+	-moz-transition: background 1s;
 }
 .msg.butter, .msg.orange, .msg.chocolate, .msg.chameleon, .msg.skyblue, .msg.plum, .msg.scarletred {
 	-webkit-transition: background 2s;
-		-moz-transition: background 2s;
-
+	-moz-transition: background 2s;
 }
 .z20 > .msg.butter:hover, .z40 > .msg.butter:hover, .msg.butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
 	-webkit-transition: background 1s;
-		-moz-transition: background 1s;
+	-moz-transition: background 1s;
 
 }
 .z20 > .msg.orange:hover, .z40 > .msg.orange:hover, .msg.orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
 	-webkit-transition: background 1s;
-		-moz-transition: background 1s;
-
+	-moz-transition: background 1s;
 }
 .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover, .msg.chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
 	-webkit-transition: background 1s;
-		-moz-transition: background 1s;
-
+	-moz-transition: background 1s;
 }
 .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover, .msg.chameleon:hover {
 	background-color: #8ae234; /* Chameleon Lighter */
 	-webkit-transition: background 1s;
-		-moz-transition: background 1s;
-
+	-moz-transition: background 1s;
 }
 .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover, .msg.skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
 	-webkit-transition: background 1s;
-		-moz-transition: background 1s;
-
+	-moz-transition: background 1s;
 }
 .z20 > .msg.plum:hover, .z40 > .msg.plum:hover, .msg.plum:hover {
 	background-color: #ad7fa8; /* Plum Lighter */
 	-webkit-transition: background 1s;
-		-moz-transition: background 1s;
-
+	-moz-transition: background 1s;
 }
 .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover, .msg.scarletred:hover {
 	background-color: #ef2929; /* Scarlet Red Lighter */
@@ -218,7 +214,7 @@ p.author {
 }
 .z20 > .l0.butter, .z40 > .l0.butter, .l0.butter {
 	background-color: #fce94f; /* Butter Lighter */
-	}
+}
 .z20 > .l0.orange, .z40 > .l0.orange, .l0.orange {
 	background-color: #fcaf3e; /* Orange Lighter */
 }
