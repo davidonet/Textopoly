@@ -39,11 +39,11 @@ exports.remove = function(req, res) {
 }
 
 exports.view = function(req, res) {
-	var zoom = (req.query.zoom ? Number(req.query.zoom) : 2);
-	var xmin = (req.query.xmin ? Number(req.query.xmin) : -10);
-	var xmax = (req.query.xmax ? Number(req.query.xmax) : 10);
-	var ymin = (req.query.ymin ? Number(req.query.ymin) : -10);
-	var ymax = (req.query.ymax ? Number(req.query.ymax) : 10);
+	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
+	var xmin = (req.query.xmin ? Number(req.query.xmin) : -40);
+	var xmax = (req.query.xmax ? Number(req.query.xmax) : 40);
+	var ymin = (req.query.ymin ? Number(req.query.ymin) : -40);
+	var ymax = (req.query.ymax ? Number(req.query.ymax) : 40);
 	var stepX = 120;
 	var stepY = 80;
 	switch(zoom) {
