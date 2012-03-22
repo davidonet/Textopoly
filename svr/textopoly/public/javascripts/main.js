@@ -24,7 +24,6 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 			var zoomFactor = params.zoom;
 			var zoomValue = 3;
 
-			console.log(params.zoom);
 
 			switch(zoomFactor) {
 				case 40:
