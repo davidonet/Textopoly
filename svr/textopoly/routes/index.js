@@ -32,6 +32,9 @@ exports.insert = function(req, res) {
 }
 
 exports.remove = function(req, res) {
+	db.gridfs().unlink('[' + req.body.x + ',' + req.body.y + ']', function(err, gs) {
+		console.log("image removed")
+	});
 	db.txt.removeTxt(req.body, function(err) {
 		res.json(err);
 		io.sockets.emit('unbook', req.body);
@@ -72,13 +75,12 @@ exports.view = function(req, res) {
 			stepY = 4;
 			break;
 	}
-	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
 
 	var reservedArray = new Array((4 + xmax - xmin) * (4 + ymax - ymin));
-
 	for(var i = 0, j = reservedArray.length; i < j; i++) {
 		reservedArray[i] = 0;
 	}
+
 	function xyToIndex(anX, anY) {
 		return (anX - xmin) + ((4 + xmax - xmin) * (anY - ymin));
 	}
@@ -106,7 +108,30 @@ exports.view = function(req, res) {
 		return encoding;
 	}
 
+	function txtLen2Class(txtlen) {
 
+		var lclass = '';
+		if(txtlen < 1) {
+			lclass = 'l0';
+		} else if(txtlen < 4) {
+			lclass = 'l4';
+		} else if(txtlen < 15) {
+			lclass = 'l15';
+		} else if(txtlen < 50) {
+			lclass = 'l50';
+		} else if(txtlen < 150) {
+			lclass = 'l150';
+		} else if(txtlen < 300) {
+			lclass = 'l300';
+		} else if(txtlen < 601) {
+			lclass = 'l600';
+		} else {
+			lclass = 'warning';
+		}
+		return lclass;
+	}
+
+	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
 	db.txt.boxedTxt(aBoundingBox, function(err, items) {
 		items.forEach(function(value, index) {
 			value.absx = (value.p[0] - xmin) * stepX;
@@ -115,25 +140,7 @@ exports.view = function(req, res) {
 			var txtlen = 0;
 			if(value.t)
 				txtlen = value.t.length;
-			value.lclass = '';
-			if(txtlen < 1) {
-				value.lclass = 'l0';
-			} else if(txtlen < 4) {
-				value.lclass = 'l4';
-			} else if(txtlen < 15) {
-				value.lclass = 'l15';
-			} else if(txtlen < 50) {
-				value.lclass = 'l50';
-			} else if(txtlen < 150) {
-				value.lclass = 'l150';
-			} else if(txtlen < 300) {
-				value.lclass = 'l300';
-			} else if(txtlen < 601) {
-				value.lclass = 'l600';
-			} else {
-				value.lclass = 'warning';
-				console.log(txtlen + "@(" + value.p[0] + ',' + value.p[1] + ')');
-			}
+			value.lclass = txtLen2Class(txtlen);
 
 			var aX = value.p[0], aY = value.p[1];
 			reserveABlock(aX, aY);
@@ -144,20 +151,8 @@ exports.view = function(req, res) {
 			if('f' == value.s)
 				reserveABlock(aX + 2, aY + 2);
 		});
-		/**
-		 * Debug Booked array //////////////////////////////
-
-		 for(var i = ymin, j = ymax + 4; i < j; i++) {
-		 var aLine = "";
-		 for(var k = xmin, l = xmax + 4; k < l; k++) {
-		 aLine += borderArray[xyToIndex(k, i)]
-		 }
-		 console.log(aLine);
-		 }
-		 ///////////////////////////////////////////////////
-		 */
-
 		var compOutput = encode(reservedArray);
+
 		var response = {
 			title : 'Textopoly | ' + aBoundingBox,
 			params : {
@@ -174,5 +169,44 @@ exports.view = function(req, res) {
 		};
 
 		res.render('view.jade', response);
+	});
+}
+
+exports.postimg = function(req, res, next) {
+	var aGSData = {
+		"content_type" : req.files.image.type,
+		"metadata" : {
+			"a" : req.body.a,
+			"x" : req.body.x,
+			"y" : req.body.y,
+			"s" : req.body.s,
+			"c" : 'image'
+		}
+	};
+
+	db.gridfs().open('[' + req.body.x + ',' + req.body.y + ']', 'w', aGSData, function(err, gs) {
+		gs.writeFile(req.files.image.path, function(err, gs) {
+			aGSData.metadata.i = gs._id;
+			db.txt.insertTxt(aGSData.metadata, function(err, aTxt) {
+				res.json(aTxt);
+				io.sockets.emit('book', aTxt);
+				gs.close();
+			});
+		});
+	});
+}
+
+exports.getimg = function(req, res, next) {
+	db.gridfs().open(req.params.id, 'r', function(err, gs) {
+		gs.read(function(err, reply) {
+			if(err)
+				next(err)
+			else {
+				res.writeHead('200', {
+					'Content-Type' : gs.contentType
+				});
+				res.end(reply, 'binary');
+			}
+		});
 	});
 }

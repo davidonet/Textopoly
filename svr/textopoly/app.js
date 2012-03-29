@@ -2,12 +2,10 @@
  * Module dependencies.
  */
 
-
 var mongo = require('mongoskin');
-
 var express = require('express'), routes = require('./routes'), models = require('./models/mongodrv');
+var app = module.exports = express.createServer();
 
-var app = module.exports = express.createServer()
 global.io = require('socket.io').listen(app);
 io.set('log level', 0);
 io.sockets.on('connection', function(socket) {
@@ -46,9 +44,11 @@ app.configure('production', function() {
 });
 // Routes
 app.get('/section', routes.section);
+app.get('/view', routes.view);
+app.get('/getimg/:id',routes.getimg);
 app.post('/insert', routes.insert);
 app.post('/remove', routes.remove);
-app.get('/view', routes.view);
+app.post('/postimg', routes.postimg);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
