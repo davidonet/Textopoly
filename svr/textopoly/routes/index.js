@@ -171,6 +171,7 @@ exports.view = function(req, res) {
 		res.render('view.jade', response);
 	});
 }
+var fs = require('fs');
 
 exports.postimg = function(req, res, next) {
 	var aGSData = {
@@ -186,11 +187,14 @@ exports.postimg = function(req, res, next) {
 
 	db.gridfs().open('[' + req.body.x + ',' + req.body.y + ']', 'w', aGSData, function(err, gs) {
 		gs.writeFile(req.files.image.path, function(err, gs) {
+			fs.unlink(req.files.image.path, function(err) {
+				if(err)
+					throw err;
+			});
 			aGSData.metadata.i = gs._id;
 			db.txt.insertTxt(aGSData.metadata, function(err, aTxt) {
 				res.json(aTxt);
 				io.sockets.emit('book', aTxt);
-				gs.close();
 			});
 		});
 	});
