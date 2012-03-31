@@ -10,7 +10,7 @@ div#map {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	cursor:move;
+	cursor: move;
 }
 div#uiWrap {
 	position: relative;
@@ -28,7 +28,7 @@ div#header {
 	margin: 0px auto;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
-	cursor:default;
+	cursor: default;
 }
 div#header > #topbar {
 	position: relative;
@@ -36,7 +36,7 @@ div#header > #topbar {
 	height: 4px;
 	top: 0px;
 	margin: 0px auto;
-	background-color: #2e3436  /* Aluminium 2 Darker */
+	background-color: #2e3436   /* Aluminium 2 Darker */
 }
 div#zoomWrap {
 	position: absolute;
@@ -49,7 +49,7 @@ div#zoom {
 	position: absolute;
 	top: 50%;
 	margin-top: -100px;
-	z-index: 1000;
+	z-index: 2000;
 	height: 200px;
 	width: 24px;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
@@ -141,7 +141,7 @@ div#footer > h1 {
 }
 .fz:hover {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	cursor:text;
+	cursor: text;
 	-webkit-transition: background 1s;
 	-moz-transition: background 1s;
 }
@@ -153,7 +153,6 @@ div#footer > h1 {
 	background-color: #fce94f; /* Butter Lighter */
 	-webkit-transition: background 1s;
 	-moz-transition: background 1s;
-
 }
 .z20 > .msg.orange:hover, .z40 > .msg.orange:hover, .msg.orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
@@ -233,3 +232,20 @@ p.author {
 .z20 > .l0.scarletred, .z40 > .l0.scarletred, .l0.scarletred {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 }
+/* ECRITURE */
+
+.z2>#writingForm {
+	z-index: 1000;
+	position: absolute;
+	display: block;
+	width: 240px;
+	height: 260px;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	overflow: hidden;
+	-webkit-box-shadow: 0px 0px 30px #2e3436; /* Aluminium 2 Darker */
+}
+input[t] {
+	resize: none;
+	width: 240px;
+	height: 160px;}

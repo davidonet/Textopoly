@@ -88,9 +88,11 @@ function anchorPoint() {
 				});
 				var newContent = $(document.createElement("p")).text('(' + i + ',' + k + ')');
 				newTxt.append(newContent);
-				$(newTxt).on('click', function(event) {
-				 //  console.log($(this).attr('dc'));
-				});
+				
+				
+			//	$(newTxt).on('click', function(event) {
+			//	console.log($(this).attr('dc'));
+			//	});
 				$('#map').append(newTxt);
 				
 			}

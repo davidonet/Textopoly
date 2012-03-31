@@ -1,29 +1,55 @@
 require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch"], function($) {
 	$(function() {
 		$(document).ready(function() {
+
 			// masque les infos de debug
 			require(["bookingsocket"], function() {
 			});
 			require(["gridinteraction"], function() {
 				anchorPoint();
 				$('.fz > p').hide();
+
+				// Insère formulaire d'écriture
+
+				var writingForm = '<div id="writingForm"><h2>Insert a new text</h2><form action="/insert"  method="post"><div><textarea name="t" rows="9" maxlength="600" cols="70"></textarea></div><div><label>X</label><input name="x" type="number" min="-100" max="100"/><label>Y</label><input name="y" type="number" min="-100" max="100"/><label>Size</label><select name="s"><option value="s">Small</option><option value="l">Long</option><option value="t">Tall</option><option value="f">Fat</option></select><label>Author</label><select name="a"><option>davidonet</option><option>zakxxi</option></select><label>Color</label><select name="c" value="butter"><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input type="submit" value="Insert" /></div></form></div>'
+				$('#map').append(writingForm);
+
+				// écrire
+				$('.fz').on('click', function(event) {
+					var dc = $(this).attr('dc').split(',');
+					var xGrid = dc[0];
+					var yGrid = dc[1];
+
+					var position = $(this).position();
+					var xPos = position.left;
+					var yPos = position.top;
+					console.log('xGrid= ' + xGrid + ' | yGrid= ' + yGrid);
+					console.log('xPos= ' + xPos + ' | yPos= ' + yPos);
+
+					$('#writingForm').css({
+						'left' : xPos,
+						'top' : yPos
+					});
+					
+					$('input[name$="x"]').val(xGrid);
+					$('input[name$="y"]').val(yGrid)
+				});
 			});
 			// slider
 
 			/* Valeurs Slider - Echelles
-			 * 5 1:1
-			 * 4 1:2
-			 * 3 1:4
-			 * 2 1:10
-			 * 1 1:20
-			 * 0 1:40
-			 */
-			
+			* 5 1:1
+			* 4 1:2
+			* 3 1:4
+			* 2 1:10
+			* 1 1:20
+			* 0 1:40
+			*/
+
 			// Récupère la valeur de zoom de la page et règle le slider
 
 			var zoomFactor = params.zoom;
 			var zoomValue = 3;
-
 
 			switch(zoomFactor) {
 				case 40:
@@ -48,7 +74,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 
 			// Réglage du zoomSlider
 
-			$('div#zoomSlider').slider({
+			$('#zoomSlider').slider({
 				orientation : "vertical",
 				min : 0,
 				max : 5,
@@ -83,16 +109,18 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 			});
 
 			// drag map
-			$('div#map').draggable();
-			$('div#map').animate({
-				left:(params.xmin * params.stepx)+$(document).width()/2,
-				top:(params.ymin * params.stepy)+$(document).height()/2
+			$('#map').draggable();
+
+			// center map
+			$('#map').animate({
+				left : (params.xmin * params.stepx) + $(document).width() / 2,
+				top : (params.ymin * params.stepy) + $(document).height() / 2
 			});
-	
-			$('div#map').css({
-				width:(params.xmax-params.xmin)* params.stepx,
-				height:(params.ymax-params.ymin)* params.stepy
-				});
+			$('#map').css({
+				width : (params.xmax - params.xmin) * params.stepx,
+				height : (params.ymax - params.ymin) * params.stepy
+			});
+
 		});
-		});
+	});
 });
