@@ -234,7 +234,7 @@ p.author {
 }
 /* ECRITURE */
 
-.z2>#writingForm {
+.z2>#writingBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
@@ -245,7 +245,8 @@ p.author {
 	overflow: hidden;
 	-webkit-box-shadow: 0px 0px 30px #2e3436; /* Aluminium 2 Darker */
 }
-input[t] {
+textarea[name*="t"] {
 	resize: none;
 	width: 240px;
-	height: 160px;}
+	height: 160px;
+	}
