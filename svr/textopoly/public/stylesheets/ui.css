@@ -232,7 +232,11 @@ p.author {
 .z20 > .l0.scarletred, .z40 > .l0.scarletred, .l0.scarletred {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 }
-/* ECRITURE */
+/* ECRITURE au zoom 2 */
+.z1>#writingBox,.z4>#writingBox, .z10>#writingBox,.z20>#writingBox, .z40>#writingBox     {
+	display: none;
+}
+
 
 .z2>#writingBox {
 	z-index: 1000;
@@ -245,7 +249,7 @@ p.author {
 	overflow: hidden;
 	-webkit-box-shadow: 0px 0px 30px #2e3436; /* Aluminium 2 Darker */
 }
-textarea[name*="t"] {
+.z2 > textarea[name*="t"] {
 	resize: none;
 	width: 240px;
 	height: 160px;
