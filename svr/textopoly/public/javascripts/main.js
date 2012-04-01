@@ -1,6 +1,10 @@
 require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form"], function($) {
 	$(function() {
 		$(document).ready(function() {
+		
+		// boutons jqueryui
+
+
 
 			// masque les infos de debug
 			require(["bookingsocket"], function() {
@@ -11,9 +15,9 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 
 				// Insère formulaire d'écriture
 
-				var writingForm = '<div id="writingBox"><h2>Insert a new text</h2><form id = "writingForm" action="/insert"  method="post"><div><textarea name="t" rows="9" maxlength="600" cols="70"></textarea></div><div><input name="x" type="number" min="-100" max="100"/><input name="y" type="number" min="-100" max="100"/><label>Size</label><select name="s"><option value="s">Small</option><option value="l">Long</option><option value="t">Tall</option><option value="f">Fat</option></select><label>Author</label><select name="a"><option>davidonet</option><option>zakxxi</option></select><label>Color</label><select name="c" value="butter"><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input type="submit" value="Insert" /></div></form></div>'
+				var writingForm = '<div id="writingBox"><form id = "writingForm" action="/insert"  method="post"><div><textarea name="t" rows="9" maxlength="600" cols="70"></textarea></div><div><input name="x" type="number" min="-100" max="100"/><input name="y" type="number" min="-100" max="100"/><select name="s"><option value="s">Small</option><option value="l">Long</option><option value="t">Tall</option><option value="f">Fat</option></select><select name="a"><option>davidonet</option><option>zakxxi</option></select><select name="c" value="butter"><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input type="submit" value="Insert" /></div></form></div>'
 				$('#map').append(writingForm);
-
+				
 				// AJAXifie le formulaire d'écriture
 
 				$('#writingForm').ajaxForm(function() {

@@ -249,8 +249,9 @@ p.author {
 	overflow: hidden;
 	-webkit-box-shadow: 0px 0px 30px #2e3436; /* Aluminium 2 Darker */
 }
-.z2 > textarea[name*="t"] {
+.z2 * textarea[name*="t"] {
 	resize: none;
 	width: 240px;
 	height: 160px;
+	border: none;
 	}
