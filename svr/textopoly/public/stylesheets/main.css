@@ -15,32 +15,29 @@
 }
 /* VALEURS GLOBALES*/
 
-html{
-		-webkit-user-select: none;
-			-webkit-font-smoothing: subpixel-antialiased;
-
+html {
+	-webkit-user-select: none;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
-
 body {
 	background: #d3d7cf; /* Aluminium 1 */
 	height: 100%;
-
 }
 .msg {
 	display: block;
 	position: absolute;
-}
-
+		cursor: default;
+	}
 .msg > p {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
-}
+	word-wrap: break-word;
 
-.msg > img{
-	width:100%;
+}
+.msg > img {
+	width: 100%;
 	height: 100%;
 }
-
 div#main > h1, h2, h3, h4, h5, h6, label {
 	font-family: 'FuturaCondensedMedium';
 	text-transform: uppercase;

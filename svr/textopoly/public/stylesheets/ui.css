@@ -137,52 +137,52 @@ div#footer > h1 {
 .fz {
 	position: absolute;
 	display: block;
-	-webkit-transition: background 2s;
+	-webkit-transition: background 0.5s;
 }
 .fz:hover {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	cursor: text;
-	-webkit-transition: background 1s;
-	-moz-transition: background 1s;
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s;
 }
 .msg.butter, .msg.orange, .msg.chocolate, .msg.chameleon, .msg.skyblue, .msg.plum, .msg.scarletred {
-	-webkit-transition: background 2s;
-	-moz-transition: background 2s;
+	-webkit-transition: background 0.5s;
+	-moz-transition: background 0.5s;
 }
 .z20 > .msg.butter:hover, .z40 > .msg.butter:hover, .msg.butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
-	-webkit-transition: background 1s;
-	-moz-transition: background 1s;
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s;
 }
 .z20 > .msg.orange:hover, .z40 > .msg.orange:hover, .msg.orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
-	-webkit-transition: background 1s;
-	-moz-transition: background 1s;
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s;
 }
 .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover, .msg.chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
-	-webkit-transition: background 1s;
-	-moz-transition: background 1s;
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s;
 }
 .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover, .msg.chameleon:hover {
 	background-color: #8ae234; /* Chameleon Lighter */
-	-webkit-transition: background 1s;
-	-moz-transition: background 1s;
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s;
 }
 .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover, .msg.skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
-	-webkit-transition: background 1s;
-	-moz-transition: background 1s;
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s;
 }
 .z20 > .msg.plum:hover, .z40 > .msg.plum:hover, .msg.plum:hover {
 	background-color: #ad7fa8; /* Plum Lighter */
-	-webkit-transition: background 1s;
-	-moz-transition: background 1s;
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s;
 }
 .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover, .msg.scarletred:hover {
 	background-color: #ef2929; /* Scarlet Red Lighter */
-	-webkit-transition: background 1s;
-	-moz-transition: background 1s;
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s;
 }
 /* ZONES EN COURS D'ÉCRITURE */
 
@@ -243,9 +243,9 @@ p.author {
 	position: absolute;
 	display: block;
 	width: 240px;
-	height: 260px;
-	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	height: 240px;
+	background-color: #2e3436; /* Aluminium 2 Darker */
+	background-color: rgba(46, 52, 54, 0.9); /* Aluminium 2 Darker */
 	overflow: hidden;
 	-webkit-box-shadow: 0px 0px 30px #2e3436; /* Aluminium 2 Darker */
 }
@@ -254,4 +254,5 @@ p.author {
 	width: 240px;
 	height: 160px;
 	border: none;
+);
 	}
