@@ -1,25 +1,24 @@
 require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form"], function($) {
 	$(function() {
 		$(document).ready(function() {
-			
-			
+
 			// recupere coord
-				$('.msg').on('click', function(event) {
+			$('.msg').on('click', function(event) {
 
-					var dc = $(this).attr('dc').split(',');
-					// récupère la propriété dc d'un élément .msg dans un tableau
-					var xGrid = dc[0];
-					// récupère x de dc
-					var yGrid = dc[1];
-					// récupère y de dc
-					console.log('xGrid= ' + xGrid + ' | yGrid= ' + yGrid);
+				var dc = $(this).attr('dc').split(',');
+				// récupère la propriété dc d'un élément .msg dans un tableau
+				var xGrid = dc[0];
+				// récupère x de dc
+				var yGrid = dc[1];
+				// récupère y de dc
+				console.log('xGrid= ' + xGrid + ' | yGrid= ' + yGrid);
 
-					var position = $(this).position();
-					// récupère la position absolue d'un élément .msg
-					var xPos = position.left;
-					var yPos = position.top;
-					console.log('xPos= ' + xPos + ' | yPos= ' + yPos);
-});
+				var position = $(this).position();
+				// récupère la position absolue d'un élément .msg
+				var xPos = position.left;
+				var yPos = position.top;
+				console.log('xPos= ' + xPos + ' | yPos= ' + yPos);
+			});
 			// boutons jqueryui
 
 			// masque les infos de debug
@@ -43,19 +42,17 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 						buttons : {
 							"OK" : function() {
 								$(this).dialog("close");
-								
+
 								location.reload();
 							}
 						}
 					});
 
 				});
-				
 				// cache les champs X et Y du formulaire d'écriture
 				$('input[name*="x"]').hide();
 				$('input[name*="y"]').hide();
-				
-				
+
 				// écrire
 				$('.fz').on('click', function(event) {
 
@@ -66,7 +63,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 					var yGrid = dc[1];
 					// récupère y de dc
 					console.log('xGrid= ' + xGrid + ' | yGrid= ' + yGrid);
-
+					console.log(freeAdjacent(xGrid, yGrid));
 					var position = $(this).position();
 					// récupère la position absolue d'un élément .fz
 					var xPos = position.left;
@@ -84,12 +81,6 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 					$('input[name*="y"]').val(yGrid);
 				});
 			});
-			
-			
-			
-			
-			
-			
 			// slider
 
 			/* Valeurs Slider - Echelles

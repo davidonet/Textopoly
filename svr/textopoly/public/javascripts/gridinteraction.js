@@ -22,6 +22,40 @@ function xyToIndex(anX, anY) {
 	return (anX - params.xmin) + ((4 + params.xmax - params.xmin) * (anY - params.ymin));
 }
 
+function freeAdjacent(anX, anY) {
+
+	function isP(dX, dY) {
+		var aCB = reservedArray[xyToIndex(Number(anX) + Number(dX), Number(anY) + Number(dY))] ==0;
+		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX)+1, Number(anY) + Number(dY))] ==0;
+		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX)+1, Number(anY) + Number(dY)+1)] ==0;
+		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX), Number(anY) + Number(dY)+1)] ==0;
+		return aCB;
+	}
+
+	var aResult = new Array();
+	if(isP(-2, 0))
+		aResult.push('w');
+	if(isP(2, 0))
+		aResult.push('e');
+	if(isP(0, -2)) {
+		aResult.push('n');
+		if(isP(-2, 0))
+			aResult.push('nw');
+		if(isP(2, 0))
+			aResult.push('ne');
+	}
+	if(isP(0, 2))
+	{
+		aResult.push('s');
+		if(isP(-2, 0))
+			aResult.push('sw');
+		if(isP(2, 0))
+			aResult.push('se');
+	}
+		
+	return aResult;
+}
+
 for(var i = params.ymin + 1, j = params.ymax + 1; i < j; i++) {
 	for(var k = params.xmin + 1, l = params.xmax + 1; k < l; k++) {
 		var c = reservedArray[xyToIndex(k, i)];
@@ -81,20 +115,19 @@ function anchorPoint() {
 		for(var k = params.ymin, l = params.ymax + 4; k < l; k++) {
 			if(1 == borderArray[xyToIndex(i, k)]) {
 				var newTxt = $(document.createElement("div")).addClass('fz').addClass('s').addClass('msg');
-				newTxt.attr('dc',[i,k]);
+				newTxt.attr('dc', [i, k]);
 				newTxt.css({
 					left : (i - params.xmin) * params.stepx + 'px',
 					top : (k - params.ymin) * params.stepy + 'px',
 				});
 				var newContent = $(document.createElement("p")).text('(' + i + ',' + k + ')');
 				newTxt.append(newContent);
-				
-				
-			//	$(newTxt).on('click', function(event) {
-			//	console.log($(this).attr('dc'));
-			//	});
+
+				//	$(newTxt).on('click', function(event) {
+				//	console.log($(this).attr('dc'));
+				//	});
 				$('#map').append(newTxt);
-				
+
 			}
 		}
 	}
