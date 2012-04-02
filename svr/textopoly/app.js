@@ -3,7 +3,8 @@
  */
 
 var mongo = require('mongoskin');
-var express = require('express'), routes = require('./routes'), models = require('./models/mongodrv');
+var express = require('express');
+
 var app = module.exports = express.createServer();
 
 global.io = require('socket.io').listen(app);
@@ -42,13 +43,8 @@ app.configure('development', function() {
 app.configure('production', function() {
 	app.use(express.errorHandler());
 });
-// Routes
-app.get('/section', routes.section);
-app.get('/view', routes.view);
-app.get('/getimg/:id',routes.getimg);
-app.post('/insert', routes.insert);
-app.post('/remove', routes.remove);
-app.post('/postimg', routes.postimg);
+
+require('./routes')(app);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
