@@ -1,5 +1,5 @@
 var mongo = require('mongoskin');
-var sensible = require('../sensible');
+var sensible = require('../../sensible');
 
 global.db = mongo.db(sensible.mongourl());
 
