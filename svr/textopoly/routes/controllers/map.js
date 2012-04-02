@@ -1,11 +1,16 @@
+
 exports.view = function(req, res) {
+	var xcenter = 	(req.query.xcenter ? Number(req.query.xcenter) : 0);
+	var ycenter = 	(req.query.ycenter ? Number(req.query.ycenter) : 0);
 	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
-	var xmin = (req.query.xmin ? Number(req.query.xmin) : -40);
-	var xmax = (req.query.xmax ? Number(req.query.xmax) : 40);
-	var ymin = (req.query.ymin ? Number(req.query.ymin) : -40);
-	var ymax = (req.query.ymax ? Number(req.query.ymax) : 40);
+	var xmin = xcenter-40;
+	var xmax = xcenter+40;
+	var ymin = ycenter-40;
+	var ymax = ycenter+40;
+	
 	var stepX = 120;
 	var stepY = 80;
+	
 	switch(zoom) {
 		case 1:
 			stepX = 240;
@@ -114,6 +119,8 @@ exports.view = function(req, res) {
 			title : 'Textopoly | ' + aBoundingBox,
 			params : {
 				zoom : zoom,
+				xcenter:xcenter,
+				ycenter:ycenter,
 				xmin : xmin,
 				ymin : ymin,
 				xmax : xmax,

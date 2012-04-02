@@ -159,8 +159,8 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 
 			// center map
 			$('#map').animate({
-				left : (params.xmin * params.stepx) + $(document).width() / 2,
-				top : (params.ymin * params.stepy) + $(document).height() / 2
+				left : ((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2,
+				top : ((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2
 			});
 			$('#map').css({
 				width : (params.xmax - params.xmin) * params.stepx,
