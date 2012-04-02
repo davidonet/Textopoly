@@ -1,7 +1,6 @@
 require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form"], function($) {
 	$(function() {
 		$(document).ready(function() {
-
 			// recupere coord
 			$('.msg').on('click', function(event) {
 
@@ -117,6 +116,13 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 					zoomValue = 5;
 					break;
 			};
+			function getXCenter() {
+				return (params.xmin - 1) - Math.floor((2 * $('#map').position().left - $(document).width()) / (2 * params.stepx));
+			}
+
+			function getYCenter() {
+				return (params.ymin - 1) - Math.floor((2 * $('#map').position().top - $(document).height()) / (2 * params.stepy));
+			}
 
 			// Réglage du zoomSlider
 
@@ -129,28 +135,29 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 				change : function() {
 
 					var sliderValue = $(this).slider("option", "value");
-
-					switch(sliderValue) {
-						case 0:
-							$(location).attr('href', '/view?zoom=40');
-							break;
-						case 1:
-							$(location).attr('href', '/view?zoom=20');
-							break;
-						case 2:
-							$(location).attr('href', '/view?zoom=10');
-							break;
-						case 3:
-							$(location).attr('href', '/view?zoom=4');
-							break;
-						case 4:
-							$(location).attr('href', '/view?zoom=2');
-							break;
-						case 5:
-							$(location).attr('href', '/view?zoom=1');
-							break;
-					}
-
+					var xcenter = getXCenter();
+					var ycenter = getYCenter();
+					$('#map').fadeOut(300, function() {
+						switch(sliderValue) {
+							case 0:
+								$(location).attr('href', '/view?zoom=40&xcenter=' + xcenter + '&ycenter=' + ycenter);
+								break;
+							case 1:
+								$(location).attr('href', '/view?zoom=20&xcenter=' + xcenter + '&ycenter=' + ycenter);
+								break;
+							case 2:
+								$(location).attr('href', '/view?zoom=10&xcenter=' + xcenter + '&ycenter=' + ycenter);
+								break;
+							case 3:
+								$(location).attr('href', '/view?zoom=4&xcenter=' + xcenter + '&ycenter=' + ycenter);
+								break;
+							case 4:
+								$(location).attr('href', '/view?zoom=2&xcenter=' + xcenter + '&ycenter=' + ycenter);
+								break;
+							case 5:
+								$(location).attr('href', '/view?zoom=1&xcenter=' + xcenter + '&ycenter=' + ycenter);
+						}
+					});
 				}
 			});
 
@@ -158,15 +165,13 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 			$('#map').draggable();
 
 			// center map
-			$('#map').animate({
-				left : ((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2,
-				top : ((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2
-			});
 			$('#map').css({
+				left : ((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2,
+				top : ((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2,
 				width : (params.xmax - params.xmin) * params.stepx,
 				height : (params.ymax - params.ymin) * params.stepy
 			});
-
+			$('#map').fadeIn(500);
 		});
 	});
 });
