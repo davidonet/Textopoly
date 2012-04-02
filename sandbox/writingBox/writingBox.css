@@ -1,0 +1,25 @@
+#writingBox {
+	z-index: 1000;
+	position: absolute;
+	display: block;
+	border: 2px dashed;
+
+}
+
+
+#writingArea{
+	
+	
+}
+
+#writingCommands {
+	
+
+}
+
+textarea[name*="t"] {
+	resize: none;
+	border: none;
+	height:auto;
+	width: auto;
+	}

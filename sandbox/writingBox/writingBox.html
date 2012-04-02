@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<link rel='stylesheet', href='../../svr/textopoly/public/stylesheets/styles.css'/>
+		<link rel='stylesheet', href='writingBox.css'/>
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+		<script src="../../svr/textopoly/public/javascripts/jquery.form.js"></script>
+		<script src="writingBox.js"></script>
+		<meta charset="UTF-8">
+		<title>writingBox</title>
+	</head>
+	<body>
+		<div id="main" class="z2">
+			<h1>writingBox</h1>
+			<div id="writingBox">
+				<form id = "writingForm" action="/insert"  method="post">
+					<textarea name="t" rows="9" maxlength="600" cols="70"></textarea>
+					<div>
+						<input type="hidden" name="x" type="number" min="-100" max="100"  />
+						<input type="hidden" name="y" type="number" min="-100" max="100" />
+						<select name="s">
+							<option value="s">Small</option><option value="l">Long</option><option value="t">Tall</option><option value="f">Fat</option>
+						</select>
+						<select name="a">
+							<option>davidonet</option><option>zakxxi</option>
+						</select>
+						<select name="c" value="butter">
+							<option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option>
+						</select>
+						<input type="submit" value="Insert" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
