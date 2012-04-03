@@ -63,6 +63,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 
 				// Écrire
 				$('.fz').on('click', function(event) {
+
 					resetWritingBox()
 					$('#writingBox').show();
 					var dc = $(this).attr('dc').split(',');
@@ -72,13 +73,20 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 					var yGrid = dc[1];
 					// récupère y de dc
 					console.log('xGrid= ' + xGrid + ' | yGrid= ' + yGrid);
-					console.log(freeAdjacent(xGrid, yGrid));
 					var position = $(this).position();
 					// récupère la position absolue d'un élément .fz
 					var xPos = position.left;
 					var yPos = position.top;
 					console.log('xPos= ' + xPos + ' | yPos= ' + yPos);
+					// récupère les cases libres autour
+					var fA = (freeAdjacent(xGrid, yGrid));
 
+					// active les posibilités de tailles
+
+					$.each(fA, function(index, value) {
+						console.log(value);
+						return value;
+					});
 					// positionnement du formulaire d'écriture
 					$('#writingBox').css({
 						'left' : xPos,

@@ -4,6 +4,8 @@
 
 $(document).ready(function() {
 
+	// change la taille du formulaire
+
 	$('#size').change(function() {
 		var size = $('#size option:selected').val();
 		switch(size) {
@@ -23,6 +25,7 @@ $(document).ready(function() {
 		};
 
 	})
+	// sélecteur couleur provisoire
 
 	$('#color').css('backgroundColor', '#edd400')
 
