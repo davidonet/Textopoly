@@ -19,6 +19,7 @@ div#uiWrap {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 div#header {
 	position: absolute;
 	z-index: 1500;
@@ -237,17 +238,17 @@ p.author {
 	display: none;
 }
 
-
-.z2>#writingBox {
+/*
+#writingBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
 	width: 240px;
 	height: 240px;
-	background-color: #2e3436; /* Aluminium 2 Darker */
-	background-color: rgba(46, 52, 54, 0.9); /* Aluminium 2 Darker */
+	background-color: #2e3436; 
+	background-color: rgba(46, 52, 54, 0.9);
 	overflow: hidden;
-	-webkit-box-shadow: 0px 0px 30px #2e3436; /* Aluminium 2 Darker */
+	-webkit-box-shadow: 0px 0px 30px #2e3436; 
 }
 .z2 * textarea[name*="t"] {
 	resize: none;
@@ -256,3 +257,4 @@ p.author {
 	border: none;
 );
 	}
+*/

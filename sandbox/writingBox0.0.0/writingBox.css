@@ -1,25 +1,51 @@
-#writingBox {
+
+.z2 > div#writingBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
-	border: 2px dashed;
-
+	border: 1px dashed;
+	top: 100px;
+	left: 100px;
+	width: auto;
+	height: 220px;
+}
+.z2 > div#writingArea {
+	border: 1px dashed red;
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }
 
 
-#writingArea{
-	
-	
+.z2 > div#writingArea, .s {
+	border: 1px dashed red;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 240px;
+	height: 160px;
 }
 
-#writingCommands {
-	
 
+
+.z2 * div#writingCommands {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 240px;
+	height: 40px;
+	margin-top: 20px;
+	background-color: #2e3436; /* Aluminium 2 Darker */
+	background-color: rgba(46, 52, 54, 0.8); /* Aluminium 2 Darker */
 }
-
-textarea[name*="t"] {
+.z2>textarea[name*=t] {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	width: 240px;
+	height: 160px;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	resize: none;
 	border: none;
-	height:auto;
-	width: auto;
-	}
+}
