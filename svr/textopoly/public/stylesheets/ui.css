@@ -233,28 +233,62 @@ p.author {
 .z20 > .l0.scarletred, .z40 > .l0.scarletred, .l0.scarletred {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 }
-/* ECRITURE au zoom 2 */
-.z1>#writingBox,.z4>#writingBox, .z10>#writingBox,.z20>#writingBox, .z40>#writingBox     {
+
+/* MASQUE LES FREE ZONE partout sauf z2*/
+.z1>.fz,.z4>.fz,.z10>.fz,.z20>.fz,.z40>.fz {
+
 	display: none;
 }
 
-/*
-#writingBox {
+/* WRITINGBOX */
+div#writingBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
-	width: 240px;
-	height: 240px;
-	background-color: #2e3436; 
-	background-color: rgba(46, 52, 54, 0.9);
-	overflow: hidden;
-	-webkit-box-shadow: 0px 0px 30px #2e3436; 
+	top: 200px;
+	left: 100px;
 }
-.z2 * textarea[name*="t"] {
+div#writingArea {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+textarea[name*=t] {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	border: none;
 	resize: none;
+	-webkit-box-shadow: 0px 0px 10px #2e3436;
+}
+div#writingCommands {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 240px;
+	height: 50px;
+	margin-top: 10px;
+	text-align: center;
+	background-color: #2e3436; /* Aluminium 2 Darker */
+	background-color: rgba(46, 52, 54, 0.8); /* Aluminium 2 Darker */
+	-webkit-box-shadow: 0px 0px 10px #2e3436;
+}
+div#writingArea.s, div#writingArea.s > textarea[name*=t] {
 	width: 240px;
 	height: 160px;
-	border: none;
-);
-	}
-*/
+}
+div#writingArea.l, div#writingArea.l > textarea[name*=t] {
+	width: 480px;
+	height: 160px;
+}
+div#writingArea.t, div#writingArea.t > textarea[name*=t] {
+	width: 240px;
+	height: 320px;
+}
+div#writingArea.f, div#writingArea.f > textarea[name*=t] {
+	width: 480px;
+	height: 320px;
+}
+
