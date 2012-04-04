@@ -12,7 +12,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 						$('#map').fadeIn(500);
 						var removebox = '<div id="removebox"><h2>Suppression</h2></div>'
 						$('body').append(removebox);
-
+						$('#removebox').hide();
 						// Survol de menus
 
 						function btnOver(bouton) {
@@ -38,9 +38,9 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 
 						function btnClic(bouton) {
 
-							$(bouton).mouseenter(function() {
+							$(bouton).click(function() {
 								$(this).children().animate({
-									height : '100px'
+									height : '50px'
 								}, 100)
 								$(this).mouseleave(function() {
 									$(this).children().animate({

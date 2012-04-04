@@ -228,7 +228,10 @@ div#hlpText, div#hlpPath, div#hlpShow, div#hlpFind {
 	overflow: hidden;
 }
 div#hlpText > p, div#hlpPath > p, div#hlpShow > p, div#hlpFind > p {
-	margin-top: 25px;
+	margin-top: 30px;
+	text-align: center;
+	color: #2e3436   /* Aluminium 2 Darker */
+
 }
 /* ZOOM */
 
