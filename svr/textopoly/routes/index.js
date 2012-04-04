@@ -13,6 +13,6 @@ module.exports = function(app) {
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
 	app.post('/insert', jsonC.insert);
-	app.post('/remove', jsonC.remove);
+	app.get('/remove', jsonC.remove);
 
 }

@@ -46,7 +46,7 @@ div#content
 
   div.grid#map(class='z'+params.zoom)
     each txt in texts
-      div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c,id=txt.absid)
+      div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class='mdf '+txt.s+' '+txt.lclass+' '+txt.c,id=txt.absid)
         if( params.zoom < 20)
           if txt.i
             img(src='/getimg/['+txt.p+']')

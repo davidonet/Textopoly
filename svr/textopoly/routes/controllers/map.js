@@ -1,16 +1,16 @@
-
 exports.view = function(req, res) {
-	var xcenter = 	(req.query.xcenter ? Number(req.query.xcenter) : 0);
-	var ycenter = 	(req.query.ycenter ? Number(req.query.ycenter) : 0);
+	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
+	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
 	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
-	var xmin = xcenter-40;
-	var xmax = xcenter+40;
-	var ymin = ycenter-40;
-	var ymax = ycenter+40;
-	
+	var range = (10 < zoom ? 150 : 50)
+	var xmin = xcenter - range;
+	var xmax = xcenter + range;
+	var ymin = ycenter - range;
+	var ymax = ycenter + range;
+
 	var stepX = 120;
 	var stepY = 80;
-	
+
 	switch(zoom) {
 		case 1:
 			stepX = 240;
@@ -37,39 +37,40 @@ exports.view = function(req, res) {
 			stepY = 4;
 			break;
 	}
-
-	var reservedArray = new Array((4 + xmax - xmin) * (4 + ymax - ymin));
-	for(var i = 0, j = reservedArray.length; i < j; i++) {
-		reservedArray[i] = 0;
-	}
-
-	function xyToIndex(anX, anY) {
-		return (anX - xmin) + ((4 + xmax - xmin) * (anY - ymin));
-	}
-
-	function reserveABlock(aX, aY) {
-
-		reservedArray[xyToIndex(aX, aY)] = 1;
-		reservedArray[xyToIndex(aX + 1, aY)] = 1;
-		reservedArray[xyToIndex(aX, aY + 1)] = 1;
-		reservedArray[xyToIndex(aX + 1, aY + 1)] = 1;
-	}
-
-	function encode(input) {
-		var encoding = [];
-		var prev, count, i;
-		for( count = 1, prev = input[0], i = 1; i < input.length; i++) {
-			if(input[i] != prev) {
-				encoding.push([count, prev]);
-				count = 1;
-				prev = input[i];
-			} else
-				count++;
+	if(zoom < 10) {
+		var reservedArray = new Array((4 + xmax - xmin) * (4 + ymax - ymin));
+		for(var i = 0, j = reservedArray.length; i < j; i++) {
+			reservedArray[i] = 0;
 		}
-		encoding.push([count, prev]);
-		return encoding;
-	}
 
+		function xyToIndex(anX, anY) {
+			return (anX - xmin) + ((4 + xmax - xmin) * (anY - ymin));
+		}
+
+		function reserveABlock(aX, aY) {
+
+			reservedArray[xyToIndex(aX, aY)] = 1;
+			reservedArray[xyToIndex(aX + 1, aY)] = 1;
+			reservedArray[xyToIndex(aX, aY + 1)] = 1;
+			reservedArray[xyToIndex(aX + 1, aY + 1)] = 1;
+		}
+
+		function encode(input) {
+			var encoding = [];
+			var prev, count, i;
+			for( count = 1, prev = input[0], i = 1; i < input.length; i++) {
+				if(input[i] != prev) {
+					encoding.push([count, prev]);
+					count = 1;
+					prev = input[i];
+				} else
+					count++;
+			}
+			encoding.push([count, prev]);
+			return encoding;
+		}
+
+	}
 	function txtLen2Class(txtlen) {
 
 		var lclass = '';
@@ -104,23 +105,27 @@ exports.view = function(req, res) {
 				txtlen = value.t.length;
 			value.lclass = txtLen2Class(txtlen);
 
-			var aX = value.p[0], aY = value.p[1];
-			reserveABlock(aX, aY);
-			if(('l' == value.s) || ('f' == value.s))
-				reserveABlock(aX + 2, aY);
-			if(('t' == value.s) || ('f' == value.s))
-				reserveABlock(aX, aY + 2);
-			if('f' == value.s)
-				reserveABlock(aX + 2, aY + 2);
+			if(zoom < 10) {
+				var aX = value.p[0], aY = value.p[1];
+				reserveABlock(aX, aY);
+				if(('l' == value.s) || ('f' == value.s))
+					reserveABlock(aX + 2, aY);
+				if(('t' == value.s) || ('f' == value.s))
+					reserveABlock(aX, aY + 2);
+				if('f' == value.s)
+					reserveABlock(aX + 2, aY + 2);
+			}
 		});
-		var compOutput = encode(reservedArray);
+		var compOutput = [];
+		if(zoom < 10)
+			var compOutput = encode(reservedArray);
 
 		var response = {
 			title : 'Textopoly | ' + aBoundingBox,
 			params : {
 				zoom : zoom,
-				xcenter:xcenter,
-				ycenter:ycenter,
+				xcenter : xcenter,
+				ycenter : ycenter,
 				xmin : xmin,
 				ymin : ymin,
 				xmax : xmax,

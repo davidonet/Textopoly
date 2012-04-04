@@ -25,10 +25,10 @@ function xyToIndex(anX, anY) {
 function freeAdjacent(anX, anY) {
 
 	function isP(dX, dY) {
-		var aCB = reservedArray[xyToIndex(Number(anX) + Number(dX), Number(anY) + Number(dY))] ==0;
-		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX)+1, Number(anY) + Number(dY))] ==0;
-		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX)+1, Number(anY) + Number(dY)+1)] ==0;
-		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX), Number(anY) + Number(dY)+1)] ==0;
+		var aCB = reservedArray[xyToIndex(Number(anX) + Number(dX), Number(anY) + Number(dY))] == 0;
+		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX) + 1, Number(anY) + Number(dY))] == 0;
+		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX) + 1, Number(anY) + Number(dY) + 1)] == 0;
+		aCB &= reservedArray[xyToIndex(Number(anX) + Number(dX), Number(anY) + Number(dY) + 1)] == 0;
 		return aCB;
 	}
 
@@ -39,20 +39,19 @@ function freeAdjacent(anX, anY) {
 		aResult.push('e');
 	if(isP(0, -2)) {
 		aResult.push('n');
-		if(isP(-2, 0))
+		if(isP(-2, 0) && isP(-2, -2))
 			aResult.push('nw');
-		if(isP(2, 0))
+		if(isP(2, 0) && isP(2, 2))
 			aResult.push('ne');
 	}
-	if(isP(0, 2))
-	{
+	if(isP(0, 2)) {
 		aResult.push('s');
-		if(isP(-2, 0))
+		if(isP(-2, 0) && isP(-2, 2))
 			aResult.push('sw');
-		if(isP(2, 0))
+		if(isP(2, 0) && isP(2, 2))
 			aResult.push('se');
 	}
-		
+
 	return aResult;
 }
 
@@ -132,3 +131,26 @@ function anchorPoint() {
 		}
 	}
 }
+
+
+$('.mdf').on('dblclick', function(event) {
+	var dc = $(this).attr('dc').split(',');
+	// récupère la propriété dc d'un élément .fz dans un tableau
+	var xGrid = dc[0];
+	// récupère x de dc
+	var yGrid = dc[1];
+	$('#removebox').dialog({
+		buttons : {
+			"Oui" : function() {
+				$(this).dialog("close");
+				$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
+				});
+			},
+			"Non" : function() {
+				$(this).dialog("close");
+			}
+		}
+
+	});
+
+});
