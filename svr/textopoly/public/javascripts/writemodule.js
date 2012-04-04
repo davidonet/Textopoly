@@ -21,7 +21,7 @@ $('.fz > p').hide();
 
 // Insère formulaire d'écriture
 
-var writingBox = '<div id="writingBox"><form id = "writingForm" action="/insert"  method="post"><div id="writingArea" class="s"><textarea class="l0" name="t" rows="9" maxlength="600" cols="70"></textarea></div><div id="writingCommands"><input type="hidden" name="x" type="number" min="-100" max="100"  /><input type="hidden" name="y" type="number" min="-100" max="100" /><select id="size" name="s"><option value="s">Small</option><option value="l">Long</option><option value="t">Tall</option><option value="f">Fat</option></select><select name="a"><option>davidonet</option><option>zakxxi</option><option>batartxxi</option></select><select id="color" name="c" value="butter"><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input id="closeBox" type="button" value="X" /><input type="submit" value="OK" /></div></form></div>'
+var writingBox = '<div id="writingBox"><form id = "writingForm" action="/insert"  method="post"><div id="writingArea" class="s"><textarea class="l0" name="t" rows="9" maxlength="600" cols="70"></textarea></div><div id="writingCommands"><input type="hidden" name="x" type="number" min="-100" max="100"  /><input type="hidden" name="y" type="number" min="-100" max="100" /><select id="size" name="s"></select><select name="a"><option>davidonet</option><option>zakxxi</option><option>batartxxi</option></select><select id="color" name="c" value="butter"><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input id="closeBox" type="button" value="X" /><input type="submit" value="OK" /></div></form></div>'
 $('#map').append(writingBox)
 
 // Masque formulaire d'écriture
@@ -64,20 +64,30 @@ $('.fz').on('click', function(event) {
 	// récupère x de dc
 	var yGrid = dc[1];
 	// récupère y de dc
-	console.log('xGrid= ' + xGrid + ' | yGrid= ' + yGrid);
 	var position = $(this).position();
 	// récupère la position absolue d'un élément .fz
 	var xPos = position.left;
 	var yPos = position.top;
-	console.log('xPos= ' + xPos + ' | yPos= ' + yPos);
+	
 	// récupère les cases libres autour
 	var fA = (freeAdjacent(xGrid, yGrid));
-
+	console.log(fA);
+	
+	$('#size').children().remove();
+	$('#size').append('<option value="s">Small</option>');
 	// active les posibilités de tailles
-
 	$.each(fA, function(index, value) {
-		console.log(value);
-		return value;
+		switch(value) {
+			case "e":
+				$('#size').append('<option value="l">Long</option>');
+				break;
+			case "s":
+				$('#size').append('<option value="t">Tall</option>');
+				break;
+			case "se":
+				$('#size').append('<option value="f">Fat</option>');
+				break;
+		}
 	});
 	// positionnement du formulaire d'écriture
 	$('#writingBox').css({
@@ -88,6 +98,7 @@ $('.fz').on('click', function(event) {
 	// ajoute les coordonnées X Y dans le formulaire
 	$('input[name*="x"]').val(xGrid);
 	$('input[name*="y"]').val(yGrid);
+	$('#writingArea').focus();
 });
 // change la taille du formulaire
 
