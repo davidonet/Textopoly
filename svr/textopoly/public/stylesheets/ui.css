@@ -19,6 +19,7 @@ div#uiWrap {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 div#header {
 	position: absolute;
 	z-index: 1500;
@@ -149,37 +150,37 @@ div#footer > h1 {
 	-webkit-transition: background 0.5s;
 	-moz-transition: background 0.5s;
 }
-.z20 > .msg.butter:hover, .z40 > .msg.butter:hover, .msg.butter:hover {
+.z4> .msg.butter:hover,.z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover{
 	background-color: #fce94f; /* Butter Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z20 > .msg.orange:hover, .z40 > .msg.orange:hover, .msg.orange:hover {
+.z4 > .msg.orange:hover,.z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover{
 	background-color: #fcaf3e; /* Orange Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover, .msg.chocolate:hover {
+.z4 > .msg.chocolate:hover,.z10 > .msg.chocolate:hover,.z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover, .msg.chameleon:hover {
+.z4 > .msg.chameleon:hover,.z10 > .msg.chameleon:hover,.z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover{
 	background-color: #8ae234; /* Chameleon Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover, .msg.skyblue:hover {
+.z4 > .msg.skyblue:hover,.z10 > .msg.skyblue:hover,.z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z20 > .msg.plum:hover, .z40 > .msg.plum:hover, .msg.plum:hover {
+.z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover{
 	background-color: #ad7fa8; /* Plum Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover, .msg.scarletred:hover {
+.z4 > .msg.scarletred:hover,.z10 > .msg.scarletred:hover,.z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover{
 	background-color: #ef2929; /* Scarlet Red Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
@@ -232,27 +233,60 @@ p.author {
 .z20 > .l0.scarletred, .z40 > .l0.scarletred, .l0.scarletred {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 }
-/* ECRITURE au zoom 2 */
-.z1>#writingBox,.z4>#writingBox, .z10>#writingBox,.z20>#writingBox, .z40>#writingBox     {
+
+/* MASQUE LES FREE ZONE partout sauf z2*/
+.z1>.fz,.z4>.fz,.z10>.fz,.z20>.fz,.z40>.fz {
+
 	display: none;
 }
 
-
-.z2>#writingBox {
+/* WRITINGBOX */
+div#writingBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
-	width: 240px;
-	height: 240px;
-	background-color: #2e3436; /* Aluminium 2 Darker */
-	background-color: rgba(46, 52, 54, 0.9); /* Aluminium 2 Darker */
-	overflow: hidden;
-	-webkit-box-shadow: 0px 0px 30px #2e3436; /* Aluminium 2 Darker */
+	top: 200px;
+	left: 100px;
 }
-.z2 * textarea[name*="t"] {
+div#writingArea {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+textarea[name*=t] {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	border: none;
 	resize: none;
+}
+div#writingCommands {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 240px;
+	height: 50px;
+	margin-top: 10px;
+	text-align: center;
+	background-color: #2e3436; /* Aluminium 2 Darker */
+	background-color: rgba(46, 52, 54, 0.8); /* Aluminium 2 Darker */
+}
+div#writingArea.s, div#writingArea.s > textarea[name*=t] {
 	width: 240px;
 	height: 160px;
-	border: none;
-);
-	}
+}
+div#writingArea.l, div#writingArea.l > textarea[name*=t] {
+	width: 480px;
+	height: 160px;
+}
+div#writingArea.t, div#writingArea.t > textarea[name*=t] {
+	width: 240px;
+	height: 320px;
+}
+div#writingArea.f, div#writingArea.f > textarea[name*=t] {
+	width: 480px;
+	height: 320px;
+}
+
