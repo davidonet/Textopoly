@@ -21,7 +21,11 @@ $('.fz > p').hide();
 
 // Insère formulaire d'écriture
 
-var writingBox = '<div id="writingBox"><form id = "writingForm" action="/insert"  method="post"><div id="writingArea" class="s"><textarea class="l0" name="t" rows="9" maxlength="600" cols="70"></textarea></div><div id="writingCommands"><input type="hidden" name="x" type="number" min="-100" max="100"  /><input type="hidden" name="y" type="number" min="-100" max="100" /><select id="size" name="s"></select><select name="a"><option>davidonet</option><option>zakxxi</option><option>batartxxi</option></select><select id="color" name="c" value="butter"><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input id="closeBox" type="button" value="X" /><input type="submit" value="OK" /></div></form></div>'
+var writingBox = '<div id="writingBox"><form id = "writingForm" action="/insert"  method="post"><div id="writingArea" class="s">';
+writingBox += '<textarea class="l0" name="t" rows="9" maxlength="600" cols="70"></textarea></div><div id="writingCommands">';
+writingBox += '<input type="hidden" name="x" type="number" min="-100" max="100"  /><input type="hidden" name="y" type="number" min="-100" max="100" />';
+writingBox += '<select id="size" name="s"></select><select name="a"><option>Ribouldingue</option><option>Filochard</option><option>Croquignol</option>';
+writingBox += '<option>Manounou</option><option>Croquenot</option></select><select id="color" name="c" value="butter"><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input id="closeBox" type="button" value="X" /><input type="submit" value="OK" /></div></form></div>'
 $('#map').append(writingBox)
 
 // Masque formulaire d'écriture
