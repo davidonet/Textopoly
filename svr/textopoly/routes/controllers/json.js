@@ -28,11 +28,11 @@ exports.insert = function(req, res) {
 }
 
 exports.remove = function(req, res) {
-	db.gridfs().unlink('[' + req.body.x + ',' + req.body.y + ']', function(err, gs) {
+	db.gridfs().unlink('[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
 		console.log("image removed")
 	});
-	db.txt.removeTxt(req.body, function(err) {
+	db.txt.removeTxt(req.query, function(err) {
 		res.json(err);
-		io.sockets.emit('unbook', req.body);
+		io.sockets.emit('unbook', req.query);
 	});
 }
