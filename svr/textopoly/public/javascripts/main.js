@@ -18,7 +18,53 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 				var yPos = position.top;
 				console.log('xPos= ' + xPos + ' | yPos= ' + yPos);
 			});
-			// boutons jqueryui
+			// Survol de menus
+
+			function btnOver(bouton) {
+				$(bouton).hover(function() {
+
+					$(this).addClass('over');
+
+				}, function() {
+
+					$(this).removeClass('over');
+
+				});
+			}
+
+			btnOver("#btnText");
+			btnOver("#btnPath");
+			btnOver("#btnShow");
+			btnOver("#btnFind");
+			btnOver("#btnHelp");
+			btnOver("#btnFocus");
+
+			// Clic de menus
+
+			function btnClic(bouton) {
+
+				$(bouton).mouseenter(function() {
+					$(this).children().animate({
+						height : '100px'
+					}, 100)
+					$(this).mouseleave(function() {
+						$(this).children().animate({
+							height : '0px'
+
+						}, 100)
+					})
+					$(this).children().mouseleave(function() {
+						$(this).animate({
+							height : '0px'
+						}, 100)
+					})
+				})
+			}
+
+			btnClic("#btnText");
+			btnClic("#btnPath");
+			btnClic("#btnShow");
+			btnClic("#btnFind");
 
 			// masque les infos de debug
 			require(["bookingsocket"], function() {
@@ -46,7 +92,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 				// ferme le formulaire d'écriture
 
 				$('#closeBox').click(function() {
-					resetWritingBox()
+					//resetWritingBox()
 					$('#writingBox').hide();
 				});
 				// AJAXifie le formulaire d'écriture
@@ -64,7 +110,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 				// Écrire
 				$('.fz').on('click', function(event) {
 
-					resetWritingBox()
+					//resetWritingBox()
 					$('#writingBox').show();
 					var dc = $(this).attr('dc').split(',');
 					// récupère la propriété dc d'un élément .fz dans un tableau

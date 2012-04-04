@@ -19,7 +19,6 @@ div#uiWrap {
 	margin-left: auto;
 	margin-right: auto;
 }
-
 div#header {
 	position: absolute;
 	z-index: 1500;
@@ -75,20 +74,24 @@ div#footer {
 
 /* HEADER */
 
-div#header > h1 {
-	display: block;
+div#header {
+	font-family: "FuturaCondensedMedium", sans-serif;
+}
+div#title {
+	float: left;
+	width: 320px;
+	height: 84px;
+}
+div#title > h1 {
 	float: left;
 	margin-left: 10px;
 	margin-top: 10px;
 	height: 84px;
-	font-family: "FuturaCondensedMedium", sans-serif;
 	font-size: 64px;
 	color: #2e3436; /* Aluminium 2 Darker */
-	/* background-color: red; /* Aluminium 2 Darker */
-
+	letter-spacing: 4px;
 }
-div#header > div#blink {
-	display: block;
+div#title > div#blink {
 	float: left;
 	margin-top: 15px;
 	margin-left: 10px;
@@ -96,21 +99,136 @@ div#header > div#blink {
 	height: 72px;
 	background-color: #2e3436; /* Aluminium 2 Darker */
 }
-ul#topmenu {
+div#slider {
+	float: left;
+	margin-left: 100px;
+	width: 440px;
+	margin-top: 17px;
+	text-align: center;
+	color: #888a85; /* Aluminium 2 Lighter */
+}
+div#leftA, div#rightA {
+	position: absolute;
+	font-size: 30px;
+	top: 38px;
+	color: #888a85; /* Aluminium 2 Lighter */
+}
+div#leftA {
+	left: 390px;
+}
+div#rightA {
+	left: 870px;
+}
+div#slider > h2 {
+	font-size: 22px;
+	line-height: 32px;
+}
+div#slider > p {
+	font-size: 18px;
+	line-height: 32px;
+	letter-spacing: 1px;
+}
+div#slider > h2 > strong {
+	color: #555753; /* Aluminium 2 */
+}
+div#slider > p > a {
+	color: #888a85; /* Aluminium 2 Lighter */
+}
+div#slider > p > a:hover {
+	color: #555753; /* Aluminium 2 */
+}
+/* TOP MENU */
+
+div#topmenu {
 	z-index: 2000;
 	display: block;
 	float: right;
-	width: 100px;
-	list-style: none;
-	text-align: right;
 	margin-right: 10px;
 	margin-top: 10px;
 }
-ul#topmenu li {
-	display: inline;
-	padding: 5px;
+div#btnHelp, div#btnFocus {
+	display: block;
+	float: left;
 	width: 20px;
-	width: 20px;
+	height: 20px;
+}
+div#btnHelp.normal {
+	background: url('btn/btnHelpD.png');
+	margin-right: 2px;
+}
+div#btnFocus.normal {
+	background: url('btn/btnFocusD.png');
+}
+div#btnHelp.over {
+	background: url('btn/btnHelpO.png');
+	margin-right: 2px;
+}
+div#btnFocus.over {
+	background: url('btn/btnFocusO.png');
+}
+/* MAIN MENU */
+
+div#mainMenu {
+	display: block;
+	position: absolute;
+	right: 0px;
+	top: 95px;
+	width: 640px;
+	height: 50px;
+}
+div#btnText, div#btnPath, div#btnShow, div#btnFind {
+	z-index: 4000;
+	float: left;
+	width: 140px;
+	height: 50px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+div#btnText.normal {
+	background: url('btn/btnTextD.png');
+}
+div#btnPath.normal {
+
+	background: url('btn/btnPathD.png');
+}
+div#btnShow.normal {
+
+	background: url('btn/btnShowD.png');
+}
+div#btnFind.normal {
+
+	background: url('btn/btnFindD.png');
+}
+div#btnText.over {
+	background: url('btn/btnTextO.png');
+}
+div#btnPath.over {
+
+	background: url('btn/btnPathO.png');
+}
+div#btnShow.over {
+
+	background: url('btn/btnShowO.png');
+}
+div#btnFind.over {
+
+	background: url('btn/btnFindO.png');
+}
+/*HELP MENU*/
+
+div#hlpText, div#hlpPath, div#hlpShow, div#hlpFind {
+	position: absolute;
+	z-index: -1000;
+	width: 140px;
+	height: 0px;
+	top: 25px;
+	border-top: 1px dashed #2e3436;
+	background-color: #eeeeec; /* Aluminium 1 Lighter */
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	overflow: hidden;
+}
+div#hlpText > p, div#hlpPath > p, div#hlpShow > p, div#hlpFind > p {
+	margin-top: 25px;
 }
 /* ZOOM */
 
@@ -150,37 +268,37 @@ div#footer > h1 {
 	-webkit-transition: background 0.5s;
 	-moz-transition: background 0.5s;
 }
-.z4> .msg.butter:hover,.z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover{
+.z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z4 > .msg.orange:hover,.z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover{
+.z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z4 > .msg.chocolate:hover,.z10 > .msg.chocolate:hover,.z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
+.z1 > .msg.chocolate:hover, .z2 > .msg.chocolate:hover, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z4 > .msg.chameleon:hover,.z10 > .msg.chameleon:hover,.z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover{
+.z1 > .msg.chameleon:hover, .z2 > .msg.chameleon:hover, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
 	background-color: #8ae234; /* Chameleon Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z4 > .msg.skyblue:hover,.z10 > .msg.skyblue:hover,.z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
+.z1 > .msg.skyblue:hover, .z2 > .msg.skyblue:hover, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover{
+.z1 > .msg.plum:hover, .z2 > .msg.plum:hover, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
 	background-color: #ad7fa8; /* Plum Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z4 > .msg.scarletred:hover,.z10 > .msg.scarletred:hover,.z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover{
+.z1 > .msg.scarletred:hover, .z2 > .msg.scarletred:hover, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
@@ -233,13 +351,11 @@ p.author {
 .z20 > .l0.scarletred, .z40 > .l0.scarletred, .l0.scarletred {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 }
-
 /* MASQUE LES FREE ZONE partout sauf z2*/
-.z1>.fz,.z4>.fz,.z10>.fz,.z20>.fz,.z40>.fz {
+.z1 > .fz, .z4 > .fz, .z10 > .fz, .z20 > .fz, .z40 > .fz {
 
 	display: none;
 }
-
 /* WRITINGBOX */
 div#writingBox {
 	z-index: 1000;

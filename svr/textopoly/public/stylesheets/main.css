@@ -19,7 +19,7 @@ html {
 	-webkit-user-select: none;
 	-webkit-font-smoothing: subpixel-antialiased;
 }
-#map{
+#map {
 	display: none;
 }
 body {
@@ -29,19 +29,18 @@ body {
 .msg {
 	display: block;
 	position: absolute;
-		cursor: default;
-	}
+	cursor: default;
+}
 .msg > p {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
 	word-wrap: break-word;
-
 }
 .msg > img {
 	width: 100%;
 	height: 100%;
 }
-div#main > h1, h2, h3, h4, h5, h6, label {
+div#main > h1, div#main > h2, div#main > h3, div#main > h4, div#main > h5, div#main > h6, div#main > label {
 	font-family: 'FuturaCondensedMedium';
 	text-transform: uppercase;
 	color: #555753; /* Aluminium 2 */
