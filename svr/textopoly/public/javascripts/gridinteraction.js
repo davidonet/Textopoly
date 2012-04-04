@@ -140,14 +140,16 @@ $('.mdf').on('dblclick', function(event) {
 	// récupère x de dc
 	var yGrid = dc[1];
 	$('#removebox').dialog({
+		"resizable" : false,
+		"title" : "Suppression ?",
 		buttons : {
+			"Non, je ne préfère pas" : function() {
+				$(this).dialog("close");
+			},
 			"Oui" : function() {
 				$(this).dialog("close");
 				$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
 				});
-			},
-			"Non" : function() {
-				$(this).dialog("close");
 			}
 		}
 

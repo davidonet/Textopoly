@@ -10,7 +10,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 				require(["writemodule"], function() {
 					require(["mapmodule"], function() {
 						$('#map').fadeIn(500);
-						var removebox = '<div id="removebox"><h2>Suppression</h2></div>'
+						var removebox = '<div id="removebox" style="display:none;"><small><span style="color:red">Attention</span><br>Cette opération est irréversible.</small></div>'
 						$('body').append(removebox);
 						$('#removebox').hide();
 						// Survol de menus
