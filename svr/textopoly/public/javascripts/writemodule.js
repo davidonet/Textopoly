@@ -7,13 +7,11 @@ $('.msg').on('click', function(event) {
 	// récupère x de dc
 	var yGrid = dc[1];
 	// récupère y de dc
-	console.log('xGrid= ' + xGrid + ' | yGrid= ' + yGrid);
-
 	var position = $(this).position();
 	// récupère la position absolue d'un élément .msg
 	var xPos = position.left;
 	var yPos = position.top;
-	console.log('xPos= ' + xPos + ' | yPos= ' + yPos);
+	
 });
 // boutons jqueryui
 
@@ -45,7 +43,10 @@ $('#closeBox').click(function() {
 
 $('#writingForm').ajaxForm(function() {
 
-	location.reload();
+	var xGrid = $('#writingForm').find('input[name*="x"]').val();
+	var yGrid = $('#writingForm').find('input[name*="y"]').val();
+	
+	$(location).attr('href', '/view?zoom=2&xcenter=' + xGrid + '&ycenter=' + yGrid);
 
 });
 // Cache les champs X et Y du formulaire d'écriture
