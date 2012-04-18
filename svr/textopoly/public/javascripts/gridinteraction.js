@@ -119,12 +119,14 @@ function anchorPoint() {
 					left : (i - params.xmin) * params.stepx + 'px',
 					top : (k - params.ymin) * params.stepy + 'px',
 				});
+				/*
 				var newContent = $(document.createElement("p")).text('(' + i + ',' + k + ')');
 				newTxt.append(newContent);
 
 				//	$(newTxt).on('click', function(event) {
 				//	console.log($(this).attr('dc'));
 				//	});
+				*/
 				$('#map').append(newTxt);
 
 			}
@@ -135,6 +137,16 @@ function anchorPoint() {
 
 $('.mdf').on('dblclick', function(event) {
 	var dc = $(this).attr('dc').split(',');
+	// récupère la propriété dc d'un élément .fz dans un tableau
+	var xGrid = dc[0];
+	// récupère x de dc
+	var yGrid = dc[1];
+	$(location).attr('href', '/view?zoom=2&xcenter=' + xGrid + '&ycenter=' + yGrid);
+});
+
+
+$('.ctx').on('click', function(event) {
+	var dc = $(this).parent().attr('dc').split(',');
 	// récupère la propriété dc d'un élément .fz dans un tableau
 	var xGrid = dc[0];
 	// récupère x de dc
@@ -154,5 +166,4 @@ $('.mdf').on('dblclick', function(event) {
 		}
 
 	});
-
 });

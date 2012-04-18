@@ -1,13 +1,38 @@
 define(["/socket.io/socket.io.js"], function() {
 	var socket = io.connect();
 
+	function txtLen2Class(txtlen) {
+
+		var lclass = '';
+		if(txtlen < 1) {
+			lclass = 'l0';
+		} else if(txtlen < 4) {
+			lclass = 'l4';
+		} else if(txtlen < 15) {
+			lclass = 'l15';
+		} else if(txtlen < 50) {
+			lclass = 'l50';
+		} else if(txtlen < 150) {
+			lclass = 'l150';
+		} else if(txtlen < 300) {
+			lclass = 'l300';
+		} else if(txtlen < 601) {
+			lclass = 'l600';
+		} else {
+			lclass = 'warning';
+		}
+		return lclass;
+	}
+
+
 	socket.on('book', function(data) {
-		$('.msg#' + 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1])).fadeOut(function() {
+		$('.msg[dc="' + data.p + '"]').fadeOut(function() {
 			this.remove();
 		});
-		var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c);
+		var newTxt = $(document.createElement("div")).addClass("msg").addClass("mdf").addClass(data.s).addClass(data.c);
+		newTxt.addClass(txtLen2Class(data.t.length));
 		newTxt.hide();
-		newTxt.attr('id', 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1]));
+		newTxt.attr('dc', data.p);
 		newTxt.css({
 			left : (data.p[0] - params.xmin) * params.stepx + 'px',
 			top : (data.p[1] - params.ymin) * params.stepy + 'px',
@@ -21,11 +46,35 @@ define(["/socket.io/socket.io.js"], function() {
 			newTxt.fadeIn();
 		}
 		newTxt.append(newContent);
+		var newCtx = $(document.createElement("div")).addClass("ctx").text("x");
+		newCtx.on('click', function(event) {
+			var dc = $(this).parent().attr('dc').split(',');
+			// récupère la propriété dc d'un élément .fz dans un tableau
+			var xGrid = dc[0];
+			// récupère x de dc
+			var yGrid = dc[1];
+			$('#removebox').dialog({
+				"resizable" : false,
+				"title" : "Suppression ?",
+				buttons : {
+					"Non, je ne préfère pas" : function() {
+						$(this).dialog("close");
+					},
+					"Oui" : function() {
+						$(this).dialog("close");
+						$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
+						});
+					}
+				}
+
+			});
+		});
+		newTxt.append(newCtx);
 		$('#map').append(newTxt);
 	});
 
 	socket.on('unbook', function(data) {
-		$('.msg#' + 'x' + (8000 + data.p[0]) + 'y' + (8000 + data.p[1])).fadeOut(function() {
+		$('.msg[dc="' + data.p + '"]').fadeOut(function() {
 			$(this).remove();
 		});
 	});

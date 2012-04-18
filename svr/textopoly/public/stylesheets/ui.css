@@ -408,4 +408,19 @@ div#writingArea.f, div#writingArea.f > textarea[name*=t] {
 	width: 480px;
 	height: 320px;
 }
-
+div.ctx {
+	position: absolute;
+	text-align: center;
+	width: 1em;
+	right: 0px;
+	top: 0px;
+	background-color: #EF2929;
+	font-family: "NotCourierSansRegular", monospace;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-webkit-transition: opacity .25s ease-in-out;
+}
+.ctx:hover {
+	opacity: 1;
+}

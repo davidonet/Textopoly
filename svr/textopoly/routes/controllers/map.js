@@ -2,7 +2,7 @@ exports.view = function(req, res) {
 	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
 	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
 	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
-	var range = (10 < zoom ? 150 : 50)
+	var range = (10 < zoom ? 250 : 100)
 	var xmin = xcenter - range;
 	var xmax = xcenter + range;
 	var ymin = ycenter - range;
@@ -99,7 +99,6 @@ exports.view = function(req, res) {
 		items.forEach(function(value, index) {
 			value.absx = (value.p[0] - xmin) * stepX;
 			value.absy = (value.p[1] - ymin) * stepY;
-			value.absid = 'x' + (8000 + value.p[0]) + 'y' + (8000 + value.p[1]);
 			var txtlen = 0;
 			if(value.t)
 				txtlen = value.t.length;
