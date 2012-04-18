@@ -99,7 +99,6 @@ exports.view = function(req, res) {
 		items.forEach(function(value, index) {
 			value.absx = (value.p[0] - xmin) * stepX;
 			value.absy = (value.p[1] - ymin) * stepY;
-			value.absid = 'x' + (8000 + value.p[0]) + 'y' + (8000 + value.p[1]);
 			var txtlen = 0;
 			if(value.t)
 				txtlen = value.t.length;

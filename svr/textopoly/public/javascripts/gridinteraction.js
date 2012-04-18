@@ -139,6 +139,16 @@ $('.mdf').on('dblclick', function(event) {
 	var xGrid = dc[0];
 	// récupère x de dc
 	var yGrid = dc[1];
+	$(location).attr('href', '/view?zoom=2&xcenter=' + xGrid + '&ycenter=' + yGrid);
+});
+
+
+$('.ctx').on('click', function(event) {
+	var dc = $(this).parent().attr('dc').split(',');
+	// récupère la propriété dc d'un élément .fz dans un tableau
+	var xGrid = dc[0];
+	// récupère x de dc
+	var yGrid = dc[1];
 	$('#removebox').dialog({
 		"resizable" : false,
 		"title" : "Suppression ?",
@@ -154,5 +164,4 @@ $('.mdf').on('dblclick', function(event) {
 		}
 
 	});
-
 });
