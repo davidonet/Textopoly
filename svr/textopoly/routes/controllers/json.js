@@ -1,5 +1,4 @@
 exports.section = function(req, res) {
-
 	var xmin = (req.query.xmin ? Number(req.query.xmin) : -40);
 	var xmax = (req.query.xmax ? Number(req.query.xmax) : 40);
 	var ymin = (req.query.ymin ? Number(req.query.ymin) : -40);
@@ -20,7 +19,11 @@ exports.section = function(req, res) {
 	});
 };
 
-
+exports.authors = function(req, res) {
+	db.txt.authors(function(err, items) {
+		res.json(items);
+	});
+};
 
 exports.insert = function(req, res) {
 	db.txt.insertTxt(req.body, function(err, aTxt) {

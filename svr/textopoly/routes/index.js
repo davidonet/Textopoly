@@ -15,4 +15,5 @@ module.exports = function(app) {
 	app.get('/section', jsonC.section);
 	app.post('/insert', jsonC.insert);
 	app.get('/remove', jsonC.remove);
-}
+	app.get('/authors', jsonC.authors);
+	}
