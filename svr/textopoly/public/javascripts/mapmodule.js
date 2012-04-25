@@ -86,14 +86,25 @@ $('#map').draggable({
 		var dY = Math.abs(aInitY - ui.position.top);
 		var xcenter = getXCenter();
 		var ycenter = getYCenter();
-		$('#map').animate({
-			left : ((params.xmin - getXCenter() - 1) * params.stepx) + $(document).width() / 2,
-			top : ((params.ymin - getYCenter() - 1) * params.stepy) + $(document).height() / 2
-		}, function() {
-			if(($(document).width() / 2 < dX) || ($(document).height() / 2 < dY)) {
+
+		var bX = 0;
+		var bY = 0;
+		if(10 < params.zoom) {
+			bX = 300 * params.stepx;
+			bY = 300 * params.stepy;
+		} else {
+			bX = 50 * params.stepx;
+			bY = 50 * params.stepy;
+		}
+		if((bX < dX) || (bY < dY)) {
+			$('#map').animate({
+				left : ((params.xmin - getXCenter() - 1) * params.stepx) + $(document).width() / 2,
+				top : ((params.ymin - getYCenter() - 1) * params.stepy) + $(document).height() / 2
+			}, function() {
 				$(location).attr('href', '/view?zoom=' + params.zoom + '&xcenter=' + xcenter + '&ycenter=' + ycenter);
-			}
-		});
+
+			});
+		}
 	},
 });
 var aInitX = ((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2;

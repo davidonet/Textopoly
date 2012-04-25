@@ -11,17 +11,17 @@ exports.view = function(req, res) {
 		case 1:
 			stepX = 240;
 			stepY = 160;
-			range = 8;
+			range = 75;
 			break;
 		case 2:
 			stepX = 120;
 			stepY = 80;
-			range = 15;
+			range = 75;
 			break;
 		case 4:
 			stepX = 60;
 			stepY = 40;
-			range = 30;
+			range = 75;
 			break;
 		case 10:
 			stepX = 24;
@@ -31,7 +31,7 @@ exports.view = function(req, res) {
 		case 20:
 			stepX = 12;
 			stepY = 8;
-			range = 150;
+			range = 300;
 			break;
 		case 40:
 			stepX = 6;
