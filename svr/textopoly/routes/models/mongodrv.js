@@ -12,6 +12,9 @@ function normalizePos(nTxt) {
 }
 
 db.bind('txt', {
+	aTxt : function(pos,fn){
+		this.findOne({'p':pos},fn);
+	},
 	boxedTxt : function(box, fn) {
 		this.find({
 			"p" : {

@@ -80,12 +80,28 @@ $('#zoomSlider').slider({
 });
 
 // drag map
-$('#map').draggable();
-
+$('#map').draggable({
+	stop : function(event, ui) {
+		var dX = Math.abs(aInitX - ui.position.left);
+		var dY = Math.abs(aInitY - ui.position.top);
+		var xcenter = getXCenter();
+		var ycenter = getYCenter();
+		$('#map').animate({
+			left : ((params.xmin - getXCenter() - 1) * params.stepx) + $(document).width() / 2,
+			top : ((params.ymin - getYCenter() - 1) * params.stepy) + $(document).height() / 2
+		}, function() {
+			if(($(document).width() / 2 < dX) || ($(document).height() / 2 < dY)) {
+				$(location).attr('href', '/view?zoom=' + params.zoom + '&xcenter=' + xcenter + '&ycenter=' + ycenter);
+			}
+		});
+	},
+});
+var aInitX = ((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2;
+var aInitY = ((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2;
 // center map
 $('#map').css({
-	left : ((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2,
-	top : ((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2,
+	left : aInitX,
+	top : aInitY,
 	width : (params.xmax - params.xmin) * params.stepx,
 	height : (params.ymax - params.ymin) * params.stepy
 });

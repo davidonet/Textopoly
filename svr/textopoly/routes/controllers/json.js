@@ -20,6 +20,8 @@ exports.section = function(req, res) {
 	});
 };
 
+
+
 exports.insert = function(req, res) {
 	db.txt.insertTxt(req.body, function(err, aTxt) {
 		res.json(aTxt);

@@ -2,12 +2,8 @@ exports.view = function(req, res) {
 	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
 	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
 	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
-	var range = (10 < zoom ? 250 : 100)
-	var xmin = xcenter - range;
-	var xmax = xcenter + range;
-	var ymin = ycenter - range;
-	var ymax = ycenter + range;
-
+	
+	var range = 10;	
 	var stepX = 120;
 	var stepY = 80;
 
@@ -15,28 +11,41 @@ exports.view = function(req, res) {
 		case 1:
 			stepX = 240;
 			stepY = 160;
+			range = 8;
 			break;
 		case 2:
 			stepX = 120;
 			stepY = 80;
+			range = 15;
 			break;
 		case 4:
 			stepX = 60;
 			stepY = 40;
+			range = 30;
 			break;
 		case 10:
 			stepX = 24;
 			stepY = 16;
+			range = 75;
 			break;
 		case 20:
 			stepX = 12;
 			stepY = 8;
+			range = 150;
 			break;
 		case 40:
 			stepX = 6;
 			stepY = 4;
+			range = 300;
 			break;
 	}
+	
+	var xmin = xcenter - range;
+	var xmax = xcenter + range;
+	var ymin = ycenter - range;
+	var ymax = ycenter + range;
+
+	
 	if(zoom < 10) {
 		var reservedArray = new Array((4 + xmax - xmin) * (4 + ymax - ymin));
 		for(var i = 0, j = reservedArray.length; i < j; i++) {
