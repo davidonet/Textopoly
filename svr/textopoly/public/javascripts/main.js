@@ -1,7 +1,6 @@
 require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form"], function($) {
 	$(function() {
 		$(document).ready(function() {
-
 			// masque les infos de debug
 			require(["bookingsocket"], function() {
 			});
@@ -60,7 +59,11 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 						btnClic("#btnPath");
 						btnClic("#btnShow");
 						btnClic("#btnFind");
-
+						
+						require(["pathwalk"],function(){
+							
+						});
+						
 					});
 				});
 			});
