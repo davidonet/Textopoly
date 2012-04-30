@@ -1,8 +1,30 @@
-require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form"], function($) {
+require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form", "http://konami-js.googlecode.com/svn/trunk/konami.js"], function($) {
 	$(function() {
 		$(document).ready(function() {
+			// easteregg de paques
+			/* The Code
+
+			 In case you don't know, the Konami Code is:
+
+			 Up, Up, Down, Down, Left, Right, Left, Right, B, A, Start
+
+			 For our purposes, we've replaced Start with Enter.*/
+			
+			konami = new Konami()
+			konami.code = function() {
+				$(".msg > p").typewriter({
+					'delay' : 200
+				}, function() {
+
+				})
+			}
+
+			konami.load()
+
 			// masque les infos de debug
 			require(["bookingsocket"], function() {
+			});
+			require(["typewriter"], function() {
 			});
 			require(["gridinteraction"], function() {
 				anchorPoint();
