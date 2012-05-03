@@ -1,7 +1,6 @@
 require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form", "http://konami-js.googlecode.com/svn/trunk/konami.js"], function($) {
 	$(function() {
 		$(document).ready(function() {
-
 			// easteregg de paques
 			/* The Code
 
@@ -82,7 +81,11 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 						btnClic("#btnPath");
 						btnClic("#btnShow");
 						btnClic("#btnFind");
-
+						
+						require(["pathwalk"],function(){
+							
+						});
+						
 					});
 				});
 			});

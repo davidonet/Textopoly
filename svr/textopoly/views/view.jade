@@ -1,3 +1,4 @@
+script(type='text/javascript',src='javascripts/raphael-min.js')
 script(data-main='javascripts/main',src='javascripts/require-jquery.js')
 script(type='text/javascript')
   var params=!{JSON.stringify(params)};
@@ -42,7 +43,9 @@ div#content
       div#zoom
         div#zoomSlider
     div#footer
-      h1 Chemins de lecteurs
+      h1 Chemins de lecteurs | 
+        span#path_start nouveau
+        span#path_end fin
     
 
   div.grid#map(class='z'+params.zoom)
@@ -56,4 +59,5 @@ div#content
               p #{txt.t}
             else
               p.author #{txt.a}
+        if( params.zoom == 2)
           div.ctx x
