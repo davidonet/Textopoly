@@ -31,7 +31,7 @@ body {
 	position: absolute;
 	cursor: default;
 }
-.msg > p {
+.msg > p, .msg > textarea {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
 	word-wrap: break-word;
