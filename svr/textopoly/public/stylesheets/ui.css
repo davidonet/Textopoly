@@ -354,11 +354,8 @@ p.author {
 .z20 > .l0.scarletred, .z40 > .l0.scarletred, .l0.scarletred {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 }
-/* MASQUE LES FREE ZONE partout sauf z2*/
-.z1 > .fz, .z4 > .fz, .z10 > .fz, .z20 > .fz, .z40 > .fz {
 
-	display: none;
-}
+
 /* WRITINGBOX */
 div#writingBox {
 	z-index: 1000;
