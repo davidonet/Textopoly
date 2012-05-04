@@ -19,9 +19,7 @@ html {
 	-webkit-user-select: none;
 	-webkit-font-smoothing: subpixel-antialiased;
 }
-#map {
-	display: none;
-}
+
 body {
 	background: #d3d7cf; /* Aluminium 1 */
 	height: 100%;
@@ -34,7 +32,9 @@ body {
 .msg > p, .msg > textarea {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
+	white-space: pre;
 	word-wrap: break-word;
+
 }
 .msg > img {
 	width: 100%;
