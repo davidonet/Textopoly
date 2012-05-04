@@ -24,6 +24,11 @@ textarea[name*=t] {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
+
+:focus {
+      outline:0;
+      outline:none;
+}
 div#writingCommands {
 	position: relative;
 	margin-left: auto;
@@ -82,10 +87,7 @@ div#writingArea.f > textarea[name*=t] {
 	height: 320px;
 }
 
-:focus {
-      outline:0;
-      outline:none;
-}
+
 /* STYLES DES MSG ZOOM 1:2 SMALL*/
 
 .z2 * .msg.s.l4 > textarea {

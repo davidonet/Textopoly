@@ -64,7 +64,6 @@ $('input[name*="y"]').hide();
 // Écrire
 $('.z2 > .fz').on('click', function(event) {
 
-
 	$('#writingBox').show();
 	$('textarea[name*=t]').focus();
 	$('#writingArea').removeClass('l t f').addClass('s');
@@ -119,15 +118,23 @@ $('#size').change(function() {
 	switch(size) {
 		case 's':
 			$('#writingArea').removeClass('l t f').addClass('s');
+			$('textarea[name*=t]').focus();
+
 			break;
 		case 'l':
 			$('#writingArea').removeClass('s t f').addClass('l');
+			$('textarea[name*=t]').focus();
+
 			break;
 		case 't':
 			$('#writingArea').removeClass('l s f').addClass('t');
+			$('textarea[name*=t]').focus();
+
 			break;
 		case 'f':
 			$('#writingArea').removeClass('l t s').addClass('f');
+			$('textarea[name*=t]').focus();
+
 			break;
 
 	};
