@@ -1,6 +1,6 @@
 function decode(encoded) {
 	var output = new Array;
-	$(encoded).each(function(pair) {
+	$(encoded).each(function(index,pair) {
 		var aLocalArray = new Array(pair[0]);
 		for(var i = 0, j = aLocalArray.length; i < j; i++) {
 			aLocalArray[i] = pair[1];
