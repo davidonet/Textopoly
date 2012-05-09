@@ -1,4 +1,4 @@
-require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form", "http://konami-js.googlecode.com/svn/trunk/konami.js"], function($) {
+require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", "jquery.ui.touch-punch", "jquery.form", "http://konami-js.googlecode.com/svn/trunk/konami.js", "syronex-colorpicker"], function($) {
 	$(function() {
 		$(document).ready(function() {
 			// easteregg de paques
@@ -9,7 +9,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 			 Up, Up, Down, Down, Left, Right, Left, Right, B, A, Start
 
 			 For our purposes, we've replaced Start with Enter.*/
-			
+
 			konami = new Konami()
 			konami.code = function() {
 				$(".msg > p").typewriter({
@@ -20,6 +20,15 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 			}
 
 			konami.load()
+
+			// colorPicker
+
+			$('#colorPicker').colorPicker({
+
+				click : function(color) {
+					console.log(color);
+				},
+			});
 
 			// masque les infos de debug
 			require(["bookingsocket"], function() {
@@ -81,11 +90,12 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 						btnClic("#btnPath");
 						btnClic("#btnShow");
 						btnClic("#btnFind");
-						
+					
 						require(["pathwalk"],function(){
 							showPath();
+
 						});
-						
+
 					});
 				});
 			});
