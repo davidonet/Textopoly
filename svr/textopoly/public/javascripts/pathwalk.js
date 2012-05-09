@@ -52,10 +52,11 @@ function drawPath(aPosList) {
 		}
 
 	});
+	var aPath;
 	if(4 < params.zoom)
-		paper.path(aSVG).attr("stroke", "#fff").attr("stroke-width", 5 / params.zoom);
+		aPath = paper.path(aSVG).attr("stroke", "#fff").attr("stroke-width", 5 / params.zoom);
 	else
-		paper.path(aSVG).attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
+		aPath = paper.path(aSVG).attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
 	$.each(aPosList, function(index, value) {
 		if(0 < index) {
 			var shiftx = Math.floor((Number(value.left) + Number(aPosList[index - 1].left)) / 2 + (Math.random() - 2.0) * params.stepx);
@@ -68,7 +69,7 @@ function drawPath(aPosList) {
 			paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#555753").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
 		}
 	});
-
+	return aPath;
 }
 
 
@@ -97,6 +98,7 @@ $("#path_end").button().hide().click(function() {
 	posList = 0;
 });
 
+var gPath;
 function showPath() {
 	$.getJSON('/allpath', function(data) {
 		$(data).each(function(index, path) {
@@ -115,8 +117,30 @@ function showPath() {
 					lPosList.push(aPos);
 				}
 			});
-			drawPath(lPosList);
+			gPath = drawPath(lPosList);
+			gPath = data[0].pw;
 		});
 	});
+}
+
+
+$("#path_play").button().click(function() {
+	pathPlay(gPath)
+});
+
+function pathPlay(aPath) {
+	var aPos = aPath.shift();
+	if(aPos) {
+		aPos = aPos.split(',');
+		$('#map').animate({
+			left : ((params.xmin - aPos[0] - 1) * params.stepx) + $(document).width() / 2,
+			top : ((params.ymin - aPos[1] - 1) * params.stepy) + $(document).height() / 2
+		}, 2000).animate({
+			left : ((params.xmin - aPos[0] - 1) * params.stepx) + $(document).width() / 2,
+			top : ((params.ymin - aPos[1] - 1) * params.stepy) + $(document).height() / 2
+		}, 2000, function() {
+			pathPlay(aPath);
+		});
+	}
 }
 
