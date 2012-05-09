@@ -65,7 +65,7 @@ div#footer {
 	bottom: 0px;
 	z-index: 2000;
 	width: 960px;
-	height: 30px;
+	height: 40px;
 	border-top: #2e3436 dashed 1px;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
@@ -254,6 +254,19 @@ div#footer > h1 {
 	line-height: 20px;
 	text-transform: uppercase;
 	color: #2e3436; /* Aluminium 2 Darker */
+}
+div#footer > div#options {
+	display: block;
+	float: right;
+	margin-top: 5px;
+	margin-right: 10px;
+	width: 300px;
+}
+
+div#footer * input[name*=a] {
+
+	float: right;
+
 }
 /* MSG SURVOLS */
 .fz {

@@ -43,10 +43,11 @@ div#content
       div#zoom
         div#zoomSlider
     div#footer
-      h1 Chemins de lecteurs | 
-        span#path_start nouveau
+        span#path_start nouveau chemin
         span#path_end fin
-    
+        div#options
+          div#colorPicker
+          input(type="text", name="a")
 
   div.grid#map(class='z'+params.zoom)
     each txt in texts
@@ -61,3 +62,5 @@ div#content
               p.author #{txt.a}
         if( params.zoom == 2)
           div.ctx x
+          
+          
