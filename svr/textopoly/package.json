@@ -12,5 +12,6 @@
 		"socket.io":">=0.8.x",
 		"util":">=0.4.x",
 		"formidable":">=1.0.0",
+		"imagemagick":">=0.1.2"
 	}
 }

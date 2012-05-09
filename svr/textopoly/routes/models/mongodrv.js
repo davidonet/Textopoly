@@ -11,6 +11,18 @@ function normalizePos(nTxt) {
 	}
 }
 
+db.bind('path', {
+	newPath : function(aPath, fn) {
+		aPath.d = new Date();
+		this.insert(aPath, function(err) {
+			fn(err, aPath);
+		});
+	},
+	allPath : function(fn) {
+		this.find({}).toArray(fn);
+	},
+});
+
 db.bind('txt', {
 	aTxt : function(pos, fn) {
 		this.findOne({

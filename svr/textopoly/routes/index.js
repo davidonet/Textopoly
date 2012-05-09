@@ -16,4 +16,6 @@ module.exports = function(app) {
 	app.post('/insert', jsonC.insert);
 	app.get('/remove', jsonC.remove);
 	app.get('/authors', jsonC.authors);
+	app.post('/newpath', jsonC.newpath);
+	app.get('/allpath', jsonC.allpath);
 	}

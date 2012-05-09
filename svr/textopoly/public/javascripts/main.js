@@ -83,7 +83,7 @@ require(["jquery", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery
 						btnClic("#btnFind");
 						
 						require(["pathwalk"],function(){
-							
+							showPath();
 						});
 						
 					});
