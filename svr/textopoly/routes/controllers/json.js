@@ -19,6 +19,37 @@ exports.section = function(req, res) {
 	});
 };
 
+exports.allpath = function(req, res) {
+	db.path.allPath(function(err, items) {
+		res.json(items);
+	});
+}
+
+exports.newpath = function(req, res) {
+	var xmin = 0, ymin = 0, xmax = 0, ymax = 0;
+	var aNP = {
+		'a':req.body.a,
+		'pw':[],
+	}
+	req.body.pw.forEach(function(value, index) {
+		var x = Number(value.split(',')[0]), y = Number(value.split(',')[1]);
+		if(x < xmin)
+			xmin = x;
+		if(xmax < x)
+			xmax = x;
+		if(y < ymin)
+			ymin = y;
+		if(ymax < y)
+			ymax = y;
+		aNP.pw.push(x+","+y);
+	});
+	aNP.pmin = [xmin, ymin];
+	aNP.pmax = [xmax, ymax];
+	db.path.newPath(aNP, function(err, aRes) {
+		res.json(aRes);
+	});
+}
+
 exports.authors = function(req, res) {
 	db.txt.authors(function(err, items) {
 		res.json(items);
