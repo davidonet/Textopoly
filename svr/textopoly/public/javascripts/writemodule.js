@@ -11,7 +11,7 @@ $('.msg').on('click', function(event) {
 	// récupère la position absolue d'un élément .msg
 	var xPos = position.left;
 	var yPos = position.top;
-	
+
 });
 // boutons jqueryui
 
@@ -19,10 +19,8 @@ $('.fz > p').hide();
 
 // Insère formulaire d'écriture
 
-
-
 var writingBox = '<div id="writingBox"><form id = "writingForm" action="/insert"  method="post"><div id="writingArea" class="msg s l4">';
-writingBox += '<textarea name="t" rows="9" maxlength="600" cols="70" spellcheck="false"></textarea></div><div id="writingCommands">';
+writingBox += '<textarea name="t" rows="9" maxlength="600" cols="70" spellcheck="false"  wrap="off"></textarea></div><div id="writingCommands">';
 writingBox += '<div id="charCount">0/600</div>'
 writingBox += '<input type="hidden" name="x" type="number" min="-100" max="100"  /><input type="hidden" name="y" type="number" min="-100" max="100" />';
 writingBox += '<select id="size" name="s"></select><select name="a"><option>Ribouldingue</option><option>Filochard</option><option>Croquignol</option>';
@@ -33,8 +31,6 @@ writingBox += '</form></div>';
 
 
 $('#map').append(writingBox)
-
-
 
 // Masque formulaire d'écriture
 $('#writingBox').hide();
@@ -59,7 +55,7 @@ $('#writingForm').ajaxForm(function() {
 
 	var xGrid = $('#writingForm').find('input[name*="x"]').val();
 	var yGrid = $('#writingForm').find('input[name*="y"]').val();
-	
+
 	$(location).attr('href', '/view?zoom=2&xcenter=' + xGrid + '&ycenter=' + yGrid);
 
 });
@@ -69,16 +65,14 @@ $('input[name*="x"]').hide();
 $('input[name*="y"]').hide();
 */
 
-
 // Écrire
-$('.fz').on('click', function(event) {
+$('.z2 > .fz').on('click', function(event) {
 
 	$('#writingBox').show();
-	
-		$('#writingArea').removeClass('l t f').addClass('s');
-	$('#size').val('s');
 	$('textarea[name*=t]').focus();
-	
+	$('#writingArea').removeClass('l t f').addClass('s');
+	$('#size').val('s');
+
 	var dc = $(this).attr('dc').split(',');
 	// récupère la propriété dc d'un élément .fz dans un tableau
 	var xGrid = dc[0];
@@ -89,11 +83,11 @@ $('.fz').on('click', function(event) {
 	// récupère la position absolue d'un élément .fz
 	var xPos = position.left;
 	var yPos = position.top;
-	
+
 	// récupère les cases libres autour
 	var fA = (freeAdjacent(xGrid, yGrid));
 	console.log(fA);
-	
+
 	$('#size').children().remove();
 	$('#size').append('<option value="s">Small</option>');
 	// active les posibilités de tailles
@@ -128,15 +122,23 @@ $('#size').change(function() {
 	switch(size) {
 		case 's':
 			$('#writingArea').removeClass('l t f').addClass('s');
+			$('textarea[name*=t]').focus();
+
 			break;
 		case 'l':
 			$('#writingArea').removeClass('s t f').addClass('l');
+			$('textarea[name*=t]').focus();
+
 			break;
 		case 't':
 			$('#writingArea').removeClass('l s f').addClass('t');
+			$('textarea[name*=t]').focus();
+
 			break;
 		case 'f':
 			$('#writingArea').removeClass('l t s').addClass('f');
+			$('textarea[name*=t]').focus();
+
 			break;
 
 	};
@@ -173,68 +175,64 @@ $('#color').change(function() {
 	};
 });
 
+// SWITCH LIVE TYPE
 
-	// SWITCH LIVE TYPE
+var wT = '.z2 * > textarea[name*=t]'
+var wA = '.z2 * > #writingArea'
+// controls character input/counter
+$(wT).keyup(function() {
+	var charLength = $(this).val().length;
 
-	wT = '.z2 * > textarea[name*=t]'
-	wA = '.z2 * > #writingArea'
-	// controls character input/counter
-	$(wT).keyup(function() {
-		var charLength = $(this).val().length;
+	// Afficher le nombre de caractères
+	$('div#charCount').html(charLength + ' / 600');
 
-		// Afficher le nombre de caractères
-		$('div#charCount').html(charLength + ' / 600');
+	// 600
+	/*
+	if($(this).val().length > 600) {
+	$('div#charCount').html('<strong>600 max</strong>');
+	}
+	*/
 
-		// 600
-		/*
-		if($(this).val().length > 600) {
-		$('div#charCount').html('<strong>600 max</strong>');
-		}
-		*/
+	// change le style // WORK IN PROGRESS
 
-		// change le style // WORK IN PROGRESS
+	//
 
-		//
+	if($(this).val().length >= 0 && 3 >= $(this).val().length) {
+		$(wA).addClass('l4').removeClass('l15 l50 l150 l300 l600');
 
-		if($(this).val().length >= 0 && 3 >= $(this).val().length) {
-			$(wA).addClass('l4');
-			$(wA).removeClass('l15 l50 l150 l300 l600');
+	} else if($(this).val().length >= 4 && 14 >= $(this).val().length) {
+		$(wA).addClass('l15').removeClass('l4 l50 l150 l300 l600');
 
-		} else if($(this).val().length >= 4 && 15 >= $(this).val().length) {
-			$(wA).addClass('l15');
-			$(wA).removeClass('l4 l50 l150 l300 l600');
+	} else if($(this).val().length >= 15 && 49 >= $(this).val().length) {
+		$(wA).addClass('l50').removeClass('l4 l15 l150 l300 l600');
 
-		} else if($(this).val().length >= 16 && 50 >= $(this).val().length) {
-			$(wA).addClass('l50');
-			$(wA).removeClass('l4 l15 l150 l300 l600');
+	} else if($(this).val().length >= 50 && 149 >= $(this).val().length) {
+		$(wA).addClass('l150').removeClass('l4 l15 l50 l300 l600');
 
-		} else if($(this).val().length >= 51 && 150 >= $(this).val().length) {
-			$(wA).addClass('l150');
-			$(wA).removeClass('l4 l15 l50 l300 l600');
+	} else if($(this).val().length >= 150 && 299 >= $(this).val().length) {
+		$(wA).addClass('l300').removeClass('l4 l15 l50 l150 l600');
 
-		} else if($(this).val().length >= 151 && 300 >= $(this).val().length) {
-			$(wA).addClass('l300');
-			$(wA).removeClass('l4 l15 l50 l150 l600');
+	} else if($(this).val().length >= 300 && 600 >= $(this).val().length) {
+		$(wA).addClass('l600').removeClass('l4 l15 l50 l150 l300');
+	} else {
+	}
+});
 
-		} else if($(this).val().length >= 301 && 600 >= $(this).val().length) {
-			$(wA).addClass('l600');
-			$(wA).removeClass('l4 l15 l50 l150 l300');
-		} else {
-		}
-	});
-	// interdiction linebreak
+// interdiction linebreak
+/*
+$(wT).keypress(function(event) {
+if(event.keyCode == 13) {
+event.preventDefault();
+}
+});
+*/
 
-	$(wT).keypress(function(event) {
-		if(event.keyCode == 13) {
-			event.preventDefault();
-		}
-	});
+// Remplace les sauts de ligne par des espaces
 
-	$(wT).keyup(function() {
-		var txt = $(wT).val();
-		$(wT).val(txt.replace(/[\n\r]+/g, " "));
+$(wT).keyup(function() {
+	var txt = $(wT).val();
+	$(wT).val(txt.replace(/[\n\r]+/g, " "));
 
-	});
-	
-	
-		// SWITCH LIVE TYPE END
+});
+
+// SWITCH LIVE TYPE END
