@@ -19,13 +19,7 @@ $('.fz > p').hide();
 
 // Insère formulaire d'écriture
 
-var writingBox = '<div id="writingBox"><form id = "writingForm" action="/insert"  method="post"><div id="writingArea" class="msg s l4">';
-writingBox += '<textarea name="t" rows="9" maxlength="600" cols="70" spellcheck="false"  wrap="off"></textarea></div><div id="writingCommands">';
-writingBox += '<div id="charCount">0/600</div>'
-writingBox += '<input type="hidden" name="x" type="number" min="-100" max="100"  /><input type="hidden" name="y" type="number" min="-100" max="100" />';
-writingBox += '<select id="size" name="s"></select><select name="a"><option>Ribouldingue</option><option>Filochard</option><option>Croquignol</option>';
-writingBox += '<option>Manounou</option><option>Croquenot</option></select><select id="color" name="c" value="butter"><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input id="closeBox" type="button" value="X" /><input type="submit" value="OK" /></div></form></div>'
-
+var writingBox = '<!-- WRITING BOX --><div id="writingBox"><div id="writingArea" class="msg s l4"><textarea name="t" rows="9" maxlength="600" cols="70" spellcheck="false"  wrap="off"></textarea><div id="nw" class="handle">nw</div><div id="n" class="handle">n</div><div id="ne" class="handle">ne</div><div id="e" class="handle">e</div><div id="se" class="handle">se</div><div id="s" class="handle">s</div><div id="sw" class="handle">sw</div><div id="w" class="handle">w</div></div></div><!-- WRITING BOX -->';
 $('#map').append(writingBox)
 
 // Masque formulaire d'écriture

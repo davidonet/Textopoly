@@ -5,15 +5,15 @@ div#writingBox {
 	display: block;
 	top: 200px;
 	left: 100px;
-	border: dashed 1px red;
+	/*	border: dashed 1px red;*/
 }
 div#writingArea {
 	position: relative;
 	top: 0px;
 	left: 0px;
-	border: dashed 1px blue;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+	/*	border: dashed 1px blue; */
 }
 textarea[name*=t] {
 	position: relative;
@@ -26,8 +26,8 @@ textarea[name*=t] {
 }
 
 :focus {
-      outline:0;
-      outline:none;
+	outline: 0;
+	outline: none;
 }
 div#writingCommands {
 	position: relative;
@@ -39,12 +39,189 @@ div#writingCommands {
 	text-align: center;
 	background-color: #2e3436; /* Aluminium 2 Darker */
 	background-color: rgba(46, 52, 54, 0.8); /* Aluminium 2 Darker */
-	border: dashed 1px green;
 }
 div#charCount {
 
 }
 
+/* POIGNÉES */
+
+.handle {
+	width: 16px;
+	height: 16px;
+	display: block;
+	position: absolute;
+	cursor: default;
+	background-color: #888a85; /* Aluminium 2 Lighter */
+	background-color: rgba(136, 138, 133, 1); /* Aluminium 2 Lighter */
+}
+.handle:hover {
+
+	background-color: #555753; /* Aluminium 2 */
+	background-color: rgba(85, 87, 83, 1); /* Aluminium 2 */
+}
+
+
+/* POIGNÉES S */
+.msg.s > div#nw {
+	left: -16px;
+	top: -16px;
+}
+
+.msg.s > div#n {
+	left: 112px;
+	top: -16px;
+}
+.msg.s > div#ne {
+	left: 240px;
+	top: -16px;
+}
+
+.msg.s > div#e {
+	left: 240px;
+	top: 72px;
+}
+
+.msg.s > div#se {
+	left: 240px;
+	top: 160px;
+}
+
+.msg.s > div#s {
+	left: 112px;
+	top: 160px;
+}
+
+.msg.s > div#sw {
+	left: -16px;
+	top: 160px;
+}
+
+.msg.s > div#w {
+
+	left: -16px;
+	top: 72px;
+}
+/* POIGNÉES L */
+.msg.l > div#nw {
+	left: -16px;
+	top: -16px;
+}
+
+.msg.l > div#n {
+	left: 232px;
+	top: -16px;
+}
+.msg.l > div#ne {
+	left: 480px;
+	top: -16px;
+}
+
+.msg.l > div#e {
+	left: 480px;
+	top: 72px;
+}
+
+.msg.l > div#se {
+	left: 480px;
+	top: 160px;
+}
+
+.msg.l > div#s {
+	left: 232px;
+	top: 160px;
+}
+
+.msg.l > div#sw {
+	left: -16px;
+	top: 160px;
+}
+
+.msg.l > div#w {
+
+	left: -16px;
+	top: 72px;
+}
+/* POIGNÉES T */
+.msg.t > div#nw {
+	left: -16px;
+	top: -16px;
+}
+
+.msg.t > div#n {
+	left: 112px;
+	top: -16px;
+}
+.msg.t > div#ne {
+	left: 240px;
+	top: -16px;
+}
+
+.msg.t > div#e {
+	left: 240px;
+	top: 152px;
+}
+
+.msg.t > div#se {
+	left: 240px;
+	top: 320px;
+}
+
+.msg.t > div#s {
+	left: 112px;
+	top: 320px;
+}
+
+.msg.t > div#sw {
+	left: -16px;
+	top: 320px;
+}
+
+.msg.t > div#w {
+
+	left: -16px;
+	top: 152px;
+}
+/* POIGNÉES F */
+.msg.f > div#nw {
+	left: -16px;
+	top: -16px;
+}
+
+.msg.f > div#n {
+	left: 232px;
+	top: -16px;
+}
+.msg.f > div#ne {
+	left: 480px;
+	top: -16px;
+}
+
+.msg.f > div#e {
+	left: 480px;
+	top: 152px;
+}
+
+.msg.f > div#se {
+	left: 480px;
+	top: 320px;
+}
+
+.msg.f > div#s {
+	left: 232px;
+	top: 320px;
+}
+
+.msg.f > div#sw {
+	left: -16px;
+	top: 320px;
+}
+
+.msg.f > div#w {
+
+	left: -16px;
+	top: 152px;
+}
 
 
 /* WRITING AREA */
@@ -86,7 +263,6 @@ div#writingArea.f > textarea[name*=t] {
 	width: 460px;
 	height: 320px;
 }
-
 
 /* STYLES DES MSG ZOOM 1:2 SMALL*/
 
