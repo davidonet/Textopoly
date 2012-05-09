@@ -117,7 +117,7 @@
 	font-size: 25px;
 	line-height: 32px;
 	text-align: justify;
-	letter-spacing: 0px;
+	letter-spacing: -5px;
 }
 .z10 > .msg.t.l15 > p {
 	margin-top: 2px;
