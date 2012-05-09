@@ -135,7 +135,7 @@ function anchorPoint() {
 }
 
 
-$('.mdf').on('dblclick', function(event) {
+$('.msg').on('dblclick', function(event) {
 	var dc = $(this).attr('dc').split(',');
 	// récupère la propriété dc d'un élément .fz dans un tableau
 	var xGrid = dc[0];

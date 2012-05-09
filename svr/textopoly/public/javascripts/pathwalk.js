@@ -46,17 +46,28 @@ function drawPath(aPosList) {
 			var shiftx = Math.floor((Number(value.left) + Number(aPosList[index - 1].left)) / 2 + (Math.random() - 2.0) * params.stepx);
 			var shifty = Math.floor((Number(value.top) + Number(aPosList[index - 1].top)) / 2 + (Math.random() - 2.0) * params.stepy);
 			aSVG += "S" + shiftx + "," + shifty + "," + value.left + "," + value.top;
-			if(index < (aPosList.length - 1))
-				paper.circle(value.left, value.top, 2).attr("fill", "#D3D7CF").attr("stroke", "#fff");
-			else
-				paper.circle(value.left, value.top, 4).attr("fill", "#aaa").attr("stroke", "none");
 		} else {
 			aSVG += "M" + value.left + "," + value.top;
-			paper.circle(value.left, value.top, 4).attr("fill", "#444").attr("stroke", "none");
+
 		}
 
 	});
-	paper.path(aSVG).attr("stroke", "#fff");
+	if(4 < params.zoom)
+		paper.path(aSVG).attr("stroke", "#fff").attr("stroke-width", 5 / params.zoom);
+	else
+		paper.path(aSVG).attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
+	$.each(aPosList, function(index, value) {
+		if(0 < index) {
+			var shiftx = Math.floor((Number(value.left) + Number(aPosList[index - 1].left)) / 2 + (Math.random() - 2.0) * params.stepx);
+			var shifty = Math.floor((Number(value.top) + Number(aPosList[index - 1].top)) / 2 + (Math.random() - 2.0) * params.stepy);
+			if(index < (aPosList.length - 1))
+				paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#D3D7CF").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
+			else
+				paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#888a85").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
+		} else {
+			paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#555753").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
+		}
+	});
 
 }
 
@@ -74,7 +85,7 @@ $("#path_end").button().hide().click(function() {
 		type : 'POST',
 		url : '/newpath',
 		data : {
-			'a' : 'davidonet',
+			'a' : $('#current_author').val(),
 			'pw' : currentPath
 		},
 		success : function(res) {

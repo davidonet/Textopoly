@@ -35,15 +35,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   $.fn.colorPicker = function($$options) {
     // Defaults
     var $defaults = {
-      color:new Array(
-	"#fce94f", "#fcaf3e", "#8ae234", "#729fcf", "#ad7fa8", "#ef2929"
-	),
-      defaultColor: 0,
-      columns: 0,
-      click: function($color){}
-    };
-		
-    var $settings = $.extend({}, $defaults, $$options);
+    };		
+    var $settings = $$options;
 		
     // Iterate and reformat each matched element
     return this.each(function() {
