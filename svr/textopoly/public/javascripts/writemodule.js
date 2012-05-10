@@ -13,6 +13,8 @@ $('.msg').on('click', function(event) {
 	var yPos = position.top;
 
 });
+
+
 // boutons jqueryui
 
 $('.fz > p').hide();
@@ -25,35 +27,14 @@ function resetWritingBox() {
 	$('textarea[name*=t]').val('');
 }
 
-// ferme le formulaire d'écriture
-
-$('#closeBox').click(function() {
-	resetWritingBox()
-	$('#writingBox').hide();
-});
-// AJAXifie le formulaire d'écriture
-
-$('#writingForm').ajaxForm(function() {
-
-	var xGrid = $('#writingForm').find('input[name*="x"]').val();
-	var yGrid = $('#writingForm').find('input[name*="y"]').val();
-
-	$(location).attr('href', '/view?zoom=2&xcenter=' + xGrid + '&ycenter=' + yGrid);
-
-});
-// Cache les champs X et Y du formulaire d'écriture
-/*
-$('input[name*="x"]').hide();
-$('input[name*="y"]').hide();
-*/
 
 // Écrire
 $('.z2 > .fz').on('click', function(event) {
+	
 
 	$('#writingBox').show();
 	$('textarea[name*=t]').focus();
 	$('#writingArea').removeClass('l t f').addClass('s');
-	$('#size').val('s');
 
 	var dc = $(this).attr('dc').split(',');
 	// récupère la propriété dc d'un élément .fz dans un tableau
@@ -66,51 +47,48 @@ $('.z2 > .fz').on('click', function(event) {
 	var xPos = position.left;
 	var yPos = position.top;
 
+
+
 	// récupère les cases libres autour
 	var fA = (freeAdjacent(xGrid, yGrid));
 
 	// active les posibilités de tailles
+	/*
 	$('#e').hide();
 	$('#se').hide();
 	$('#s').hide();
 	$.each(fA, function(index, value) {
 		$('#' + value).show();
 	});
+	*/
+	
 	// positionnement du formulaire d'écriture
 	$('#writingBox').css({
-		'left' : xPos,
-		'top' : yPos
+		'left' : xPos -8,
+		'top' : yPos -8
 	});
 
-	// ajoute les coordonnées X Y dans le formulaire
-	$('input[name*="x"]').val(xGrid);
-	$('input[name*="y"]').val(yGrid);
-	$('input[name*="a"]').val(params.a);
-	$('input[name*="c"]').val(params.c);
-	$('#writingArea').focus();
 });
+
 // change la taille du formulaire
 
-$('#nw').click(function() {
-	$('#writingArea').removeClass('l t f').addClass('s');
-	$('textarea[name*=t]').focus();
-	$('input[name*="s"]').val('s');
-});
 $('#e').click(function() {
 	$('#writingArea').removeClass('s t f').addClass('l');
 	$('textarea[name*=t]').focus();
-	$('input[name*="s"]').val('l');
 });
-$('#se').click(function() {
-	$('#writingArea').removeClass('l t s').addClass('f');
-	$('textarea[name*=t]').focus();
-	$('input[name*="s"]').val('f');
-})
+
 $('#s').click(function() {
 	$('#writingArea').removeClass('l s f').addClass('t');
 	$('textarea[name*=t]').focus();
-	$('input[name*="s"]').val('t');
 })
+
+$('#se').click(function() {
+	$('#writingArea').removeClass('l s t').addClass('f');
+	$('textarea[name*=t]').focus();
+})
+
+
+
 // SWITCH LIVE TYPE
 
 var wT = '.z2 * > textarea[name*=t]'
@@ -129,7 +107,7 @@ $(wT).keyup(function() {
 	}
 	*/
 
-	// change le style // WORK IN PROGRESS
+	// change le style 
 
 	//
 

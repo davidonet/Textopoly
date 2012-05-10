@@ -3,9 +3,10 @@ div#writingBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
-	top: 200px;
-	left: 100px;
-	/*	border: dashed 1px red;*/
+	top: 0px;
+	left: 0px;
+	border: dashed 1px #2E3436; /* Aluminium 2 Darker */
+	padding: 8px;
 }
 div#writingArea {
 	position: relative;
@@ -29,38 +30,25 @@ textarea[name*=t] {
 	outline: 0;
 	outline: none;
 }
-div#writingCommands {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	width: 240px;
-	height: 60px;
-	margin-top: 10px;
-	text-align: center;
-	background-color: #2e3436; /* Aluminium 2 Darker */
-	background-color: rgba(46, 52, 54, 0.8); /* Aluminium 2 Darker */
-}
-div#charCount {
-
-}
 
 /* POIGNÉES */
 
 .handle {
 	width: 16px;
 	height: 16px;
+	border-radius: 8px;
 	display: block;
 	position: absolute;
 	cursor: default;
 	background-color: #888a85; /* Aluminium 2 Lighter */
 	background-color: rgba(136, 138, 133, 1); /* Aluminium 2 Lighter */
+	background-image: url(fleche.svg);
 }
 .handle:hover {
 
 	background-color: #555753; /* Aluminium 2 */
 	background-color: rgba(85, 87, 83, 1); /* Aluminium 2 */
 }
-
 
 /* POIGNÉES S */
 .msg.s > div#nw {
@@ -222,7 +210,6 @@ div#charCount {
 	left: -16px;
 	top: 152px;
 }
-
 
 /* WRITING AREA */
 
