@@ -17,14 +17,6 @@ $('.msg').on('click', function(event) {
 
 $('.fz > p').hide();
 
-// Insère formulaire d'écriture
-
-var writingBox = '<!-- WRITING BOX --><div id="writingBox"><form id="writingForm" action="/insert" method="post"><div id="writingArea" class="msg s l4"><textarea name="t" rows="9" maxlength="600" cols="70" spellcheck="false"  wrap="off"></textarea><div id="writingCommands"><input type="hidden" name="x" min="-100" max="100" style="display: none; " value="3"><input type="hidden" name="y" min="-100" max="100" style="display: none; " value="-6"><select id="size" name="s"><option value="s">Small</option><option value="l">Long</option></select><input name="a"></select><select id="color" name="c" value="butter" style="background-color: rgb(237, 212, 0); "><option>butter</option><option>orange</option><option>chocolate</option><option>chameleon</option><option>skyblue</option><option>plum</option><option>scarletred</option></select><input id="closeBox" type="button" value="X"><input type="submit" value="OK"></form></div><div id="nw" class="handle">nw</div><div id="n" class="handle">n</div><div id="ne" class="handle">ne</div><div id="e" class="handle">e</div><div id="se" class="handle">se</div><div id="s" class="handle">s</div><div id="sw" class="handle">sw</div><div id="w" class="handle">w</div></div></div><!-- WRITING BOX -->';
-$('#map').append(writingBox)
-
-// Masque formulaire d'écriture
-$('#writingBox').hide();
-
 // Fonction reinitialise le formulaire d'écriture
 
 function resetWritingBox() {
@@ -76,23 +68,13 @@ $('.z2 > .fz').on('click', function(event) {
 
 	// récupère les cases libres autour
 	var fA = (freeAdjacent(xGrid, yGrid));
-	console.log(fA);
 
-	$('#size').children().remove();
-	$('#size').append('<option value="s">Small</option>');
 	// active les posibilités de tailles
+	$('#e').hide();
+	$('#se').hide();
+	$('#s').hide();
 	$.each(fA, function(index, value) {
-		switch(value) {
-			case "e":
-				$('#size').append('<option value="l">Long</option>');
-				break;
-			case "s":
-				$('#size').append('<option value="t">Tall</option>');
-				break;
-			case "se":
-				$('#size').append('<option value="f">Fat</option>');
-				break;
-		}
+		$('#' + value).show();
 	});
 	// positionnement du formulaire d'écriture
 	$('#writingBox').css({
@@ -103,68 +85,32 @@ $('.z2 > .fz').on('click', function(event) {
 	// ajoute les coordonnées X Y dans le formulaire
 	$('input[name*="x"]').val(xGrid);
 	$('input[name*="y"]').val(yGrid);
+	$('input[name*="a"]').val(params.a);
+	$('input[name*="c"]').val(params.c);
 	$('#writingArea').focus();
 });
 // change la taille du formulaire
 
-$('#size').change(function() {
-	var size = $('#size option:selected').val();
-	switch(size) {
-		case 's':
-			$('#writingArea').removeClass('l t f').addClass('s');
-			$('textarea[name*=t]').focus();
-
-			break;
-		case 'l':
-			$('#writingArea').removeClass('s t f').addClass('l');
-			$('textarea[name*=t]').focus();
-
-			break;
-		case 't':
-			$('#writingArea').removeClass('l s f').addClass('t');
-			$('textarea[name*=t]').focus();
-
-			break;
-		case 'f':
-			$('#writingArea').removeClass('l t s').addClass('f');
-			$('textarea[name*=t]').focus();
-
-			break;
-
-	};
-
-})
-// sélecteur couleur provisoire
-
-$('#color').css('backgroundColor', '#edd400')
-
-$('#color').change(function() {
-	var color = $('#color option:selected').val();
-	switch(color) {
-		case 'butter':
-			$('#color').css('backgroundColor', '#edd400')
-			break;
-		case 'orange':
-			$('#color').css('backgroundColor', '#f57900')
-			break;
-		case 'chocolate':
-			$('#color').css('backgroundColor', '#c17d11')
-			break;
-		case 'chameleon':
-			$('#color').css('backgroundColor', '#73d216')
-			break;
-		case 'skyblue':
-			$('#color').css('backgroundColor', '#3465a4')
-			break;
-		case 'plum':
-			$('#color').css('backgroundColor', '#75507b')
-			break;
-		case 'scarletred':
-			$('#color').css('backgroundColor', '#cc0000')
-			break;
-	};
+$('#nw').click(function() {
+	$('#writingArea').removeClass('l t f').addClass('s');
+	$('textarea[name*=t]').focus();
+	$('input[name*="s"]').val('s');
 });
-
+$('#e').click(function() {
+	$('#writingArea').removeClass('s t f').addClass('l');
+	$('textarea[name*=t]').focus();
+	$('input[name*="s"]').val('l');
+});
+$('#se').click(function() {
+	$('#writingArea').removeClass('l t s').addClass('f');
+	$('textarea[name*=t]').focus();
+	$('input[name*="s"]').val('f');
+})
+$('#s').click(function() {
+	$('#writingArea').removeClass('l s f').addClass('t');
+	$('textarea[name*=t]').focus();
+	$('input[name*="s"]').val('t');
+})
 // SWITCH LIVE TYPE
 
 var wT = '.z2 * > textarea[name*=t]'
