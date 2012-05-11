@@ -1,8 +1,9 @@
-define(["/socket.io/socket.io.js"], function() {
-	var socket = io.connect();
-
+define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
+	/**
+	 * Compute the message class depending on the text lenght
+	 * @param txtlen a characters count
+	 */
 	function txtLen2Class(txtlen) {
-
 		var lclass = '';
 		if(txtlen < 1) {
 			lclass = 'l0';
@@ -24,6 +25,7 @@ define(["/socket.io/socket.io.js"], function() {
 		return lclass;
 	}
 
+	var socket = io.connect();
 
 	socket.on('book', function(data) {
 		$('.msg[dc="' + data.p + '"]').fadeOut(function() {
@@ -33,10 +35,7 @@ define(["/socket.io/socket.io.js"], function() {
 		newTxt.addClass(txtLen2Class(data.t.length));
 		newTxt.hide();
 		newTxt.attr('dc', data.p);
-		newTxt.css({
-			left : (data.p[0] - params.xmin) * params.stepx + 'px',
-			top : (data.p[1] - params.ymin) * params.stepy + 'px',
-		});
+		newTxt.css(helper.posToCSS(data.p));
 		if(data.t) {
 			var newContent = $(document.createElement("p")).text(data.t);
 			newTxt.fadeIn();

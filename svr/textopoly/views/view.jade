@@ -1,4 +1,4 @@
-script(type='text/javascript',src='javascripts/raphael-min.js')
+script(type='text/javascript',src='javascripts/lib/raphael-min.js')
 script(data-main='javascripts/main',src='javascripts/require-jquery.js')
 script(type='text/javascript')
   var params=!{JSON.stringify(params)};
@@ -79,5 +79,11 @@ div#content
           div#e.handle(style='display:none') e
           div#se.handle(style='display:none') se
           div#s.handle(style='display:none') s
-            
+          
+div#removebox(style='display:none')
+  small
+    span(style='color:red') Attention
+    br
+    span Cette opération est irréversible.
+              
           

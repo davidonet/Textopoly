@@ -99,31 +99,6 @@ $("#path_end").button().hide().click(function() {
 });
 
 var gPath;
-function showPath() {
-	$.getJSON('/allpath', function(data) {
-		$(data).each(function(index, path) {
-			var lPosList = new Array();
-			$(path.pw).each(function(index, point) {
-				var aPN = $('.msg[dc="' + point + '"]');
-				var aPos = aPN.position();
-				if(aPos) {
-					aPos.left += params.stepx;
-					aPos.top += params.stepy
-
-					if(aPN.hasClass('l') || aPN.hasClass('f'))
-						aPos.left += params.stepx;
-					if(aPN.hasClass('t') || aPN.hasClass('f'))
-						aPos.top += params.stepy
-					lPosList.push(aPos);
-				}
-			});
-			gPath = drawPath(lPosList);
-			gPath = data[0].pw;
-		});
-	});
-}
-
-
 $("#path_play").button().click(function() {
 	pathPlay(gPath)
 });
@@ -143,4 +118,26 @@ function pathPlay(aPath) {
 		});
 	}
 }
+
+$.getJSON('/allpath', function(data) {
+	$(data).each(function(index, path) {
+		var lPosList = new Array();
+		$(path.pw).each(function(index, point) {
+			var aPN = $('.msg[dc="' + point + '"]');
+			var aPos = aPN.position();
+			if(aPos) {
+				aPos.left += params.stepx;
+				aPos.top += params.stepy
+
+				if(aPN.hasClass('l') || aPN.hasClass('f'))
+					aPos.left += params.stepx;
+				if(aPN.hasClass('t') || aPN.hasClass('f'))
+					aPos.top += params.stepy
+				lPosList.push(aPos);
+			}
+		});
+		gPath = drawPath(lPosList);
+		gPath = data[0].pw;
+	});
+});
 
