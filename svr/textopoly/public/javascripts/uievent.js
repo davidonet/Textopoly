@@ -45,6 +45,41 @@ define(['helper', 'pathwalk'], function(helper, pathwalk) {
 	});
 	$("#path_end").button().hide();
 
+	/**
+	 * Draggable Map with reload
+	 */
+	$('#map').draggable({
+		/**
+		 * At the of a map drag, check if we are too close from the end of the map.
+		 * In this case, we recenter the map and reload the section at this new center
+		 */
+		stop : function(event, ui) {
+			var dX = Math.abs(helper.initLeft - ui.position.left);
+			var dY = Math.abs(helper.initTop - ui.position.top);
+			var xcenter = helper.getCenterX();
+			var ycenter = helper.getCenterY();
+
+			var bX = 0;
+			var bY = 0;
+			if(10 < params.zoom) {
+				bX = 300 * params.stepx;
+				bY = 300 * params.stepy;
+			} else {
+				bX = 50 * params.stepx;
+				bY = 50 * params.stepy;
+			}
+			if((bX < dX) || (bY < dY)) {
+				$('#map').animate({
+					left : ((params.xmin - xcenter - 1) * params.stepx) + $(document).width() / 2,
+					top : ((params.ymin - ycenter - 1) * params.stepy) + $(document).height() / 2
+				}, function() {
+					$(location).attr('href', '/view?zoom=' + params.zoom + '&xcenter=' + xcenter + '&ycenter=' + ycenter);
+
+				});
+			}
+		},
+	});
+
 	/***********************************************************************************
 	 * Begin temporary delete ui
 	 ***********************************************************************************/
