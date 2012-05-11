@@ -1,50 +1,38 @@
 define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
-	/**
-	 * Compute the message class depending on the text lenght
-	 * @param txtlen a characters count
-	 */
-	function txtLen2Class(txtlen) {
-		var lclass = '';
-		if(txtlen < 1) {
-			lclass = 'l0';
-		} else if(txtlen < 4) {
-			lclass = 'l4';
-		} else if(txtlen < 15) {
-			lclass = 'l15';
-		} else if(txtlen < 50) {
-			lclass = 'l50';
-		} else if(txtlen < 150) {
-			lclass = 'l150';
-		} else if(txtlen < 300) {
-			lclass = 'l300';
-		} else if(txtlen < 601) {
-			lclass = 'l600';
-		} else {
-			lclass = 'warning';
-		}
-		return lclass;
-	}
-
+	// Connection to the server
 	var socket = io.connect();
 
+	/**
+	 *  book event handling
+	 *  cell is first booked with authors name
+	 *  then replaced by text or image
+	 */
 	socket.on('book', function(data) {
+		// Remove any msg already displayed at tjis place
 		$('.msg[dc="' + data.p + '"]').fadeOut(function() {
 			this.remove();
 		});
+		// New cell building
 		var newTxt = $(document.createElement("div")).addClass("msg").addClass("mdf").addClass(data.s).addClass(data.c);
-		newTxt.addClass(txtLen2Class(data.t.length));
+		newTxt.addClass(helper.txtLen2Class(data.t.length));
 		newTxt.hide();
 		newTxt.attr('dc', data.p);
 		newTxt.css(helper.posToCSS(data.p));
 		if(data.t) {
+			// text filled cell
 			var newContent = $(document.createElement("p")).text(data.t);
 			newTxt.fadeIn();
 		} else {
+			// booked cell
 			var newContent = $(document.createElement("p")).addClass("author").text(data.a);
 			newTxt.addClass('l0');
 			newTxt.fadeIn();
 		}
 		newTxt.append(newContent);
+
+		/***********************************************************************************
+		 * Begin temporary delete ui
+		 ***********************************************************************************/
 		var newCtx = $(document.createElement("div")).addClass("ctx").text("x");
 		newCtx.on('click', function(event) {
 			var dc = $(this).parent().attr('dc').split(',');
@@ -65,14 +53,22 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 						});
 					}
 				}
-
 			});
 		});
 		newTxt.append(newCtx);
+		/***********************************************************************************
+		 * End of temporary delete ui
+		 */
+
 		$('#map').append(newTxt);
+
 	});
 
+	/**
+	 * unbook cell handling event
+	 */
 	socket.on('unbook', function(data) {
+		// fadeout and remove html event
 		$('.msg[dc="' + data.p + '"]').fadeOut(function() {
 			$(this).remove();
 		});

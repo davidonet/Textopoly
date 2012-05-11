@@ -1,4 +1,4 @@
-define(['helper'],function(helper) {
+define(['helper'], function(helper) {
 
 	/* Valeurs Slider - Echelles
 	* 5 1:1
@@ -35,7 +35,6 @@ define(['helper'],function(helper) {
 			break;
 	};
 
-
 	// Réglage du zoomSlider
 
 	$('#zoomSlider').slider({
@@ -47,8 +46,8 @@ define(['helper'],function(helper) {
 		change : function() {
 
 			var sliderValue = $(this).slider("option", "value");
-			var xcenter = helper.getXCenter();
-			var ycenter = helper.getYCenter();
+			var xcenter = helper.centerLeft();
+			var ycenter = helper.centerTop();
 			$('#map').fadeOut(300, function() {
 				switch(sliderValue) {
 					case 0:
@@ -75,6 +74,10 @@ define(['helper'],function(helper) {
 
 	// drag map
 	$('#map').draggable({
+		/**
+		 * At the of a map drag, check if we are too close from the end of the map.
+		 * In this case, we recenter the map and reload the section at this new center  
+		 */
 		stop : function(event, ui) {
 			var dX = Math.abs(helper.initX - ui.position.left);
 			var dY = Math.abs(helper.initY - ui.position.top);
@@ -92,8 +95,8 @@ define(['helper'],function(helper) {
 			}
 			if((bX < dX) || (bY < dY)) {
 				$('#map').animate({
-					left : ((params.xmin - helper.getXCenter() - 1) * params.stepx) + $(document).width() / 2,
-					top : ((params.ymin - helper.getYCenter() - 1) * params.stepy) + $(document).height() / 2
+					left : ((params.xmin - helper.centerLeft() - 1) * params.stepx) + $(document).width() / 2,
+					top : ((params.ymin - helper.centerTop() - 1) * params.stepy) + $(document).height() / 2
 				}, function() {
 					$(location).attr('href', '/view?zoom=' + params.zoom + '&xcenter=' + xcenter + '&ycenter=' + ycenter);
 
