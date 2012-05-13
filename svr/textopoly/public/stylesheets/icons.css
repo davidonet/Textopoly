@@ -1,0 +1,45 @@
+/* TEXTOPOLY ICON SET */
+
+/* Close */
+.ca {
+	background-image: url('textopoly_icons.svg');
+	background-position: -1px -1px;
+}
+
+/* OK */
+.ok {
+	background-image: url('textopoly_icons.svg');
+	background-position: 64px 0;
+}
+/* MEDIA */
+
+.me {
+	background-image: url('textopoly_icons.svg');
+	background-position: 32px 0px;
+}
+/* FLÈCHE GAUCHE */
+.ra {
+	background-image: url('textopoly_icons.svg');
+	background-position: 48px 0px;
+}
+
+/* FLÈCHE DROITE */
+.la {
+	background-image: url('textopoly_icons.svg');
+	background-position: 64px 0px;
+}
+/* FLÈCHE HAUT */
+.ua {
+	background-image: url('textopoly_icons.svg');
+	background-position: 48px 16px;
+}
+/* FLÈCHE BAS */
+.da {
+	background-image: url('textopoly_icons.svg');
+	background-position: 64px 16px;
+}
+/* FLÈCHE BAS */
+.da {
+	background-image: url('textopoly_icons.svg');
+	background-position: 64px 16px;
+}
