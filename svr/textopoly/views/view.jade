@@ -46,10 +46,7 @@ div#content
         span#path_start nouveau chemin
         span#path_end fin
         span#path_play Jouer
-        div#options
-          div#colorPicker
-          input#current_author(type="text", name="a")
-
+       
   div.grid#map(class='z'+params.zoom)
     each txt in texts
       div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c)
@@ -73,5 +70,12 @@ div#content
         
         textarea(name='t',rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='off')
         
-        div#imagearea(style='display:none')
+        div#imageArea(style='display:none')
+          h3 Envoyer un media
           input(type="file", name="image")
+          
+        div#authorArea(style='display:none')
+          h3 Choisir un nom et une couleur
+          div#colorPicker
+          input#current_author(type="text", name="a")
+

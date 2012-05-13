@@ -1,4 +1,6 @@
 var delay = 250
+var textarea = true
+var auth = false
 
 // Fonction reinitialise le formulaire d'écriture
 
@@ -6,9 +8,17 @@ function resetWritingBox() {
 	$('#editArea').switchClass('l t f', 's', delay, function() {
 		handlesPos();
 	});
+	$('#sw').show();
+	$('#e').show();
+	$('#s').show();
 	$('textarea[name*=t]').val('');
+	$('input[name*=image]').val('');
 	$('#writingBox').fadeOut(delay);
-}
+	$('#imageArea').hide();
+	$('#authorArea').hide();
+	$('textarea[name*=t]').show();
+	textarea = true
+};
 
 // Écrire
 $('.z2 > .fz').on('click', function(event) {
@@ -169,6 +179,40 @@ $('#nw').click(function() {
 	resetWritingBox();
 
 })
+
+$('#se').click(function() {
+
+	if(auth == false) {
+		$('#sw').hide();
+		$('#e').hide();
+		$('#s').hide();
+		$('#imageArea').hide();
+		$('textarea[name*=t]').hide();
+		$('#authorArea').show();
+		auth = true
+
+	} else {
+		resetWritingBox()
+		console.log('Bravo !')
+	}
+
+});
+
+$('#sw').click(function() {
+	if(textarea == true) {
+		$('textarea[name*=t]').val('');
+		$('textarea[name*=t]').hide();
+		$('#imageArea').show();
+		textarea = false
+	} else {
+		$('input[name*=image]').val('');
+		$('#imageArea').hide();
+		$('textarea[name*=t]').show();
+		textarea = true
+	}
+
+});
+
 // SWITCH LIVE TYPE
 
 var wT = '.z2 * > textarea[name*=t]'
