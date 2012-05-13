@@ -1,22 +1,22 @@
-var delay = 500
+var delay = 250
 
 // Fonction reinitialise le formulaire d'écriture
 
 function resetWritingBox() {
-	$('#writingArea').removeClass('l t f').addClass('s');
-	$('#size').val('s');
+	$('#editArea').switchClass('l t f', 's', delay, function() {
+		handlesPos();
+	});
 	$('textarea[name*=t]').val('');
+	$('#writingBox').fadeOut(delay);
 }
 
 // Écrire
 $('.z2 > .fz').on('click', function(event) {
-
-	$('#writingBox').show();
+	$('#writingBox').fadeIn(delay);
 	$('textarea[name*=t]').focus();
-	$('#writingArea').switchClass('l t f', 's', delay, function() {
+	$('#editArea').switchClass('l t f', 's', delay, function() {
 		handlesPos();
 	});
-	handlesPos();
 
 	var dc = $(this).attr('dc');
 	// récupère la propriété dc d'un élément .fz dans un tableau
@@ -46,7 +46,7 @@ $('.z2 > .fz').on('click', function(event) {
 	$('#writingBox').animate({
 		'left' : parseInt(xPos - 10),
 		'top' : parseInt(yPos - 10),
-	}, 500);
+	}, delay);
 
 });
 
@@ -101,61 +101,78 @@ function handlesPos() {
 // change la taille du formulaire
 
 $('#e').click(function() {
+	$(this).hide()
+	if($('#editArea').hasClass('s')) {
 
-	if($('#writingArea').hasClass('s')) {
-
-		$('#writingArea').switchClass('s', 'l', delay, function() {
+		$('#editArea').switchClass('s', 'l', delay, function() {
 			handlesPos();
+			$('#e').show()
 		});
-	} else if($('#writingArea').hasClass('l')) {
+	} else if($('#editArea').hasClass('l')) {
 
-		$('#writingArea').switchClass('l', 's', delay, function() {
+		$('#editArea').switchClass('l', 's', delay, function() {
 			handlesPos();
+			$('#e').show()
+
 		});
-	} else if($('#writingArea').hasClass('t')) {
+	} else if($('#editArea').hasClass('t')) {
 
-		$('#writingArea').switchClass('t', 'f', delay, function() {
+		$('#editArea').switchClass('t', 'f', delay, function() {
 			handlesPos();
+			$('#e').show()
+
 		});
-	} else if($('#writingArea').hasClass('f')) {
+	} else if($('#editArea').hasClass('f')) {
 
-		$('#writingArea').switchClass('f', 't', delay, function() {
+		$('#editArea').switchClass('f', 't', delay, function() {
 			handlesPos();
+			$('#e').show()
+
 		});
 	}
 
 });
 
 $('#s').click(function() {
+	$(this).hide()
+	if($('#editArea').hasClass('s')) {
 
-	if($('#writingArea').hasClass('s')) {
-
-		$('#writingArea').switchClass('s', 't', delay, function() {
+		$('#editArea').switchClass('s', 't', delay, function() {
 			handlesPos();
+			$('#s').show()
 		});
-	} else if($('#writingArea').hasClass('l')) {
+	} else if($('#editArea').hasClass('l')) {
 
-		$('#writingArea').switchClass('l', 'f', delay, function() {
+		$('#editArea').switchClass('l', 'f', delay, function() {
 			handlesPos();
+			$('#s').show()
 		});
-	} else if($('#writingArea').hasClass('t')) {
+	} else if($('#editArea').hasClass('t')) {
 
-		$('#writingArea').switchClass('t', 's', delay, function() {
+		$('#editArea').switchClass('t', 's', delay, function() {
 			handlesPos();
+			$('#s').show()
 		});
-	} else if($('#writingArea').hasClass('f')) {
+	} else if($('#editArea').hasClass('f')) {
 
-		$('#writingArea').switchClass('f', 'l', delay, function() {
+		$('#editArea').switchClass('f', 'l', delay, function() {
 			handlesPos();
+			$('#s').show()
 		});
 	}
 
 });
 
+// actions sur les poignées
+
+$('#nw').click(function() {
+	resetWritingBox();
+
+})
 // SWITCH LIVE TYPE
 
 var wT = '.z2 * > textarea[name*=t]'
-var wA = '.z2 * > #writingArea'
+var wA = '.z2 * > #editArea'
 // controls character input/counter
 $(wT).keyup(function() {
 	var charLength = $(this).val().length;

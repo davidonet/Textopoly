@@ -64,13 +64,14 @@ div#content
         if( params.zoom == 2)
           div.ctx x
     div#writingBox(style='display:none')
-      div#writingArea.s.l4
+      div#editArea.s.l4
+        div#nw.handle x
+        div#e.handle >
+        div#se.handle ok
+        div#s.handle v
+        div#sw.handle m
+        
         textarea(name='t',rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='off')
-        div#nw.handle nw
-        div#n.handle n
-        div#ne.handle ne
-        div#e.handle e
-        div#se.handle se
-        div#s.handle s
-        div#sw.handle sw
-        div#w.handle w
+        
+        div#imagearea(style='display:none')
+          input(type="file", name="image")
