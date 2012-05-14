@@ -2,7 +2,7 @@ require(["freeadjacent"], function(freeAdjacent) {
 	var delay = 250
 	var textarea = true
 	var auth = false
-
+	var isFatFree = false;
 	// Fonction reinitialise le formulaire d'écriture
 
 	function resetWritingBox() {
@@ -40,7 +40,7 @@ require(["freeadjacent"], function(freeAdjacent) {
 		$('#s').switchClass('au', 'ad', 0)
 		$('#sw').switchClass('tx', 'me', 0)
 
-		var dc = $(this).attr('dc');
+		var dc = $(this).attr('dc').split(',');
 		// récupère la propriété dc d'un élément .fz dans un tableau
 		var xGrid = dc[0];
 		// récupère x de dc
@@ -53,6 +53,19 @@ require(["freeadjacent"], function(freeAdjacent) {
 
 		// récupère les cases libres autour
 		var fA = (freeAdjacent(xGrid, yGrid));
+
+		$('#e').hide();
+		$('#s').hide();
+
+		$(fA).each(function(index, value) {
+
+			if(value == 'e')
+				$('#e').show();
+			if(value == 's')
+				$('#s').show();
+			if(value == 'se')
+				isFatFree = true;
+		});
 
 		// active les posibilités de tailles
 		/*
@@ -124,6 +137,8 @@ require(["freeadjacent"], function(freeAdjacent) {
 
 	$('#e').click(function() {
 		$(this).hide()
+		if(!isFatFree)
+			$('#s').hide();
 		if($('#editArea').hasClass('s')) {
 
 			$('#editArea').switchClass('s', 'l', delay, function() {
@@ -161,6 +176,8 @@ require(["freeadjacent"], function(freeAdjacent) {
 
 	$('#s').click(function() {
 		$(this).hide()
+		if(!isFatFree)
+			$('#s').hide();
 		if($('#editArea').hasClass('s')) {
 
 			$('#editArea').switchClass('s', 't', delay, function() {
