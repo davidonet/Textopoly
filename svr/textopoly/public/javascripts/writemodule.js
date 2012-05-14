@@ -56,178 +56,246 @@ require(["freeadjacent"], function(freeAdjacent) {
 
 		// active les posibilités de tailles
 		/*
-		$('.msg').on('click', function(event) {
-		var dc = $(this).attr('dc').split(',');
-		// récupère la propriété dc d'un élément .msg dans un tableau
-		var xGrid = dc[0];
-		// récupère x de dc
-		var yGrid = dc[1];
-		// récupère y de dc
-		var position = $(this).position();
-		// récupère la position absolue d'un élément .msg
-		var xPos = position.left;
-		var yPos = position.top;
-
+		$('#e').hide();
+		$('#se').hide();
+		$('#s').hide();
+		$.each(fA, function(index, value) {
+		$('#' + value).show();
 		});
 		*/
-		// boutons jqueryui
 
-		$('.fz > p').hide();
+		// positionnement du formulaire d'écriture
+		$('#writingBox').animate({
+			'left' : parseInt(xPos - 10),
+			'top' : parseInt(yPos - 10),
+		}, delay);
 
-		// Fonction reinitialise le formulaire d'écriture
+	});
 
-		function resetWritingBox() {
-			$('#writingArea').removeClass('l t f').addClass('s');
-			$('#size').val('s');
-			$('textarea[name*=t]').val('');
+	// position des poignées
+
+	function handlesPos() {
+		var r = 10;
+		var w = $('#writingBox').outerWidth();
+		var h = $('#writingBox').outerHeight();
+
+		$('#nw').css({
+			top : -2 * r,
+			left : -2 * r
+		});
+
+		$('#n').css({
+			top : -2 * r,
+			left : -2 * r + w / 2
+		});
+
+		$('#ne').css({
+			top : -2 * r,
+			left : -2 * r + w
+		});
+
+		$('#e').css({
+			top : -2 * r + h / 2,
+			left : -2 * r + w
+		});
+
+		$('#se').css({
+			top : -2 * r + h,
+			left : -2 * r + w
+		});
+
+		$('#s').css({
+			top : -2 * r + h,
+			left : -2 * r + w / 2
+		});
+
+		$('#sw').css({
+			top : -2 * r + h,
+			left : -2 * r
+		});
+
+		$('#w').css({
+			top : -2 * r + h / 2,
+			left : -2 * r
+		});
+	}
+
+	// change la taille du formulaire
+
+	$('#e').click(function() {
+		$(this).hide()
+		if($('#editArea').hasClass('s')) {
+
+			$('#editArea').switchClass('s', 'l', delay, function() {
+				handlesPos();
+				$('#e').switchClass('ar', 'al', 0)
+				$('#e').show()
+			});
+		} else if($('#editArea').hasClass('l')) {
+
+			$('#editArea').switchClass('l', 's', delay, function() {
+				handlesPos();
+				$('#e').switchClass('al', 'ar', 0)
+				$('#e').show()
+
+			});
+		} else if($('#editArea').hasClass('t')) {
+
+			$('#editArea').switchClass('t', 'f', delay, function() {
+				handlesPos();
+				$('#e').switchClass('ar', 'al', 0)
+				$('#e').show()
+
+			});
+		} else if($('#editArea').hasClass('f')) {
+
+			$('#editArea').switchClass('f', 't', delay, function() {
+				handlesPos();
+				$('#e').switchClass('al', 'ar', 0)
+				$('#e').show()
+
+			});
 		}
 
-		// ferme le formulaire d'écriture
+	});
 
-		$('#closeBox').click(function() {
-			resetWritingBox()
-			$('#writingBox').hide();
-		});
-		// AJAXifie le formulaire d'écriture
+	$('#s').click(function() {
+		$(this).hide()
+		if($('#editArea').hasClass('s')) {
 
-		$('#writingForm').ajaxForm(function() {
+			$('#editArea').switchClass('s', 't', delay, function() {
+				handlesPos();
+				$('#s').switchClass('ad', 'au', 0)
+				$('#s').show()
+			});
+		} else if($('#editArea').hasClass('l')) {
 
-			var xGrid = $('#writingForm').find('input[name*="x"]').val();
-			var yGrid = $('#writingForm').find('input[name*="y"]').val();
+			$('#editArea').switchClass('l', 'f', delay, function() {
+				handlesPos();
+				$('#s').switchClass('ad', 'au', 0)
+				$('#s').show()
+			});
+		} else if($('#editArea').hasClass('t')) {
 
-			$(location).attr('href', '/view?zoom=2&xcenter=' + xGrid + '&ycenter=' + yGrid);
+			$('#editArea').switchClass('t', 's', delay, function() {
+				handlesPos();
+				$('#s').switchClass('au', 'ad', 0)
 
-		});
-		// Cache les champs X et Y du formulaire d'écriture
-		/*
-		$('input[name*="x"]').hide();
-		$('input[name*="y"]').hide();
-		*/
+				$('#s').show()
+			});
+		} else if($('#editArea').hasClass('f')) {
 
-		// Écrire
-		$('.z2 > .fz').on('click', function(event) {
-			console.log("click");
-			$('#writingBox').show();
-			$('textarea[name*=t]').focus();
-			$('#writingArea').removeClass('l t f').addClass('s');
-			$('#size').val('s');
+			$('#editArea').switchClass('f', 'l', delay, function() {
+				handlesPos();
+				$('#s').switchClass('au', 'ad', 0)
 
-			var dc = $(this).attr('dc').split(',');
-			// récupère la propriété dc d'un élément .fz dans un tableau
-			var xGrid = dc[0];
-			// récupère x de dc
-			var yGrid = dc[1];
-			// récupère y de dc
-			var position = $(this).position();
-			// récupère la position absolue d'un élément .fz
-			var xPos = position.left;
-			var yPos = position.top;
+				$('#s').show()
+			});
+		}
 
-			// récupère les cases libres autour
-			var fA = (freeAdjacent(xGrid, yGrid));
+	});
 
-			// active les posibilités de tailles
+	// actions sur les poignées
+
+	$('#nw').click(function() {
+		resetWritingBox();
+
+	})
+
+	$('#se').click(function() {
+
+		if(auth == false) {
+			$('#sw').hide();
 			$('#e').hide();
-			$('#se').hide();
 			$('#s').hide();
-			$.each(fA, function(index, value) {
-				$('#' + value).show();
-			});
-			// positionnement du formulaire d'écriture
-			$('#writingBox').css({
-				'left' : xPos,
-				'top' : yPos
-			});
+			$('#imageArea').hide();
+			$('textarea[name*=t]').hide();
+			$('#authorArea').show();
+			auth = true
 
-			// ajoute les coordonnées X Y dans le formulaire
-			$('input[name*="x"]').val(xGrid);
-			$('input[name*="y"]').val(yGrid);
-			$('input[name*="a"]').val(params.a);
-			$('input[name*="c"]').val(params.c);
-			$('#writingArea').focus();
-		});
-		// change la taille du formulaire
-
-		$('#nw').click(function() {
-			$('#writingArea').removeClass('l t f').addClass('s');
-			$('textarea[name*=t]').focus();
-			$('input[name*="s"]').val('s');
-		});
-		$('#e').click(function() {
-			$('#writingArea').removeClass('s t f').addClass('l');
-			$('textarea[name*=t]').focus();
-			$('input[name*="s"]').val('l');
-		});
-		$('#se').click(function() {
-			$('#writingArea').removeClass('l t s').addClass('f');
-			$('textarea[name*=t]').focus();
-			$('input[name*="s"]').val('f');
-		})
-		$('#s').click(function() {
-			$('#writingArea').removeClass('l s f').addClass('t');
-			$('textarea[name*=t]').focus();
-			$('input[name*="s"]').val('t');
-		})
-		// SWITCH LIVE TYPE
-
-		var wT = '.z2 * > textarea[name*=t]'
-		var wA = '.z2 * > #writingArea'
-		// controls character input/counter
-		$(wT).keyup(function() {
-			var charLength = $(this).val().length;
-
-			// Afficher le nombre de caractères
-			$('div#charCount').html(charLength + ' / 600');
-
-			// 600
-			/*
-			if($(this).val().length > 600) {
-			$('div#charCount').html('<strong>600 max</strong>');
-			}
-			*/
-
-			// change le style // WORK IN PROGRESS
-
-			//
-
-			if($(this).val().length >= 0 && 3 >= $(this).val().length) {
-				$(wA).addClass('l4').removeClass('l15 l50 l150 l300 l600');
-
-			} else if($(this).val().length >= 4 && 14 >= $(this).val().length) {
-				$(wA).addClass('l15').removeClass('l4 l50 l150 l300 l600');
-
-			} else if($(this).val().length >= 15 && 49 >= $(this).val().length) {
-				$(wA).addClass('l50').removeClass('l4 l15 l150 l300 l600');
-
-			} else if($(this).val().length >= 50 && 149 >= $(this).val().length) {
-				$(wA).addClass('l150').removeClass('l4 l15 l50 l300 l600');
-
-			} else if($(this).val().length >= 150 && 299 >= $(this).val().length) {
-				$(wA).addClass('l300').removeClass('l4 l15 l50 l150 l600');
-
-			} else if($(this).val().length >= 300 && 600 >= $(this).val().length) {
-				$(wA).addClass('l600').removeClass('l4 l15 l50 l150 l300');
-			} else {
-			}
-		});
-
-		// interdiction linebreak
-		/*
-		$(wT).keypress(function(event) {
-		if(event.keyCode == 13) {
-		event.preventDefault();
+		} else {
+			resetWritingBox()
+			console.log('Bravo !')
 		}
-		});
+
+	});
+
+	$('#sw').click(function() {
+		if(textarea == true) {
+			$('textarea[name*=t]').val('');
+			$('#editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
+			$('textarea[name*=t]').hide();
+			$('#imageArea').show()
+			textarea = false
+			$('#sw').switchClass('me', 'tx', 0)
+		} else {
+			$('input[name*=image]').val('');
+			$('#imageArea').hide();
+			$('textarea[name*=t]').show();
+			$('#sw').switchClass('tx', 'me', 0)
+			textarea = true
+		}
+
+	});
+
+	// SWITCH LIVE TYPE
+
+	var wT = '.z2 * > textarea[name*=t]'
+	var wA = '.z2 * > #editArea'
+	// controls character input/counter
+	$(wT).keyup(function() {
+		var charLength = $(this).val().length;
+
+		// Afficher le nombre de caractères
+		$('div#charCount').html(charLength + ' / 600');
+
+		// 600
+		/*
+		if($(this).val().length > 600) {
+		$('div#charCount').html('<strong>600 max</strong>');
+		}
 		*/
 
-		// Remplace les sauts de ligne par des espaces
+		// change le style
 
-		$(wT).keyup(function() {
-			var txt = $(wT).val();
-			$(wT).val(txt.replace(/[\n\r]+/g, " "));
+		//
 
-		});
+		if($(this).val().length >= 0 && 3 >= $(this).val().length) {
+			$(wA).addClass('l4').removeClass('l15 l50 l150 l300 l600');
+
+		} else if($(this).val().length >= 4 && 14 >= $(this).val().length) {
+			$(wA).addClass('l15').removeClass('l4 l50 l150 l300 l600');
+
+		} else if($(this).val().length >= 15 && 49 >= $(this).val().length) {
+			$(wA).addClass('l50').removeClass('l4 l15 l150 l300 l600');
+
+		} else if($(this).val().length >= 50 && 149 >= $(this).val().length) {
+			$(wA).addClass('l150').removeClass('l4 l15 l50 l300 l600');
+
+		} else if($(this).val().length >= 150 && 299 >= $(this).val().length) {
+			$(wA).addClass('l300').removeClass('l4 l15 l50 l150 l600');
+
+		} else if($(this).val().length >= 300 && 600 >= $(this).val().length) {
+			$(wA).addClass('l600').removeClass('l4 l15 l50 l150 l300');
+		} else {
+		}
+	});
+
+	// interdiction linebreak
+	/*
+	$(wT).keypress(function(event) {
+	if(event.keyCode == 13) {
+	event.preventDefault();
+	}
+	});
+	*/
+
+	// Remplace les sauts de ligne par des espaces
+
+	$(wT).keyup(function() {
+		var txt = $(wT).val();
+		$(wT).val(txt.replace(/[\n\r]+/g, " "));
+
 	});
 });
-
 // SWITCH LIVE TYPE END
