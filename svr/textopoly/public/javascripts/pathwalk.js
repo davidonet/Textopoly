@@ -1,6 +1,7 @@
 define(['helper'], function(helper) {
 	var paper = Raphael('map');
-
+	$('svg').hide();
+	
 	function pathPlay(aPath) {
 		var aPos = aPath.shift();
 		if(aPos) {
@@ -67,6 +68,7 @@ define(['helper'], function(helper) {
 	$.getJSON('/allpath', function(data) {
 		$(data).each(function(index, path) {
 			drawPath(path.pw);
+			$('svg').fadeIn();
 		});
 	});
 
