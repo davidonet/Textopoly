@@ -1,9 +1,10 @@
 require(["freeadjacent"], function(freeAdjacent) {
 	var delay = 250
 	var textarea = true
-	var auth = false
+	var auth = ($.cookie("author") != null);
 	var isFatFree = false;
 	// Fonction reinitialise le formulaire d'écriture
+	
 
 	function resetWritingBox() {
 		$('#editArea').switchClass('l t f', 's', delay, function() {
@@ -41,6 +42,7 @@ require(["freeadjacent"], function(freeAdjacent) {
 		$('#sw').switchClass('tx', 'me', 0)
 
 		var dc = $(this).attr('dc').split(',');
+		$('#writingBox').attr('dc', $(this).attr('dc'));
 		// récupère la propriété dc d'un élément .fz dans un tableau
 		var xGrid = dc[0];
 		// récupère x de dc
@@ -231,8 +233,34 @@ require(["freeadjacent"], function(freeAdjacent) {
 			auth = true
 
 		} else {
-			resetWritingBox()
-			console.log('Bravo !')
+
+			var dc = $('#writingBox').attr('dc').split(',');
+			var aSize = 's';
+			if($('#editArea').hasClass('l'))
+				aSize = 'l';
+			else if($('#editArea').hasClass('t'))
+				aSize = 't';
+			else if($('#editArea').hasClass('f'))
+				aSize = 'f';
+			var data = {
+				'a' : $('#current_author').val(),
+				'c' : params.c,
+				'x' : dc[0],
+				'y' : dc[1],
+				't' : $('textarea[name*=t]').val(),
+				's' : aSize
+			};
+			$.ajax({
+				type : 'POST',
+				url : '/insert',
+				data : data,
+				success : function(res) {
+					$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+					resetWritingBox();
+				},
+				dataType : 'json'
+			});
+
 		}
 
 	});

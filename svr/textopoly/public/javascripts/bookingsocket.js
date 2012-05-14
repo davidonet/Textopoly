@@ -10,7 +10,7 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 	socket.on('book', function(data) {
 		// Remove any msg already displayed at tjis place
 		$('.msg[dc="' + data.p + '"]').fadeOut(function() {
-			this.remove();
+			$(this).remove();
 		});
 		// New cell building
 		var newTxt = $(document.createElement("div")).addClass("msg").addClass("mdf").addClass(data.s).addClass(data.c);
