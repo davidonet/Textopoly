@@ -1,45 +1,47 @@
 /* TEXTOPOLY ICON SET */
 
-/* Close */
+/* Cancel */
 .ca {
-	background-image: url('textopoly_icons.svg');
-	background-position: -1px -1px;
+	background-image: url('icons/cancel.svg');
+}
+
+.ca:hover {
+	background-color: #CC0000;
 }
 
 /* OK */
 .ok {
-	background-image: url('textopoly_icons.svg');
-	background-position: 64px 0;
+	background-image: url('icons/accept.svg');
 }
+.ok:hover {
+	background-color: #73D216;
+}
+
 /* MEDIA */
 
 .me {
-	background-image: url('textopoly_icons.svg');
-	background-position: 32px 0px;
-}
-/* FLÈCHE GAUCHE */
-.ra {
-	background-image: url('textopoly_icons.svg');
-	background-position: 48px 0px;
+	background-image: url('icons/media.svg');
 }
 
+/* TEXTE */
+
+.tx {
+	background-image: url('icons/text.svg');
+}
 /* FLÈCHE DROITE */
-.la {
-	background-image: url('textopoly_icons.svg');
-	background-position: 64px 0px;
+.ar {
+	background-image: url('icons/arrow_right.svg');
+}
+
+/* FLÈCHE GAUCHE */
+.al {
+	background-image: url('icons/arrow_left.svg');
 }
 /* FLÈCHE HAUT */
-.ua {
-	background-image: url('textopoly_icons.svg');
-	background-position: 48px 16px;
+.au {
+	background-image: url('icons/arrow_up.svg');
 }
 /* FLÈCHE BAS */
-.da {
-	background-image: url('textopoly_icons.svg');
-	background-position: 64px 16px;
-}
-/* FLÈCHE BAS */
-.da {
-	background-image: url('textopoly_icons.svg');
-	background-position: 64px 16px;
+.ad {
+	background-image: url('icons/arrow_down.svg');
 }

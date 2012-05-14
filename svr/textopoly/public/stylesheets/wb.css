@@ -24,7 +24,6 @@ textarea[name*=t] {
 	resize: none;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(0, 0, 0, 0); /* Aluminium 1 Lighter */
-
 }
 
 :focus {
@@ -41,18 +40,12 @@ textarea[name*=t] {
 	display: block;
 	position: absolute;
 	cursor: default;
-	background-color: #888a85; /* Aluminium 2 Lighter */
-	background-color: rgba(136, 138, 133, 1); /* Aluminium 2 Lighter */
 	border: solid 2px #eeeeec; /* Aluminium 2 Darker */
-
+	background-color: #888a85; /* Aluminium 2 Lighter */
 }
 .handle:hover {
-
 	background-color: #555753; /* Aluminium 2 */
-	background-color: rgba(85, 87, 83, 1); /* Aluminium 2 */
 }
-
-
 
 /* WRITING AREA */
 

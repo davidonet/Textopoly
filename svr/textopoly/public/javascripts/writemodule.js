@@ -8,6 +8,11 @@ function resetWritingBox() {
 	$('#editArea').switchClass('l t f', 's', delay, function() {
 		handlesPos();
 	});
+
+	$('#e').switchClass('al', 'ar', 0)
+	$('#s').switchClass('au', 'ad', 0)
+	$('#sw').switchClass('tx', 'me', 0)
+
 	$('#sw').show();
 	$('#e').show();
 	$('#s').show();
@@ -27,6 +32,10 @@ $('.z2 > .fz').on('click', function(event) {
 	$('#editArea').switchClass('l t f', 's', delay, function() {
 		handlesPos();
 	});
+
+	$('#e').switchClass('al', 'ar', 0)
+	$('#s').switchClass('au', 'ad', 0)
+	$('#sw').switchClass('tx', 'me', 0)
 
 	var dc = $(this).attr('dc');
 	// récupère la propriété dc d'un élément .fz dans un tableau
@@ -116,12 +125,14 @@ $('#e').click(function() {
 
 		$('#editArea').switchClass('s', 'l', delay, function() {
 			handlesPos();
+			$('#e').switchClass('ar', 'al', 0)
 			$('#e').show()
 		});
 	} else if($('#editArea').hasClass('l')) {
 
 		$('#editArea').switchClass('l', 's', delay, function() {
 			handlesPos();
+			$('#e').switchClass('al', 'ar', 0)
 			$('#e').show()
 
 		});
@@ -129,6 +140,7 @@ $('#e').click(function() {
 
 		$('#editArea').switchClass('t', 'f', delay, function() {
 			handlesPos();
+			$('#e').switchClass('ar', 'al', 0)
 			$('#e').show()
 
 		});
@@ -136,6 +148,7 @@ $('#e').click(function() {
 
 		$('#editArea').switchClass('f', 't', delay, function() {
 			handlesPos();
+			$('#e').switchClass('al', 'ar', 0)
 			$('#e').show()
 
 		});
@@ -149,24 +162,30 @@ $('#s').click(function() {
 
 		$('#editArea').switchClass('s', 't', delay, function() {
 			handlesPos();
+			$('#s').switchClass('ad', 'au', 0)
 			$('#s').show()
 		});
 	} else if($('#editArea').hasClass('l')) {
 
 		$('#editArea').switchClass('l', 'f', delay, function() {
 			handlesPos();
+			$('#s').switchClass('ad', 'au', 0)
 			$('#s').show()
 		});
 	} else if($('#editArea').hasClass('t')) {
 
 		$('#editArea').switchClass('t', 's', delay, function() {
 			handlesPos();
+			$('#s').switchClass('au', 'ad', 0)
+
 			$('#s').show()
 		});
 	} else if($('#editArea').hasClass('f')) {
 
 		$('#editArea').switchClass('f', 'l', delay, function() {
 			handlesPos();
+			$('#s').switchClass('au', 'ad', 0)
+
 			$('#s').show()
 		});
 	}
@@ -202,12 +221,14 @@ $('#sw').click(function() {
 	if(textarea == true) {
 		$('textarea[name*=t]').val('');
 		$('textarea[name*=t]').hide();
-		$('#imageArea').show();
+		$('#imageArea').show()
 		textarea = false
+		$('#sw').switchClass('me', 'tx', 0)
 	} else {
 		$('input[name*=image]').val('');
 		$('#imageArea').hide();
 		$('textarea[name*=t]').show();
+		$('#sw').switchClass('tx', 'me', 0)
 		textarea = true
 	}
 
