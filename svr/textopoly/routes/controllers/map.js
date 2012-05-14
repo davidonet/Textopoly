@@ -1,9 +1,5 @@
-exports.view = function(req, res) {
-	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
-	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
-	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
-	
-	var range = 10;	
+function prepareMapData(xcenter, ycenter, zoom, fn) {
+	var range = 10;
 	var stepX = 120;
 	var stepY = 80;
 
@@ -39,13 +35,12 @@ exports.view = function(req, res) {
 			range = 300;
 			break;
 	}
-	
+
 	var xmin = xcenter - range;
 	var xmax = xcenter + range;
 	var ymin = ycenter - range;
 	var ymax = ycenter + range;
 
-	
 	if(zoom < 10) {
 		var reservedArray = new Array((4 + xmax - xmin) * (4 + ymax - ymin));
 		for(var i = 0, j = reservedArray.length; i < j; i++) {
@@ -128,7 +123,7 @@ exports.view = function(req, res) {
 		if(zoom < 10)
 			var compOutput = encode(reservedArray);
 
-		var response = {
+		fn({
 			title : 'Textopoly | ' + aBoundingBox,
 			params : {
 				zoom : zoom,
@@ -143,8 +138,26 @@ exports.view = function(req, res) {
 				booked : compOutput
 			},
 			texts : items
-		};
+		});
+	});
+}
 
-		res.render('view.jade', response);
+exports.map = function(req, res) {
+	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
+	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
+	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
+
+	prepareMapData(xcenter, ycenter, zoom, function(data) {
+		res.render('map.jade', data);
+	});
+}
+
+exports.view = function(req, res) {
+	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
+	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
+	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
+
+	prepareMapData(xcenter, ycenter, zoom, function(data) {
+		res.render('view.jade', data);
 	});
 }

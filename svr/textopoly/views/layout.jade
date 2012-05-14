@@ -3,4 +3,8 @@ html
   head
     title=title
     link(rel='stylesheet', href='/stylesheets/styles.css')
+    script(type='text/javascript',src='javascripts/lib/raphael-min.js')
+    script(data-main='javascripts/main',src='javascripts/require-jquery.js')
+    script(type='text/javascript')
+      var params=!{JSON.stringify(params)};
   body!= body

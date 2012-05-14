@@ -50,7 +50,7 @@ require(["freeadjacent"], function(freeAdjacent) {
 
 	// Écrire
 	$('.z2 > .fz').on('click', function(event) {
-
+		console.log("click");
 		$('#writingBox').show();
 		$('textarea[name*=t]').focus();
 		$('#writingArea').removeClass('l t f').addClass('s');
