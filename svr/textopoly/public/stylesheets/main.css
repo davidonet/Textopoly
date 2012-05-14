@@ -29,7 +29,7 @@ body {
 	position: absolute;
 	cursor: default;
 }
-.msg > p, .msg > textarea {
+.msg > p, textarea[name*=t] {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
 	white-space: pre;
