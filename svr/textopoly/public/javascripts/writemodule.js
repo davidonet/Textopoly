@@ -1,10 +1,9 @@
-require(["freeadjacent"], function(freeAdjacent) {
+require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader) {
 	var delay = 250
 	var textarea = true
 	var auth = ($.cookie("author") != null);
 	var isFatFree = false;
 	// Fonction reinitialise le formulaire d'écriture
-	
 
 	function resetWritingBox() {
 		$('#editArea').switchClass('l t f', 's', delay, function() {
@@ -265,12 +264,38 @@ require(["freeadjacent"], function(freeAdjacent) {
 
 	});
 
+	var uploader = new qq.FileUploader({
+		element :$('#imageArea')[0],
+		action : '/postimg',
+		debug : false,
+		onComplete: function(){
+			var dc = $('#writingBox').attr('dc').split(',');
+			$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+		}
+	});
 	$('#sw').click(function() {
 		if(textarea == true) {
 			$('textarea[name*=t]').val('');
 			$('#editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
 			$('textarea[name*=t]').hide();
-			$('#imageArea').show()
+			
+			$('#imageArea').show();
+			var dc = $('#writingBox').attr('dc').split(',');
+			var aSize = 's';
+			if($('#editArea').hasClass('l'))
+				aSize = 'l';
+			else if($('#editArea').hasClass('t'))
+				aSize = 't';
+			else if($('#editArea').hasClass('f'))
+				aSize = 'f';
+			var data = {
+				'a' : $('#current_author').val(),
+				'c' : 'image',
+				'x' : dc[0],
+				'y' : dc[1],
+				's' : aSize
+			};
+			uploader.setParams(data);
 			textarea = false
 			$('#sw').switchClass('me', 'tx', 0)
 		} else {

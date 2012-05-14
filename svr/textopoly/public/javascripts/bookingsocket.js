@@ -14,7 +14,8 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 		});
 		// New cell building
 		var newTxt = $(document.createElement("div")).addClass("msg").addClass("mdf").addClass(data.s).addClass(data.c);
-		newTxt.addClass(helper.txtLen2Class(data.t.length));
+		if(t!=null)
+			newTxt.addClass(helper.txtLen2Class(data.t.length));
 		newTxt.hide();
 		newTxt.attr('dc', data.p);
 		newTxt.css(helper.posToCSS(data.p));
