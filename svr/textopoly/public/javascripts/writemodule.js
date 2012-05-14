@@ -9,6 +9,8 @@ function resetWritingBox() {
 		handlesPos();
 	});
 
+	$('#editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
+
 	$('#e').switchClass('al', 'ar', 0)
 	$('#s').switchClass('au', 'ad', 0)
 	$('#sw').switchClass('tx', 'me', 0)
@@ -220,6 +222,7 @@ $('#se').click(function() {
 $('#sw').click(function() {
 	if(textarea == true) {
 		$('textarea[name*=t]').val('');
+		$('#editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
 		$('textarea[name*=t]').hide();
 		$('#imageArea').show()
 		textarea = false
