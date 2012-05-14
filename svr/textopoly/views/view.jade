@@ -41,10 +41,7 @@ div#content
         span#path_start nouveau chemin
         span#path_end fin
         span#path_play Jouer
-        div#options
-          div#colorPicker
-          input#current_author(type="text", name="a")
-
+       
   div.grid#map(class='z'+params.zoom)
     each txt in texts
       div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c)
@@ -59,26 +56,22 @@ div#content
         if( params.zoom == 2)
           div.ctx x
     div#writingBox(style='display:none')
-      form#writingForm(action='/insert',method='post')
-        div#writingArea.msg.s.l4
-          textarea(name='t',rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='off')
-          div#writingCommands
-            input(type='hidden', name='x')
-            input(type='hidden', name='y')
-            input(type='hidden',name='a')
-            input(type='hidden',name='c')
-            input(type='hidden',name='s',value='s')
-            input#closeBox(type='button', value='X')
-            input(type='submit', value='OK')
-          div#nw.handle r
-          div#e.handle(style='display:none') e
-          div#se.handle(style='display:none') se
-          div#s.handle(style='display:none') s
+
+      div#editArea.s.l4
+        div#nw.handle.ca
+        div#e.handle.ar
+        div#se.handle.ok
+        div#s.handle.ad
+        div#sw.handle.me
+        
+        textarea(name='t',rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='off')
+        
+        div#imageArea(style='display:none')
+          h3 Envoyer un media
+          input(type="file", name="image")
           
-div#removebox(style='display:none')
-  small
-    span(style='color:red') Attention
-    br
-    span Cette opération est irréversible.
-              
-          
+        div#authorArea(style='display:none')
+          h3 Choisir un nom et une couleur
+          div#colorPicker
+          input#current_author(type="text", name="a")
+
