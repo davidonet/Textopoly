@@ -397,6 +397,26 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	// INFOBOX NORTH WEST >  delete action
 	$('.infoArea > .nw.handle').click(function() {
+		
+			var dc = $(this).parent().attr('dc').split(',');
+		var xGrid = dc[0];
+		var yGrid = dc[1];
+		$('#removebox').dialog({
+			"resizable" : false,
+			"title" : "Suppression ?",
+			buttons : {
+				"Non, je ne préfère pas" : function() {
+					$(this).dialog("close");
+				},
+				"Oui" : function() {
+					$(this).dialog("close");
+					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
+					});
+				}
+			}
+
+		});
+		
 		console.log('delete')
 	})
 	// INFOBOX EAST >  path action
