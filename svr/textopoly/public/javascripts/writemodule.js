@@ -54,42 +54,42 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		var w = $(targetArea).parent().outerWidth();
 		var h = $(targetArea).parent().outerHeight();
 
-		$('.nw.handle').css({
+		$(targetArea+'>.nw.handle').css({
 			top : -2 * r,
 			left : -2 * r
 		});
 
-		$('.n.handle').css({
+		$(targetArea+'> .n.handle').css({
 			top : -2 * r,
 			left : -2 * r + w / 2
 		});
 
-		$('.ne.handle').css({
+		$(targetArea+'> .ne.handle').css({
 			top : -2 * r,
 			left : -2 * r + w
 		});
 
-		$('.e.handle').css({
+		$(targetArea+'> .e.handle').css({
 			top : -2 * r + h / 2,
 			left : -2 * r + w
 		});
 
-		$('.se.handle').css({
+		$(targetArea+'> .se.handle').css({
 			top : -2 * r + h,
 			left : -2 * r + w
 		});
 
-		$('.s.handle').css({
+		$(targetArea+'> .s.handle').css({
 			top : -2 * r + h,
 			left : -2 * r + w / 2
 		});
 
-		$('.sw.handle').css({
+		$(targetArea+'> .sw.handle').css({
 			top : -2 * r + h,
 			left : -2 * r
 		});
 
-		$('.w.handle').css({
+		$(targetArea+'> .w.handle').css({
 			top : -2 * r + h / 2,
 			left : -2 * r
 		});
