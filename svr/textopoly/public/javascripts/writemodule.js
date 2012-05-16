@@ -6,24 +6,24 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 	// Fonction reinitialise le formulaire d'écriture
 
 	function resetWritingBox() {
-		$('#editArea').switchClass('l t f', 's', delay, function() {
+		$('.editArea').switchClass('l t f', 's', delay, function() {
 			handlesPos();
 		});
 
-		$('#editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
+		$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
 
-		$('#e').switchClass('al', 'ar', 0)
-		$('#s').switchClass('au', 'ad', 0)
-		$('#sw').switchClass('tx', 'me', 0)
+		$('.e.handle').switchClass('al', 'ar', 0)
+		$('.s.handle').switchClass('au', 'ad', 0)
+		$('.sw.handle').switchClass('tx', 'me', 0)
 
-		$('#sw').show();
-		$('#e').show();
-		$('#s').show();
+		$('.sw.handle').show();
+		$('.e.handle').show();
+		$('.s.handle').show();
 		$('textarea[name*=t]').val('');
 		$('input[name*=image]').val('');
 		$('#writingBox').fadeOut(delay);
-		$('#imageArea').hide();
-		$('#authorArea').hide();
+		$('.imageArea').hide();
+		$('.authorArea').hide();
 		$('textarea[name*=t]').show();
 		textarea = true
 	};
@@ -32,13 +32,13 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 	$('.z2 > .fz').on('click', function(event) {
 		$('#writingBox').fadeIn(delay);
 		$('textarea[name*=t]').focus();
-		$('#editArea').switchClass('l t f', 's', delay, function() {
+		$('.editArea').switchClass('l t f', 's', delay, function() {
 			handlesPos();
 		});
 
-		$('#e').switchClass('al', 'ar', 0)
-		$('#s').switchClass('au', 'ad', 0)
-		$('#sw').switchClass('tx', 'me', 0)
+		$('.e.handle').switchClass('al', 'ar', 0)
+		$('.s.handle').switchClass('au', 'ad', 0)
+		$('.sw').switchClass('tx', 'me', 0)
 
 		var dc = $(this).attr('dc').split(',');
 		$('#writingBox').attr('dc', $(this).attr('dc'));
@@ -55,15 +55,15 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 		// récupère les cases libres autour
 		var fA = (freeAdjacent(xGrid, yGrid));
 
-		$('#e').hide();
-		$('#s').hide();
+		$('.e.handle').hide();
+		$('.s.handle').hide();
 
 		$(fA).each(function(index, value) {
 
 			if(value == 'e')
-				$('#e').show();
+				$('.e.handle').show();
 			if(value == 's')
-				$('#s').show();
+				$('.s.handle').show();
 			if(value == 'se')
 				isFatFree = true;
 		});
@@ -93,42 +93,42 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 		var w = $('#writingBox').outerWidth();
 		var h = $('#writingBox').outerHeight();
 
-		$('#nw').css({
+		$('.nw.handle').css({
 			top : -2 * r,
 			left : -2 * r
 		});
 
-		$('#n').css({
+		$('.n.handle').css({
 			top : -2 * r,
 			left : -2 * r + w / 2
 		});
 
-		$('#ne').css({
+		$('.ne.handle').css({
 			top : -2 * r,
 			left : -2 * r + w
 		});
 
-		$('#e').css({
+		$('.e.handle').css({
 			top : -2 * r + h / 2,
 			left : -2 * r + w
 		});
 
-		$('#se').css({
+		$('.se.handle').css({
 			top : -2 * r + h,
 			left : -2 * r + w
 		});
 
-		$('#s').css({
+		$('.s.handle').css({
 			top : -2 * r + h,
 			left : -2 * r + w / 2
 		});
 
-		$('#sw').css({
+		$('.sw.handle').css({
 			top : -2 * r + h,
 			left : -2 * r
 		});
 
-		$('#w').css({
+		$('.w.handle').css({
 			top : -2 * r + h / 2,
 			left : -2 * r
 		});
@@ -136,78 +136,78 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 
 	// change la taille du formulaire
 
-	$('#e').click(function() {
+	$('.e.handle').click(function() {
 		$(this).hide()
 		if(!isFatFree)
-			$('#s').hide();
-		if($('#editArea').hasClass('s')) {
+			$('.s.handle').hide();
+		if($('.editArea').hasClass('s')) {
 
-			$('#editArea').switchClass('s', 'l', delay, function() {
+			$('.editArea').switchClass('s', 'l', delay, function() {
 				handlesPos();
-				$('#e').switchClass('ar', 'al', 0)
-				$('#e').show()
+				$('.e.handle').switchClass('ar', 'al', 0)
+				$('.e.handle').show()
 			});
-		} else if($('#editArea').hasClass('l')) {
+		} else if($('.editArea').hasClass('l')) {
 
-			$('#editArea').switchClass('l', 's', delay, function() {
+			$('.editArea').switchClass('l', 's', delay, function() {
 				handlesPos();
-				$('#e').switchClass('al', 'ar', 0)
-				$('#e').show()
-
-			});
-		} else if($('#editArea').hasClass('t')) {
-
-			$('#editArea').switchClass('t', 'f', delay, function() {
-				handlesPos();
-				$('#e').switchClass('ar', 'al', 0)
-				$('#e').show()
+				$('.e.handle').switchClass('al', 'ar', 0)
+				$('.e.handle').show()
 
 			});
-		} else if($('#editArea').hasClass('f')) {
+		} else if($('.editArea').hasClass('t')) {
 
-			$('#editArea').switchClass('f', 't', delay, function() {
+			$('.editArea').switchClass('t', 'f', delay, function() {
 				handlesPos();
-				$('#e').switchClass('al', 'ar', 0)
-				$('#e').show()
+				$('.e.handle').switchClass('ar', 'al', 0)
+				$('.e.handle').show()
+
+			});
+		} else if($('.editArea').hasClass('f')) {
+
+			$('.editArea').switchClass('f', 't', delay, function() {
+				handlesPos();
+				$('.e.handle').switchClass('al', 'ar', 0)
+				$('.e.handle').show()
 
 			});
 		}
 
 	});
 
-	$('#s').click(function() {
+	$('.s.handle').click(function() {
 		$(this).hide()
 		if(!isFatFree)
-			$('#s').hide();
-		if($('#editArea').hasClass('s')) {
+			$('.s.handle').hide();
+		if($('.editArea').hasClass('s')) {
 
-			$('#editArea').switchClass('s', 't', delay, function() {
+			$('.editArea').switchClass('s', 't', delay, function() {
 				handlesPos();
-				$('#s').switchClass('ad', 'au', 0)
-				$('#s').show()
+				$('.s.handle').switchClass('ad', 'au', 0)
+				$('.s.handle').show()
 			});
-		} else if($('#editArea').hasClass('l')) {
+		} else if($('.editArea').hasClass('l')) {
 
-			$('#editArea').switchClass('l', 'f', delay, function() {
+			$('.editArea').switchClass('l', 'f', delay, function() {
 				handlesPos();
-				$('#s').switchClass('ad', 'au', 0)
-				$('#s').show()
+				$('.s.handle').switchClass('ad', 'au', 0)
+				$('.s.handle').show()
 			});
-		} else if($('#editArea').hasClass('t')) {
+		} else if($('.editArea').hasClass('t')) {
 
-			$('#editArea').switchClass('t', 's', delay, function() {
+			$('.editArea').switchClass('t', 's', delay, function() {
 				handlesPos();
-				$('#s').switchClass('au', 'ad', 0)
+				$('.s.handle').switchClass('au', 'ad', 0)
 
-				$('#s').show()
+				$('.s.handle').show()
 			});
-		} else if($('#editArea').hasClass('f')) {
+		} else if($('.editArea').hasClass('f')) {
 
-			$('#editArea').switchClass('f', 'l', delay, function() {
+			$('.editArea').switchClass('f', 'l', delay, function() {
 				handlesPos();
-				$('#s').switchClass('au', 'ad', 0)
+				$('.s.handle').switchClass('au', 'ad', 0)
 
-				$('#s').show()
+				$('.s.handle').show()
 			});
 		}
 
@@ -215,31 +215,31 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 
 	// actions sur les poignées
 
-	$('#nw').click(function() {
+	$('.nw.handle').click(function() {
 		resetWritingBox();
 
 	})
 
-	$('#se').click(function() {
+	$('.se.handle').click(function() {
 
 		if(auth == false) {
-			$('#sw').hide();
-			$('#e').hide();
-			$('#s').hide();
-			$('#imageArea').hide();
+			$('.sw.handle').hide();
+			$('.e.handle').hide();
+			$('.s.handle').hide();
+			$('.imageArea').hide();
 			$('textarea[name*=t]').hide();
-			$('#authorArea').show();
+			$('.authorArea').show();
 			auth = true
 
 		} else {
 
 			var dc = $('#writingBox').attr('dc').split(',');
 			var aSize = 's';
-			if($('#editArea').hasClass('l'))
+			if($('.editArea').hasClass('l'))
 				aSize = 'l';
-			else if($('#editArea').hasClass('t'))
+			else if($('.editArea').hasClass('t'))
 				aSize = 't';
-			else if($('#editArea').hasClass('f'))
+			else if($('.editArea').hasClass('f'))
 				aSize = 'f';
 			var data = {
 				'a' : $('#current_author').val(),
@@ -265,7 +265,7 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 	});
 
 	var uploader = new qq.FileUploader({
-		element :$('#imageArea')[0],
+		element :$('.imageArea')[0],
 		action : '/postimg',
 		debug : false,
 		onComplete: function(){
@@ -273,20 +273,20 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 			$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 		}
 	});
-	$('#sw').click(function() {
+	$('.sw.handle').click(function() {
 		if(textarea == true) {
 			$('textarea[name*=t]').val('');
-			$('#editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
+			$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
 			$('textarea[name*=t]').hide();
 			
-			$('#imageArea').show();
+			$('.imageArea').show();
 			var dc = $('#writingBox').attr('dc').split(',');
 			var aSize = 's';
-			if($('#editArea').hasClass('l'))
+			if($('.editArea').hasClass('l'))
 				aSize = 'l';
-			else if($('#editArea').hasClass('t'))
+			else if($('.editArea').hasClass('t'))
 				aSize = 't';
-			else if($('#editArea').hasClass('f'))
+			else if($('.editArea').hasClass('f'))
 				aSize = 'f';
 			var data = {
 				'a' : $('#current_author').val(),
@@ -297,12 +297,12 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 			};
 			uploader.setParams(data);
 			textarea = false
-			$('#sw').switchClass('me', 'tx', 0)
+			$('.sw.handle').switchClass('me', 'tx', 0)
 		} else {
 			$('input[name*=image]').val('');
-			$('#imageArea').hide();
+			$('.imageArea').hide();
 			$('textarea[name*=t]').show();
-			$('#sw').switchClass('tx', 'me', 0)
+			$('.sw.handle').switchClass('tx', 'me', 0)
 			textarea = true
 		}
 
@@ -310,8 +310,8 @@ require(["freeadjacent","lib/fileuploader"], function(freeAdjacent,fileUploader)
 
 	// SWITCH LIVE TYPE
 
-	var wT = '.z2 * > textarea[name*=t]'
-	var wA = '.z2 * > #editArea'
+	var wT = 'textarea[name*=t]'
+	var wA = '.editArea'
 	// controls character input/counter
 	$(wT).keyup(function() {
 		var charLength = $(this).val().length;
