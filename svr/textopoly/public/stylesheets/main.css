@@ -32,10 +32,12 @@ body {
 .msg > p, textarea[name*=t] {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
-	word-break: break-word;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-	hyphens: auto;
+	word-wrap: break-word;/*
+	 white-space: normal;
+
+	 */
 }
 .msg > img {
 	width: 100%;
