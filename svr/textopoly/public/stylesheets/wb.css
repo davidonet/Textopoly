@@ -1,5 +1,5 @@
 /* WRITINGBOX */
-div#writingBox, div#informationBox {
+div#writingBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
@@ -8,6 +8,18 @@ div#writingBox, div#informationBox {
 	border: dashed 2px #eeeeec; /* Aluminium 2 Darker */
 	padding: 8px;
 }
+
+div#informationBox {
+	z-index: 1000;
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: 0px;
+	border: dashed 2px #555753; /* Aluminium 2 Darker */
+	padding: 8px;
+}
+
+
 div.editArea {
 	position: relative;
 	top: 0px;
@@ -20,6 +32,8 @@ div.infoArea {
 	position: relative;
 	top: 0px;
 	left: 0px;
+		background-color: rgba(238, 238, 236, 0.4); /* Aluminium 1 Lighter */
+
 }
 
 div.msgInfo {
@@ -60,19 +74,19 @@ textarea[name*=t] {
 
 /* WRITING AREA */
 
-div.editArea.s, div.infoArea.s {
+div.editArea.s, div.infoArea.s, .s > div.msgInfo {
 	width: 240px;
 	height: 160px;
 }
-div.editArea.l, div.infoArea.l {
+div.editArea.l, div.infoArea.l, .l> div.msgInfo {
 	width: 480px;
 	height: 160px;
 }
-div.editArea.t, div.infoArea.t {
+div.editArea.t, div.infoArea.t, .t > div.msgInfo {
 	width: 240px;
 	height: 320px;
 }
-div.editArea.f, div.infoArea.f {
+div.editArea.f, div.infoArea.f,.f > div.msgInfo{
 	width: 480px;
 	height: 320px;
 }

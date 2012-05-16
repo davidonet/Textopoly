@@ -2,6 +2,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	var delay = 250
 	var textarea = true
+	var msgInfo = false
 	var auth = ($.cookie("author") != null);
 	var isFatFree = false;
 	var uploader = new qq.FileUploader({
@@ -105,7 +106,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	$('.z2 > .fz').on('click', function(event) {
 
-		$('#informationBox').fadeOut(delay);
+		$('#informationBox').fadeOut(500);
 		$('#writingBox').fadeIn(delay);
 		$('textarea[name*=t]').focus();
 		$('.editArea').switchClass('l t f', 's', delay, function() {
@@ -148,7 +149,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		$('#writingBox').animate({
 			'left' : parseInt(xPos - 10),
 			'top' : parseInt(yPos - 10),
-		}, delay);
+		}, 500);
 
 	});
 
@@ -326,7 +327,9 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	 ***********************************************************************************/
 
 	$('.z2 > .msg').on('click', function(event) {
-		$('#writingBox').fadeOut(delay);
+		resetWritingBox();
+		$('#writingBox').fadeOut(500);
+		$('.infoArea > .msgInfo').hide();
 		$('#informationBox').fadeIn(delay);
 
 		// récupère la position
@@ -345,7 +348,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		$('#informationBox').animate({
 			'left' : parseInt(xPos - 10),
 			'top' : parseInt(yPos - 10),
-		}, delay);
+		}, 500);
 
 		// règle la taille en fonction du type de case
 
@@ -385,12 +388,16 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	$('.infoArea > .nw.handle').click(function() {
 		console.log('delete')
 	})
-	
 	// INFOBOX EAST >  path action
-	$('.infoArea > .nw.handle').click(function() {
+	$('.infoArea > .e.handle').click(function() {
 		console.log('start path')
 	})
-	
+	// INFOBOX SOUTH EAST >  display msgInfo
+	$('.infoArea > .se.handle').click(function() {
+		$('.infoArea > .msgInfo').toggle('slow', function() {
+			// Animation complete.
+		});
+	})
 	/***********************************************************************************
 	 * END INTERACTIONS ON INFOBOX HANDLES
 	 ***********************************************************************************/
