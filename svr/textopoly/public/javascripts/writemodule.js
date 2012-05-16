@@ -5,6 +5,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	var msgInfo = false
 	var auth = ($.cookie("author") != null);
 	var isFatFree = false;
+	var isBooked = false
 	var uploader = new qq.FileUploader({
 		element : $('.imageArea')[0],
 		action : '/postimg',
@@ -327,51 +328,61 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	 ***********************************************************************************/
 
 	$('.z2 > .msg').on('click', function(event) {
-		resetWritingBox();
-		$('#writingBox').fadeOut(500);
-		$('.infoArea > .msgInfo').hide();
-		$('#informationBox').fadeIn(delay);
+		
+		isBooked = $(this).hasClass('l0')
 
-		// récupère la position
-		var dc = $(this).attr('dc');
-		// récupère la propriété dc d'un élément .fz dans un tableau
-		var xGrid = dc[0];
-		// récupère x de dc
-		var yGrid = dc[1];
-		// récupère y de dc
-		var position = $(this).position();
-		// récupère la position absolue d'un élément .fz
-		var xPos = position.left;
-		var yPos = position.top;
+		if(isBooked==true) {
+			// rien ne se passe
+			console.log("Booked msg")
 
-		// positionnement du formulaire d'écriture
-		$('#informationBox').animate({
-			'left' : parseInt(xPos - 10),
-			'top' : parseInt(yPos - 10),
-		}, 500);
+		} else {
 
-		// règle la taille en fonction du type de case
+			resetWritingBox();
+			$('#writingBox').fadeOut(500);
+			$('.infoArea > .msgInfo').hide();
+			$('#informationBox').fadeIn(delay);
 
-		if($(this).hasClass('s')) {
+			// récupère la position
+			var dc = $(this).attr('dc');
+			// récupère la propriété dc d'un élément .fz dans un tableau
+			var xGrid = dc[0];
+			// récupère x de dc
+			var yGrid = dc[1];
+			// récupère y de dc
+			var position = $(this).position();
+			// récupère la position absolue d'un élément .fz
+			var xPos = position.left;
+			var yPos = position.top;
 
-			$('.infoArea').switchClass('l t f', 's', delay, function() {
-				handlesPos('.infoArea');
-			})
-		} else if($(this).hasClass('l')) {
+			// positionnement du formulaire d'écriture
+			$('#informationBox').animate({
+				'left' : parseInt(xPos - 10),
+				'top' : parseInt(yPos - 10),
+			}, 500);
 
-			$('.infoArea').switchClass('s t f', 'l', delay, function() {
-				handlesPos('.infoArea');
-			})
-		} else if($(this).hasClass('t')) {
+			// règle la taille en fonction du type de case
 
-			$('.infoArea').switchClass('s l f', 't', delay, function() {
-				handlesPos('.infoArea');
-			})
-		} else if($(this).hasClass('f')) {
+			if($(this).hasClass('s')) {
 
-			$('.infoArea').switchClass('s l t', 'f', delay, function() {
-				handlesPos('.infoArea');
-			})
+				$('.infoArea').switchClass('l t f', 's', delay, function() {
+					handlesPos('.infoArea');
+				})
+			} else if($(this).hasClass('l')) {
+
+				$('.infoArea').switchClass('s t f', 'l', delay, function() {
+					handlesPos('.infoArea');
+				})
+			} else if($(this).hasClass('t')) {
+
+				$('.infoArea').switchClass('s l f', 't', delay, function() {
+					handlesPos('.infoArea');
+				})
+			} else if($(this).hasClass('f')) {
+
+				$('.infoArea').switchClass('s l t', 'f', delay, function() {
+					handlesPos('.infoArea');
+				})
+			}
 		}
 
 	});
