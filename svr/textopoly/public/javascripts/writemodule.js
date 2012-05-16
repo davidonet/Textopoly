@@ -21,7 +21,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	// Reset writingBox
 	function resetWritingBox() {
 		$('.editArea').switchClass('l t f', 's', delay, function() {
-			handlesPos();
+			handlesPos('.editArea');
 		});
 		$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
 		$('.editArea > .e.handle').switchClass('al', 'ar', 0)
@@ -49,10 +49,10 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	 * BEGIN HANDLEPOS
 	 ***********************************************************************************/
 
-	function handlesPos() {
+	function handlesPos(targetArea) {
 		var r = 10;
-		var w = $('#writingBox').outerWidth();
-		var h = $('#writingBox').outerHeight();
+		var w = $(targetArea).parent().outerWidth();
+		var h = $(targetArea).parent().outerHeight();
 
 		$('.nw.handle').css({
 			top : -2 * r,
@@ -107,7 +107,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		$('#writingBox').fadeIn(delay);
 		$('textarea[name*=t]').focus();
 		$('.editArea').switchClass('l t f', 's', delay, function() {
-			handlesPos();
+			handlesPos('.editArea');
 		});
 
 		$('.editArea > .e.handle').switchClass('al', 'ar', 0)
@@ -158,7 +158,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	 * BEGIN INTERACTIONS ON WRITINGBOX HANDLES
 	 ***********************************************************************************/
 
-	// EAST
+	// WRITINGBOX EAST
 	$('.editArea > .e.handle').click(function() {
 		$(this).hide()
 		if(!isFatFree)
@@ -166,14 +166,14 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		if($('.editArea').hasClass('s')) {
 
 			$('.editArea').switchClass('s', 'l', delay, function() {
-				handlesPos();
+				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('ar', 'al', 0)
 				$('.editArea > .e.handle').show()
 			});
 		} else if($('.editArea').hasClass('l')) {
 
 			$('.editArea').switchClass('l', 's', delay, function() {
-				handlesPos();
+				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('al', 'ar', 0)
 				$('.editArea > .e.handle').show()
 
@@ -181,7 +181,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		} else if($('.editArea').hasClass('t')) {
 
 			$('.editArea').switchClass('t', 'f', delay, function() {
-				handlesPos();
+				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('ar', 'al', 0)
 				$('.editArea > .e.handle').show()
 
@@ -189,7 +189,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		} else if($('.editArea').hasClass('f')) {
 
 			$('.editArea').switchClass('f', 't', delay, function() {
-				handlesPos();
+				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('al', 'ar', 0)
 				$('.editArea > .e.handle').show()
 
@@ -198,7 +198,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	});
 
-	// SOUTH
+	// WRITINGBOX SOUTH
 	$('.editArea > .s.handle').click(function() {
 		$(this).hide()
 		if(!isFatFree)
@@ -206,28 +206,28 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		if($('.editArea').hasClass('s')) {
 
 			$('.editArea').switchClass('s', 't', delay, function() {
-				handlesPos();
+				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('ad', 'au', 0)
 				$('.editArea > .s.handle').show()
 			});
 		} else if($('.editArea').hasClass('l')) {
 
 			$('.editArea').switchClass('l', 'f', delay, function() {
-				handlesPos();
+				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('ad', 'au', 0)
 				$('.editArea > .s.handle').show()
 			});
 		} else if($('.editArea').hasClass('t')) {
 
 			$('.editArea').switchClass('t', 's', delay, function() {
-				handlesPos();
+				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('au', 'ad', 0)
 				$('.editArea > .s.handle').show()
 			});
 		} else if($('.editArea').hasClass('f')) {
 
 			$('.editArea').switchClass('f', 'l', delay, function() {
-				handlesPos();
+				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('au', 'ad', 0)
 				$('.editArea > .s.handle').show()
 			});
@@ -235,11 +235,11 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	});
 
-	// NORTH WEST
+	//WRITINGBOX NORTH WEST
 	$('.editArea > .nw.handle').click(function() {
 		resetWritingBox();
 	})
-	// SOUTH EST
+	//WRITINGBOX SOUTH EST
 	$('.editArea > .se.handle').click(function() {
 		if(auth == false) {
 			$('.editArea > .sw.handle').hide();
@@ -279,7 +279,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		}
 	});
 
-	// SOUTH WEST
+	// WRITINGBOX SOUTH WEST
 	$('.editArea > .sw.handle').click(function() {
 		if(textarea == true) {
 			$('textarea[name*=t]').val('');
@@ -317,6 +317,28 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	/***********************************************************************************
 	 * END INTERACTIONS ON WRITINGBOX HANDLES
+	 ***********************************************************************************/
+
+	/***********************************************************************************
+	 * BEGIN INFOBOX
+	 ***********************************************************************************/
+
+
+
+
+	/***********************************************************************************
+	 * END INFOBOX
+	 ***********************************************************************************/
+
+	/***********************************************************************************
+	 * BEGIN INTERACTIONS ON INFOBOX HANDLES
+	 ***********************************************************************************/
+
+
+
+
+	/***********************************************************************************
+	 * END INTERACTIONS ON INFOBOX HANDLES
 	 ***********************************************************************************/
 
 	/***********************************************************************************

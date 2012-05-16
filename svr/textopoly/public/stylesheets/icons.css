@@ -28,6 +28,12 @@
 .tx {
 	background-image: url('icons/text.svg');
 }
+
+/* INFO */
+
+.in {
+	background-image: url('icons/information.svg');
+}
 /* FLÈCHE DROITE */
 .ar {
 	background-image: url('icons/arrow_right.svg');

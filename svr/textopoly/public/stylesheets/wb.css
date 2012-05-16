@@ -1,5 +1,5 @@
 /* WRITINGBOX */
-div#writingBox {
+div#writingBox, div#informationBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
@@ -15,6 +15,17 @@ div.editArea {
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	/*border: dashed 1px blue;*/
 }
+
+div.infoArea {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+div.msgInfo {
+	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+}
+
 textarea[name*=t] {
 	position: relative;
 	padding-left: 10px;
@@ -49,19 +60,19 @@ textarea[name*=t] {
 
 /* WRITING AREA */
 
-div.editArea.s {
+div.editArea.s, div.infoArea.s {
 	width: 240px;
 	height: 160px;
 }
-div.editArea.l {
+div.editArea.l, div.infoArea.l {
 	width: 480px;
 	height: 160px;
 }
-div.editArea.t {
+div.editArea.t, div.infoArea.t {
 	width: 240px;
 	height: 320px;
 }
-div.editArea.f {
+div.editArea.f, div.infoArea.f {
 	width: 480px;
 	height: 320px;
 }
@@ -87,6 +98,10 @@ div.editArea.f > textarea[name*=t] {
 	width: 460px;
 	height: 320px;
 }
+
+/***********************************************************************************
+ *  SWITCHLIVETYPE
+ ***********************************************************************************/
 
 /* STYLES DES ZOOM 1:2 SMALL*/
 
