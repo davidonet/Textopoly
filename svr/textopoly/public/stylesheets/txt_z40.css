@@ -1,6 +1,6 @@
 /* TAILLES DES MSG ZOOM 1:40 */
 
-.z40 > .msg.s {
+.z40 > .msg.s, .z40 > .fz.s {
 	width: 12px;
 	height: 8px;
 }

@@ -95,7 +95,7 @@ define(['helper'], function(helper) {
 	for(var i = params.xmin, j = params.xmax + 4; i < j; i++) {
 		for(var k = params.ymin, l = params.ymax + 4; k < l; k++) {
 			if(1 == borderArray[xyToIndex(i, k)]) {
-				var newTxt = $(document.createElement("div")).addClass('fz').addClass('s').addClass('msg');
+				var newTxt = $(document.createElement("div")).addClass('fz').addClass('s');
 				var aPos = [i, k];
 				newTxt.attr('dc', aPos);
 				newTxt.css(helper.posToCSS(aPos));
