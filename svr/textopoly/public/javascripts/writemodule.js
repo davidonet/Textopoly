@@ -24,12 +24,12 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 			handlesPos();
 		});
 		$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
-		$('.e.handle').switchClass('al', 'ar', 0)
-		$('.s.handle').switchClass('au', 'ad', 0)
-		$('.sw.handle').switchClass('tx', 'me', 0)
-		$('.sw.handle').show();
-		$('.e.handle').show();
-		$('.s.handle').show();
+		$('.editArea > .e.handle').switchClass('al', 'ar', 0)
+		$('.editArea > .s.handle').switchClass('au', 'ad', 0)
+		$('.editArea > .sw.handle').switchClass('tx', 'me', 0)
+		$('.editArea > .sw.handle').show();
+		$('.editArea > .e.handle').show();
+		$('.editArea > .s.handle').show();
 		$('textarea[name*=t]').val('');
 		$('input[name*=image]').val('');
 		$('#writingBox').fadeOut(delay);
@@ -99,9 +99,6 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	 * END HANDLEPOS
 	 ***********************************************************************************/
 
-
-
-
 	/***********************************************************************************
 	 * BEGIN WRITINGBOX
 	 ***********************************************************************************/
@@ -113,9 +110,9 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 			handlesPos();
 		});
 
-		$('.e.handle').switchClass('al', 'ar', 0)
-		$('.s.handle').switchClass('au', 'ad', 0)
-		$('.sw').switchClass('tx', 'me', 0)
+		$('.editArea > .e.handle').switchClass('al', 'ar', 0)
+		$('.editArea > .s.handle').switchClass('au', 'ad', 0)
+		$('.editArea > .sw.handle').switchClass('tx', 'me', 0)
 
 		var dc = $(this).attr('dc').split(',');
 		$('#writingBox').attr('dc', $(this).attr('dc'));
@@ -132,15 +129,15 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		// récupère les cases libres autour
 		var fA = (freeAdjacent(xGrid, yGrid));
 
-		$('.e.handle').hide();
-		$('.s.handle').hide();
+		$('.editArea > .e.handle').hide();
+		$('.editArea > .s.handle').hide();
 
 		$(fA).each(function(index, value) {
 
 			if(value == 'e')
-				$('.e.handle').show();
+				$('.editArea > .e.handle').show();
 			if(value == 's')
-				$('.s.handle').show();
+				$('.editArea > .s.handle').show();
 			if(value == 'se')
 				isFatFree = true;
 		});
@@ -162,39 +159,39 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	 ***********************************************************************************/
 
 	// EAST
-	$('.e.handle').click(function() {
+	$('.editArea > .e.handle').click(function() {
 		$(this).hide()
 		if(!isFatFree)
-			$('.s.handle').hide();
+			$('.editArea > .s.handle').hide();
 		if($('.editArea').hasClass('s')) {
 
 			$('.editArea').switchClass('s', 'l', delay, function() {
 				handlesPos();
-				$('.e.handle').switchClass('ar', 'al', 0)
-				$('.e.handle').show()
+				$('.editArea > .e.handle').switchClass('ar', 'al', 0)
+				$('.editArea > .e.handle').show()
 			});
 		} else if($('.editArea').hasClass('l')) {
 
 			$('.editArea').switchClass('l', 's', delay, function() {
 				handlesPos();
-				$('.e.handle').switchClass('al', 'ar', 0)
-				$('.e.handle').show()
+				$('.editArea > .e.handle').switchClass('al', 'ar', 0)
+				$('.editArea > .e.handle').show()
 
 			});
 		} else if($('.editArea').hasClass('t')) {
 
 			$('.editArea').switchClass('t', 'f', delay, function() {
 				handlesPos();
-				$('.e.handle').switchClass('ar', 'al', 0)
-				$('.e.handle').show()
+				$('.editArea > .e.handle').switchClass('ar', 'al', 0)
+				$('.editArea > .e.handle').show()
 
 			});
 		} else if($('.editArea').hasClass('f')) {
 
 			$('.editArea').switchClass('f', 't', delay, function() {
 				handlesPos();
-				$('.e.handle').switchClass('al', 'ar', 0)
-				$('.e.handle').show()
+				$('.editArea > .e.handle').switchClass('al', 'ar', 0)
+				$('.editArea > .e.handle').show()
 
 			});
 		}
@@ -202,54 +199,52 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	});
 
 	// SOUTH
-	$('.s.handle').click(function() {
+	$('.editArea > .s.handle').click(function() {
 		$(this).hide()
 		if(!isFatFree)
-			$('.s.handle').hide();
+			$('.editArea > .s.handle').hide();
 		if($('.editArea').hasClass('s')) {
 
 			$('.editArea').switchClass('s', 't', delay, function() {
 				handlesPos();
-				$('.s.handle').switchClass('ad', 'au', 0)
-				$('.s.handle').show()
+				$('.editArea > .s.handle').switchClass('ad', 'au', 0)
+				$('.editArea > .s.handle').show()
 			});
 		} else if($('.editArea').hasClass('l')) {
 
 			$('.editArea').switchClass('l', 'f', delay, function() {
 				handlesPos();
-				$('.s.handle').switchClass('ad', 'au', 0)
-				$('.s.handle').show()
+				$('.editArea > .s.handle').switchClass('ad', 'au', 0)
+				$('.editArea > .s.handle').show()
 			});
 		} else if($('.editArea').hasClass('t')) {
 
 			$('.editArea').switchClass('t', 's', delay, function() {
 				handlesPos();
-				$('.s.handle').switchClass('au', 'ad', 0)
-
-				$('.s.handle').show()
+				$('.editArea > .s.handle').switchClass('au', 'ad', 0)
+				$('.editArea > .s.handle').show()
 			});
 		} else if($('.editArea').hasClass('f')) {
 
 			$('.editArea').switchClass('f', 'l', delay, function() {
 				handlesPos();
-				$('.s.handle').switchClass('au', 'ad', 0)
-
-				$('.s.handle').show()
+				$('.editArea > .s.handle').switchClass('au', 'ad', 0)
+				$('.editArea > .s.handle').show()
 			});
 		}
 
 	});
 
 	// NORTH WEST
-	$('.nw.handle').click(function() {
+	$('.editArea > .nw.handle').click(function() {
 		resetWritingBox();
 	})
 	// SOUTH EST
-	$('.se.handle').click(function() {
+	$('.editArea > .se.handle').click(function() {
 		if(auth == false) {
-			$('.sw.handle').hide();
-			$('.e.handle').hide();
-			$('.s.handle').hide();
+			$('.editArea > .sw.handle').hide();
+			$('.editArea > .e.handle').hide();
+			$('.editArea > .s.handle').hide();
 			$('.imageArea').hide();
 			$('textarea[name*=t]').hide();
 			$('.authorArea').show();
@@ -285,7 +280,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	});
 
 	// SOUTH WEST
-	$('.sw.handle').click(function() {
+	$('.editArea > .sw.handle').click(function() {
 		if(textarea == true) {
 			$('textarea[name*=t]').val('');
 			$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
@@ -309,12 +304,12 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 			};
 			uploader.setParams(data);
 			textarea = false
-			$('.sw.handle').switchClass('me', 'tx', 0)
+			$('.editArea > .sw.handle').switchClass('me', 'tx', 0)
 		} else {
 			$('input[name*=image]').val('');
 			$('.imageArea').hide();
 			$('textarea[name*=t]').show();
-			$('.sw.handle').switchClass('tx', 'me', 0)
+			$('.editArea > .sw.handle').switchClass('tx', 'me', 0)
 			textarea = true
 		}
 
