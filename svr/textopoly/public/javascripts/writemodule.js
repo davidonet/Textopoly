@@ -34,7 +34,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		$('.editArea > .s.handle').show();
 		$('textarea[name*=t]').val('');
 		$('input[name*=image]').val('');
-		$('#writingBox').fadeOut(delay);
+		$('#writingBox').fadeOut(500);
 		$('.imageArea').hide();
 		$('.authorArea').hide();
 		$('textarea[name*=t]').show();
@@ -108,7 +108,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	$('.z2 > .fz').on('click', function(event) {
 
 		$('#informationBox').fadeOut(500);
-		$('#writingBox').fadeIn(delay);
+		$('#writingBox').fadeIn(500);
 		$('textarea[name*=t]').focus();
 		$('.editArea').switchClass('l t f', 's', delay, function() {
 			handlesPos('.editArea');
@@ -340,7 +340,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 			resetWritingBox();
 			$('#writingBox').fadeOut(500);
 			$('.infoArea > .msgInfo').hide();
-			$('#informationBox').fadeIn(delay);
+			$('#informationBox').fadeIn(500);
 
 			// récupère la position
 			var dc = $(this).attr('dc');
@@ -397,27 +397,9 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	// INFOBOX NORTH WEST >  delete action
 	$('.infoArea > .nw.handle').click(function() {
-		
-			var dc = $(this).parent().attr('dc').split(',');
-		var xGrid = dc[0];
-		var yGrid = dc[1];
-		$('#removebox').dialog({
-			"resizable" : false,
-			"title" : "Suppression ?",
-			buttons : {
-				"Non, je ne préfère pas" : function() {
-					$(this).dialog("close");
-				},
-				"Oui" : function() {
-					$(this).dialog("close");
-					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
-					});
-				}
-			}
-
-		});
-		
+			
 		console.log('delete')
+        $('#informationBox').fadeOut(500);
 	})
 	// INFOBOX EAST >  path action
 	$('.infoArea > .e.handle').click(function() {
