@@ -171,12 +171,24 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 	 * END WRITINGBOX
 	 ***********************************************************************************/
 
+	function newSize(s) {
+		if($('#writingBox').attr('dc')) {
+			var aDC = $('#writingBox').attr('dc').split(',');
+			booking.unbook(aDC[0], aDC[1]);
+			booking.book(aDC[0], aDC[1], s, params.c, userinfo.get())
+		}
+	}
+
 	/***********************************************************************************
 	 * BEGIN INTERACTIONS ON WRITINGBOX HANDLES
 	 ***********************************************************************************/
 
 	// WRITINGBOX NORTH WEST > cancel action
 	$('.editArea > .nw.handle').click(function() {
+		if($('#writingBox').attr('dc')) {
+			var aDC = $('#writingBox').attr('dc').split(',');
+			booking.unbook(aDC[0], aDC[1]);
+		}
 		resetWritingBox();
 	})
 	// WRITINGBOX EAST > scale box on X direction
@@ -185,11 +197,11 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 		if(!isFatFree)
 			$('.editArea > .s.handle').hide();
 		if($('.editArea').hasClass('s')) {
-
 			$('.editArea').switchClass('s', 'l', delay, function() {
 				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('ar', 'al', 0)
 				$('.editArea > .e.handle').show()
+				newSize('l');
 			});
 		} else if($('.editArea').hasClass('l')) {
 
@@ -197,7 +209,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('al', 'ar', 0)
 				$('.editArea > .e.handle').show()
-
+				newSize('s');
 			});
 		} else if($('.editArea').hasClass('t')) {
 
@@ -205,7 +217,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('ar', 'al', 0)
 				$('.editArea > .e.handle').show()
-
+				newSize('f');
 			});
 		} else if($('.editArea').hasClass('f')) {
 
@@ -213,7 +225,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('al', 'ar', 0)
 				$('.editArea > .e.handle').show()
-
+				newSize('t');
 			});
 		}
 
@@ -269,6 +281,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('ad', 'au', 0)
 				$('.editArea > .s.handle').show()
+				newSize('t');
 			});
 		} else if($('.editArea').hasClass('l')) {
 
@@ -276,6 +289,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('ad', 'au', 0)
 				$('.editArea > .s.handle').show()
+				newSize('f');
 			});
 		} else if($('.editArea').hasClass('t')) {
 
@@ -283,6 +297,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('au', 'ad', 0)
 				$('.editArea > .s.handle').show()
+				newSize('s');
 			});
 		} else if($('.editArea').hasClass('f')) {
 
@@ -290,6 +305,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('au', 'ad', 0)
 				$('.editArea > .s.handle').show()
+				newSize('l');
 			});
 		}
 
@@ -452,11 +468,11 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
 		var dc = $('#informationBox').attr('dc').split(',');
-		userinfo.msgInfo(dc[0],dc[1],function(data){
-			$('#infoname').text('Écrit par : '+data.a);
+		userinfo.msgInfo(dc[0], dc[1], function(data) {
+			$('#infoname').text('Écrit par : ' + data.a);
 			var aDate = new Date(data.d);
-			$('#infodate').text($.datepicker.formatDate('le : '+'dd/mm/yy',aDate)+" à : "+aDate.getHours()+":"+aDate.getMinutes());
-			$("a[href='#permalink']").attr('href','http://dev.textopoly.org/view?zoom='+params.zoom+'&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+			$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
+			$("a[href='#permalink']").attr('href', 'http://dev.textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 
 		})
 		$('.infoArea > .msgInfo').toggle('slow', function() {
