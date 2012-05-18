@@ -53,8 +53,13 @@ div#content
               p #{txt.t}
             else
               p.author #{txt.a}
-        if( params.zoom == 2)
-          div.ctx x
+    
+    div#removebox(style='display:none')
+      small
+        span(stle='color:red') Attention
+        br
+        span Cette opération est irréversible.
+    
     div#writingBox(style='display:none')
 
       div.editArea.s.l4
@@ -81,5 +86,7 @@ div#content
         div.se.handle.in
         
         div.msgInfo(style='display:none')    
-          h3 Informations sur le billet
-          p écrit par Bob le 16 mai 2012 à 17 h 04
+          h2 Informations sur le billet
+          h3#infoname John Do
+          h3#infodate le 16 mai 2012 à 17 h 04
+          

@@ -1,4 +1,4 @@
-require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploader) {
+require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(freeAdjacent, fileUploader, pathwalk, userinfo) {
 
 	var delay = 250
 	var textarea = true
@@ -328,10 +328,10 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	 ***********************************************************************************/
 
 	$('.z2 > .msg').on('click', function(event) {
-		
+
 		isBooked = $(this).hasClass('l0')
 
-		if(isBooked==true) {
+		if(isBooked == true) {
 			// rien ne se passe
 			console.log("Booked msg")
 
@@ -344,11 +344,9 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 			// récupère la position
 			var dc = $(this).attr('dc');
-			// récupère la propriété dc d'un élément .fz dans un tableau
-			var xGrid = dc[0];
-			// récupère x de dc
-			var yGrid = dc[1];
-			// récupère y de dc
+			// Copying the data coord of the msg
+			$('#informationBox').attr('dc', dc);
+
 			var position = $(this).position();
 			// récupère la position absolue d'un élément .fz
 			var xPos = position.left;
@@ -397,16 +395,56 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	// INFOBOX NORTH WEST >  delete action
 	$('.infoArea > .nw.handle').click(function() {
-			
-		console.log('delete')
-        $('#informationBox').fadeOut(500);
+		var dc = $('#informationBox').attr('dc').split(',');
+		var xGrid = dc[0];
+		var yGrid = dc[1];
+		console.log(xGrid + ' ' + yGrid);
+		$('#removebox').dialog({
+			"resizable" : false,
+			"title" : "Suppression ?",
+			buttons : {
+				"Non, je ne préfère pas" : function() {
+					$(this).dialog("close");
+				},
+				"Oui" : function() {
+					$(this).dialog("close");
+					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
+						$('#informationBox').fadeOut(500);
+					});
+				}
+			}
+
+		});
 	})
 	// INFOBOX EAST >  path action
+	var aPathPack;
 	$('.infoArea > .e.handle').click(function() {
-		console.log('start path')
+		if(aPathPack == null) {
+			aPathPack = pathwalk.startPath();
+			pathwalk.addNode(aPathPack, $('#informationBox').attr('dc'));
+			$("#map").click(function(event) {
+				var aDC = $(event.target).attr('dc');
+				if(aDC == undefined)
+					aDC = $(event.target.parentNode).attr('dc');
+				pathwalk.addNode(aPathPack, aDC);
+			});
+			$('.infoArea > .e.handle').attr('title', 'Valider le chemin');
+		} else {
+			pathwalk.endPath(aPathPack);
+			aPathPack = null;
+			$("#map").unbind('click');
+			$('.infoArea > .e.handle').attr('title', 'Créer chemin');
+		}
 	})
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
+		var dc = $('#informationBox').attr('dc').split(',');
+		userinfo.msgInfo(dc[0],dc[1],function(data){
+			$('#infoname').text(data.a);
+			var aDate = new Date(data.d);
+			$('#infodate').text($.datepicker.formatDate('dd/mm/yy',aDate)+" "+aDate.getHours()+":"+aDate.getMinutes());
+			
+		})
 		$('.infoArea > .msgInfo').toggle('slow', function() {
 			// Animation complete.
 		});

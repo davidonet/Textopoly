@@ -34,4 +34,11 @@ define(['lib/jquery.cookie'], function() {
 			$.cookie("colorIdx", color);
 		},
 	});
+	return {
+		msgInfo : function(x, y, fn) {
+			$.getJSON('/msg?x=' + x + '&y=' + y, function(data) {
+				fn(data);
+			});
+		}
+	}
 });

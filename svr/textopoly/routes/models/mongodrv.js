@@ -25,9 +25,8 @@ db.bind('path', {
 
 db.bind('txt', {
 	aTxt : function(pos, fn) {
-		this.findOne({
-			'p' : pos
-		}, fn);
+		normalizePos(pos);
+		this.findOne(pos, fn);
 	},
 	authors : function(fn) {
 		this.distinct("a", fn);

@@ -22,30 +22,6 @@ define(['helper', 'pathwalk'], function(helper, pathwalk) {
 	helper.btnOver("#btnFocus");
 
 	/**
-	 * Path Walk interaction handling
-	 */
-	$("#path_start").button().click(function() {
-		$(this).hide();
-		var aPathPack = pathwalk.startPath();
-		$("#map").click(function(event) {
-			var aDC = $(event.target).attr('dc');
-			if(aDC == undefined)
-				aDC = $(event.target.parentNode).attr('dc');
-			pathwalk.addNode(aPathPack, aDC);
-		});
-		$("#path_end").show().click(function() {
-			$(this).hide();
-			$("#path_start").show();
-			$("#map").unbind('click');
-			pathwalk.endPath(aPathPack);
-			$("#path_play").button().click(function() {
-				pathwalk.pathPlay(aPathPack.msgPath)
-			});
-		});
-	});
-	$("#path_end").button().hide();
-
-	/**
 	 * Draggable Map with reload
 	 */
 	$('#map').draggable({
@@ -79,33 +55,6 @@ define(['helper', 'pathwalk'], function(helper, pathwalk) {
 			}
 		},
 	});
-
-	/***********************************************************************************
-	 * Begin temporary delete ui
-	 ***********************************************************************************/
-	$('.ctx').on('click', function(event) {
-		var dc = $(this).parent().attr('dc').split(',');
-		var xGrid = dc[0];
-		var yGrid = dc[1];
-		$('#removebox').dialog({
-			"resizable" : false,
-			"title" : "Suppression ?",
-			buttons : {
-				"Non, je ne préfère pas" : function() {
-					$(this).dialog("close");
-				},
-				"Oui" : function() {
-					$(this).dialog("close");
-					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
-					});
-				}
-			}
-
-		});
-	});
-	/***********************************************************************************
-	 * End of temporary delete ui
-	 */
 
 	/***********************************************************************************
 	 * BEGIN TIPSY
