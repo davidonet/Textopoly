@@ -6,11 +6,7 @@ define(['helper', 'pathwalk'], function(helper, pathwalk) {
 		var dc = $(this).attr('dc').split(',');
 		$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 	});
-	$('.fz').click(function(event) {
-		var dc = $(this).attr('dc').split(',');
-		$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
-	});
-
+	
 	/**
 	 * Top Menu Handling
 	 */
