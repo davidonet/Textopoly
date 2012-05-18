@@ -12,7 +12,6 @@ require(["jquery", "jquery-ui", "lib/jquery.ui.touch-punch", "lib/jquery.form", 
 					$('#map').fadeIn(500);
 				});
 				require(["userinfo"]);
-				require(["bookingsocket"]);
 				require(["writemodule"]);
 				require(["uievent"]);
 			});

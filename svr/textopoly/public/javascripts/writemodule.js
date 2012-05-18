@@ -1,4 +1,4 @@
-require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(freeAdjacent, fileUploader, pathwalk, userinfo) {
+require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"], function(freeAdjacent, fileUploader, pathwalk, userinfo, booking) {
 
 	var delay = 250
 	var textarea = true
@@ -119,12 +119,18 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(f
 		$('.editArea > .sw.handle').switchClass('tx', 'me', 0)
 
 		var dc = $(this).attr('dc').split(',');
+		if($('#writingBox').attr('dc')) {
+			var aDC = $('#writingBox').attr('dc').split(',');
+			booking.unbook(aDC[0], aDC[1]);
+		}
+
 		$('#writingBox').attr('dc', $(this).attr('dc'));
 		// récupère la propriété dc d'un élément .fz dans un tableau
 		var xGrid = dc[0];
 		// récupère x de dc
 		var yGrid = dc[1];
 		// récupère y de dc
+		booking.book(xGrid, yGrid, 's', params.c, userinfo.get())
 		var position = $(this).position();
 		// récupère la position absolue d'un élément .fz
 		var xPos = position.left;
@@ -208,14 +214,14 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(f
 
 	// WRITINGBOX SOUTH EAST > validate form / author informations
 	$('.editArea > .se.handle').click(function() {
-		if(auth == false) {
+		console.log(userinfo.get());
+		if(userinfo.get() === null) {
 			$('.editArea > .sw.handle').hide();
 			$('.editArea > .e.handle').hide();
 			$('.editArea > .s.handle').hide();
 			$('.imageArea').hide();
 			$('textarea[name*=t]').hide();
 			$('.authorArea').show();
-			auth = true
 		} else {
 			var dc = $('#writingBox').attr('dc').split(',');
 			var aSize = 's';
@@ -226,7 +232,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(f
 			else if($('.editArea').hasClass('f'))
 				aSize = 'f';
 			var data = {
-				'a' : $('#current_author').val(),
+				'a' : userinfo.get(),
 				'c' : params.c,
 				'x' : dc[0],
 				'y' : dc[1],
@@ -300,7 +306,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(f
 			else if($('.editArea').hasClass('f'))
 				aSize = 'f';
 			var data = {
-				'a' : $('#current_author').val(),
+				'a' : userinfo.get(),
 				'c' : 'image',
 				'x' : dc[0],
 				'y' : dc[1],
@@ -439,11 +445,11 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(f
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
 		var dc = $('#informationBox').attr('dc').split(',');
-		userinfo.msgInfo(dc[0],dc[1],function(data){
+		userinfo.msgInfo(dc[0], dc[1], function(data) {
 			$('#infoname').text(data.a);
 			var aDate = new Date(data.d);
-			$('#infodate').text($.datepicker.formatDate('dd/mm/yy',aDate)+" "+aDate.getHours()+":"+aDate.getMinutes());
-			
+			$('#infodate').text($.datepicker.formatDate('dd/mm/yy', aDate) + " " + aDate.getHours() + ":" + aDate.getMinutes());
+
 		})
 		$('.infoArea > .msgInfo').toggle('slow', function() {
 			// Animation complete.
