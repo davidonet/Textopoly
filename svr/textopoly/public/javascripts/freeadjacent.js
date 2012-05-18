@@ -99,12 +99,16 @@ define(['helper'], function(helper) {
 				var aPos = [i, k];
 				newTxt.attr('dc', aPos);
 				newTxt.css(helper.posToCSS(aPos));
+				newTxt.on('dblclick', function(event) {
+					var dc = $(this).attr('dc').split(',');
+					$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+				});
 				$('#map').append(newTxt);
 			}
 		}
 	}
-	
-	/**  
+
+	/**
 	 * compute a list of free neighboroud cells around a given cell
 	 * @param anX,anY the coordinate of the cell
 	 * @return a cardinal e,n,ne... list
