@@ -1,5 +1,5 @@
 /**
- * Module dependencies.
+ * Module dependencies
  */
 
 var mongo = require('mongoskin');

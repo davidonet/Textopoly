@@ -1,11 +1,7 @@
 define(['lib/jquery.cookie'], function() {
-
 	$('#current_author').change(function() {
-		params.a = $('#current_author').val();
-		$.cookie("author", params.a);
+		$.cookie("author", $('#current_author').val());
 	});
-	$('#current_author').val($.cookie("author"));
-	params.a = $.cookie("author");
 	$('#colorPicker').colorPicker({
 		color : new Array("#fce94f", "#fcaf3e", "#8ae234", "#729fcf", "#ad7fa8", "#ef2929"),
 		defaultColor : $.cookie("colorIdx"),
@@ -39,6 +35,12 @@ define(['lib/jquery.cookie'], function() {
 			$.getJSON('/msg?x=' + x + '&y=' + y, function(data) {
 				fn(data);
 			});
+		},
+		get : function() {
+			return $.cookie("author");
+		},
+		set : function(name) {
+			$.cookie("author", name);
 		}
 	}
 });
