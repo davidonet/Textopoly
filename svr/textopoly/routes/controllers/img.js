@@ -63,9 +63,9 @@ exports.getimg = function(req, res, next) {
 				next(err)
 			else {
 				res.writeHead('200', {
-					'Content-Type' : gs.contentType
+					'Content-Type' : 'image/jpeg'
 				});
-				res.end(reply, 'binary');
+				res.end(reply, 'image/jpeg');
 			}
 		});
 	});
