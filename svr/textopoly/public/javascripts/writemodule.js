@@ -328,10 +328,10 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 	 ***********************************************************************************/
 
 	$('.z2 > .msg').on('click', function(event) {
-		
+
 		isBooked = $(this).hasClass('l0')
 
-		if(isBooked==true) {
+		if(isBooked == true) {
 			// rien ne se passe
 			console.log("Booked msg")
 
@@ -344,11 +344,9 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 			// récupère la position
 			var dc = $(this).attr('dc');
-			// récupère la propriété dc d'un élément .fz dans un tableau
-			var xGrid = dc[0];
-			// récupère x de dc
-			var yGrid = dc[1];
-			// récupère y de dc
+			// Copying the data coord of the msg
+			$('#informationBox').attr('dc',dc);
+			
 			var position = $(this).position();
 			// récupère la position absolue d'un élément .fz
 			var xPos = position.left;
@@ -397,9 +395,26 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	// INFOBOX NORTH WEST >  delete action
 	$('.infoArea > .nw.handle').click(function() {
-			
-		console.log('delete')
-        $('#informationBox').fadeOut(500);
+		var dc = $('#informationBox').attr('dc').split(',');
+		var xGrid = dc[0];
+		var yGrid = dc[1];
+		console.log(xGrid+ ' ' + yGrid);
+		$('#removebox').dialog({
+			"resizable" : false,
+			"title" : "Suppression ?",
+			buttons : {
+				"Non, je ne préfère pas" : function() {
+					$(this).dialog("close");
+				},
+				"Oui" : function() {
+					$(this).dialog("close");
+					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
+						$('#informationBox').fadeOut(500);
+					});
+				}
+			}
+
+		});
 	})
 	// INFOBOX EAST >  path action
 	$('.infoArea > .e.handle').click(function() {

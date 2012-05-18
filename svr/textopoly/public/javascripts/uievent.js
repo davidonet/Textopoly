@@ -81,33 +81,6 @@ define(['helper', 'pathwalk'], function(helper, pathwalk) {
 	});
 
 	/***********************************************************************************
-	 * Begin temporary delete ui
-	 ***********************************************************************************/
-	$('.ctx').on('click', function(event) {
-		var dc = $(this).parent().attr('dc').split(',');
-		var xGrid = dc[0];
-		var yGrid = dc[1];
-		$('#removebox').dialog({
-			"resizable" : false,
-			"title" : "Suppression ?",
-			buttons : {
-				"Non, je ne préfère pas" : function() {
-					$(this).dialog("close");
-				},
-				"Oui" : function() {
-					$(this).dialog("close");
-					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
-					});
-				}
-			}
-
-		});
-	});
-	/***********************************************************************************
-	 * End of temporary delete ui
-	 */
-
-	/***********************************************************************************
 	 * BEGIN TIPSY
 	 ***********************************************************************************/
 

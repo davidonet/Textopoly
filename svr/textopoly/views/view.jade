@@ -53,8 +53,13 @@ div#content
               p #{txt.t}
             else
               p.author #{txt.a}
-        if( params.zoom == 2)
-          div.ctx x
+    
+    div#removebox(style='display:none')
+      small
+        span(stle='color:red') Attention
+        br
+        span Cette opération est irréversible.
+    
     div#writingBox(style='display:none')
 
       div.editArea.s.l4
