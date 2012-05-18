@@ -221,7 +221,6 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 
 	// WRITINGBOX SOUTH EAST > validate form / author informations
 	$('.editArea > .se.handle').click(function() {
-		console.log(userinfo.get());
 		if(userinfo.get() === null) {
 			$('.editArea > .sw.handle').hide();
 			$('.editArea > .e.handle').hide();
