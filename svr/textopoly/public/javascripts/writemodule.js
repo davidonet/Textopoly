@@ -1,4 +1,4 @@
-require(["freeadjacent", "lib/fileuploader", "pathwalk"], function(freeAdjacent, fileUploader, pathwalk) {
+require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(freeAdjacent, fileUploader, pathwalk, userinfo) {
 
 	var delay = 250
 	var textarea = true
@@ -438,6 +438,13 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk"], function(freeAdjacent,
 	})
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
+		var dc = $('#informationBox').attr('dc').split(',');
+		userinfo.msgInfo(dc[0],dc[1],function(data){
+			$('#infoname').text(data.a);
+			var aDate = new Date(data.d);
+			$('#infodate').text($.datepicker.formatDate('dd/mm/yy',aDate)+" "+aDate.getHours()+":"+aDate.getMinutes());
+			
+		})
 		$('.infoArea > .msgInfo').toggle('slow', function() {
 			// Animation complete.
 		});

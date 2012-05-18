@@ -19,4 +19,6 @@ module.exports = function(app) {
 	app.get('/authors', jsonC.authors);
 	app.post('/newpath', jsonC.newpath);
 	app.get('/allpath', jsonC.allpath);
+	app.get('/msg', jsonC.msg);
 	}
+	
