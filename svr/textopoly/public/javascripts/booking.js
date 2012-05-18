@@ -19,18 +19,22 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 		newTxt.hide();
 		newTxt.attr('dc', data.p);
 		newTxt.css(helper.posToCSS(data.p));
-		if(data.t) {
-			// text filled cell
-			var newContent = $(document.createElement("p")).text(data.t);
-			newTxt.fadeIn();
+		if(data.c == 'image') {
+			var newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]");
 		} else {
-			// booked cell
-			var newContent = $(document.createElement("p")).addClass("author").text(data.a);
-			newTxt.addClass('l0');
-			newTxt.fadeIn();
+			if(data.t) {
+				// text filled cell
+				var newContent = $(document.createElement("p")).text(data.t);
+			} else {
+				// booked cell
+				var newContent = $(document.createElement("p")).addClass("author").text(data.a);
+				newTxt.addClass('l0');
+			}
 		}
 		newTxt.append(newContent);
 		$('#map').append(newTxt);
+		newTxt.fadeIn();
+
 	});
 
 	/**
@@ -49,7 +53,8 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 				y : y,
 				s : s,
 				c : c,
-				a : a
+				a : a,
+				t : ""
 			})
 		},
 		unbook : function(x, y) {
