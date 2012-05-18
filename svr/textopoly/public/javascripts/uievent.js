@@ -22,30 +22,6 @@ define(['helper', 'pathwalk'], function(helper, pathwalk) {
 	helper.btnOver("#btnFocus");
 
 	/**
-	 * Path Walk interaction handling
-	 */
-	$("#path_start").button().click(function() {
-		$(this).hide();
-		var aPathPack = pathwalk.startPath();
-		$("#map").click(function(event) {
-			var aDC = $(event.target).attr('dc');
-			if(aDC == undefined)
-				aDC = $(event.target.parentNode).attr('dc');
-			pathwalk.addNode(aPathPack, aDC);
-		});
-		$("#path_end").show().click(function() {
-			$(this).hide();
-			$("#path_start").show();
-			$("#map").unbind('click');
-			pathwalk.endPath(aPathPack);
-			$("#path_play").button().click(function() {
-				pathwalk.pathPlay(aPathPack.msgPath)
-			});
-		});
-	});
-	$("#path_end").button().hide();
-
-	/**
 	 * Draggable Map with reload
 	 */
 	$('#map').draggable({

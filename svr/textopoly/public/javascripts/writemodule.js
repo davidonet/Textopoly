@@ -1,4 +1,4 @@
-require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploader) {
+require(["freeadjacent", "lib/fileuploader", "pathwalk"], function(freeAdjacent, fileUploader, pathwalk) {
 
 	var delay = 250
 	var textarea = true
@@ -345,8 +345,8 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 			// récupère la position
 			var dc = $(this).attr('dc');
 			// Copying the data coord of the msg
-			$('#informationBox').attr('dc',dc);
-			
+			$('#informationBox').attr('dc', dc);
+
 			var position = $(this).position();
 			// récupère la position absolue d'un élément .fz
 			var xPos = position.left;
@@ -395,10 +395,10 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 	// INFOBOX NORTH WEST >  delete action
 	$('.infoArea > .nw.handle').click(function() {
-		var dc = $('#informationBox').attr('dc').split(',');
+		var dc = $('#informationBox').adttr('dc').split(',');
 		var xGrid = dc[0];
 		var yGrid = dc[1];
-		console.log(xGrid+ ' ' + yGrid);
+		console.log(xGrid + ' ' + yGrid);
 		$('#removebox').dialog({
 			"resizable" : false,
 			"title" : "Suppression ?",
@@ -417,8 +417,24 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 		});
 	})
 	// INFOBOX EAST >  path action
+	var aPathPack;
 	$('.infoArea > .e.handle').click(function() {
-		console.log('start path')
+		if(aPathPack == null) {
+			aPathPack = pathwalk.startPath();
+			pathwalk.addNode(aPathPack, $('#informationBox').attr('dc'));
+			$("#map").click(function(event) {
+				var aDC = $(event.target).attr('dc');
+				if(aDC == undefined)
+					aDC = $(event.target.parentNode).attr('dc');
+				pathwalk.addNode(aPathPack, aDC);
+			});
+			$('.infoArea > .e.handle').attr('title', 'Valider le chemin');
+		} else {
+			pathwalk.endPath(aPathPack);
+			aPathPack = null;
+			$("#map").unbind('click');
+			$('.infoArea > .e.handle').attr('title', 'Créer chemin');
+		}
 	})
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
