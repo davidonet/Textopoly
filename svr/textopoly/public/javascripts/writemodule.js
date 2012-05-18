@@ -123,7 +123,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 
 		$('.editArea > .e.handle').switchClass('al', 'ar', 0)
 		$('.editArea > .s.handle').switchClass('au', 'ad', 0)
-		$('.editArea > .sw.handle').switchClass('tx', 'me', 0)
+		/*$('.editArea > .sw.handle').switchClass('tx', 'me', 0)*/
 
 		var dc = $(this).attr('dc').split(',');
 		if($('#writingBox').attr('dc')) {
@@ -342,8 +342,9 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 	$('.z2 > .msg').on('click', function(event) {
 
 		isBooked = $(this).hasClass('l0')
+		isImage = $(this).hasClass('image')
 
-		if(isBooked == true) {
+		if(isBooked == true && isImage == false) {
 			// rien ne se passe
 			console.log("Booked msg")
 
@@ -451,10 +452,11 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
 		var dc = $('#informationBox').attr('dc').split(',');
-		userinfo.msgInfo(dc[0], dc[1], function(data) {
-			$('#infoname').text(data.a);
+		userinfo.msgInfo(dc[0],dc[1],function(data){
+			$('#infoname').text('Écrit par : '+data.a);
 			var aDate = new Date(data.d);
-			$('#infodate').text($.datepicker.formatDate('dd/mm/yy', aDate) + " " + aDate.getHours() + ":" + aDate.getMinutes());
+			$('#infodate').text($.datepicker.formatDate('le : '+'dd/mm/yy',aDate)+" à : "+aDate.getHours()+":"+aDate.getMinutes());
+			$("a[href='#permalink']").attr('href','http://dev.textopoly.org/view?zoom='+params.zoom+'&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 
 		})
 		$('.infoArea > .msgInfo').toggle('slow', function() {

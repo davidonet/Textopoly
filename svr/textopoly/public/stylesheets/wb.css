@@ -7,6 +7,7 @@ div#writingBox {
 	left: 0px;
 	border: dashed 2px #eeeeec; /* Aluminium 2 Darker */
 	padding: 8px;
+	cursor: text;
 }
 
 div#informationBox {
@@ -17,10 +18,15 @@ div#informationBox {
 	left: 0px;
 	border: dashed 2px #555753; /* Aluminium 2 Darker */
 	padding: 8px;
+	cursor: default;
 }
 
+div#writingBox * h2, div#informationBox * h2 {
+	padding-top: 20px;
+}
 
 div.editArea {
+	text-align: center;
 	position: relative;
 	top: 0px;
 	left: 0px;
@@ -32,11 +38,13 @@ div.infoArea {
 	position: relative;
 	top: 0px;
 	left: 0px;
-		background-color: rgba(238, 238, 236, 0.4); /* Aluminium 1 Lighter */
+	/*	background-color: rgba(238, 238, 236, 0.4); /* Aluminium 1 Lighter */
 
 }
 
 div.msgInfo {
+	text-align: center;
+	-webkit-user-select: text;
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
 
@@ -49,6 +57,11 @@ textarea[name*=t] {
 	resize: none;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(0, 0, 0, 0); /* Aluminium 1 Lighter */
+}
+
+input#current_author {
+	width: 150px;
+	height: 20px;
 }
 
 :focus {
@@ -78,7 +91,7 @@ div.editArea.s, div.infoArea.s, .s > div.msgInfo {
 	width: 240px;
 	height: 160px;
 }
-div.editArea.l, div.infoArea.l, .l> div.msgInfo {
+div.editArea.l, div.infoArea.l, .l > div.msgInfo {
 	width: 480px;
 	height: 160px;
 }
@@ -86,7 +99,7 @@ div.editArea.t, div.infoArea.t, .t > div.msgInfo {
 	width: 240px;
 	height: 320px;
 }
-div.editArea.f, div.infoArea.f,.f > div.msgInfo{
+div.editArea.f, div.infoArea.f, .f > div.msgInfo {
 	width: 480px;
 	height: 320px;
 }

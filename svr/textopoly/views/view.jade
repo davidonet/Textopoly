@@ -37,8 +37,9 @@ div#content
     div#zoomWrap
       div#zoom
         div#zoomSlider
+                
     div#footer
-       
+
   div.grid#map(class='z'+params.zoom)
     each txt in texts
       div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c)
@@ -71,9 +72,10 @@ div#content
         div.imageArea(style='display:none')
                     
         div.authorArea(style='display:none')
-          h3 Choisir un nom et une couleur
-          div#colorPicker
+          h2 Choisir un nom et une couleur
           input#current_author(type="text", name="a")
+          div#colorPicker
+
 
     div#informationBox(style='display:none')
 
@@ -86,4 +88,4 @@ div#content
           h2 Informations sur le billet
           h3#infoname John Do
           h3#infodate le 16 mai 2012 à 17 h 04
-          
+          h3 <a href="#permalink" target="_blank">Permalien </a>
