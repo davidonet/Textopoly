@@ -42,7 +42,6 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 	 */
 	socket.on('unbook', function(data) {
 		// fadeout and remove html event
-		console.log(data.p);
 		$('.msg[dc="' + data.p + '"]').remove();
 
 	});

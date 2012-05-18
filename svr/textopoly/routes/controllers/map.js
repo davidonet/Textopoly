@@ -41,7 +41,7 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 	var ymin = ycenter - range;
 	var ymax = ycenter + range;
 
-	if(zoom < 10) {
+	if(zoom < 20) {
 		var reservedArray = new Array((4 + xmax - xmin) * (4 + ymax - ymin));
 		for(var i = 0, j = reservedArray.length; i < j; i++) {
 			reservedArray[i] = 0;
@@ -108,7 +108,7 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 				txtlen = value.t.length;
 			value.lclass = txtLen2Class(txtlen);
 
-			if(zoom < 10) {
+			if(zoom < 20) {
 				var aX = value.p[0], aY = value.p[1];
 				reserveABlock(aX, aY);
 				if(('l' == value.s) || ('f' == value.s))
@@ -120,7 +120,7 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 			}
 		});
 		var compOutput = [];
-		if(zoom < 10)
+		if(zoom < 20)
 			var compOutput = encode(reservedArray);
 
 		fn({
