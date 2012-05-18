@@ -116,7 +116,7 @@ require(["freeadjacent", "lib/fileuploader"], function(freeAdjacent, fileUploade
 
 		$('.editArea > .e.handle').switchClass('al', 'ar', 0)
 		$('.editArea > .s.handle').switchClass('au', 'ad', 0)
-		$('.editArea > .sw.handle').switchClass('tx', 'me', 0)
+		/*$('.editArea > .sw.handle').switchClass('tx', 'me', 0)*/
 
 		var dc = $(this).attr('dc').split(',');
 		$('#writingBox').attr('dc', $(this).attr('dc'));
