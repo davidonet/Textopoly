@@ -330,8 +330,9 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo"], function(f
 	$('.z2 > .msg').on('click', function(event) {
 
 		isBooked = $(this).hasClass('l0')
+		isImage = $(this).hasClass('image')
 
-		if(isBooked == true) {
+		if(isBooked == true && isImage == false) {
 			// rien ne se passe
 			console.log("Booked msg")
 
