@@ -395,7 +395,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk"], function(freeAdjacent,
 
 	// INFOBOX NORTH WEST >  delete action
 	$('.infoArea > .nw.handle').click(function() {
-		var dc = $('#informationBox').adttr('dc').split(',');
+		var dc = $('#informationBox').attr('dc').split(',');
 		var xGrid = dc[0];
 		var yGrid = dc[1];
 		console.log(xGrid + ' ' + yGrid);
