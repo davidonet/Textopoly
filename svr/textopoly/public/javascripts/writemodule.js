@@ -105,6 +105,13 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 	 * BEGIN WRITINGBOX
 	 ***********************************************************************************/
 
+	$(window).unload(function() {
+		if($('#writingBox').attr('dc')) {
+			var aDC = $('#writingBox').attr('dc').split(',');
+			booking.unbook(aDC[0], aDC[1]);
+		}
+	});
+
 	$('.z2 > .fz').on('click', function(event) {
 
 		$('#informationBox').fadeOut(500);
