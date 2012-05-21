@@ -240,6 +240,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 			$('.imageArea').hide();
 			$('textarea[name*=t]').hide();
 			$('.authorArea').show();
+			
 		} else {
 			var dc = $('#writingBox').attr('dc').split(',');
 			var aSize = 's';

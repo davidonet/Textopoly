@@ -1,5 +1,6 @@
 define(['lib/jquery.cookie'], function() {
-	$('#current_author').change(function() {
+	$('#current_author').val($.cookie("author"));
+	$('#current_author').keyup(function() {
 		$.cookie("author", $('#current_author').val());
 	});
 	$('#colorPicker').colorPicker({
