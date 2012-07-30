@@ -1,4 +1,4 @@
-define(['helper', 'pathwalk'], function(helper, pathwalk) {
+define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	/**
 	 * Double click to zoom and recenter map
 	 */
@@ -6,7 +6,7 @@ define(['helper', 'pathwalk'], function(helper, pathwalk) {
 		var dc = $(this).attr('dc').split(',');
 		$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 	});
-	
+
 	/**
 	 * Top Menu Handling
 	 */
@@ -30,29 +30,18 @@ define(['helper', 'pathwalk'], function(helper, pathwalk) {
 		 * In this case, we recenter the map and reload the section at this new center
 		 */
 		stop : function(event, ui) {
-			var dX = Math.abs(helper.initLeft - ui.position.left);
-			var dY = Math.abs(helper.initTop - ui.position.top);
-			var xcenter = helper.getCenterX();
-			var ycenter = helper.getCenterY();
 
-			var bX = 0;
-			var bY = 0;
-			if(10 < params.zoom) {
-				bX = 300 * params.stepx;
-				bY = 300 * params.stepy;
-			} else {
-				bX = 50 * params.stepx;
-				bY = 50 * params.stepy;
-			}
-			if((bX < dX) || (bY < dY)) {
-				$('#map').animate({
-					left : ((params.xmin - xcenter - 1) * params.stepx) + $(document).width() / 2,
-					top : ((params.ymin - ycenter - 1) * params.stepy) + $(document).height() / 2
-				}, function() {
-					$(location).attr('href', '/view?zoom=' + params.zoom + '&xcenter=' + xcenter + '&ycenter=' + ycenter);
+			var xmin = params.xmin + Math.ceil((-$('#map').position().left - 256) / (params.stepx));
+			var ymin = params.ymin + Math.ceil((-$('#map').position().top - 256) / (params.stepy));
+			var lparam = {
+				"xmin" : xmin,
+				"ymin" : ymin,
+				"xmax" : xmin + params.txtwidth,
+				"ymax" : ymin + params.txtheight
+			};
+			console.log(lparam);
+			dynload.loadSection(lparam);
 
-				});
-			}
 		},
 	});
 

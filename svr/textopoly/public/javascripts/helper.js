@@ -32,19 +32,19 @@ define([], function() {
 		 */
 		txtLen2Class : function(txtlen) {
 			var lclass = '';
-			if(txtlen < 1) {
+			if (txtlen < 1) {
 				lclass = 'l0';
-			} else if(txtlen < 4) {
+			} else if (txtlen < 4) {
 				lclass = 'l4';
-			} else if(txtlen < 15) {
+			} else if (txtlen < 15) {
 				lclass = 'l15';
-			} else if(txtlen < 50) {
+			} else if (txtlen < 50) {
 				lclass = 'l50';
-			} else if(txtlen < 150) {
+			} else if (txtlen < 150) {
 				lclass = 'l150';
-			} else if(txtlen < 300) {
+			} else if (txtlen < 300) {
 				lclass = 'l300';
-			} else if(txtlen < 601) {
+			} else if (txtlen < 601) {
 				lclass = 'l600';
 			} else {
 				lclass = 'warning';
@@ -80,6 +80,6 @@ define([], function() {
 					}, 100)
 				})
 			})
-		}
+		},
 	}
 });

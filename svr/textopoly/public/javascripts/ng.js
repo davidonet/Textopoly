@@ -4,6 +4,8 @@ requirejs.config({
 	}
 });
 var params;
+var mD = false;
+var xS, yS;
 require(["jquery", "jquery-ui", "lib/jquery.ui.touch-punch", "lib/jquery.form", "lib/syronex-colorpicker", "lib/jquery.tipsy"], function($) {
 
 	$(function() {
@@ -11,67 +13,36 @@ require(["jquery", "jquery-ui", "lib/jquery.ui.touch-punch", "lib/jquery.form", 
 			params = {
 				"zoom" : 2,
 				"stepx" : 120,
-				"stepy" : 80
+				"stepy" : 80,
+				"xcenter" : 0,
+				"ycenter" : 0
 			};
 
-			params.xmin = Math.floor(-$(window).width() / (2 * params.stepx));
-			params.xmax = Math.ceil($(window).width() / (2 * params.stepx));
-			params.ymin = Math.floor(-$(window).height() / (2 * params.stepx));
-			params.ymax = Math.ceil($(window).height() / (2 * params.stepx));
+			params.txtwidth = Math.floor(($(window).width()+256) / params.stepx)
+			params.txtheight = Math.floor(($(window).height()+256) / params.stepy)
+			params.xmin = params.xcenter - params.txtwidth / 2;
+			params.xmax = params.xcenter + params.txtwidth / 2;
+			params.ymin = params.ycenter - params.txtheight / 2;
+			params.ymax = params.ycenter + params.txtheight / 2;
 
-			function loadSection() {
-				require(["txt"], function(txt) {
-					txt.removeInvisible();
-					$.ajax({
-						url : 'section',
-						dataType : 'json',
-						data : params,
-						success : function(section) {
-							$(section.texts).each(function(index, data) {
-								txt.insert(data);
-							});
-						}
-					});
+			require(["dynload"], function(dynload) {
+				dynload.loadSection(params);
+				$('#map').fadeIn(500);
+				$('#map').draggable({
+					stop : function(event, ui) {
+						var xmin = params.xmin+Math.ceil((-$('#map').position().left-256) / (params.stepx));
+						var ymin =  params.ymin+Math.ceil((-$('#map').position().top-256) / (params.stepy));
+						var lparam = {
+							"xmin" : xmin,
+							"ymin" : ymin,
+							"xmax" : xmin+params.txtwidth,
+							"ymax" : ymin+params.txtheight
+						};
+						console.log(lparam);
+						dynload.loadSection(lparam);
+					}
 				});
-
-			}
-
-			loadSection();
-
-			$(document).keydown(function(e) {
-				switch(e.keyCode) {
-					case 37:
-						{
-							params.xmin--;
-							params.xmax--;
-
-						}
-						break;
-					case 39:
-						{
-							params.xmin++;
-							params.xmax++;
-
-						}
-						break;
-					case 38:
-						{
-							params.ymin--;
-							params.ymax--;
-						}
-						break;
-					case 40:
-						{
-							params.ymin++;
-							params.ymax++;
-						}
-						break;
-				}
-				console.log(e.keyCode + " : " + params.xmin + "," + params.xmax);
-				loadSection();
-				return false;
 			});
 		});
-
 	});
 });

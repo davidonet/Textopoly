@@ -76,9 +76,12 @@ define(['helper'], function(helper) {
 
 	// center map
 	$('#map').css({
+		
 		left : helper.initLeft,
 		top : helper.initTop,
+		
 		width : (params.xmax - params.xmin) * params.stepx,
 		height : (params.ymax - params.ymin) * params.stepy
+		
 	});
 });

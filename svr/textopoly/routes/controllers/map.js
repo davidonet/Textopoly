@@ -135,7 +135,7 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 				ymax : ymax,
 				stepx : stepX,
 				stepy : stepY,
-				booked : compOutput
+				//booked : compOutput
 			},
 			texts : items
 		});

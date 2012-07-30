@@ -41,17 +41,7 @@ div#content
     div#footer
 
   div.grid#map(class='z'+params.zoom)
-    each txt in texts
-      div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c)
-        if( params.zoom < 20)
-          if txt.i
-            img(src='/getimg/['+txt.p+']')
-          else
-            if txt.t
-              p #{txt.t}
-            else
-              p.author #{txt.a}
-    
+        
     div#removebox(style='display:none')
       small
         span(stle='color:red') Attention
