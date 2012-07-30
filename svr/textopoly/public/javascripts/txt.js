@@ -26,11 +26,7 @@ define(["helper"], function(helper) {
 				$('#map').append(newTxt);
 				newTxt.fadeIn(1000);
 			} else {
-				
-				$('.msg[dc="' + data.p + '"]').each(function(curText) {
-					$(this).css(helper.posToCSS(data.p));
-				});
-				
+								
 			}
 		},
 		removeInvisible : function() {
