@@ -1,5 +1,39 @@
 define(['helper'], function(helper) {
 
+	switch(params.zoom) {
+		case 1:
+			params.stepx = 240;
+			params.stepy = 160;
+			break;
+		case 2:
+			params.stepx = 120;
+			params.stepy = 80;
+			break;
+		case 4:
+			params.stepx = 60;
+			params.stepy = 40;
+			break;
+		case 10:
+			params.stepx = 24;
+			params.stepy = 16;
+			break;
+		case 20:
+			params.stepx = 12;
+			params.stepy = 8;
+			break;
+		case 40:
+			params.stepx = 6;
+			params.stepy = 4;
+			break;
+	}
+
+	params.txtwidth = Math.floor(($(window).width() + 256) / params.stepx)
+	params.txtheight = Math.floor(($(window).height() + 256) / params.stepy)
+	params.xmin = params.xcenter - params.txtwidth / 2;
+	params.xmax = params.xcenter + params.txtwidth / 2;
+	params.ymin = params.ycenter - params.txtheight / 2;
+	params.ymax = params.ycenter + params.txtheight / 2;
+
 	/* Valeurs Slider - Echelles
 	* 5 1:1
 	* 4 1:2
@@ -72,16 +106,14 @@ define(['helper'], function(helper) {
 		}
 	});
 
-	
-
 	// center map
 	$('#map').css({
-		
+
 		left : helper.initLeft,
 		top : helper.initTop,
-		
+
 		width : (params.xmax - params.xmin) * params.stepx,
 		height : (params.ymax - params.ymin) * params.stepy
-		
+
 	});
 });
