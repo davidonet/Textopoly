@@ -41,9 +41,9 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 	var ymin = ycenter - range;
 	var ymax = ycenter + range;
 
-	if(zoom < 20) {
+	if (zoom < 20) {
 		var reservedArray = new Array((4 + xmax - xmin) * (4 + ymax - ymin));
-		for(var i = 0, j = reservedArray.length; i < j; i++) {
+		for (var i = 0, j = reservedArray.length; i < j; i++) {
 			reservedArray[i] = 0;
 		}
 
@@ -62,8 +62,8 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 		function encode(input) {
 			var encoding = [];
 			var prev, count, i;
-			for( count = 1, prev = input[0], i = 1; i < input.length; i++) {
-				if(input[i] != prev) {
+			for ( count = 1, prev = input[0], i = 1; i < input.length; i++) {
+				if (input[i] != prev) {
 					encoding.push([count, prev]);
 					count = 1;
 					prev = input[i];
@@ -78,19 +78,19 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 	function txtLen2Class(txtlen) {
 
 		var lclass = '';
-		if(txtlen < 1) {
+		if (txtlen < 1) {
 			lclass = 'l0';
-		} else if(txtlen < 4) {
+		} else if (txtlen < 4) {
 			lclass = 'l4';
-		} else if(txtlen < 15) {
+		} else if (txtlen < 15) {
 			lclass = 'l15';
-		} else if(txtlen < 50) {
+		} else if (txtlen < 50) {
 			lclass = 'l50';
-		} else if(txtlen < 150) {
+		} else if (txtlen < 150) {
 			lclass = 'l150';
-		} else if(txtlen < 300) {
+		} else if (txtlen < 300) {
 			lclass = 'l300';
-		} else if(txtlen < 601) {
+		} else if (txtlen < 601) {
 			lclass = 'l600';
 		} else {
 			lclass = 'warning';
@@ -104,24 +104,28 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 			value.absx = (value.p[0] - xmin) * stepX;
 			value.absy = (value.p[1] - ymin) * stepY;
 			var txtlen = 0;
-			if(value.t)
+			if (value.t)
 				txtlen = value.t.length;
 			value.lclass = txtLen2Class(txtlen);
+			/*
+			 if(zoom < 20) {
+			 var aX = value.p[0], aY = value.p[1];
+			 reserveABlock(aX, aY);
+			 if(('l' == value.s) || ('f' == value.s))
+			 reserveABlock(aX + 2, aY);
+			 if(('t' == value.s) || ('f' == value.s))
+			 reserveABlock(aX, aY + 2);
+			 if('f' == value.s)
+			 reserveABlock(aX + 2, aY + 2);
 
-			if(zoom < 20) {
-				var aX = value.p[0], aY = value.p[1];
-				reserveABlock(aX, aY);
-				if(('l' == value.s) || ('f' == value.s))
-					reserveABlock(aX + 2, aY);
-				if(('t' == value.s) || ('f' == value.s))
-					reserveABlock(aX, aY + 2);
-				if('f' == value.s)
-					reserveABlock(aX + 2, aY + 2);
-			}
+			 }
+			 */
 		});
-		var compOutput = [];
-		if(zoom < 20)
-			var compOutput = encode(reservedArray);
+		/*
+		 var compOutput = [];
+		 if(zoom < 20)
+		 var compOutput = encode(reservedArray);
+		 */
 
 		fn({
 			title : 'Textopoly | ' + aBoundingBox,
