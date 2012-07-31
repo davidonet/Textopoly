@@ -29,7 +29,7 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 		 * At the of a map drag, check if we are too close from the end of the map.
 		 * In this case, we recenter the map and reload the section at this new center
 		 */
-		stop : function(event, ui) {
+		drag : function(event, ui) {
 
 			var xmin = params.xmin + Math.ceil((-$('#map').position().left - 256) / (params.stepx));
 			var ymin = params.ymin + Math.ceil((-$('#map').position().top - 256) / (params.stepy));
