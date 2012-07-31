@@ -9,8 +9,10 @@ require(["jquery", "jquery-ui", "lib/jquery.ui.touch-punch", "lib/jquery.form", 
 			require(["mapmodule"], function() {
 				require(["pathwalk"], function() {
 					require(["dynload"], function(dynload) {
-						dynload.loadSection(params);
-						$('#map').fadeIn(500);
+						require(["pathwalk"], function(pathwalk) {
+							dynload.loadSection(params, pathwalk.updatePath);
+							$('#map').fadeIn(500);
+						});
 						require(["userinfo"]);
 						require(["writemodule"]);
 						require(["uievent"]);

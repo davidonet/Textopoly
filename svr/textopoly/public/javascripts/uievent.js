@@ -39,8 +39,15 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 				"xmax" : xmin + params.txtwidth,
 				"ymax" : ymin + params.txtheight
 			};
-			dynload.loadSection(lparam);
+			dynload.loadSection(lparam, function() {
+			});
 		},
+		stop : function(event, ui) {
+			pathwalk.updatePath();
+		},
+		start : function(event, ui) {
+			pathwalk.hidePath();
+		}
 	});
 
 	/***********************************************************************************

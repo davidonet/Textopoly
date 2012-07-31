@@ -1,10 +1,9 @@
 define(['helper'], function(helper) {
-	var paper = Raphael('map');
-	$('svg').hide();
+	var paper;
 
 	function pathPlay(aPath) {
 		var aPos = aPath.shift();
-		if(aPos) {
+		if (aPos) {
 			aPos = aPos.split(',');
 			$('#map').animate({
 				left : ((params.xmin - aPos[0] - 1) * params.stepx) + $(document).width() / 2,
@@ -22,21 +21,22 @@ define(['helper'], function(helper) {
 		var aPosList = new Array();
 		$(aMsgList).each(function(index, point) {
 			var aPN = $('.msg[dc="' + point + '"]');
-			var aPos = aPN.position();
-			if(aPos) {
+			var aPos = aPN.offset();
+			if (aPos) {
 				aPos.left += params.stepx;
 				aPos.top += params.stepy
 
-				if(aPN.hasClass('l') || aPN.hasClass('f'))
+				if (aPN.hasClass('l') || aPN.hasClass('f'))
 					aPos.left += params.stepx;
-				if(aPN.hasClass('t') || aPN.hasClass('f'))
+				if (aPN.hasClass('t') || aPN.hasClass('f'))
 					aPos.top += params.stepy
 				aPosList.push(aPos);
+
 			}
 		});
 		var aSVG = "";
 		$.each(aPosList, function(index, value) {
-			if(0 < index) {
+			if (0 < index) {
 				var shiftx = Math.floor((Number(value.left) + Number(aPosList[index - 1].left)) / 2 + (Math.random() - 2.0) * params.stepx);
 				var shifty = Math.floor((Number(value.top) + Number(aPosList[index - 1].top)) / 2 + (Math.random() - 2.0) * params.stepy);
 				aSVG += "S" + shiftx + "," + shifty + "," + value.left + "," + value.top;
@@ -45,16 +45,16 @@ define(['helper'], function(helper) {
 			}
 		});
 		var aPath;
-		if(4 < params.zoom)
+		if (4 < params.zoom)
 			aPath = paper.path(aSVG).attr("stroke", "#fff").attr("stroke-width", 5 / params.zoom);
 		else
 			aPath = paper.path(aSVG).attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
 		$.each(aPosList, function(index, value) {
-			if(0 < index) {
+			if (0 < index) {
 				var shiftx = Math.floor((Number(value.left) + Number(aPosList[index - 1].left)) / 2 + (Math.random() - 2.0) * params.stepx);
 				var shifty = Math.floor((Number(value.top) + Number(aPosList[index - 1].top)) / 2 + (Math.random() - 2.0) * params.stepy);
-				if(index < (aPosList.length - 1))
-				paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#D3D7CF").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
+				if (index < (aPosList.length - 1))
+					paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#D3D7CF").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
 				else
 					paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#D3D7CF").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
 			} else {
@@ -64,16 +64,6 @@ define(['helper'], function(helper) {
 		return aPath;
 	}
 
-
-	$.getJSON('/allpath', function(data) {
-		$(data).each(function(index, path) {
-			drawPath(path.pw);
-			$('svg').css({
-				'z-index' : '-10',
-			});
-			$('svg').fadeIn(1000);
-		});
-	});
 	return {
 		startPath : function() {
 			var aPathPack = {
@@ -84,18 +74,18 @@ define(['helper'], function(helper) {
 			return aPathPack;
 		},
 		addNode : function(aPathPack, aDC) {
-			if(aDC) {
+			if (aDC) {
 				var aPN = $('.msg[dc="' + aDC + '"]');
 				var aPos = aPN.position();
 				aPos.left += params.stepx;
 				aPos.top += params.stepy
-				if(aPN.hasClass('l') || aPN.hasClass('f'))
+				if (aPN.hasClass('l') || aPN.hasClass('f'))
 					aPos.left += params.stepx;
-				if(aPN.hasClass('t') || aPN.hasClass('f'))
+				if (aPN.hasClass('t') || aPN.hasClass('f'))
 					aPos.top += params.stepy
 				aPathPack.msgPath.push(aDC);
 				aPathPack.posList.push(aPos);
-				if(1 < aPathPack.posList.length) {
+				if (1 < aPathPack.posList.length) {
 					var aPath = "M" + aPathPack.posList[aPathPack.posList.length - 2].left + "," + aPathPack.posList[aPathPack.posList.length - 2].top;
 					aPath += "L" + aPos.left + "," + aPos.top;
 					var lPath = paper.path(aPath).attr("stroke", "#fce94f").attr("stroke-width", "2");
@@ -125,6 +115,27 @@ define(['helper'], function(helper) {
 			});
 			return drawPath(aPathPack.msgPath);
 		},
-		pathPlay : pathPlay
+		pathPlay : pathPlay,
+		hidePath : function() {
+			$('svg').hide();
+			$('svg').remove();
+		},
+		updatePath : function() {
+			paper = Raphael('content');
+			$('svg').hide();
+			$.getJSON('/allpath', function(data) {
+				$(data).each(function(index, path) {
+					drawPath(path.pw);
+					$('svg').css({
+						'z-index' : '-10',
+						'position' : 'fixed',
+						'top' : '0px',
+						'left':'0px'
+					});
+					$('#uiWrap').after($('svg'));
+					$('svg').fadeIn(300);
+				});
+			});
+		}
 	};
 });
