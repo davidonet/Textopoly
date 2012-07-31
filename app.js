@@ -47,4 +47,4 @@ app.configure('production', function() {
 require('./routes')(app);
 
 app.listen(3000);
-console.log("Textopoly server listening on port %d in %s mode", app.address().port, app.settings.env);
+console.log("Textopoly server on port %d in %s mode", app.address().port, app.settings.env);
