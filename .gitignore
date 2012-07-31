@@ -1,4 +1,2 @@
-
-.DS_Store
-
-svr/textopoly/npm-debug.log
+node_modules
+sensible.js

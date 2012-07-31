@@ -1,0 +1,52 @@
+/* POINT D'INSERTION | */
+
+@-webkit-keyframes blink {
+
+0% {
+	-webkit-opacity: 0;
+}
+100% {
+	-webkit-opacity: 1;
+}
+
+/* CASE RÉSERVÉE */
+}
+@-webkit-keyframes booked {
+
+0% {
+	-webkit-opacity: 0.25;
+}
+100% {
+	-webkit-opacity: 1;
+}
+}
+
+
+
+#blink{
+	-webkit-animation-name: blink;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+
+}
+
+
+
+.z20 > .l0.butter, .z40 > .l0.butter, .l0.butter,
+.z20 > .l0.orange, .z40 > .l0.orange, .l0.orange,
+.z20 > .l0.chocolate, .z40 > .l0.chocolate, .l0.chocolate,
+.z20 > .l0.chameleon, .z40 > .l0.chameleon, .l0.chameleon,
+.z20 > .l0.skyblue, .z40 > .l0.skyblue, .l0.skyblue,
+.z20 > .l0.plum, .z40 > .l0.plum, .l0.plum,
+.z20 > .l0.scarletred, .z40 > .l0.scarletred, .l0.scarletred
+
+ {
+	-webkit-animation-name: booked;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+}
+
