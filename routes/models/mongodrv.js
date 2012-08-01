@@ -20,7 +20,7 @@ db.bind('path', {
 	},
 	allPath : function(fn) {
 		this.find({}).toArray(fn);
-	},
+	}
 });
 
 db.bind('txt', {

@@ -20,5 +20,5 @@ module.exports = function(app) {
 	app.post('/newpath', jsonC.newpath);
 	app.get('/allpath', jsonC.allpath);
 	app.get('/msg', jsonC.msg);
-	}
+	};
 	

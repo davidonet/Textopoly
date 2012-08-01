@@ -32,7 +32,7 @@ exports.postimg = function(req, res, next) {
 				height : 640,
 				strip : true,
 				filter : 'Lagrange',
-				sharpening : 0.2,
+				sharpening : 0.2
 			}, function(err, stdout, stderr) {
 
 				db.gridfs().open('[' + req.query.x + ',' + req.query.y + ']', 'w', aGSData, function(err, gs) {
@@ -52,15 +52,15 @@ exports.postimg = function(req, res, next) {
 				});
 
 			});
-		})
+		});
 	}
-}
+};
 
 exports.getimg = function(req, res, next) {
 	db.gridfs().open(req.params.id, 'r', function(err, gs) {
 		gs.read(function(err, reply) {
 			if(err)
-				next(err)
+				next(err);
 			else {
 				res.writeHead('200', {
 					'Content-Type' : 'image/jpeg'
@@ -69,4 +69,4 @@ exports.getimg = function(req, res, next) {
 			}
 		});
 	});
-}
+};

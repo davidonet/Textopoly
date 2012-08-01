@@ -23,14 +23,14 @@ exports.allpath = function(req, res) {
 	db.path.allPath(function(err, items) {
 		res.json(items);
 	});
-}
+};
 
 exports.newpath = function(req, res) {
 	var xmin = 0, ymin = 0, xmax = 0, ymax = 0;
 	var aNP = {
 		'a' : req.body.a,
-		'pw' : [],
-	}
+		'pw' : []
+	};
 	req.body.pw.forEach(function(value, index) {
 		var x = Number(value.split(',')[0]), y = Number(value.split(',')[1]);
 		if(x < xmin)
@@ -48,7 +48,7 @@ exports.newpath = function(req, res) {
 	db.path.newPath(aNP, function(err, aRes) {
 		res.json(aRes);
 	});
-}
+};
 
 exports.msg = function(req, res) {
 	db.txt.aTxt(req.query, function(err, ret) {
@@ -67,14 +67,14 @@ exports.insert = function(req, res) {
 		res.json(aTxt);
 		io.sockets.emit('book', aTxt);
 	});
-}
+};
 
 exports.remove = function(req, res) {
 	db.gridfs().unlink('[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
-		console.log("image removed")
+		console.log("image removed");
 	});
 	db.txt.removeTxt(req.query, function(err) {
 		res.json(err);
 		io.sockets.emit('unbook', req.query);
 	});
-}
+};

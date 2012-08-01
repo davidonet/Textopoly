@@ -13,14 +13,14 @@ exports.map = function(req, res) {
 			xmax : xmax,
 			ymax : ymax,
 			stepx : stepX,
-			stepy : stepY,
+			stepy : stepY
 			//booked : compOutput
 		}
 	};
 
 	res.render('map.jade', data);
 
-}
+};
 
 exports.view = function(req, res) {
 	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
@@ -31,8 +31,8 @@ exports.view = function(req, res) {
 		params : {
 			zoom : zoom,
 			xcenter : xcenter,
-			ycenter : ycenter,
+			ycenter : ycenter
 		}
 	};
 	res.render('view.jade', data);
-}
+};
