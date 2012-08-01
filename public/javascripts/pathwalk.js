@@ -18,18 +18,18 @@ define(['helper'], function(helper) {
 	}
 
 	function drawPath(aMsgList) {
-		var aPosList = new Array();
+		var aPosList = [];
 		$(aMsgList).each(function(index, point) {
 			var aPN = $('.msg[dc="' + point + '"]');
 			var aPos = aPN.offset();
 			if (aPos) {
 				aPos.left += params.stepx;
-				aPos.top += params.stepy
+				aPos.top += params.stepy;
 
 				if (aPN.hasClass('l') || aPN.hasClass('f'))
 					aPos.left += params.stepx;
 				if (aPN.hasClass('t') || aPN.hasClass('f'))
-					aPos.top += params.stepy
+					aPos.top += params.stepy;
 				aPosList.push(aPos);
 
 			}
@@ -67,9 +67,9 @@ define(['helper'], function(helper) {
 	return {
 		startPath : function() {
 			var aPathPack = {
-				msgPath : new Array(),
-				posList : new Array(),
-				svgList : new Array()
+				msgPath : [],
+				posList : [],
+				svgList : []
 			};
 			return aPathPack;
 		},
@@ -78,11 +78,11 @@ define(['helper'], function(helper) {
 				var aPN = $('.msg[dc="' + aDC + '"]');
 				var aPos = aPN.position();
 				aPos.left += params.stepx;
-				aPos.top += params.stepy
+				aPos.top += params.stepy;
 				if (aPN.hasClass('l') || aPN.hasClass('f'))
 					aPos.left += params.stepx;
 				if (aPN.hasClass('t') || aPN.hasClass('f'))
-					aPos.top += params.stepy
+					aPos.top += params.stepy;
 				aPathPack.msgPath.push(aDC);
 				aPathPack.posList.push(aPos);
 				if (1 < aPathPack.posList.length) {

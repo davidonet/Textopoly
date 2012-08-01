@@ -14,5 +14,5 @@ define(["txt"], function(txt) {
 				}
 			});
 		}
-	}
+	};
 });

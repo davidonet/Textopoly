@@ -8,14 +8,14 @@ define(['helper'], function(helper) {
 	 * @return an expanded array
 	 */
 	function decode(encoded) {
-		var output = new Array;
+		var output = new Array();
 		$(encoded).each(function(index, pair) {
 			var aLocalArray = new Array(pair[0]);
 			for(var i = 0, j = aLocalArray.length; i < j; i++) {
 				aLocalArray[i] = pair[1];
-			};
+			}
 			output = output.concat(aLocalArray);
-		})
+		});
 		return output;
 	}
 
@@ -36,7 +36,7 @@ define(['helper'], function(helper) {
 		borderArray[i] = 0;
 	}
 	// Set all candidate to the border
-	for(var i = params.ymin + 1, j = params.ymax + 1; i < j; i++) {
+	for(i = params.ymin + 1, j = params.ymax + 1; i < j; i++) {
 		for(var k = params.xmin + 1, l = params.xmax + 1; k < l; k++) {
 			var c = reservedArray[xyToIndex(k, i)];
 			var x0 = reservedArray[xyToIndex(k - 1, i)];
@@ -71,17 +71,17 @@ define(['helper'], function(helper) {
 
 	}
 	// Removing booked cell
-	for(var i = params.ymin + 1, j = params.ymax + 1; i < j; i++) {
-		for(var k = params.xmin + 1, l = params.xmax + 1; k < l; k++) {
-			var c = reservedArray[xyToIndex(k, i)];
-			var x0 = reservedArray[xyToIndex(k - 1, i)];
-			var x1 = reservedArray[xyToIndex(k + 1, i)];
-			var y0 = reservedArray[xyToIndex(k, i - 1)];
-			var y1 = reservedArray[xyToIndex(k, i + 1)];
-			var xy00 = reservedArray[xyToIndex(k - 1, i - 1)];
-			var xy01 = reservedArray[xyToIndex(k - 1, i + 1)];
-			var xy11 = reservedArray[xyToIndex(k + 1, i + 1)];
-			var xy10 = reservedArray[xyToIndex(k + 1, i - 1)];
+	for(i = params.ymin + 1, j = params.ymax + 1; i < j; i++) {
+		for(k = params.xmin + 1, l = params.xmax + 1; k < l; k++) {
+			c = reservedArray[xyToIndex(k, i)];
+			x0 = reservedArray[xyToIndex(k - 1, i)];
+			x1 = reservedArray[xyToIndex(k + 1, i)];
+			y0 = reservedArray[xyToIndex(k, i - 1)];
+			y1 = reservedArray[xyToIndex(k, i + 1)];
+			xy00 = reservedArray[xyToIndex(k - 1, i - 1)];
+			xy01 = reservedArray[xyToIndex(k - 1, i + 1)];
+			xy11 = reservedArray[xyToIndex(k + 1, i + 1)];
+			xy10 = reservedArray[xyToIndex(k + 1, i - 1)];
 
 			if(1 == x1)
 				borderArray[xyToIndex(k, i)] = 0;
@@ -92,8 +92,8 @@ define(['helper'], function(helper) {
 		}
 	}
 	// Publishing to the DOM
-	for(var i = params.xmin, j = params.xmax + 4; i < j; i++) {
-		for(var k = params.ymin, l = params.ymax + 4; k < l; k++) {
+	for(i = params.xmin, j = params.xmax + 4; i < j; i++) {
+		for(k = params.ymin, l = params.ymax + 4; k < l; k++) {
 			if(1 == borderArray[xyToIndex(i, k)]) {
 				var newTxt = $(document.createElement("div")).addClass('fz').addClass('s');
 				var aPos = [i, k];
@@ -122,7 +122,7 @@ define(['helper'], function(helper) {
 			return aCB;
 		}
 
-		var aResult = new Array();
+		var aResult = [];
 		if(isP(-2, 0))
 			aResult.push('w');
 		if(isP(2, 0))
@@ -143,7 +143,7 @@ define(['helper'], function(helper) {
 		}
 
 		return aResult;
-	}
+	};
 
 	return freeAdjacent;
 });

@@ -24,10 +24,10 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 		} else {
 			if(data.t) {
 				// text filled cell
-				var newContent = $(document.createElement("p")).text(data.t);
+				newContent = $(document.createElement("p")).text(data.t);
 			} else {
 				// booked cell
-				var newContent = $(document.createElement("p")).addClass("author").text(data.a);
+				newContent = $(document.createElement("p")).addClass("author").text(data.a);
 				newTxt.addClass('l0');
 			}
 		}
@@ -54,13 +54,13 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 				c : c,
 				a : a,
 				t : ""
-			})
+			});
 		},
 		unbook : function(x, y) {
 			socket.emit('unbook', {
 				x : x,
 				y : y
 			});
-		},
-	}
+		}
+	};
 });

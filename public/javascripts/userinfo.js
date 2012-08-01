@@ -29,7 +29,7 @@ define(['lib/jquery.cookie'], function() {
 					break;
 			}
 			$.cookie("colorIdx", color);
-		},
+		}
 	});
 	return {
 		msgInfo : function(x, y, fn) {
@@ -43,5 +43,5 @@ define(['lib/jquery.cookie'], function() {
 		set : function(name) {
 			$.cookie("author", name);
 		}
-	}
+	};
 });

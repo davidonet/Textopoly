@@ -1,10 +1,10 @@
 define([], function() {
 	function posToLeft(p) {
 		return (p[0] - params.xmin) * params.stepx;
-	};
+	}
 	function posToTop(p) {
 		return (p[1] - params.ymin) * params.stepy;
-	};
+	}
 	return {
 		initLeft : (((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2),
 		initTop : (((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2),
@@ -23,7 +23,7 @@ define([], function() {
 		posToCSS : function(p) {
 			return {
 				left : posToLeft(p) + 'px',
-				top : posToTop(p) + 'px',
+				top : posToTop(p) + 'px'
 			};
 		},
 		/**
@@ -68,18 +68,18 @@ define([], function() {
 			$(bouton).click(function() {
 				$(this).children().animate({
 					height : '50px'
-				}, 100)
+				}, 100);
 				$(this).mouseleave(function() {
 					$(this).children().animate({
 						height : '0px'
-					}, 100)
-				})
+					}, 100);
+				});
 				$(this).children().mouseleave(function() {
 					$(this).animate({
 						height : '0px'
-					}, 100)
-				})
-			})
-		},
-	}
+					}, 100);
+				});
+			});
+		}
+	};
 });

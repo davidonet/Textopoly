@@ -27,8 +27,8 @@ define(['helper'], function(helper) {
 			break;
 	}
 
-	params.txtwidth = Math.floor(($(window).width() + 256) / params.stepx)
-	params.txtheight = Math.floor(($(window).height() + 256) / params.stepy)
+	params.txtwidth = Math.floor(($(window).width() + 256) / params.stepx);
+	params.txtheight = Math.floor(($(window).height() + 256) / params.stepy);
 	params.xmin = params.xcenter - params.txtwidth / 2;
 	params.xmax = params.xcenter + params.txtwidth / 2;
 	params.ymin = params.ycenter - params.txtheight / 2;
@@ -67,7 +67,7 @@ define(['helper'], function(helper) {
 		case 1:
 			zoomValue = 5;
 			break;
-	};
+	}
 
 	// Réglage du zoomSlider
 
@@ -109,6 +109,6 @@ define(['helper'], function(helper) {
 	// center map
 	$('#map').css({
 		left : helper.initLeft,
-		top : helper.initTop,
+		top : helper.initTop
 	});
 });

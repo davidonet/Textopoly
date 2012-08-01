@@ -15,10 +15,10 @@ define(["helper"], function(helper) {
 					} else {
 						if (data.t) {
 							// text filled cell
-							var newContent = $(document.createElement("p")).text(data.t);
+							newContent = $(document.createElement("p")).text(data.t);
 						} else {
 							// booked cell
-							var newContent = $(document.createElement("p")).addClass("author").text(data.a);
+							newContent = $(document.createElement("p")).addClass("author").text(data.a);
 							newTxt.addClass('l0');
 						}
 					}
@@ -45,5 +45,5 @@ define(["helper"], function(helper) {
 				}
 			});
 		}
-	}
+	};
 });

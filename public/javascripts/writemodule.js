@@ -1,11 +1,11 @@
 require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"], function(freeAdjacent, fileUploader, pathwalk, userinfo, booking) {
 
-	var delay = 250
-	var textarea = true
-	var msgInfo = false
+	var delay = 250;
+	var textarea = true;
+	var msgInfo = false;
 	var auth = ($.cookie("author") != null);
 	var isFatFree = false;
-	var isBooked = false
+	var isBooked = false;
 	var uploader = new qq.FileUploader({
 		element : $('.imageArea')[0],
 		action : '/postimg',
@@ -26,9 +26,9 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 			handlesPos('.editArea');
 		});
 		$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
-		$('.editArea > .e.handle').switchClass('al', 'ar', 0)
-		$('.editArea > .s.handle').switchClass('au', 'ad', 0)
-		$('.editArea > .sw.handle').switchClass('tx', 'me', 0)
+		$('.editArea > .e.handle').switchClass('al', 'ar', 0);
+		$('.editArea > .s.handle').switchClass('au', 'ad', 0);
+		$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
 		$('.editArea > .sw.handle').show();
 		$('.editArea > .e.handle').show();
 		$('.editArea > .s.handle').show();
@@ -38,8 +38,8 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 		$('.imageArea').hide();
 		$('.authorArea').hide();
 		$('textarea[name*=t]').show();
-		textarea = true
-	};
+		textarea = true;
+	}
 
 	// Reset infoBox
 
@@ -121,8 +121,8 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 			handlesPos('.editArea');
 		});
 
-		$('.editArea > .e.handle').switchClass('al', 'ar', 0)
-		$('.editArea > .s.handle').switchClass('au', 'ad', 0)
+		$('.editArea > .e.handle').switchClass('al', 'ar', 0);
+		$('.editArea > .s.handle').switchClass('au', 'ad', 0);
 		/*$('.editArea > .sw.handle').switchClass('tx', 'me', 0)*/
 
 		var dc = $(this).attr('dc').split(',');
@@ -137,7 +137,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 		// récupère x de dc
 		var yGrid = dc[1];
 		// récupère y de dc
-		booking.book(xGrid, yGrid, 's', params.c, userinfo.get())
+		booking.book(xGrid, yGrid, 's', params.c, userinfo.get());
 		var position = $(this).position();
 		// récupère la position absolue d'un élément .fz
 		var xPos = position.left;
@@ -161,8 +161,8 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 
 		// positionnement du formulaire d'écriture
 		$('#writingBox').animate({
-			'left' : parseInt(xPos - 10),
-			'top' : parseInt(yPos - 10),
+			'left' : parseInt(xPos - 10, 10),
+			'top' : parseInt(yPos - 10, 10)
 		}, 500);
 
 	});
@@ -175,7 +175,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 		if($('#writingBox').attr('dc')) {
 			var aDC = $('#writingBox').attr('dc').split(',');
 			booking.unbook(aDC[0], aDC[1]);
-			booking.book(aDC[0], aDC[1], s, params.c, userinfo.get())
+			booking.book(aDC[0], aDC[1], s, params.c, userinfo.get());
 		}
 	}
 
@@ -190,41 +190,41 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 			booking.unbook(aDC[0], aDC[1]);
 		}
 		resetWritingBox();
-	})
+	});
 	// WRITINGBOX EAST > scale box on X direction
 	$('.editArea > .e.handle').click(function() {
-		$(this).hide()
+		$(this).hide();
 		if(!isFatFree)
 			$('.editArea > .s.handle').hide();
 		if($('.editArea').hasClass('s')) {
 			$('.editArea').switchClass('s', 'l', delay, function() {
 				handlesPos('.editArea');
-				$('.editArea > .e.handle').switchClass('ar', 'al', 0)
-				$('.editArea > .e.handle').show()
+				$('.editArea > .e.handle').switchClass('ar', 'al', 0);
+				$('.editArea > .e.handle').show();
 				newSize('l');
 			});
 		} else if($('.editArea').hasClass('l')) {
 
 			$('.editArea').switchClass('l', 's', delay, function() {
 				handlesPos('.editArea');
-				$('.editArea > .e.handle').switchClass('al', 'ar', 0)
-				$('.editArea > .e.handle').show()
+				$('.editArea > .e.handle').switchClass('al', 'ar', 0);
+				$('.editArea > .e.handle').show();
 				newSize('s');
 			});
 		} else if($('.editArea').hasClass('t')) {
 
 			$('.editArea').switchClass('t', 'f', delay, function() {
 				handlesPos('.editArea');
-				$('.editArea > .e.handle').switchClass('ar', 'al', 0)
-				$('.editArea > .e.handle').show()
+				$('.editArea > .e.handle').switchClass('ar', 'al', 0);
+				$('.editArea > .e.handle').show();
 				newSize('f');
 			});
 		} else if($('.editArea').hasClass('f')) {
 
 			$('.editArea').switchClass('f', 't', delay, function() {
 				handlesPos('.editArea');
-				$('.editArea > .e.handle').switchClass('al', 'ar', 0)
-				$('.editArea > .e.handle').show()
+				$('.editArea > .e.handle').switchClass('al', 'ar', 0);
+				$('.editArea > .e.handle').show();
 				newSize('t');
 			});
 		}
@@ -273,39 +273,39 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 
 	// WRITINGBOX SOUTH > scale box on Y direction
 	$('.editArea > .s.handle').click(function() {
-		$(this).hide()
+		$(this).hide();
 		if(!isFatFree)
 			$('.editArea > .s.handle').hide();
 		if($('.editArea').hasClass('s')) {
 
 			$('.editArea').switchClass('s', 't', delay, function() {
 				handlesPos('.editArea');
-				$('.editArea > .s.handle').switchClass('ad', 'au', 0)
-				$('.editArea > .s.handle').show()
+				$('.editArea > .s.handle').switchClass('ad', 'au', 0);
+				$('.editArea > .s.handle').show();
 				newSize('t');
 			});
 		} else if($('.editArea').hasClass('l')) {
 
 			$('.editArea').switchClass('l', 'f', delay, function() {
 				handlesPos('.editArea');
-				$('.editArea > .s.handle').switchClass('ad', 'au', 0)
-				$('.editArea > .s.handle').show()
+				$('.editArea > .s.handle').switchClass('ad', 'au', 0);
+				$('.editArea > .s.handle').show();
 				newSize('f');
 			});
 		} else if($('.editArea').hasClass('t')) {
 
 			$('.editArea').switchClass('t', 's', delay, function() {
 				handlesPos('.editArea');
-				$('.editArea > .s.handle').switchClass('au', 'ad', 0)
-				$('.editArea > .s.handle').show()
+				$('.editArea > .s.handle').switchClass('au', 'ad', 0);
+				$('.editArea > .s.handle').show();
 				newSize('s');
 			});
 		} else if($('.editArea').hasClass('f')) {
 
 			$('.editArea').switchClass('f', 'l', delay, function() {
 				handlesPos('.editArea');
-				$('.editArea > .s.handle').switchClass('au', 'ad', 0)
-				$('.editArea > .s.handle').show()
+				$('.editArea > .s.handle').switchClass('au', 'ad', 0);
+				$('.editArea > .s.handle').show();
 				newSize('l');
 			});
 		}
@@ -336,14 +336,14 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 				's' : aSize
 			};
 			uploader.setParams(data);
-			textarea = false
-			$('.editArea > .sw.handle').switchClass('me', 'tx', 0)
+			textarea = false;
+			$('.editArea > .sw.handle').switchClass('me', 'tx', 0);
 		} else {
 			$('input[name*=image]').val('');
 			$('.imageArea').hide();
 			$('textarea[name*=t]').show();
-			$('.editArea > .sw.handle').switchClass('tx', 'me', 0)
-			textarea = true
+			$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
+			textarea = true;
 		}
 
 	});
@@ -358,12 +358,12 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 
 	$('.z2 > .msg').on('click', function(event) {
 
-		isBooked = $(this).hasClass('l0')
-		isImage = $(this).hasClass('image')
+		isBooked = $(this).hasClass('l0');
+		isImage = $(this).hasClass('image');
 
 		if(isBooked == true && isImage == false) {
 			// rien ne se passe
-			console.log("Booked msg")
+			console.log("Booked msg");
 
 		} else {
 
@@ -384,8 +384,8 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 
 			// positionnement du formulaire d'écriture
 			$('#informationBox').animate({
-				'left' : parseInt(xPos - 10),
-				'top' : parseInt(yPos - 10),
+				'left' : parseInt(xPos - 10, 10),
+				'top' : parseInt(yPos - 10, 10)
 			}, 500);
 
 			// règle la taille en fonction du type de case
@@ -394,22 +394,22 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 
 				$('.infoArea').switchClass('l t f', 's', delay, function() {
 					handlesPos('.infoArea');
-				})
+				});
 			} else if($(this).hasClass('l')) {
 
 				$('.infoArea').switchClass('s t f', 'l', delay, function() {
 					handlesPos('.infoArea');
-				})
+				});
 			} else if($(this).hasClass('t')) {
 
 				$('.infoArea').switchClass('s l f', 't', delay, function() {
 					handlesPos('.infoArea');
-				})
+				});
 			} else if($(this).hasClass('f')) {
 
 				$('.infoArea').switchClass('s l t', 'f', delay, function() {
 					handlesPos('.infoArea');
-				})
+				});
 			}
 		}
 
@@ -445,7 +445,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 			}
 
 		});
-	})
+	});
 	// INFOBOX EAST >  path action
 	var aPathPack;
 	$('.infoArea > .e.handle').click(function() {
@@ -465,7 +465,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 			$("#map").unbind('click');
 			$('.infoArea > .e.handle').attr('title', 'Créer chemin');
 		}
-	})
+	});
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
 		var dc = $('#informationBox').attr('dc').split(',');
@@ -475,11 +475,11 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 			$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
 			$("a[href='#permalink']").attr('href', 'http://dev.textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 
-		})
+		});
 		$('.infoArea > .msgInfo').toggle('slow', function() {
 			// Animation complete.
 		});
-	})
+	});
 	/***********************************************************************************
 	 * END INTERACTIONS ON INFOBOX HANDLES
 	 ***********************************************************************************/
@@ -488,8 +488,8 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 	 * BEGIN SWITCHLIVETYPE
 	 ***********************************************************************************/
 
-	var wT = 'textarea[name*=t]'
-	var wA = '.editArea'
+	var wT = 'textarea[name*=t]';
+	var wA = '.editArea';
 	// controls character input/counter
 	$(wT).keyup(function() {
 		var charLength = $(this).val().length;
