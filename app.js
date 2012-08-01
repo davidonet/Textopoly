@@ -9,7 +9,6 @@ var app = module.exports = express.createServer();
 global.io = require('socket.io').listen(app);
 io.set('log level', 0);
 io.sockets.on('connection', function(socket) {
-	"use strict";
 	socket.on('book', function(data) {
 		db.txt.insertTxt(data, function(err, aTxt) {
 			socket.broadcast.emit('book', aTxt);
@@ -24,7 +23,6 @@ io.sockets.on('connection', function(socket) {
 // Configuration
 
 app.configure(function() {
-	"use strict";
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.bodyParser());
@@ -35,7 +33,6 @@ app.configure(function() {
 });
 
 app.configure('development', function() {
-	"use strict";
 	app.use(express.errorHandler({
 		dumpExceptions : true,
 		showStack : true
@@ -43,7 +40,6 @@ app.configure('development', function() {
 });
 
 app.configure('production', function() {
-	"use strict";
 	app.use(express.errorHandler());
 });
 

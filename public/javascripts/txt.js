@@ -1,4 +1,4 @@
-define(["helper"], function(helper) {"use strict";
+define(["helper"], function(helper) {
 	return {
 		insert : function(data) {
 			var aMsg = $('.msg[dc="' + data.p + '"]');
