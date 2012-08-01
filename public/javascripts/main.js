@@ -1,3 +1,4 @@
+"use strict";
 requirejs.config({
 	paths : {
 		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
