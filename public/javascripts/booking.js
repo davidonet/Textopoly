@@ -1,4 +1,4 @@
-define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
+define(["/socket.io/socket.io.js", "helper","txt"], function(socket_io, helper,txt) {
 	// Connection to the server
 	var socket = io.connect();
 
@@ -12,29 +12,7 @@ define(["/socket.io/socket.io.js", "helper"], function(socket_io, helper) {
 		$('.msg[dc="' + data.p + '"]').fadeOut(function() {
 			$(this).remove();
 		});
-		// New cell building
-		var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c);
-		if(data.t != null)
-			newTxt.addClass(helper.txtLen2Class(data.t.length));
-		newTxt.hide();
-		newTxt.attr('dc', data.p);
-		newTxt.css(helper.posToCSS(data.p));
-		if(data.c == 'image') {
-			var newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]");
-		} else {
-			if(data.t) {
-				// text filled cell
-				newContent = $(document.createElement("p")).text(data.t);
-			} else {
-				// booked cell
-				newContent = $(document.createElement("p")).addClass("author").text(data.a);
-				newTxt.addClass('l0');
-			}
-		}
-		newTxt.append(newContent);
-		$('#map').append(newTxt);
-		newTxt.fadeIn();
-
+		txt.insert(data);
 	});
 
 	/**

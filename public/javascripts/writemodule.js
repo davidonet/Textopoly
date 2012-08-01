@@ -1,9 +1,9 @@
-require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"], function(freeAdjacent, fileUploader, pathwalk, userinfo, booking) {
+require([ "lib/fileuploader", "pathwalk", "userinfo", "booking"], function( fileUploader, pathwalk, userinfo, booking) {
 
 	var delay = 250;
 	var textarea = true;
 	var msgInfo = false;
-	var auth = ($.cookie("author") != null);
+	var auth = ($.cookie("author") !== null);
 	var isFatFree = false;
 	var isBooked = false;
 	var uploader = new qq.FileUploader({
@@ -314,7 +314,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 
 	// WRITINGBOX SOUTH WEST > media uploader
 	$('.editArea > .sw.handle').click(function() {
-		if(textarea == true) {
+		if(textarea === true) {
 			$('textarea[name*=t]').val('');
 			$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
 			$('textarea[name*=t]').hide();
@@ -361,7 +361,7 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 		isBooked = $(this).hasClass('l0');
 		isImage = $(this).hasClass('image');
 
-		if(isBooked == true && isImage == false) {
+		if(isBooked === true && isImage === false) {
 			// rien ne se passe
 			console.log("Booked msg");
 
@@ -449,12 +449,12 @@ require(["freeadjacent", "lib/fileuploader", "pathwalk", "userinfo", "booking"],
 	// INFOBOX EAST >  path action
 	var aPathPack;
 	$('.infoArea > .e.handle').click(function() {
-		if(aPathPack == null) {
+		if(aPathPack === null) {
 			aPathPack = pathwalk.startPath();
 			pathwalk.addNode(aPathPack, $('#informationBox').attr('dc'));
 			$("#map").click(function(event) {
 				var aDC = $(event.target).attr('dc');
-				if(aDC == undefined)
+				if(aDC === undefined)
 					aDC = $(event.target.parentNode).attr('dc');
 				pathwalk.addNode(aPathPack, aDC);
 			});

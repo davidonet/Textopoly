@@ -1,45 +1,43 @@
-define(["helper"], function(helper) {
+define(["helper"], function(helper) {"use strict";
 	return {
 		insert : function(data) {
-			if (0 == $('.msg[dc="' + data.p + '"]').length) {
-
-				var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c);
-				newTxt.hide();
-				if (data.t != null)
-					newTxt.addClass(helper.txtLen2Class(data.t.length));
-				newTxt.attr('dc', data.p);
-				newTxt.css(helper.posToCSS(data.p));
-				if (params.zoom < 20) {
-					if (data.c == 'image') {
-						var newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]");
-					} else {
-						if (data.t) {
-							// text filled cell
-							newContent = $(document.createElement("p")).text(data.t);
-						} else {
-							// booked cell
-							newContent = $(document.createElement("p")).addClass("author").text(data.a);
-							newTxt.addClass('l0');
+			var aMsg = $('.msg[dc="' + data.p + '"]');
+			if (aMsg !== undefined) {
+				if (0 === aMsg.length) {
+					var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c);
+					newTxt.hide();
+					if (data !== undefined) {
+						if (data.t !== undefined) {
+							newTxt.addClass(helper.txtLen2Class(data.t.length));
 						}
 					}
-					newTxt.append(newContent);
-				}
-				$('#map').append(newTxt);
-				newTxt.fadeIn(1000);
-			} else {
+					newTxt.attr('dc', data.p);
+					newTxt.css(helper.posToCSS(data.p));
 
+					if (params.zoom < 20) {
+						var newContent;
+						if ('image' === data.c) {
+							newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]");
+						} else {
+							if (data.t) {
+								// text filled cell
+								newContent = $(document.createElement("p")).text(data.t);
+							} else {
+								// booked cell
+								newContent = $(document.createElement("p")).addClass("author").text(data.a);
+								newTxt.addClass('l0');
+							}
+						}
+						newTxt.append(newContent);
+					}
+					$('#map').append(newTxt);
+					newTxt.fadeIn(1000);
+				}
 			}
 		},
 		removeInvisible : function() {
 			$('.msg').each(function(elt) {
-				var off = $(this).offset();
-				var t = off.top;
-				var l = off.left;
-				var h = $(this).height();
-				var w = $(this).width();
-				var docH = $(window).height() + 256;
-				var docW = $(window).width() + 256;
-				var isEntirelyVisible = (t > -256 && l > -256 && t + h < docH && l + w < docW);
+				var off = $(this).offset(), t = off.top, l = off.left, h = $(this).height(), w = $(this).width(), docH = $(window).height() + 256, docW = $(window).width() + 256, isEntirelyVisible = (t > -256 && l > -256 && t + h < docH && l + w < docW);
 				if (!isEntirelyVisible) {
 					$(this).remove();
 				}
