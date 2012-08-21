@@ -24,13 +24,20 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	/**
 	 * Draggable Map with reload
 	 */
+
+	var localParams = {
+		xmin : params.xmin,
+		xmax : params.xmax,
+		ymin : params.ymin,
+		ymax : params.ymax
+	};
+
 	$('#map').draggable({
 		/**
 		 * At the of a map drag, check if we are too close from the end of the map.
 		 * In this case, we recenter the map and reload the section at this new center
 		 */
 		drag : function(event, ui) {
-
 			var xmin = params.xmin + Math.ceil((-$('#map').position().left - 256) / (params.stepx));
 			var ymin = params.ymin + Math.ceil((-$('#map').position().top - 256) / (params.stepy));
 			var lparam = {
@@ -39,8 +46,14 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 				"xmax" : xmin + params.txtwidth,
 				"ymax" : ymin + params.txtheight
 			};
-			dynload.loadSection(lparam, function() {
-			});
+			if ((0 < Math.abs(lparam.xmin - localParams.xmin)) && (0 < Math.abs(lparam.xmax - localParams.xmax)) && (0 < Math.abs(lparam.ymin - localParams.ymin)) && (0 < Math.abs(lparam.ymax - localParams.ymax))) {
+				localParams.xmin = lparam.xmin;
+				localParams.xmax = lparam.xmax;
+				localParams.ymin = lparam.ymin;
+				localParams.ymax = params.ymax;
+				dynload.loadSection(lparam, function() {
+				});
+			}
 		},
 		stop : function(event, ui) {
 			pathwalk.updatePath();
@@ -59,31 +72,31 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	$('.editArea > .nw.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
 		fallback : 'Fermer', // fallback text to use when no tooltip text
-		gravity : 'e'    // gravity
+		gravity : 'e' // gravity
 	});
 
 	$('.editArea > .e.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
 		fallback : 'Agrandir / Réduire', // fallback text to use when no tooltip text
-		gravity : 'w'    // gravity
+		gravity : 'w' // gravity
 	});
 
 	$('.editArea > .se.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
 		fallback : 'Poster', // fallback text to use when no tooltip text
-		gravity : 'w'    // gravity
+		gravity : 'w' // gravity
 	});
 
 	$('.editArea > .s.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
 		fallback : 'Agrandir / Réduire', // fallback text to use when no tooltip text
-		gravity : 'n'    // gravity
+		gravity : 'n' // gravity
 	});
 
 	$('.editArea > .sw.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
 		fallback : 'Texte / Image', // fallback text to use when no tooltip text
-		gravity : 'e'    // gravity
+		gravity : 'e' // gravity
 	});
 
 	// InfoBox bulles d'aides
@@ -91,19 +104,19 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	$('.infoArea > .nw.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
 		fallback : 'Supprimer', // fallback text to use when no tooltip text
-		gravity : 'e'    // gravity
+		gravity : 'e' // gravity
 	});
 
 	$('.infoArea > .e.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
 		fallback : 'Créer un chemin', // fallback text to use when no tooltip text
-		gravity : 'w'    // gravity
+		gravity : 'w' // gravity
 	});
 
 	$('.infoArea > .se.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
 		fallback : 'Infos', // fallback text to use when no tooltip text
-		gravity : 'w'    // gravity
+		gravity : 'w' // gravity
 	});
 
 	/***********************************************************************************
