@@ -29,10 +29,10 @@ define(['helper'], function(helper) {
 
 	params.txtwidth = Math.floor(($(window).width() + 256) / params.stepx);
 	params.txtheight = Math.floor(($(window).height() + 256) / params.stepy);
-	params.xmin = params.xcenter - params.txtwidth / 2;
-	params.xmax = params.xcenter + params.txtwidth / 2;
-	params.ymin = params.ycenter - params.txtheight / 2;
-	params.ymax = params.ycenter + params.txtheight / 2;
+	params.xmin = Math.ceil(params.xcenter - params.txtwidth / 2);
+	params.xmax = Math.ceil(params.xcenter + params.txtwidth / 2);
+	params.ymin = Math.ceil(params.ycenter - params.txtheight / 2);
+	params.ymax = Math.ceil(params.ycenter + params.txtheight / 2);
 
 	/* Valeurs Slider - Echelles
 	* 5 1:1
