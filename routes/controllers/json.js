@@ -33,13 +33,13 @@ exports.newpath = function(req, res) {
 	};
 	req.body.pw.forEach(function(value, index) {
 		var x = Number(value.split(',')[0]), y = Number(value.split(',')[1]);
-		if(x < xmin)
+		if (x < xmin)
 			xmin = x;
-		if(xmax < x)
+		if (xmax < x)
 			xmax = x;
-		if(y < ymin)
+		if (y < ymin)
 			ymin = y;
-		if(ymax < y)
+		if (ymax < y)
 			ymax = y;
 		aNP.pw.push(x + "," + y);
 	});
@@ -47,6 +47,14 @@ exports.newpath = function(req, res) {
 	aNP.pmax = [xmax, ymax];
 	db.path.newPath(aNP, function(err, aRes) {
 		res.json(aRes);
+	});
+};
+
+exports.fa = function(req, res) {
+	req.query.p[0] = parseInt(req.query.p[0]);
+	req.query.p[1] = parseInt(req.query.p[1]);
+	db.txt.aTxt(req.query, function(err, ret) {
+		res.json(ret);
 	});
 };
 
