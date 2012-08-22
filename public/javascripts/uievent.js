@@ -64,7 +64,7 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	});
 
 	$('#content').click(function(event) {
-		if (event.pageX != null) {
+		if (event.pageX !== null) {
 			var p = [params.xmin + Math.floor((event.pageX - $('#map').position().left) / params.stepx), params.ymin + Math.floor((event.pageY - $('#map').position().top) / params.stepy)];
 			$.ajax({
 				url : 'fa',

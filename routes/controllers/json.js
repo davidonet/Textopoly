@@ -51,8 +51,8 @@ exports.newpath = function(req, res) {
 };
 
 exports.fa = function(req, res) {
-	req.query.p[0] = parseInt(req.query.p[0]);
-	req.query.p[1] = parseInt(req.query.p[1]);
+	req.query.p[0] = parseInt(req.query.p[0],10);
+	req.query.p[1] = parseInt(req.query.p[1],10);
 	db.txt.aTxt(req.query, function(err, ret) {
 		res.json(ret);
 	});
