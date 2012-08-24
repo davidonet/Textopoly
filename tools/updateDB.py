@@ -14,6 +14,8 @@ def normalizePos():
         p = eval(str(t[u'p']))
         t[u'p'] = p
         db.txt.update({'_id': t[u'_id']}, t, False);
+
+import copy
             
 for t in db.txt.find():
     def addMsg(p):
@@ -30,20 +32,20 @@ for t in db.txt.find():
     addMsg(p)
     print "add blocks for : " + str(p[0]) + "," + str(p[1])
     if s == 'l' or s == 'f':
-        print "Long or Fat block"
-        l = p
+        l = copy.deepcopy(p)
         l[0] += 2
+        print "Long or Fat block " + str(l)
         addMsg(l)
     if s == 't' or s == 'f':
-        print "Tall or Fat block"
-        t = p
+        t = copy.deepcopy(p)
         t[1] += 2
+        print "Tall or Fat block " + str(t)  
         addMsg(t)
     if s == 'f':
-        print "Fat block"
-        f = p
+        f = copy.deepcopy(p)
         f[0] += 2
         f[1] += 2
+        print "Fat block " + str(f)
         addMsg(f)
         
         
