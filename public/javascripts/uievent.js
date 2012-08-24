@@ -73,11 +73,10 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 					'p' : p
 				},
 				success : function(fA) {
-					console.log(fA);
-					/*
-					 $('#writingBox').css(helper.posToCSS(p));
-					 $('#writingBox').fadeIn();
-					 */
+					if (fA === 0) {
+						$('#writingBox').css(helper.posToCSS(p));
+						$('#writingBox').fadeIn();
+					}
 				}
 			});
 		}
