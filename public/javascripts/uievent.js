@@ -65,20 +65,39 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 
 	$('#content').click(function(event) {
 		if (event.pageX !== null) {
-			var p = [params.xmin + Math.floor((event.pageX - $('#map').position().left) / params.stepx), params.ymin + Math.floor((event.pageY - $('#map').position().top) / params.stepy)];
+			var p = [params.xmin + Math.floor((event.pageX - $('#map').position().left) / params.stepx), params.ymin + Math.floor((event.pageY - $('#map').position().top) / params.stepy)]; console
 			$.ajax({
-				url : 'fa',
+				url : 'http://redis.david-o.net:7379/SISMEMBER/b/' + p[0] + ',' + p[1],
 				dataType : 'json',
-				data : {
-					'p' : p
-				},
-				success : function(fA) {
-					/*
-					$('#writingBox').css(helper.posToCSS(p));
-					$('#writingBox').fadeIn();
-					*/
+				success : function(f00) {
+					if (f00.SISMEMBER == 0)
+						$.ajax({
+							url : 'http://redis.david-o.net:7379/SISMEMBER/b/' + (p[0] + 1) + ',' + p[1],
+							dataType : 'json',
+							success : function(f10) {
+								if (f10.SISMEMBER == 0)
+									$.ajax({
+										url : 'http://redis.david-o.net:7379/SISMEMBER/b/' + p[0] + ',' + (p[1] + 1),
+										dataType : 'json',
+										success : function(f01) {
+											if (f01.SISMEMBER == 0)
+												$.ajax({
+													url : 'http://redis.david-o.net:7379/SISMEMBER/b/' + (p[0] + 1) + ',' + (p[1] + 1),
+													dataType : 'json',
+													success : function(f11) {
+														if (f11.SISMEMBER == 0) {
+															$('#writingBox').css(helper.posToCSS(p));
+															$('#writingBox').fadeIn();
+														}
+													}
+												});
+										}
+									});
+							}
+						});
 				}
 			});
+
 		}
 	});
 
