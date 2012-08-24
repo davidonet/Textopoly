@@ -51,9 +51,10 @@ exports.newpath = function(req, res) {
 };
 
 exports.fa = function(req, res) {
-	req.query.p[0] = parseInt(req.query.p[0],10);
-	req.query.p[1] = parseInt(req.query.p[1],10);
-	db.txt.aTxt(req.query, function(err, ret) {
+	x = parseInt(req.query.p[0], 10);
+	y = parseInt(req.query.p[1], 10);
+	red.single(x,y, function(err,ret) {
+		console.log(ret);
 		res.json(ret);
 	});
 };

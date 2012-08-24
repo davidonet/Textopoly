@@ -3,6 +3,7 @@
  */
 
 var models = require('./models/mongodrv');
+var memcache = require('./models/redisdrv');
 var mapC = require('./controllers/map');
 var imgC = require('./controllers/img');
 var jsonC = require('./controllers/json');

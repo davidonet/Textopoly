@@ -28,6 +28,15 @@ db.bind('txt', {
 		normalizePos(pos);
 		this.findOne(pos, fn);
 	},
+	exist : function(box, fn) {
+		this.find({
+			"p" : {
+				"$within" : {
+					"$box" : box
+				}
+			}
+		}).count(fn);
+	},
 	authors : function(fn) {
 		this.distinct("a", fn);
 	},
