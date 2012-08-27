@@ -49,6 +49,13 @@ db.bind('path', {
 });
 
 db.bind('txt', {
+	cells : function(fn) {
+		this.find({}, {
+			"p" : 1,
+			"s" : 1,
+			"c" : 1
+		}).toArray(fn);
+	},
 	aTxt : function(pos, fn) {
 		normalizePos(pos);
 		this.findOne(pos, fn);

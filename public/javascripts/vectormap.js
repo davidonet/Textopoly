@@ -3,27 +3,34 @@ requirejs.config({
 		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
 	}
 });
-require(["jquery", "jquery-ui", "lib/raphael-zpd"], function($) {
+require(["jquery", "jquery-ui", "lib/jquery.svg.min", "lib/jquery-svgpan"], function($) {
 	$(function() {
 		$(document).ready(function() {
-			var paper;
-			paper = Raphael('vectormap', $(document).width(), $(document).height());
-			var zpd = new RaphaelZPD(paper, {
-				zoom : true,
-				pan : true,
-				drag : false
-			});
-
-			$.getJSON('http://redis.david-o.net:7379/SMEMBERS/b', function(data) {
-				$(data.SMEMBERS).each(function(index, coord) {
-					var x = parseInt(coord.split(',')[0], 10);
-					var y = parseInt(coord.split(',')[1], 10);
-					x -= params.xmin;
-					y -= params.ymin;
-					var rect = paper.rect(x*3.1, y*2.1, 3, 2);
-					rect.attr("fill", "#444").attr("stroke","none");
+			$('#canvas').css({
+					width : $(document).width(),
+					height : $(document).height()
+				});
+			$(window).resize(function() {
+				$('#canvas').css({
+					width : $(document).width(),
+					height : $(document).height()
 				});
 			});
+			var svg = $('#canvas').svg({
+				loadURL : '/mapimg.svg', // External document to load
+				changeSize: true,
+				onLoad : function() {
+					var elt = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+					elt.id = 'viewport';
+					$(elt).attr('transform', "matrix(0.7990641593933107,0,0,0.7990641593933107,-2392.7929427248896,-1090.6144970294554)");
+					$($('#canvas').svg('get').root()).prepend(elt);
+					$('#canvas svg rect').appendTo(elt);
+					$('#canvas svg').svgPan('viewport', true, true, false, 0.4);
+				}, // Callback once loaded
+				settings : {}, // Additional settings for SVG element
+				initPath : ''
+			});
+
 		});
 	});
 });

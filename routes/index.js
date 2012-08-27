@@ -11,6 +11,7 @@ var jsonC = require('./controllers/json');
 module.exports = function(app) {
 	app.get('/', mapC.view);
 	app.get('/map', mapC.map);
+	app.get('/mapimg.svg', mapC.mapimg);
 	app.get('/view', mapC.view);
 	app.get('/getimg/:id', imgC.getimg);
 	app.post('/postimg', imgC.postimg);
