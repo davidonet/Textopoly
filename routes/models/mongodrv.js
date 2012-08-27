@@ -12,7 +12,7 @@ function normalizePos(nTxt) {
 }
 
 exports.bounds = function(fn) {
-	/*jshint evil:true,*/
+	/*jshint evil:true,es5: true*/
 	srvBounds = function() {
 		var bnd = [0, 0, 0, 0];
 		db.txt.find({}, {
