@@ -64,22 +64,23 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	});
 
 	$('#content').click(function(event) {
-		if (event.pageX !== null) {
-			var p = [params.xmin + Math.floor((event.pageX - $('#map').position().left) / params.stepx), params.ymin + Math.floor((event.pageY - $('#map').position().top) / params.stepy)];
-			$.ajax({
-				url : 'fa',
-				dataType : 'json',
-				data : {
-					'p' : p
-				},
-				success : function(fA) {
-					if (fA === 0) {
-						$('#writingBox').css(helper.posToCSS(p));
-						$('#writingBox').fadeIn();
+		if (params.zoom == 2)
+			if (event.pageX !== null) {
+				var p = [params.xmin + Math.floor((event.pageX - $('#map').position().left) / params.stepx), params.ymin + Math.floor((event.pageY - $('#map').position().top) / params.stepy)];
+				$.ajax({
+					url : 'fa',
+					dataType : 'json',
+					data : {
+						'p' : p
+					},
+					success : function(fA) {
+						if (fA === 0) {
+							$('#writingBox').css(helper.posToCSS(p));
+							$('#writingBox').fadeIn();
+						}
 					}
-				}
-			});
-		}
+				});
+			}
 	});
 
 	/***********************************************************************************

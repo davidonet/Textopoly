@@ -22,7 +22,14 @@ global.red.single = function(x, y, fn) {
 		ret.forEach(function(elt) {
 			isB += elt;
 		});
-		fn(err, isB);
+		if (isB !== 0) {
+			// is Booked no need to check neighbourhood
+			fn(err, isB);
+		}
+		else
+		{
+			
+		}
 	});
 };
 

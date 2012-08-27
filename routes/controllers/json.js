@@ -53,8 +53,7 @@ exports.newpath = function(req, res) {
 exports.fa = function(req, res) {
 	x = parseInt(req.query.p[0], 10);
 	y = parseInt(req.query.p[1], 10);
-	red.single(x,y, function(err,ret) {
-		console.log(ret);
+	red.single(x, y, function(err, ret) {
 		res.json(ret);
 	});
 };

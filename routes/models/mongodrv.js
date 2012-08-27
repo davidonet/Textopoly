@@ -11,6 +11,31 @@ function normalizePos(nTxt) {
 	}
 }
 
+exports.bounds = function(fn) {
+	/*jshint evil:true,*/
+	srvBounds = function() {
+		var bnd = [0, 0, 0, 0];
+		db.txt.find({}, {
+			p : 1
+		}).forEach(function(obj) {
+			if (obj.p[0] < bnd[0]) {
+				bnd[0] = obj.p[0];
+			}
+			if (obj.p[1] < bnd[1]) {
+				bnd[1] = obj.p[1];
+			}
+			if (bnd[2] < obj.p[0]) {
+				bnd[2] = obj.p[0];
+			}
+			if (bnd[3] < obj.p[1]) {
+				bnd[3] = obj.p[1];
+			}
+		});
+		return bnd;
+	};
+	db.eval(srvBounds, fn);
+};
+
 db.bind('path', {
 	newPath : function(aPath, fn) {
 		aPath.d = new Date();

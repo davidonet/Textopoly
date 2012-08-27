@@ -1,31 +1,6 @@
+script(data-main='javascripts/vectormap',src='javascripts/lib/require-jquery.js')
 div#content
-  div.grid#map(class='z'+params.zoom)
-      each txt in texts
-        div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c)
-          if( params.zoom < 20)
-            if txt.i
-              img(src='/getimg/['+txt.p+']')
-            else
-              if txt.t
-                p#{txt.t}
-              else
-                p.author #{txt.a}
-          if( params.zoom == 2)
-            div.ctx x
-      div#writingBox(style='display:none')
-        form#writingForm(action='/insert',method='post')
-          div#writingArea.msg.s.l4
-            textarea(name='t',rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='off')
-            div#writingCommands
-              input(type='hidden', name='x')
-              input(type='hidden', name='y')
-              input(type='hidden',name='a')
-              input(type='hidden',name='c')
-              input(type='hidden',name='s',value='s')
-              input#closeBox(type='button', value='X')
-              input(type='submit', value='OK')
-            div#nw.handle r
-            div#e.handle(style='display:none') e
-            div#se.handle(style='display:none') se
-            div#s.handle(style='display:none') s
+  div#vectormap
+
+
         

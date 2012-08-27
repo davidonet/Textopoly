@@ -24,6 +24,14 @@ body {
 	background: #d3d7cf; /* Aluminium 1 */
 	height: 100%;
 }
+
+.smooth_zoom_preloader {
+	background-image: url('/images/preloader.gif');
+}
+.smooth_zoom_icons {
+	background-image: url('/images/icons.png);
+}
+
 .msg {
 	display: block;
 	position: absolute;
