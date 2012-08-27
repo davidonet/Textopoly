@@ -3,7 +3,7 @@ requirejs.config({
 		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
 	}
 });
-require(["jquery", "jquery-ui", "lib/jquery.smoothZoom", "lib/raphael-zpd"], function($) {
+require(["jquery", "jquery-ui", "lib/raphael-zpd"], function($) {
 	$(function() {
 		$(document).ready(function() {
 			var paper;
