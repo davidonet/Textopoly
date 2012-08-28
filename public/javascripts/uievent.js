@@ -50,7 +50,7 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 				localParams.xmin = lparam.xmin;
 				localParams.xmax = lparam.xmax;
 				localParams.ymin = lparam.ymin;
-				localParams.ymax = params.ymax;
+				localParams.ymax = lparam.ymax;
 				dynload.loadSection(lparam, function() {
 				});
 			}
@@ -64,7 +64,8 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	$('#content').click(function(event) {
 		if (params.zoom == 2)
 			if (event.pageX !== null) {
-				var p = [params.xmin + Math.floor((event.pageX - $('#map').position().left) / params.stepx), params.ymin + Math.floor((event.pageY - $('#map').position().top) / params.stepy)];
+				var x = event.pageX - params.txtwidth, y = event.pageY - params.txtheight;
+				var p = [params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), params.ymin + Math.floor((y - $('#map').position().top) / params.stepy)];
 				$.ajax({
 					url : 'fa',
 					dataType : 'json',
@@ -73,10 +74,9 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 					},
 					success : function(fA) {
 						if (fA.s === 0) {
-							$('#writingBox').animate(helper.posToCSS(p)).fadeIn(500);				
-						}
-						else{
-							$('#writingBox').fadeOut();
+							$('#writingBox').animate(helper.posToCSS(p)).fadeIn(100);
+						} else {
+
 						}
 					}
 				});
