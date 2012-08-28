@@ -38,8 +38,8 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 		 * In this case, we recenter the map and reload the section at this new center
 		 */
 		stop : function(event, ui) {
-			var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.txtwidth) / (params.stepx));
-			var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.txtheight) / (params.stepy));
+			var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
+			var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
 			var lparam = {
 				"xmin" : xmin,
 				"ymin" : ymin,
