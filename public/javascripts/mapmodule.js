@@ -134,11 +134,10 @@ define(['helper', "pathwalk", "dynload"], function(helper, pathwalk, dynload) {
 				$('svg').remove();
 				params.xcenter = helper.getCenterX();
 				params.ycenter = helper.getCenterY();
-				
 				$('#map').css({
 					top : 0,
 					left : 0
-				})
+				});
 				computeCellSize();
 				computeParams();
 				dynload.loadSection(params, pathwalk.updatePath);
