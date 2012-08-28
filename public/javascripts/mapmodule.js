@@ -92,7 +92,42 @@ define(['helper', "pathwalk", "dynload"], function(helper, pathwalk, dynload) {
 			break;
 	}
 
+	var handleMouseWheel = function(e) {
+		var delta = 0, element = $('#zoomSlider'), value, result;
+		value = element.slider('value');
+
+		if (e.wheelDelta) {
+			delta = -e.wheelDelta;
+		}
+		if (e.detail) {
+			delta = e.detail * 4;
+		}
+
+		value -= delta/128;
+		if (value > 5) {
+			value = 5;
+		}
+		if (value < 0) {
+			value = 0;
+		}
+		
+		if (result !== false) {
+			element.slider('value', value);
+		}
+		return false;
+	};
+
 	// Réglage du zoomSlider
+	if ($.browser.webkit) {
+		window.addEventListener('mousewheel', handleMouseWheel, false);
+		// Chrome/Safari
+	} else if ($.browser.mozilla) {
+		window.addEventListener('DOMMouseScroll', handleMouseWheel, false);
+		// Firefox
+	} else {
+		window.addEventListener('mousewheel', handleMouseWheel, false);
+		// others (Opera, Explorer9)
+	}
 
 	$('#zoomSlider').slider({
 		orientation : "vertical",

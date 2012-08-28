@@ -41,19 +41,13 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 			var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
 			var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
 			var lparam = {
-				"xmin" : xmin,
-				"ymin" : ymin,
-				"xmax" : xmin + params.txtwidth,
-				"ymax" : ymin + params.txtheight
+				"xmin" : xmin-2,
+				"ymin" : ymin-2,
+				"xmax" : xmin + params.txtwidth+2,
+				"ymax" : ymin + params.txtheight+2
 			};
-			if ((0 < Math.abs(lparam.xmin - localParams.xmin)) && (0 < Math.abs(lparam.xmax - localParams.xmax)) && (0 < Math.abs(lparam.ymin - localParams.ymin)) && (0 < Math.abs(lparam.ymax - localParams.ymax))) {
-				localParams.xmin = lparam.xmin;
-				localParams.xmax = lparam.xmax;
-				localParams.ymin = lparam.ymin;
-				localParams.ymax = lparam.ymax;
-				dynload.loadSection(lparam, function() {
-				});
-			}
+			dynload.loadSection(lparam, function() {
+			});
 			pathwalk.updatePath();
 		},
 		start : function(event, ui) {
