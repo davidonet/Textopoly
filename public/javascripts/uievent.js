@@ -37,9 +37,9 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 		 * At the of a map drag, check if we are too close from the end of the map.
 		 * In this case, we recenter the map and reload the section at this new center
 		 */
-		drag : function(event, ui) {
-			var xmin = params.xmin + Math.ceil((-$('#map').position().left - 256) / (params.stepx));
-			var ymin = params.ymin + Math.ceil((-$('#map').position().top - 256) / (params.stepy));
+		stop : function(event, ui) {
+			var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.txtwidth) / (params.stepx));
+			var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.txtheight) / (params.stepy));
 			var lparam = {
 				"xmin" : xmin,
 				"ymin" : ymin,
@@ -54,8 +54,6 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 				dynload.loadSection(lparam, function() {
 				});
 			}
-		},
-		stop : function(event, ui) {
 			pathwalk.updatePath();
 		},
 		start : function(event, ui) {
@@ -74,9 +72,11 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 						'p' : p
 					},
 					success : function(fA) {
-						if (fA === 0) {
-							$('#writingBox').css(helper.posToCSS(p));
-							$('#writingBox').fadeIn();
+						if (fA.s === 0) {
+							$('#writingBox').animate(helper.posToCSS(p)).fadeIn(500);				
+						}
+						else{
+							$('#writingBox').fadeOut();
 						}
 					}
 				});

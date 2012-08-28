@@ -22,7 +22,7 @@ require(["jquery", "jquery-ui", "lib/jquery.svg.min", "lib/jquery-svgpan"], func
 				onLoad : function() {
 					var elt = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 					elt.id = 'viewport';
-					$(elt).attr('transform', "matrix(0.7990641593933107,0,0,0.7990641593933107,-2392.7929427248896,-1090.6144970294554)");
+					$(elt).attr('transform', "matrix(0.8,0,0,0.8,-2000,-1000)");
 					$($('#canvas').svg('get').root()).prepend(elt);
 					$('#canvas svg rect').appendTo(elt);
 					$('#canvas svg').svgPan('viewport', true, true, false, 0.4);
