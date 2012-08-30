@@ -44,7 +44,7 @@ exports.authorboard = function(req, res) {
 			});
 		});
 	});
-}
+};
 
 exports.authpath = function(req, res) {
 	db.path.fromAuth(req.params.a, function(err, items) {
