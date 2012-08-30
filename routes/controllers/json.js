@@ -1,8 +1,8 @@
 exports.section = function(req, res) {
-	var xmin = (req.query.xmin ? Number(req.query.xmin) : -40);
-	var xmax = (req.query.xmax ? Number(req.query.xmax) : 40);
-	var ymin = (req.query.ymin ? Number(req.query.ymin) : -40);
-	var ymax = (req.query.ymax ? Number(req.query.ymax) : 40);
+	var xmin = (req.query.xmin ? Number(req.query.xmin) : 0);
+	var xmax = (req.query.xmax ? Number(req.query.xmax) : 0);
+	var ymin = (req.query.ymin ? Number(req.query.ymin) : xmin + 1);
+	var ymax = (req.query.ymax ? Number(req.query.ymax) : ymin + 1);
 
 	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
 
@@ -19,8 +19,35 @@ exports.section = function(req, res) {
 	});
 };
 
+exports.atxt = function(req, res) {
+	db.txt.aTxt({
+		x : req.params.x,
+		y : req.params.y
+	}, function(err, items) {
+		res.json(items);
+	});
+};
+
 exports.allpath = function(req, res) {
 	db.path.allPath(function(err, items) {
+		res.json(items);
+	});
+};
+
+exports.authorboard = function(req, res) {
+	db.path.fromAuth(req.params.a, function(err, paths) {
+		db.txt.authorTxt(req.params.a, function(err, txts) {
+			res.json({
+				a : req.params.a,
+				paths : paths,
+				txts : txts
+			});
+		});
+	});
+}
+
+exports.authpath = function(req, res) {
+	db.path.fromAuth(req.params.a, function(err, items) {
 		res.json(items);
 	});
 };

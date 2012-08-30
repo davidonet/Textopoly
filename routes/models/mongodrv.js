@@ -45,6 +45,13 @@ db.bind('path', {
 	},
 	allPath : function(fn) {
 		this.find({}).toArray(fn);
+	},
+	fromAuth : function(anAuthor, fn) {
+		this.find({
+			"a" : anAuthor
+		}, {
+			"pw" : 1
+		}).toArray(fn);
 	}
 });
 
@@ -71,6 +78,13 @@ db.bind('txt', {
 	},
 	authors : function(fn) {
 		this.distinct("a", fn);
+	},
+	authorTxt : function(a, fn) {
+		this.find({
+			a : a
+		}, {
+			p : 1
+		}).toArray(fn);
 	},
 	boxedTxt : function(box, fn) {
 		this.find({

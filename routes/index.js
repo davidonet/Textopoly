@@ -14,6 +14,9 @@ module.exports = function(app) {
 	app.get('/mapimg.svg', mapC.mapimg);
 	app.get('/view', mapC.view);
 	app.get('/getimg/:id', imgC.getimg);
+	app.get('/t/:x/:y',jsonC.atxt);
+	app.get('/a/:a',jsonC.authorboard);
+	app.get('/ap/:a', jsonC.authpath);
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
 	app.post('/insert', jsonC.insert);
