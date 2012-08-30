@@ -1,11 +1,4 @@
-define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
-	/**
-	 * Double click to zoom and recenter map
-	 */
-	$('.msg').on('dblclick', function(event) {
-		var dc = $(this).attr('dc').split(',');
-		$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
-	});
+define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwalk, dynload, writemodule) {
 
 	/**
 	 * Top Menu Handling
@@ -22,7 +15,7 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	helper.btnOver("#btnFocus");
 
 	/**
-	 * Draggable Map with reload
+	 * Draggable Map with dynamic load
 	 */
 
 	var localParams = {
@@ -33,18 +26,14 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	};
 
 	$('#map').draggable({
-		/**
-		 * At the of a map drag, check if we are too close from the end of the map.
-		 * In this case, we recenter the map and reload the section at this new center
-		 */
 		stop : function(event, ui) {
 			var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
 			var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
 			var lparam = {
-				"xmin" : xmin-2,
-				"ymin" : ymin-2,
-				"xmax" : xmin + params.txtwidth+2,
-				"ymax" : ymin + params.txtheight+2
+				"xmin" : xmin - 2,
+				"ymin" : ymin - 2,
+				"xmax" : xmin + params.txtwidth + 2,
+				"ymax" : ymin + params.txtheight + 2
 			};
 			dynload.loadSection(lparam, function() {
 			});
@@ -56,25 +45,23 @@ define(['helper', 'pathwalk', 'dynload'], function(helper, pathwalk, dynload) {
 	});
 
 	$('#content').click(function(event) {
-		if (params.zoom == 2)
-			if (event.pageX !== null) {
-				var x = event.pageX - params.txtwidth, y = event.pageY - params.txtheight;
-				var p = [params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), params.ymin + Math.floor((y - $('#map').position().top) / params.stepy)];
-				$.ajax({
-					url : 'fa',
-					dataType : 'json',
-					data : {
-						'p' : p
-					},
-					success : function(fA) {
-						if (fA.s === 0) {
-							$('#writingBox').animate(helper.posToCSS(p)).fadeIn(100);
-						} else {
-
-						}
-					}
-				});
-			}
+		if (event.pageX !== null) {
+			var x = event.pageX - params.txtwidth, y = event.pageY - params.txtheight;
+			var p = [params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), params.ymin + Math.floor((y - $('#map').position().top) / params.stepy)];
+			$.ajax({
+				url : 'fa',
+				dataType : 'json',
+				data : {
+					'p' : p
+				},
+				success : function(fA) {
+					writemodule.initBox({
+						pos : p,
+						freeZone : fA
+					});
+				}
+			});
+		}
 	});
 
 	/***********************************************************************************

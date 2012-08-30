@@ -1,4 +1,4 @@
-require(["lib/fileuploader", "pathwalk", "userinfo", "booking"], function(fileUploader, pathwalk, userinfo, booking) {
+define(["lib/fileuploader", "pathwalk", "userinfo", "booking"], function(fileUploader, pathwalk, userinfo, booking) {
 
 	var delay = 250;
 	var textarea = true;
@@ -522,8 +522,29 @@ require(["lib/fileuploader", "pathwalk", "userinfo", "booking"], function(fileUp
 		$(wT).val(txt.replace(/[\n\r]+/g, " "));
 
 	});
-});
 
-/***********************************************************************************
- * END SWITCHLIVETYPE
- ***********************************************************************************/
+	/***********************************************************************************
+	 * END SWITCHLIVETYPE
+	 ***********************************************************************************/
+	return {
+		initBox : function(data) {
+			// prend un objet :
+			// data.pos : coordonnées de la cellule
+			// data.freeZone : nombre de cases occupées (0 si libre)
+			// data.freeZone.s : cellule simple
+			// data.freeZone.l : cellule longue
+			// data.freeZone.t : cellule haute
+			// data.freeZone.f : cellule grosse
+			if (data.freeZone.s === 0) {
+				// La case est libre il faut positionner la writing box
+				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
+
+			} else {
+				// La case est occupée il faut positionner l'infobox
+				// Récupération de l'objet message
+				var aMsg = $('.msg[dc="' + data.pos + '"]');
+
+			}
+		}
+	};
+});
