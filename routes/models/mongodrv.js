@@ -54,7 +54,8 @@ db.bind('path', {
 		}).toArray(fn);
 	},
 	expand : function(id, fn) {
-		var txta = new Array();
+		/*jshint evil:true*/
+		var txta = [];
 		this.findOne({
 			"_id" : new this.ObjectID(id)
 		}, function(err, p) {
