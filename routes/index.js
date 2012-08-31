@@ -16,6 +16,7 @@ module.exports = function(app) {
 	app.get('/getimg/:id', imgC.getimg);
 	app.get('/t/:x/:y',jsonC.atxt);
 	app.get('/a/:a',jsonC.authorboard);
+	app.get('/p/:id',jsonC.path)
 	app.get('/ap/:a', jsonC.authpath);
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);

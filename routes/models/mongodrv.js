@@ -52,6 +52,22 @@ db.bind('path', {
 		}, {
 			"pw" : 1
 		}).toArray(fn);
+	},
+	expand : function(id, fn) {
+		var txta = new Array();
+		this.findOne({
+			"_id" : new this.ObjectID(id)
+		}, function(err, p) {
+			p.pw.forEach(function(pos, i) {
+				db.txt.findOne({
+					"p" : eval("[" + pos + "]")
+				}, function(err, txt) {
+					txta[i] = txt;
+					if (txta.length == p.pw.length)
+						fn(err, txta);
+				});
+			});
+		});
 	}
 });
 

@@ -52,6 +52,12 @@ exports.authpath = function(req, res) {
 	});
 };
 
+exports.path = function(req, res) {
+	db.path.expand(req.params.id, function(err,items) {
+		res.json(items);
+	});
+};
+
 exports.newpath = function(req, res) {
 	var xmin = 0, ymin = 0, xmax = 0, ymax = 0;
 	var aNP = {
