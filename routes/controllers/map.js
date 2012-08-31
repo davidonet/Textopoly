@@ -14,7 +14,8 @@ exports.map = function(req, res) {
 				ymax : ret[3],
 				xcenter : xcenter,
 				ycenter : ycenter
-			}
+			},
+			layout : 'layout'
 		};
 		res.render('map.jade', data);
 	});
@@ -78,7 +79,9 @@ exports.view = function(req, res) {
 			zoom : zoom,
 			xcenter : xcenter,
 			ycenter : ycenter
-		}
+		},
+		layout:'layout'
+		
 	};
 	res.render('view.jade', data);
 };

@@ -65,7 +65,10 @@ db.bind('path', {
 				}, function(err, txt) {
 					txta[i] = txt;
 					if (txta.length == p.pw.length)
-						fn(err, txta);
+						fn(err, {
+							a : p.a,
+							pw : txta
+						});
 				});
 			});
 		});

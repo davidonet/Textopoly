@@ -7,6 +7,7 @@ var memcache = require('./models/redisdrv');
 var mapC = require('./controllers/map');
 var imgC = require('./controllers/img');
 var jsonC = require('./controllers/json');
+var bookC = require('./controllers/book');
 
 module.exports = function(app) {
 	app.get('/', mapC.view);
@@ -14,9 +15,9 @@ module.exports = function(app) {
 	app.get('/mapimg.svg', mapC.mapimg);
 	app.get('/view', mapC.view);
 	app.get('/getimg/:pos', imgC.getimg);
-	app.get('/t/:x/:y',jsonC.atxt);
-	app.get('/a/:a',jsonC.authorboard);
-	app.get('/p/:id',jsonC.path);
+	app.get('/t/:x/:y', jsonC.atxt);
+	app.get('/a/:a', jsonC.authorboard);
+	app.get('/p/:id', jsonC.path);
 	app.get('/ap/:a', jsonC.authpath);
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
@@ -27,5 +28,9 @@ module.exports = function(app) {
 	app.get('/allpath', jsonC.allpath);
 	app.get('/msg', jsonC.msg);
 	app.get('/fa', jsonC.fa);
-	};
 	
+	app.get('/mbook/:id', bookC.path);
+	app.get('/mpath/:a', bookC.choice);
+	app.get('/mauth', bookC.authors);
+	app.get('/mtxt/:x/:y', bookC.txt);
+};
