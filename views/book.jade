@@ -1,11 +1,9 @@
 h3
   #{title}
 each txt in pathwalk.pw
-  p
-    #{txt.t}
-  p.sig
-    #{txt.a} le #{txt.d.toDateString()}
+  p #{txt.t}
+  p.sig #{txt.a} le #{txt.d.toDateString()}
   hr
 footer
   a(href="/mpath/"+a) #{a} | 
-  a(href="/mauth") Auteurs
+
