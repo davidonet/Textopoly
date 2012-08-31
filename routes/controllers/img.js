@@ -57,7 +57,7 @@ exports.postimg = function(req, res, next) {
 };
 
 exports.getimg = function(req, res, next) {
-	db.gridfs().open(req.params.id, 'r', function(err, gs) {
+	db.gridfs().open(req.params.pos, 'r', function(err, gs) {
 		gs.read(function(err, reply) {
 			if(err)
 				next(err);

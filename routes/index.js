@@ -13,7 +13,7 @@ module.exports = function(app) {
 	app.get('/map', mapC.map);
 	app.get('/mapimg.svg', mapC.mapimg);
 	app.get('/view', mapC.view);
-	app.get('/getimg/:id', imgC.getimg);
+	app.get('/getimg/:pos', imgC.getimg);
 	app.get('/t/:x/:y',jsonC.atxt);
 	app.get('/a/:a',jsonC.authorboard);
 	app.get('/p/:id',jsonC.path);
