@@ -57,7 +57,8 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 				success : function(fA) {
 					writemodule.initBox({
 						pos : p,
-						freeZone : fA
+						freeZone : fA,
+						event: event
 					});
 				}
 			});

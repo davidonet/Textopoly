@@ -404,7 +404,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			}
 		}
 
-	};
+	}
 
 	/***********************************************************************************
 	 * END INFOBOX
@@ -535,13 +535,11 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			} else {
 				// La case est occupée il faut positionner l'infobox
 				// Récupération de l'objet message
-				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
+				var x = data.event.pageX, y = data.event.pageY;
 				// var aMsg = $('.msg[dc="' + data.pos + '"]'); - je ne comprends pas à quoi cela sert ?
-				console.log(x);
-				console.log(y);
-				
-				infoBox(x,y)
-
+				var elt = document.elementFromPoint(x, y);
+				console.log(elt);
+				//infoBox(x,y);
 			}
 		}
 	};
