@@ -528,6 +528,8 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking","helper"], functio
 	 ***********************************************************************************/
 	return {
 		initBox : function(data) {
+			
+			console.log(data)
 			// prend un objet :
 			// data.pos : coordonnées de la cellule
 			// data.freeZone : nombre de cases occupées (0 si libre)
