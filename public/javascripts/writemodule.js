@@ -1,4 +1,4 @@
-define(["lib/fileuploader", "pathwalk", "userinfo", "booking"], function(fileUploader, pathwalk, userinfo, booking) {
+define(["lib/fileuploader", "pathwalk", "userinfo", "booking","helper"], function(fileUploader, pathwalk, userinfo, booking,helper) {
 
 	var delay = 250;
 	var textarea = true;
