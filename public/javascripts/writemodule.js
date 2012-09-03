@@ -112,7 +112,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		}
 	});
 
-	$('.z2 > .fz').on('click', function(event) {
+	function writingBox(xPos,yPos,dc) {
 
 		$('#informationBox').fadeOut(500);
 		$('#writingBox').fadeIn(500);
@@ -125,24 +125,27 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		$('.editArea > .s.handle').switchClass('au', 'ad', 0);
 		/*$('.editArea > .sw.handle').switchClass('tx', 'me', 0)*/
 
-		var dc = $(this).attr('dc').split(',');
 		if ($('#writingBox').attr('dc')) {
 			var aDC = $('#writingBox').attr('dc').split(',');
 			booking.unbook(aDC[0], aDC[1]);
 		}
 
-		$('#writingBox').attr('dc', $(this).attr('dc'));
+
+		$('#writingBox').attr('dc', dc);
 		// récupère la propriété dc d'un élément .fz dans un tableau
 		var xGrid = dc[0];
 		// récupère x de dc
 		var yGrid = dc[1];
 		// récupère y de dc
 		booking.book(xGrid, yGrid, 's', params.c, userinfo.get());
-		var position = $(this).position();
+		var position = $('#writingBox').position();
+		
+		/*
 		// récupère la position absolue d'un élément .fz
 		var xPos = position.left;
 		var yPos = position.top;
 
+/*
 		// récupère les cases libres autour
 		var fA = (freeAdjacent(xGrid, yGrid));
 
@@ -158,14 +161,14 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			if (value == 'se')
 				isFatFree = true;
 		});
-
+*/
 		// positionnement du formulaire d'écriture
 		$('#writingBox').animate({
 			'left' : parseInt(xPos - 10, 10),
 			'top' : parseInt(yPos - 10, 10)
 		}, 500);
 
-	});
+	};
 
 	/***********************************************************************************
 	 * END WRITINGBOX
@@ -356,11 +359,11 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	 * BEGIN INFOBOX
 	 ***********************************************************************************/
 
-	function infoBox(xPos,yPos) {
+	function infoBox(elt) {
 		console.log("infobox");
 
-		isBooked = $(this).hasClass('l0');
-		isImage = $(this).hasClass('image');
+		isBooked = $(elt).hasClass('l0');
+		isImage = $(elt).hasClass('image');
 
 		if (isBooked === true && isImage === false) {
 			// rien ne se passe
@@ -373,6 +376,17 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			$('.infoArea > .msgInfo').hide();
 			$('#informationBox').fadeIn(500);
 
+			// récupère la position
+			var dc = $(elt).attr('dc');
+
+			// Copying the data coord of the msg
+
+			$('#informationBox').attr('dc', dc);
+			var position = $(elt).position();
+			// récupère la position absolue d'un élément .fz
+			var xPos = position.left;
+			var yPos = position.top;
+
 			// positionnement du formulaire d'écriture
 			$('#informationBox').animate({
 				'left' : parseInt(xPos - 10, 10),
@@ -381,22 +395,22 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 
 			// règle la taille en fonction du type de case
 
-			if ($(this).hasClass('s')) {
+			if ($(elt).hasClass('s')) {
 
 				$('.infoArea').switchClass('l t f', 's', delay, function() {
 					handlesPos('.infoArea');
 				});
-			} else if ($(this).hasClass('l')) {
+			} else if ($(elt).hasClass('l')) {
 
 				$('.infoArea').switchClass('s t f', 'l', delay, function() {
 					handlesPos('.infoArea');
 				});
-			} else if ($(this).hasClass('t')) {
+			} else if ($(elt).hasClass('t')) {
 
 				$('.infoArea').switchClass('s l f', 't', delay, function() {
 					handlesPos('.infoArea');
 				});
-			} else if ($(this).hasClass('f')) {
+			} else if ($(elt).hasClass('f')) {
 
 				$('.infoArea').switchClass('s l t', 'f', delay, function() {
 					handlesPos('.infoArea');
@@ -529,16 +543,29 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			// data.freeZone.f : cellule grosse
 			if (data.freeZone.s === 0) {
 				// La case est libre il faut positionner la writing box
-				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
+				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos), dc=data.pos;
 				console.log(x);
 				console.log(y);
+				console.log(dc);
+			
+				writingBox(x,y,dc);
+				
+				
 			} else {
 				// La case est occupée il faut positionner l'infobox
 				// Récupération de l'objet message
 				var mouseX = data.event.pageX, mouseY = data.event.pageY;
 				// var aMsg = $('.msg[dc="' + data.pos + '"]'); - je ne comprends pas à quoi cela sert ?
-				var elt = document.elementFromPoint(mouseX, mousey);
-				console.log(elt);
+				var elt = document.elementFromPoint(mouseX, mouseY);
+
+				if (elt.nodeName === "P" || elt.nodeName === "IMG") {
+					console.log("paragraphe ou image");
+					infoBox(elt.parentNode)
+				} else if (elt.nodeName == "DIV") {
+					console.log("div");
+					infoBox(elt)
+				}
+
 				//infoBox(x,y);
 			}
 		}
