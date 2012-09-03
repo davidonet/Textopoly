@@ -357,7 +357,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	 ***********************************************************************************/
 
 	function infoBox(xPos,yPos) {
-		console.log("infobox")
+		console.log("infobox");
 
 		isBooked = $(this).hasClass('l0');
 		isImage = $(this).hasClass('image');
@@ -535,9 +535,9 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			} else {
 				// La case est occupée il faut positionner l'infobox
 				// Récupération de l'objet message
-				var x = data.event.pageX, y = data.event.pageY;
+				var mouseX = data.event.pageX, mouseY = data.event.pageY;
 				// var aMsg = $('.msg[dc="' + data.pos + '"]'); - je ne comprends pas à quoi cela sert ?
-				var elt = document.elementFromPoint(x, y);
+				var elt = document.elementFromPoint(mouseX, mousey);
 				console.log(elt);
 				//infoBox(x,y);
 			}
