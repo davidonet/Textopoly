@@ -530,15 +530,15 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			if (data.freeZone.s === 0) {
 				// La case est libre il faut positionner la writing box
 				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
-				console.log(x)
-				console.log(y)
+				console.log(x);
+				console.log(y);
 			} else {
 				// La case est occupée il faut positionner l'infobox
 				// Récupération de l'objet message
 				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
 				// var aMsg = $('.msg[dc="' + data.pos + '"]'); - je ne comprends pas à quoi cela sert ?
-				console.log(x)
-				console.log(y)
+				console.log(x);
+				console.log(y);
 				
 				infoBox(x,y)
 
