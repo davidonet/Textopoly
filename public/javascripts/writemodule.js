@@ -1,4 +1,4 @@
-define(["lib/fileuploader", "pathwalk", "userinfo", "booking","helper"], function(fileUploader, pathwalk, userinfo, booking,helper) {
+define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], function(fileUploader, pathwalk, userinfo, booking, helper) {
 
 	var delay = 250;
 	var textarea = true;
@@ -356,7 +356,8 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking","helper"], functio
 	 * BEGIN INFOBOX
 	 ***********************************************************************************/
 
-	$('.z2 > .msg').on('click', function(event) {
+	function infoBox(xPos,yPos) {
+		console.log("infobox")
 
 		isBooked = $(this).hasClass('l0');
 		isImage = $(this).hasClass('image');
@@ -371,16 +372,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking","helper"], functio
 			$('#writingBox').fadeOut(500);
 			$('.infoArea > .msgInfo').hide();
 			$('#informationBox').fadeIn(500);
-
-			// récupère la position
-			var dc = $(this).attr('dc');
-			// Copying the data coord of the msg
-			$('#informationBox').attr('dc', dc);
-
-			var position = $(this).position();
-			// récupère la position absolue d'un élément .fz
-			var xPos = position.left;
-			var yPos = position.top;
 
 			// positionnement du formulaire d'écriture
 			$('#informationBox').animate({
@@ -413,7 +404,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking","helper"], functio
 			}
 		}
 
-	});
+	};
 
 	/***********************************************************************************
 	 * END INFOBOX
@@ -528,8 +519,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking","helper"], functio
 	 ***********************************************************************************/
 	return {
 		initBox : function(data) {
-			
-			console.log(data)
+
 			// prend un objet :
 			// data.pos : coordonnées de la cellule
 			// data.freeZone : nombre de cases occupées (0 si libre)
@@ -540,11 +530,17 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking","helper"], functio
 			if (data.freeZone.s === 0) {
 				// La case est libre il faut positionner la writing box
 				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
-
+				console.log(x)
+				console.log(y)
 			} else {
 				// La case est occupée il faut positionner l'infobox
 				// Récupération de l'objet message
-				var aMsg = $('.msg[dc="' + data.pos + '"]');
+				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
+				// var aMsg = $('.msg[dc="' + data.pos + '"]'); - je ne comprends pas à quoi cela sert ?
+				console.log(x)
+				console.log(y)
+				
+				infoBox(x,y)
 
 			}
 		}
