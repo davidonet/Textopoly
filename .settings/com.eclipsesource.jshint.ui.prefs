@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+excluded=node_modules//*\:public/javascripts/lib//*
+included=//*.js
+options=smarttabs\:true,
+projectSpecificOptions=true
