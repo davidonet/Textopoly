@@ -1,7 +1,10 @@
 h3
   #{title}
 each txt in pathwalk.pw
-  p #{txt.t}
+  if txt.i
+    img(src='/getimg/['+txt.p+']')
+  else
+    p(class=txt.s+' '+txt.c) #{txt.t}
   p.sig #{txt.a} le #{txt.d.toDateString()}
   hr
 footer

@@ -1,5 +1,8 @@
 h3 #{t.p}
-p #{t.t}
+if t.i
+  img(src='/getimg/['+t.p+']')
+else
+  p(class=t.s+' '+t.c) #{t.t}
 hr
 p.sig
   a(href="/mpath/"+t.a) #{t.a} 
