@@ -353,12 +353,19 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	 * BEGIN INTERACTIONS ON INFOBOX HANDLES
 	 ***********************************************************************************/
 
-	// INFOBOX NORTH WEST >  delete action
 	$('.infoArea > .nw.handle').click(function() {
+		$('#informationBox').fadeOut(200)
+		return false;
+
+	});
+
+	// INFOBOX NORTH EAST >  delete action
+	$('.infoArea > .ne.handle').click(function() {
 		var dc = $('#informationBox').attr('dc').split(',');
 		var xGrid = dc[0];
 		var yGrid = dc[1];
 		console.log(xGrid + ' ' + yGrid);
+
 		$('#removebox').dialog({
 			"resizable" : false,
 			"title" : "Suppression ?",
@@ -377,27 +384,32 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		});
 		return false;
 	});
+
 	// INFOBOX EAST >  path action
+
+	/*
 	var aPathPack;
 	$('.infoArea > .e.handle').click(function() {
-		if (aPathPack === null) {
-			aPathPack = pathwalk.startPath();
-			pathwalk.addNode(aPathPack, $('#informationBox').attr('dc'));
-			$("#content").click(function(event) {
-				var aDC = $(event.target).attr('dc');
-				if (aDC === undefined)
-					aDC = $(event.target.parentNode).attr('dc');
-				pathwalk.addNode(aPathPack, aDC);
-			});
-			$('.infoArea > .e.handle').attr('title', 'Valider le chemin');
-		} else {
-			pathwalk.endPath(aPathPack);
-			aPathPack = null;
-			$("#content").unbind('click');
-			$('.infoArea > .e.handle').attr('title', 'Créer chemin');
-		}
-		return false;
+	if (aPathPack === null) {
+	aPathPack = pathwalk.startPath();
+	pathwalk.addNode(aPathPack, $('#informationBox').attr('dc'));
+	$("#content").click(function(event) {
+	var aDC = $(event.target).attr('dc');
+	if (aDC === undefined)
+	aDC = $(event.target.parentNode).attr('dc');
+	pathwalk.addNode(aPathPack, aDC);
 	});
+	$('.infoArea > .e.handle').attr('title', 'Valider le chemin');
+	} else {
+	pathwalk.endPath(aPathPack);
+	aPathPack = null;
+	$("#content").unbind('click');
+	$('.infoArea > .e.handle').attr('title', 'Créer chemin');
+	}
+	return false;
+	});
+
+	*/
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
 		var dc = $('#informationBox').attr('dc').split(',');

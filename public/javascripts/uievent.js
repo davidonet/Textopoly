@@ -11,7 +11,6 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 	helper.btnOver("#btnShow");
 	helper.btnOver("#btnFind");
 
-
 	/**
 	 * Draggable Map with dynamic load
 	 */
@@ -105,8 +104,14 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 
 	$('.infoArea > .nw.handle').tipsy({
 		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Supprimer', // fallback text to use when no tooltip text
+		fallback : 'Fermer', // fallback text to use when no tooltip text
 		gravity : 'e' // gravity
+	});
+
+	$('.infoArea > .ne.handle').tipsy({
+		delayIn : 500, // delay before showing tooltip (ms)
+		fallback : 'Supprimer', // fallback text to use when no tooltip text
+		gravity : 'w' // gravity
 	});
 
 	$('.infoArea > .e.handle').tipsy({
