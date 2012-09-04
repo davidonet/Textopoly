@@ -46,7 +46,7 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 
 	$('#content').click(function(event) {
 		if (event.pageX !== null) {
-			var x = event.pageX - params.txtwidth, y = event.pageY - params.txtheight;
+			var x = event.pageX, y = event.pageY;
 			var p = [params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), params.ymin + Math.floor((y - $('#map').position().top) / params.stepy)];
 			$.ajax({
 				url : 'fa',

@@ -112,8 +112,8 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		}
 	});
 
-	function writingBox(xPos, yPos, dc) {
-
+	function writingBox(xPos, yPos, data) {
+		var dc = data.pos;
 		$('#informationBox').fadeOut(500);
 		$('#writingBox').fadeIn(500);
 		$('textarea[name*=t]').focus();
@@ -139,34 +139,25 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		booking.book(xGrid, yGrid, 's', params.c, userinfo.get());
 		var position = $('#writingBox').position();
 
-		/*
-		// récupère la position absolue d'un élément .fz
-		var xPos = position.left;
-		var yPos = position.top;
-
-		/*
-		// récupère les cases libres autour
-		var fA = (freeAdjacent(xGrid, yGrid));
-
 		$('.editArea > .e.handle').hide();
 		$('.editArea > .s.handle').hide();
+		// data.freeZone : nombre de cases occupées (0 si libre)
+		// data.freeZone.s : cellule simple
+		// data.freeZone.l : cellule longue
+		// data.freeZone.t : cellule haute
+		// data.freeZone.f : cellule grosse
+		if (data.freeZone.l === 0)
+			$('.editArea > .e.handle').show();
+		if (data.freeZone.t === 0)
+			$('.editArea > .s.handle').show();
+		if (data.freeZone.f === 0)
+			isFatFree = true;
 
-		$(fA).each(function(index, value) {
-
-		if (value == 'e')
-		$('.editArea > .e.handle').show();
-		if (value == 's')
-		$('.editArea > .s.handle').show();
-		if (value == 'se')
-		isFatFree = true;
-		});
-		*/
 		// positionnement du formulaire d'écriture
 		$('#writingBox').animate({
 			'left' : parseInt(xPos - 10, 10),
 			'top' : parseInt(yPos - 10, 10)
 		}, 500);
-
 	};
 
 	/***********************************************************************************
@@ -547,12 +538,8 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			// data.freeZone.f : cellule grosse
 			if (data.freeZone.s === 0) {
 				// La case est libre il faut positionner la writing box
-				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos), dc = data.pos;
-				console.log(x);
-				console.log(y);
-				console.log(dc);
-
-				writingBox(x, y, dc);
+				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
+				writingBox(x, y, data);
 
 			} else {
 				// La case est occupée il faut positionner l'infobox
