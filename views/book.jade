@@ -1,13 +1,27 @@
-h3
-  #{title}
-each txt in pathwalk.pw
-  if txt.i
-    img(src='/getimg/['+txt.p+']')
-  else
-    p(class=txt.s+' '+txt.c) #{txt.t}
-  p.sig #{txt.a} le #{txt.d.toDateString()}
-  hr
-footer
-  a(href="/mpath/"+a) #{a} | 
-  a(href="/mauth") Auteurs
-
+div#content
+  div#uiWrap
+    div#header
+      div#topbar
+      div#title
+        h1 TEXTOPOLY
+        div#blink
+      
+      div#topmenu
+        div#btnHelp.normal
+        div#btnFocus.normal
+        
+     div#main.z1
+     
+        h3 chemin de Adrien
+        each txt in pathwalk.pw
+          if txt.i
+            img(src='/getimg/['+txt.p+']')
+          else
+            p.msg(class=txt.s+' '+txt.c+' '+txt.l) #{txt.t}
+          p.sig #{txt.a} le #{txt.d.toDateString()}
+          hr
+      
+      div#footer
+        a(href="/mpath/"+a) #{a} | 
+        a(href="/mauth") Auteurs
+     

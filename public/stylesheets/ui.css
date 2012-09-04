@@ -59,6 +59,7 @@ div#main {
 	position: absolute;
 	top: 140px;
 	margin-left: 10px;
+	overflow:auto;
 }
 div#footer {
 	position: absolute;
