@@ -112,7 +112,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		}
 	});
 
-	function writingBox(xPos,yPos,dc) {
+	function writingBox(xPos, yPos, dc) {
 
 		$('#informationBox').fadeOut(500);
 		$('#writingBox').fadeIn(500);
@@ -130,7 +130,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			booking.unbook(aDC[0], aDC[1]);
 		}
 
-
 		$('#writingBox').attr('dc', dc);
 		// récupère la propriété dc d'un élément .fz dans un tableau
 		var xGrid = dc[0];
@@ -139,13 +138,13 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		// récupère y de dc
 		booking.book(xGrid, yGrid, 's', params.c, userinfo.get());
 		var position = $('#writingBox').position();
-		
+
 		/*
 		// récupère la position absolue d'un élément .fz
 		var xPos = position.left;
 		var yPos = position.top;
 
-/*
+		/*
 		// récupère les cases libres autour
 		var fA = (freeAdjacent(xGrid, yGrid));
 
@@ -154,14 +153,14 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 
 		$(fA).each(function(index, value) {
 
-			if (value == 'e')
-				$('.editArea > .e.handle').show();
-			if (value == 's')
-				$('.editArea > .s.handle').show();
-			if (value == 'se')
-				isFatFree = true;
+		if (value == 'e')
+		$('.editArea > .e.handle').show();
+		if (value == 's')
+		$('.editArea > .s.handle').show();
+		if (value == 'se')
+		isFatFree = true;
 		});
-*/
+		*/
 		// positionnement du formulaire d'écriture
 		$('#writingBox').animate({
 			'left' : parseInt(xPos - 10, 10),
@@ -193,6 +192,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			booking.unbook(aDC[0], aDC[1]);
 		}
 		resetWritingBox();
+		return false;
 	});
 	// WRITINGBOX EAST > scale box on X direction
 	$('.editArea > .e.handle').click(function() {
@@ -231,7 +231,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				newSize('t');
 			});
 		}
-
+		return false;
 	});
 
 	// WRITINGBOX SOUTH EAST > validate form / author informations
@@ -272,6 +272,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				dataType : 'json'
 			});
 		}
+		return false;
 	});
 
 	// WRITINGBOX SOUTH > scale box on Y direction
@@ -312,7 +313,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				newSize('l');
 			});
 		}
-
+		return false;
 	});
 
 	// WRITINGBOX SOUTH WEST > media uploader
@@ -348,7 +349,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
 			textarea = true;
 		}
-
+		return false;
 	});
 
 	/***********************************************************************************
@@ -417,7 +418,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				});
 			}
 		}
-
+		return false;
 	}
 
 	/***********************************************************************************
@@ -450,6 +451,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			}
 
 		});
+		return false;
 	});
 	// INFOBOX EAST >  path action
 	var aPathPack;
@@ -470,6 +472,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			$("#map").unbind('click');
 			$('.infoArea > .e.handle').attr('title', 'Créer chemin');
 		}
+		return false;
 	});
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
@@ -484,6 +487,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		$('.infoArea > .msgInfo').toggle('slow', function() {
 			// Animation complete.
 		});
+		return false;
 	});
 	/***********************************************************************************
 	 * END INTERACTIONS ON INFOBOX HANDLES
@@ -543,14 +547,13 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			// data.freeZone.f : cellule grosse
 			if (data.freeZone.s === 0) {
 				// La case est libre il faut positionner la writing box
-				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos), dc=data.pos;
+				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos), dc = data.pos;
 				console.log(x);
 				console.log(y);
 				console.log(dc);
-			
-				writingBox(x,y,dc);
-				
-				
+
+				writingBox(x, y, dc);
+
 			} else {
 				// La case est occupée il faut positionner l'infobox
 				// Récupération de l'objet message

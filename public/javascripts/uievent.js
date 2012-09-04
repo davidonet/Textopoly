@@ -63,6 +63,7 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 				}
 			});
 		}
+		return false;
 	});
 
 	/***********************************************************************************
