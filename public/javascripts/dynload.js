@@ -1,6 +1,6 @@
-define(["txt"], function(txt) {
+define(["txt", 'writemodule'], function(txt, writemodule) {
 	return {
-		loadSection : function(bounds,fn) {
+		loadSection : function(bounds, fn) {
 			txt.removeInvisible();
 			$.ajax({
 				url : 'section',
@@ -10,6 +10,7 @@ define(["txt"], function(txt) {
 					$(section.texts).each(function(index, data) {
 						txt.insert(data);
 					});
+					writemodule.updateClick();
 					fn();
 				}
 			});

@@ -16,7 +16,8 @@ def normalizePos():
         db.txt.update({'_id': t[u'_id']}, t, False);
 
 import copy
-            
+
+r.delete("b")
 for t in db.txt.find():
     def addMsg(p):
         pos = "%d,%d" % (p[0], p[1])

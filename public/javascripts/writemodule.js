@@ -34,10 +34,11 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		$('.editArea > .s.handle').show();
 		$('textarea[name*=t]').val('');
 		$('input[name*=image]').val('');
-		$('#writingBox').fadeOut(500);
+		$('#writingBox').fadeOut(200);
 		$('.imageArea').hide();
 		$('.authorArea').hide();
 		$('textarea[name*=t]').show();
+		$('#writingBox').removeAttr('dc');
 		textarea = true;
 	}
 
@@ -114,8 +115,17 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 
 	function writingBox(xPos, yPos, data) {
 		var dc = data.pos;
-		$('#informationBox').fadeOut(500);
-		$('#writingBox').fadeIn(500);
+		$('#informationBox').fadeOut(100);
+		if ($('#writingBox').attr('dc')) {
+			var aDC = $('#writingBox').attr('dc').split(',');
+			booking.unbook(aDC[0], aDC[1]);
+		}
+		// positionnement du formulaire d'écriture
+		$('#writingBox').css({
+			'left' : xPos - 10,
+			'top' : yPos - 10
+		}).fadeIn();
+
 		$('textarea[name*=t]').focus();
 		$('.editArea').switchClass('l t f', 's', delay, function() {
 			handlesPos('.editArea');
@@ -124,11 +134,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		$('.editArea > .e.handle').switchClass('al', 'ar', 0);
 		$('.editArea > .s.handle').switchClass('au', 'ad', 0);
 		/*$('.editArea > .sw.handle').switchClass('tx', 'me', 0)*/
-
-		if ($('#writingBox').attr('dc')) {
-			var aDC = $('#writingBox').attr('dc').split(',');
-			booking.unbook(aDC[0], aDC[1]);
-		}
 
 		$('#writingBox').attr('dc', dc);
 		// récupère la propriété dc d'un élément .fz dans un tableau
@@ -141,23 +146,12 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 
 		$('.editArea > .e.handle').hide();
 		$('.editArea > .s.handle').hide();
-		// data.freeZone : nombre de cases occupées (0 si libre)
-		// data.freeZone.s : cellule simple
-		// data.freeZone.l : cellule longue
-		// data.freeZone.t : cellule haute
-		// data.freeZone.f : cellule grosse
 		if (data.freeZone.l === 0)
 			$('.editArea > .e.handle').show();
 		if (data.freeZone.t === 0)
 			$('.editArea > .s.handle').show();
 		if (data.freeZone.f === 0)
 			isFatFree = true;
-
-		// positionnement du formulaire d'écriture
-		$('#writingBox').animate({
-			'left' : parseInt(xPos - 10, 10),
-			'top' : parseInt(yPos - 10, 10)
-		}, 500);
 	}
 
 	/***********************************************************************************
@@ -257,7 +251,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				url : '/insert',
 				data : data,
 				success : function(res) {
-					$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 					resetWritingBox();
 				},
 				dataType : 'json'
@@ -350,67 +343,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	/***********************************************************************************
 	 * BEGIN INFOBOX
 	 ***********************************************************************************/
-
-	function infoBox(elt) {
-		console.log("infobox");
-
-		isBooked = $(elt).hasClass('l0');
-		isImage = $(elt).hasClass('image');
-
-		if (isBooked === true && isImage === false) {
-			// rien ne se passe
-			console.log("Booked msg");
-
-		} else {
-
-			resetWritingBox();
-			$('#writingBox').fadeOut(500);
-			$('.infoArea > .msgInfo').hide();
-			$('#informationBox').fadeIn(500);
-
-			// récupère la position
-			var dc = $(elt).attr('dc');
-
-			// Copying the data coord of the msg
-
-			$('#informationBox').attr('dc', dc);
-			var position = $(elt).position();
-			// récupère la position absolue d'un élément .fz
-			var xPos = position.left;
-			var yPos = position.top;
-
-			// positionnement du formulaire d'écriture
-			$('#informationBox').animate({
-				'left' : parseInt(xPos - 10, 10),
-				'top' : parseInt(yPos - 10, 10)
-			}, 500);
-
-			// règle la taille en fonction du type de case
-
-			if ($(elt).hasClass('s')) {
-
-				$('.infoArea').switchClass('l t f', 's', delay, function() {
-					handlesPos('.infoArea');
-				});
-			} else if ($(elt).hasClass('l')) {
-
-				$('.infoArea').switchClass('s t f', 'l', delay, function() {
-					handlesPos('.infoArea');
-				});
-			} else if ($(elt).hasClass('t')) {
-
-				$('.infoArea').switchClass('s l f', 't', delay, function() {
-					handlesPos('.infoArea');
-				});
-			} else if ($(elt).hasClass('f')) {
-
-				$('.infoArea').switchClass('s l t', 'f', delay, function() {
-					handlesPos('.infoArea');
-				});
-			}
-		}
-		return false;
-	}
 
 	/***********************************************************************************
 	 * END INFOBOX
@@ -528,7 +460,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	 ***********************************************************************************/
 	return {
 		initBox : function(data) {
-
 			// prend un objet :
 			// data.pos : coordonnées de la cellule
 			// data.freeZone : nombre de cases occupées (0 si libre)
@@ -536,28 +467,88 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			// data.freeZone.l : cellule longue
 			// data.freeZone.t : cellule haute
 			// data.freeZone.f : cellule grosse
+			var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
 			if (data.freeZone.s === 0) {
 				// La case est libre il faut positionner la writing box
-				var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
 				writingBox(x, y, data);
-
 			} else {
-				// La case est occupée il faut positionner l'infobox
-				// Récupération de l'objet message
-				var mouseX = data.event.pageX, mouseY = data.event.pageY;
-				// var aMsg = $('.msg[dc="' + data.pos + '"]'); - je ne comprends pas à quoi cela sert ?
-				var elt = document.elementFromPoint(mouseX, mouseY);
 
-				if (elt.nodeName === "P" || elt.nodeName === "IMG") {
-					console.log("paragraphe ou image");
-					infoBox(elt.parentNode);
-				} else if (elt.nodeName == "DIV") {
-					console.log("div");
-					infoBox(elt);
-				}
+				/*
+				 var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
 
-				//infoBox(x,y);
+				 var oldX = $('#writingBox').position().x, oldY = $('#writingBox').position().y;
+				 $('#writingBox').animate({
+				 'left' : x - 10,
+				 'top' : y - 10
+				 }, 300, function() {
+				 $('#writingBox').animate({
+				 'left' : oldX,
+				 'top' : oldY
+				 }, 100);
+				 });
+				 */
 			}
+		},
+		updateClick : function() {
+
+			$('.msg').on('click', function(event) {
+				if ($('#map').hasClass('z2')) {
+					var elt = this;
+					var position = $(elt).position();
+					// récupère la position absolue d'un élément .fz
+					var xPos = position.left;
+					var yPos = position.top;
+					isBooked = $(elt).hasClass('l0');
+					isImage = $(elt).hasClass('image');
+
+					if (isBooked === true && isImage === false) {
+						// rien ne se passe
+						console.log("Booked msg");
+
+					} else {
+
+						resetWritingBox();
+						// positionnement du formulaire d'écriture
+						//$('#writingBox').fadeOut(100);
+						$('.infoArea > .msgInfo').hide();
+						$('#informationBox').css({
+							'left' : xPos - 10,
+							'top' : yPos - 10
+						});
+						$('#informationBox').fadeIn(100);
+
+						// récupère la position
+						var dc = $(elt).attr('dc');
+
+						$('#informationBox').attr('dc', dc);
+
+						// règle la taille en fonction du type de case
+
+						if ($(elt).hasClass('s')) {
+
+							$('.infoArea').switchClass('l t f', 's', delay, function() {
+								handlesPos('.infoArea');
+							});
+						} else if ($(elt).hasClass('l')) {
+
+							$('.infoArea').switchClass('s t f', 'l', delay, function() {
+								handlesPos('.infoArea');
+							});
+						} else if ($(elt).hasClass('t')) {
+
+							$('.infoArea').switchClass('s l f', 't', delay, function() {
+								handlesPos('.infoArea');
+							});
+						} else if ($(elt).hasClass('f')) {
+
+							$('.infoArea').switchClass('s l t', 'f', delay, function() {
+								handlesPos('.infoArea');
+							});
+						}
+					}
+				}
+				return false;
+			});
 		}
 	};
 });

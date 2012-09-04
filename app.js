@@ -8,16 +8,22 @@ var app = module.exports = express.createServer();
 
 global.io = require('socket.io').listen(app);
 io.set('log level', 0);
+var events = require('events');
+global.serverEmitter = new events.EventEmitter();
 io.sockets.on('connection', function(socket) {
 	socket.on('book', function(data) {
-		db.txt.insertTxt(data, function(err, aTxt) {
-			socket.broadcast.emit('book', aTxt);
-		});
+		normalizePos(data);
+		socket.broadcast.emit('book', data);
 	});
 	socket.on('unbook', function(data) {
-		db.txt.removeTxt(data, function(err) {
-			socket.broadcast.emit('unbook', data);
-		});
+		normalizePos(data);
+		socket.broadcast.emit('unbook', data);
+	});
+	serverEmitter.on('set', function(data) {
+		socket.broadcast.emit('set', data);
+	});
+	serverEmitter.on('unset', function(data) {
+		socket.broadcast.emit('unset', data);
 	});
 });
 // Configuration

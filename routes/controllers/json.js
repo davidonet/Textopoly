@@ -53,7 +53,7 @@ exports.authpath = function(req, res) {
 };
 
 exports.path = function(req, res) {
-	db.path.expand(req.params.id, function(err,items) {
+	db.path.expand(req.params.id, function(err, items) {
 		res.json(items);
 	});
 };
@@ -114,8 +114,10 @@ exports.remove = function(req, res) {
 	db.gridfs().unlink('[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
 		console.log("image removed");
 	});
-	db.txt.removeTxt(req.query, function(err) {
+	var aTxt = req.query;
+	normalizePos(aTxt);
+	db.txt.removeTxt(aTxt, function(err) {
 		res.json(err);
-		io.sockets.emit('unbook', req.query);
+		io.sockets.emit('unbook', aTxt);
 	});
 };

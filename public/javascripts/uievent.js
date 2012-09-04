@@ -45,25 +45,26 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 	});
 
 	$('#content').click(function(event) {
-		if (event.pageX !== null) {
-			var x = event.pageX, y = event.pageY;
-			var p = [params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), params.ymin + Math.floor((y - $('#map').position().top) / params.stepy)];
-			$.ajax({
-				url : 'fa',
-				dataType : 'json',
-				data : {
-					'p' : p
-				},
-				success : function(fA) {
-					writemodule.initBox({
-						pos : p,
-						freeZone : fA,
-						event: event
-					});
-				}
-			});
-		}
-		return false;
+		$('#informationBox').fadeOut(100);
+		if (params.zoom == 2)
+			if (event.pageX !== null) {
+				var x = event.pageX - (params.stepx / 2), y = event.pageY - (params.stepy / 2);
+				var p = [params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), params.ymin + Math.floor((y - $('#map').position().top) / params.stepy)];
+				$.ajax({
+					url : 'fa',
+					dataType : 'json',
+					data : {
+						'p' : p
+					},
+					success : function(fA) {
+						writemodule.initBox({
+							pos : p,
+							freeZone : fA,
+							event : event
+						});
+					}
+				});
+			}
 	});
 
 	/***********************************************************************************

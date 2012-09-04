@@ -3,13 +3,13 @@ var sensible = require('../../sensible');
 
 global.db = mongo.db(sensible.mongourl());
 
-function normalizePos(nTxt) {
+global.normalizePos = function(nTxt) {
 	if (nTxt.p === undefined) {
 		nTxt.p = new Array(Number(nTxt.x), Number(nTxt.y));
 		delete nTxt.x;
 		delete nTxt.y;
 	}
-}
+};
 
 exports.bounds = function(fn) {
 	/*jshint evil:true,es5: true*/
@@ -118,6 +118,7 @@ db.bind('txt', {
 	insertTxt : function(nTxt, fn) {
 		nTxt.d = new Date();
 		normalizePos(nTxt);
+
 		var myColl = this;
 		this.findOne({
 			p : nTxt.p
@@ -130,7 +131,9 @@ db.bind('txt', {
 				});
 			} else {
 				myColl.insert(nTxt, function(err) {
-					fn(err, nTxt);
+					red.book(nTxt, function(err, ret) {
+						fn(err, nTxt);
+					});
 				});
 			}
 		});
@@ -138,9 +141,12 @@ db.bind('txt', {
 	removeTxt : function(nTxt, fn) {
 		normalizePos(nTxt);
 		this.remove(nTxt, function(err) {
-			fn({
-				success : true
+			red.unbook(nTxt, function(err, ret) {
+				fn({
+					success : true
+				});
 			});
 		});
+
 	}
 });

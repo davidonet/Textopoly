@@ -10,10 +10,11 @@ define(["/socket.io/socket.io.js", "helper", "txt"], function(socket_io, helper,
 
 	socket.on('book', function(data) {
 		// Remove any msg already displayed at tjis place
+		txt.insert(data);
 		$('.msg[dc="' + data.p + '"]').fadeOut(function() {
 			$(this).remove();
+			txt.insert(data);
 		});
-		txt.insert(data);
 	});
 
 	/**
