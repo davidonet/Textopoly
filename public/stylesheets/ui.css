@@ -172,55 +172,52 @@ div#btnFocus.over {
 div#mainMenu {
 	display: block;
 	position: absolute;
-	right: 0px;
+	right: 20px;
 	top: 95px;
-	width: 640px;
+	width: 620px;
 	height: 50px;
 }
-div#btnText, div#btnPath, div#btnShow, div#btnFind {
+div#btnCenter,div#btnText, div#btnPath, div#btnShow, div#btnFind {
 	z-index: 4000;
 	float: left;
-	width: 140px;
+	width: 50px;
 	height: 50px;
-	margin-left: 10px;
-	margin-right: 10px;
+	border-radius: 50px;
+	margin-right: 35px;
+	margin-left: 35px;
+	border: solid 2px #888a85;
+	background-color: #888a85;
 }
+
+div#btnCenter.normal{
+	
+}
+
 div#btnText.normal {
-	background: url('btn/btnTextD.png');
+	
+/*		background: url(''); */
+
 }
 div#btnPath.normal {
 
-	background: url('btn/btnPathD.png');
 }
 div#btnShow.normal {
 
-	background: url('btn/btnShowD.png');
 }
 div#btnFind.normal {
 
-	background: url('btn/btnFindD.png');
 }
-div#btnText.over {
-	background: url('btn/btnTextO.png');
-}
-div#btnPath.over {
 
-	background: url('btn/btnPathO.png');
-}
-div#btnShow.over {
+div#btnCenter:hover, div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
+	border: solid 2px #2e3436;
 
-	background: url('btn/btnShowO.png');
-}
-div#btnFind.over {
-
-	background: url('btn/btnFindO.png');
 }
 /*HELP MENU*/
 
 div#hlpText, div#hlpPath, div#hlpShow, div#hlpFind {
 	position: absolute;
 	z-index: -1000;
-	width: 140px;
+	width: 120px;
 	height: 0px;
 	top: 25px;
 	border-top: 1px dashed #2e3436;
