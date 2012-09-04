@@ -36,7 +36,7 @@ div#header > #topbar {
 	height: 4px;
 	top: 0px;
 	margin: 0px auto;
-	background-color: #2e3436   /* Aluminium 2 Darker */
+	background-color: #2e3436 /* Aluminium 2 Darker */
 }
 div#zoomWrap {
 	position: absolute;
@@ -59,7 +59,7 @@ div#main {
 	position: absolute;
 	top: 140px;
 	margin-left: 10px;
-	overflow:auto;
+	overflow: auto;
 }
 div#footer {
 	position: absolute;
@@ -150,22 +150,24 @@ div#topmenu {
 div#btnHelp, div#btnFocus {
 	display: block;
 	float: left;
-	width: 20px;
-	height: 20px;
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	cursor: default;
+	border: solid 2px #eeeeec; /* Aluminium 2 Darker */
+	background-color: #888a85; /* Aluminium 2 Lighter */
 }
 div#btnHelp.normal {
-	background: url('btn/btnHelpD.png');
 	margin-right: 2px;
 }
 div#btnFocus.normal {
-	background: url('btn/btnFocusD.png');
 }
-div#btnHelp.over {
-	background: url('btn/btnHelpO.png');
+div#btnHelp:hover {
 	margin-right: 2px;
+	background-color: #555753; /* Aluminium 2 */
 }
-div#btnFocus.over {
-	background: url('btn/btnFocusO.png');
+div#btnFocus:hover {
+	background-color: #555753; /* Aluminium 2 */
 }
 /* MAIN MENU */
 
@@ -177,7 +179,7 @@ div#mainMenu {
 	width: 620px;
 	height: 50px;
 }
-div#btnCenter,div#btnText, div#btnPath, div#btnShow, div#btnFind {
+div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
 	z-index: 4000;
 	float: left;
 	width: 50px;
@@ -189,13 +191,15 @@ div#btnCenter,div#btnText, div#btnPath, div#btnShow, div#btnFind {
 	background-color: #888a85;
 }
 
-div#btnCenter.normal{
-	
+div#btnCenter.normal {
+
 }
 
 div#btnText.normal {
-	
-/*		background: url(''); */
+
+background: url('btn/btnText.svg');
+	background-color: #888a85;
+
 
 }
 div#btnPath.normal {
@@ -208,10 +212,9 @@ div#btnFind.normal {
 
 }
 
-div#btnCenter.over,div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
-	border: solid 2px #2e3436;
+div#btnCenter.over, div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
+	/*border: solid 2px #2e3436;*/      
 	background-color: #555753;
-
 }
 /*HELP MENU*/
 
@@ -229,7 +232,7 @@ div#hlpText, div#hlpPath, div#hlpShow, div#hlpFind {
 div#hlpText > p, div#hlpPath > p, div#hlpShow > p, div#hlpFind > p {
 	margin-top: 30px;
 	text-align: center;
-	color: #2e3436   /* Aluminium 2 Darker */
+	color: #2e3436 /* Aluminium 2 Darker */
 
 }
 /* ZOOM */

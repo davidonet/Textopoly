@@ -1,5 +1,22 @@
 /* TEXTOPOLY ICON SET */
 
+/* POIGNÉES */
+
+.handle {
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	display: block;
+	position: absolute;
+	cursor: default;
+	border: solid 2px #eeeeec; /* Aluminium 2 Darker */
+	background-color: #888a85; /* Aluminium 2 Lighter */
+}
+.handle:hover {
+	background-color: #555753; /* Aluminium 2 */
+}
+
+
 /* Cancel */
 .ca {
 	background-image: url('icons/cancel.svg');
