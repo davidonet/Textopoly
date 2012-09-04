@@ -185,7 +185,7 @@ div#btnCenter,div#btnText, div#btnPath, div#btnShow, div#btnFind {
 	border-radius: 50px;
 	margin-right: 35px;
 	margin-left: 35px;
-	border: solid 2px #888a85;
+	border: solid 2px #EEEEEC;
 	background-color: #888a85;
 }
 
@@ -208,8 +208,9 @@ div#btnFind.normal {
 
 }
 
-div#btnCenter:hover, div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
+div#btnCenter.over,div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
 	border: solid 2px #2e3436;
+	background-color: #555753;
 
 }
 /*HELP MENU*/

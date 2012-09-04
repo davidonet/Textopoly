@@ -22,3 +22,30 @@
 	background-color: #555753; /* Aluminium 2 */
 }
 
+.z40 > .msg.butter {
+	background-color: #c4a000;
+}
+.z40 > .msg.orange {
+	background-color: #ce5c00;
+}
+.z40 > .msg.chocolate {
+	background-color: #8f5902;
+}
+.z40 > .msg.chameleon {
+	background-color: #4e9a06; 
+}
+.z40 > .msg.skyblue {
+	background-color: #204a87; 
+}
+.z40 > .msg.plum {
+	background-color: #5c3566; 
+}
+.z40 > .msg.scarletred {
+	background-color: #a40000; 
+}
+.z40 > .msg.aluminium1 {
+	background-color: #babdb6;
+}
+.z40 > .msg.aluminium2 {
+	background-color: #2e3436;
+}

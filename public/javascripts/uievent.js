@@ -3,16 +3,14 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 	/**
 	 * Top Menu Handling
 	 */
-	helper.btnClic("#btnText");
-	helper.btnClic("#btnPath");
 	helper.btnClic("#btnShow");
 	helper.btnClic("#btnFind");
+	helper.btnOver("#btnCenter");
 	helper.btnOver("#btnText");
 	helper.btnOver("#btnPath");
 	helper.btnOver("#btnShow");
 	helper.btnOver("#btnFind");
-	helper.btnOver("#btnHelp");
-	helper.btnOver("#btnFocus");
+
 
 	/**
 	 * Draggable Map with dynamic load

@@ -9,6 +9,16 @@
 	background-color: #CC0000;
 }
 
+/* Delete */
+.de {
+	background-image: url('icons/delete.svg');
+}
+
+.de:hover {
+	background-color: #CC0000;
+}
+
+
 /* OK */
 .ok {
 	background-image: url('icons/accept.svg');

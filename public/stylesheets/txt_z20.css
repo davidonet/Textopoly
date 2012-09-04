@@ -25,32 +25,31 @@
 
 
 
-/*
-.z20 > .butter {
+
+.z20 > .msg.butter {
 	background-color: #c4a000;
 }
-.z20 > .orange {
+.z20 > .msg.orange {
 	background-color: #ce5c00;
 }
-.z20 > .chocolate {
+.z20 > .msg.chocolate {
 	background-color: #8f5902;
 }
-.z20 > .chameleon {
+.z20 > .msg.chameleon {
 	background-color: #4e9a06; 
 }
-.z20 > .skyblue {
+.z20 > .msg.skyblue {
 	background-color: #204a87; 
 }
-.z20 > .plum {
+.z20 > .msg.plum {
 	background-color: #5c3566; 
-	
-.z20 > .scarletred {
+}
+.z20 > .msg.scarletred {
 	background-color: #a40000; 
 }
-.z20 > .aluminium1 {
+.z20 > .msg.aluminium1 {
 	background-color: #babdb6;
 }
-.z20 > .aluminium2 {
+.z20 > .msg.aluminium2 {
 	background-color: #2e3436;
 }
-*/
