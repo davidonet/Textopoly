@@ -1,6 +1,6 @@
 define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], function(fileUploader, pathwalk, userinfo, booking, helper) {
 
-	var delay = 250;
+	var delay = 150;
 	var textarea = true;
 	var msgInfo = false;
 	var auth = ($.cookie("author") !== null);
@@ -11,8 +11,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		action : '/postimg',
 		debug : false,
 		onComplete : function() {
-			var dc = $('#writingBox').attr('dc').split(',');
-			$(location).attr('href', '/view?zoom=2&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+			resetWritingBox();
 		}
 	});
 
@@ -22,24 +21,26 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 
 	// Reset writingBox
 	function resetWritingBox() {
-		$('.editArea').switchClass('l t f', 's', delay, function() {
-			handlesPos('.editArea');
+		$('#writingBox').fadeOut(200, function() {
+			$('.editArea').switchClass('l t f', 's', delay, function() {
+				handlesPos('.editArea');
+			});
+			$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
+			$('.editArea > .e.handle').switchClass('al', 'ar', 0);
+			$('.editArea > .s.handle').switchClass('au', 'ad', 0);
+			$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
+			$('.editArea > .sw.handle').show();
+			$('.editArea > .e.handle').show();
+			$('.editArea > .s.handle').show();
+			$('textarea[name*=t]').val('');
+			$('input[name*=image]').val('');
+
+			$('.imageArea').hide();
+			$('.authorArea').hide();
+			$('textarea[name*=t]').show();
+			$('#writingBox').removeAttr('dc');
+			textarea = true;
 		});
-		$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
-		$('.editArea > .e.handle').switchClass('al', 'ar', 0);
-		$('.editArea > .s.handle').switchClass('au', 'ad', 0);
-		$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
-		$('.editArea > .sw.handle').show();
-		$('.editArea > .e.handle').show();
-		$('.editArea > .s.handle').show();
-		$('textarea[name*=t]').val('');
-		$('input[name*=image]').val('');
-		$('#writingBox').fadeOut(200);
-		$('.imageArea').hide();
-		$('.authorArea').hide();
-		$('textarea[name*=t]').show();
-		$('#writingBox').removeAttr('dc');
-		textarea = true;
 	}
 
 	// Reset infoBox
@@ -382,7 +383,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		if (aPathPack === null) {
 			aPathPack = pathwalk.startPath();
 			pathwalk.addNode(aPathPack, $('#informationBox').attr('dc'));
-			$("#map").click(function(event) {
+			$("#content").click(function(event) {
 				var aDC = $(event.target).attr('dc');
 				if (aDC === undefined)
 					aDC = $(event.target.parentNode).attr('dc');
@@ -392,7 +393,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		} else {
 			pathwalk.endPath(aPathPack);
 			aPathPack = null;
-			$("#map").unbind('click');
+			$("#content").unbind('click');
 			$('.infoArea > .e.handle').attr('title', 'Créer chemin');
 		}
 		return false;
