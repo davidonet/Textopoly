@@ -158,7 +158,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			'left' : parseInt(xPos - 10, 10),
 			'top' : parseInt(yPos - 10, 10)
 		}, 500);
-	};
+	}
 
 	/***********************************************************************************
 	 * END WRITINGBOX
@@ -550,10 +550,10 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 
 				if (elt.nodeName === "P" || elt.nodeName === "IMG") {
 					console.log("paragraphe ou image");
-					infoBox(elt.parentNode)
+					infoBox(elt.parentNode);
 				} else if (elt.nodeName == "DIV") {
 					console.log("div");
-					infoBox(elt)
+					infoBox(elt);
 				}
 
 				//infoBox(x,y);
