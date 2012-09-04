@@ -472,21 +472,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				// La case est libre il faut positionner la writing box
 				writingBox(x, y, data);
 			} else {
-
-				/*
-				 var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
-
-				 var oldX = $('#writingBox').position().x, oldY = $('#writingBox').position().y;
-				 $('#writingBox').animate({
-				 'left' : x - 10,
-				 'top' : y - 10
-				 }, 300, function() {
-				 $('#writingBox').animate({
-				 'left' : oldX,
-				 'top' : oldY
-				 }, 100);
-				 });
-				 */
 			}
 		},
 		updateClick : function() {
