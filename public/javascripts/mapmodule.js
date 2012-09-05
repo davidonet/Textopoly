@@ -103,14 +103,14 @@ define(['helper', "pathwalk", "dynload"], function(helper, pathwalk, dynload) {
 			delta = e.detail * 4;
 		}
 
-		value -= delta/128;
+		value -= delta / 128;
 		if (value > 5) {
 			value = 5;
 		}
 		if (value < 0) {
 			value = 0;
 		}
-		
+
 		if (result !== false) {
 			element.slider('value', value);
 		}
@@ -138,45 +138,68 @@ define(['helper', "pathwalk", "dynload"], function(helper, pathwalk, dynload) {
 		change : function() {
 
 			var sliderValue = $(this).slider("option", "value");
-			$('#map').fadeOut(300, function() {
-				$('#map').removeClass('z1').removeClass('z2').removeClass('z4').removeClass('z10').removeClass('z20').removeClass('z40');
-				switch(sliderValue) {
-					case 0:
-						params.zoom = 40;
-						$('#map').addClass('z40');
-						break;
-					case 1:
-						params.zoom = 20;
-						$('#map').addClass('z20');
-						break;
-					case 2:
-						params.zoom = 10;
-						$('#map').addClass('z10');
-						break;
-					case 3:
-						params.zoom = 4;
-						$('#map').addClass('z4');
-						break;
-					case 4:
-						params.zoom = 2;
-						$('#map').addClass('z2');
-						break;
-					case 5:
-						params.zoom = 1;
-						$('#map').addClass('z1');
-				}
-				$('.msg').remove();
-				$('svg').remove();
-				params.xcenter = helper.getCenterX();
-				params.ycenter = helper.getCenterY();
-				$('#map').css({
-					top : 0,
-					left : 0
+			var zoom = params.zoom;
+			switch(sliderValue) {
+				case 0:
+					zoom = 40;
+					break;
+				case 1:
+					zoom = 20;
+					break;
+				case 2:
+					zoom = 10;
+					break;
+				case 3:
+					zoom = 4;
+					break;
+				case 4:
+					zoom = 2;
+					break;
+				case 5:
+					zoom = 1;
+			}
+			if (zoom != params.zoom) {
+				$('#map').fadeOut(300, function() {
+					$('#map').removeClass('z1').removeClass('z2').removeClass('z4').removeClass('z10').removeClass('z20').removeClass('z40');
+					switch(sliderValue) {
+						case 0:
+							params.zoom = 40;
+							$('#map').addClass('z40');
+							break;
+						case 1:
+							params.zoom = 20;
+							$('#map').addClass('z20');
+							break;
+						case 2:
+							params.zoom = 10;
+							$('#map').addClass('z10');
+							break;
+						case 3:
+							params.zoom = 4;
+							$('#map').addClass('z4');
+							break;
+						case 4:
+							params.zoom = 2;
+							$('#map').addClass('z2');
+							break;
+						case 5:
+							params.zoom = 1;
+							$('#map').addClass('z1');
+					}
+					$('.msg').remove();
+					$('svg').remove();
+					params.xcenter = helper.getCenterX();
+					params.ycenter = helper.getCenterY();
+					$('#map').css({
+						top : 0,
+						left : 0
+					});
+					computeCellSize();
+					computeParams();
+					dynload.loadSection(params, pathwalk.updatePath);
+
 				});
-				computeCellSize();
-				computeParams();
-				dynload.loadSection(params, pathwalk.updatePath);
-			});
+			}
 		}
 	});
 
