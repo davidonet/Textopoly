@@ -189,6 +189,7 @@ div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
 	margin-left: 35px;
 	border: solid 2px #EEEEEC;
 	background-color: #888a85;
+
 }
 
 div#btnCenter.normal {
@@ -197,10 +198,8 @@ div#btnCenter.normal {
 
 div#btnText.normal {
 
-background: url('btn/btnText.svg');
+	background: url('btn/btnText.svg');
 	background-color: #888a85;
-
-
 }
 div#btnPath.normal {
 
@@ -212,8 +211,12 @@ div#btnFind.normal {
 
 }
 
+.faded {
+	opacity:0.5;
+}
+
 div#btnCenter.over, div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
-	/*border: solid 2px #2e3436;*/      
+	/*border: solid 2px #2e3436;*/
 	background-color: #555753;
 }
 /*HELP MENU*/
