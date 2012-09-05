@@ -16,6 +16,7 @@ module.exports = function(app) {
 	app.get('/view', mapC.view);
 	app.get('/getimg/:pos', imgC.getimg);
 	app.get('/t/:x/:y', jsonC.atxt);
+	app.get('/fa/:x/:y', jsonC.fa);
 	app.get('/a/:a', jsonC.authorboard);
 	app.get('/p/:id', jsonC.path);
 	app.get('/ap/:a', jsonC.authpath);
@@ -27,7 +28,7 @@ module.exports = function(app) {
 	app.post('/newpath', jsonC.newpath);
 	app.get('/allpath', jsonC.allpath);
 	app.get('/msg', jsonC.msg);
-	app.get('/fa', jsonC.fa);
+	
 	
 	app.get('/mbook/:id', bookC.path);
 	app.get('/mpath/:a', bookC.choice);

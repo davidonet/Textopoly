@@ -46,16 +46,13 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 		if (params.zoom == 2)
 			if (event.pageX !== null) {
 				var x = event.pageX - (params.stepx / 2), y = event.pageY - (params.stepy / 2);
-				var p = [params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), params.ymin + Math.floor((y - $('#map').position().top) / params.stepy)];
+				var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
 				$.ajax({
-					url : 'fa',
+					url : 'fa/'+posX+'/'+posY,
 					dataType : 'json',
-					data : {
-						'p' : p
-					},
 					success : function(fA) {
 						writemodule.initBox({
-							pos : p,
+							pos : [posX,posY],
 							freeZone : fA,
 							event : event
 						});
