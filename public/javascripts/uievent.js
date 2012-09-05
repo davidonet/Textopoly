@@ -10,7 +10,6 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 		console.log("Chemin");
 		$(".default").switchClass("default","pathMode",500);
 		$(".pathMode").switchClass("pathMode","default",500);		
-		return false;
 	});
 
 	helper.btnOver("#btnCenter");
