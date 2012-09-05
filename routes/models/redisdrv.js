@@ -8,7 +8,6 @@ global.red.on("error", function(err) {
 redis.debug_mode = false;
 
 global.red.on("connect", function() {
-	console.log("Got Unix socket connection.");
 });
 
 global.red.single = function(x, y, fn) {

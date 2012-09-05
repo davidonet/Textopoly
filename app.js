@@ -5,8 +5,8 @@ var mongo = require('mongoskin');
 var express = require('express');
 
 var app = module.exports = express.createServer();
-
-global.io = require('socket.io').listen(app);
+app.enable('quiet');
+global.io = require('socket.io').listen(app,{ log: false });
 io.set('log level', 0);
 var events = require('events');
 global.serverEmitter = new events.EventEmitter();
@@ -52,4 +52,3 @@ app.configure('production', function() {
 require('./routes')(app);
 
 app.listen(3000);
-console.log("Textopoly server on port %d in %s mode", app.address().port, app.settings.env);
