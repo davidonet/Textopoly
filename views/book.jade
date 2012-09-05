@@ -10,18 +10,16 @@ div#content
         div#btnHelp.normal
         div#btnFocus.normal
         
-     div#main.z1
+     div#bookView.z2
      
-        h3 chemin de #{a}
+        h1 chemin de #{a}
         each txt in pathwalk.pw
           if txt.i
             img(src='/getimg/['+txt.p+']')
           else
-            p.msg(class=txt.s+' '+txt.c+' '+txt.lc) #{txt.t}
-          p.sig #{txt.a} le #{txt.d.toDateString()}
-          hr
+            div.msg(class=txt.s+' '+txt.c+' '+txt.lc)
+              p #{txt.t}
       
       div#footer
         a(href="/mpath/"+a) #{a} | 
         a(href="/mauth") Auteurs
-     
