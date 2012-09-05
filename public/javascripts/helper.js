@@ -64,8 +64,12 @@ define([], function() {
 		/**
 		 * Menu button handling
 		 */
-		btnClic : function(bouton) {
+		btnClic : function(bouton, fn) {
 			$(bouton).click(function() {
+				
+				fn();
+								
+				/*
 				$(this).children().animate({
 					height : '50px'
 				}, 100);
@@ -78,7 +82,7 @@ define([], function() {
 					$(this).animate({
 						height : '0px'
 					}, 100);
-				});
+				}); */
 			});
 		}
 	};

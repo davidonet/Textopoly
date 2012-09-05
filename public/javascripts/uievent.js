@@ -5,6 +5,14 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 	 */
 	helper.btnClic("#btnShow");
 	helper.btnClic("#btnFind");
+	
+	helper.btnClic("#btnPath", function() {
+		console.log("Chemin");
+		$(".default").switchClass("default","pathMode",500);
+		$(".pathMode").switchClass("pathMode","default",500);		
+		return false;
+	});
+
 	helper.btnOver("#btnCenter");
 	helper.btnOver("#btnText");
 	helper.btnOver("#btnPath");
@@ -48,11 +56,11 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 				var x = event.pageX - (params.stepx / 2), y = event.pageY - (params.stepy / 2);
 				var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
 				$.ajax({
-					url : 'fa/'+posX+'/'+posY,
+					url : 'fa/' + posX + '/' + posY,
 					dataType : 'json',
 					success : function(fA) {
 						writemodule.initBox({
-							pos : [posX,posY],
+							pos : [posX, posY],
 							freeZone : fA,
 							event : event
 						});
