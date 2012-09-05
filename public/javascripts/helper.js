@@ -71,21 +71,6 @@ define([], function() {
 
 				fn();
 				return false;
-
-				/*
-				 $(this).children().animate({
-				 height : '50px'
-				 }, 100);
-				 $(this).mouseleave(function() {
-				 $(this).children().animate({
-				 height : '0px'
-				 }, 100);
-				 });
-				 $(this).children().mouseleave(function() {
-				 $(this).animate({
-				 height : '0px'
-				 }, 100);
-				 }); */
 			});
 		}
 	};
