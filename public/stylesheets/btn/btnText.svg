@@ -1,55 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 15.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-<g opacity="0.7">
+<g>
 	<g>
-		<rect x="3.97" y="11.247" fill="#ECEDEC" width="0.883" height="1.765"/>
-		<path fill="#ECEDEC" d="M43.605,13.011h-1.762v-1.765h1.762V13.011z M40.376,13.011h-1.762v-1.765h1.762V13.011z M37.146,13.011
-			h-1.762v-1.765h1.762V13.011z M33.917,13.011h-1.761v-1.765h1.761V13.011z M30.688,13.011h-1.762v-1.765h1.762V13.011z
-			 M27.458,13.011h-1.761v-1.765h1.761V13.011z M24.229,13.011h-1.762v-1.765h1.762V13.011z M21,13.011h-1.762v-1.765H21V13.011z
-			 M17.771,13.011h-1.762v-1.765h1.762V13.011z M14.542,13.011H12.78v-1.765h1.762V13.011z M11.312,13.011H9.55v-1.765h1.761V13.011
-			z M8.083,13.011H6.321v-1.765h1.762V13.011z"/>
-		<rect x="45.073" y="11.247" fill="#ECEDEC" width="0.883" height="1.765"/>
-	</g>
-	<g>
-		<rect x="1.985" y="33.107" fill="#ECEDEC" width="0.882" height="1.765"/>
-		<path fill="#ECEDEC" d="M45.602,34.872h-1.794v-1.765h1.794V34.872z M42.314,34.872h-1.793v-1.765h1.793V34.872z M39.026,34.872
-			h-1.793v-1.765h1.793V34.872z M35.739,34.872h-1.792v-1.765h1.792V34.872z M32.452,34.872h-1.793v-1.765h1.793V34.872z
-			 M29.166,34.872h-1.794v-1.765h1.794V34.872z M25.878,34.872h-1.792v-1.765h1.792V34.872z M22.591,34.872h-1.793v-1.765h1.793
-			V34.872z M19.304,34.872h-1.793v-1.765h1.793V34.872z M16.017,34.872h-1.793v-1.765h1.793V34.872z M12.729,34.872h-1.793v-1.765
-			h1.793V34.872z M9.442,34.872H7.649v-1.765h1.793V34.872z M6.155,34.872H4.362v-1.765h1.793V34.872z"/>
-		<rect x="47.096" y="33.107" fill="#ECEDEC" width="0.883" height="1.765"/>
-	</g>
-	<g>
-		<rect x="6.665" y="7.481" fill="#ECEDEC" width="1.765" height="0.883"/>
-		<path fill="#ECEDEC" d="M8.43,40.224H6.665v-1.738H8.43V40.224z M8.43,37.038H6.665V35.3H8.43V37.038z M8.43,33.852H6.665v-1.738
-			H8.43V33.852z M8.43,30.666H6.665v-1.738H8.43V30.666z M8.43,27.479H6.665v-1.738H8.43V27.479z M8.43,24.294H6.665v-1.738H8.43
-			V24.294z M8.43,21.108H6.665V19.37H8.43V21.108z M8.43,17.922H6.665v-1.738H8.43V17.922z M8.43,14.736H6.665v-1.738H8.43V14.736z
-			 M8.43,11.55H6.665V9.812H8.43V11.55z"/>
-		<rect x="6.665" y="41.672" fill="#ECEDEC" width="1.765" height="0.884"/>
-	</g>
-	<g>
-		<rect x="35.723" y="3.217" fill="#ECEDEC" width="1.765" height="0.882"/>
-		<path fill="#ECEDEC" d="M37.487,44.376h-1.765v-1.831h1.765V44.376z M37.487,41.019h-1.765v-1.831h1.765V41.019z M37.487,37.662
-			h-1.765v-1.831h1.765V37.662z M37.487,34.307h-1.765v-1.831h1.765V34.307z M37.487,30.949h-1.765v-1.831h1.765V30.949z
-			 M37.487,27.594h-1.765v-1.831h1.765V27.594z M37.487,24.237h-1.765v-1.831h1.765V24.237z M37.487,20.881h-1.765V19.05h1.765
-			V20.881z M37.487,17.525h-1.765v-1.831h1.765V17.525z M37.487,14.168h-1.765v-1.831h1.765V14.168z M37.487,10.812h-1.765v-1.83
-			h1.765V10.812z M37.487,7.456h-1.765V5.625h1.765V7.456z"/>
-		<rect x="35.723" y="45.9" fill="#ECEDEC" width="1.765" height="0.883"/>
+		<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="50" y1="10" x2="49" y2="10"/>
+		
+			<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2,2" x1="47" y1="10" x2="2" y2="10"/>
+		<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="1" y1="10" x2="0" y2="10"/>
 	</g>
 </g>
 <g>
-	<path fill="#ECEDEC" d="M28.596,15.054l0.176,3.753h-0.447c-0.086-0.661-0.204-1.133-0.354-1.416
-		c-0.244-0.456-0.569-0.792-0.974-1.009c-0.405-0.216-0.938-0.324-1.599-0.324h-2.254V28.28c0,0.984,0.106,1.598,0.318,1.842
-		c0.299,0.33,0.759,0.495,1.381,0.495h0.555v0.436h-6.785v-0.436h0.567c0.676,0,1.156-0.205,1.439-0.614
-		c0.173-0.251,0.259-0.825,0.259-1.723V16.058h-1.922c-0.748,0-1.279,0.055-1.593,0.165c-0.409,0.15-0.759,0.438-1.05,0.862
-		c-0.291,0.425-0.464,0.999-0.52,1.723h-0.448l0.189-3.753H28.596z"/>
+	<g>
+		<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="50" y1="34" x2="49" y2="34"/>
+		
+			<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2,2" x1="47" y1="34" x2="2" y2="34"/>
+		<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="1" y1="34" x2="0" y2="34"/>
+	</g>
 </g>
-<polygon fill="#ECEDEC" points="26.885,31.392 27.772,31.392 27.778,32.277 28.654,32.28 28.656,33.157 29.539,33.162 
-	29.547,34.049 30.425,34.047 30.426,34.937 31.317,34.939 31.314,35.818 32.194,35.817 32.194,36.705 33.087,36.708 33.086,37.584 
-	33.972,37.582 33.977,38.477 34.862,38.468 34.853,39.355 35.738,39.36 35.738,40.248 32.199,40.25 32.199,42.019 33.089,42.011 
-	33.079,43.785 33.967,43.793 33.979,45.562 32.204,45.548 32.203,43.787 31.317,43.782 31.313,42.019 30.404,42.036 30.42,41.124 
-	29.543,41.124 29.539,42.012 28.656,42.012 28.646,42.925 27.769,42.901 27.796,43.801 26.891,43.782 "/>
+<g>
+	<g>
+		<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="36" y1="48" x2="36" y2="47"/>
+		
+			<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2,2" x1="36" y1="45" x2="36" y2="0"/>
+		<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="36" y1="-1" x2="36" y2="-2"/>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="8" y1="48" x2="8" y2="47"/>
+		
+			<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2,2" x1="8" y1="45" x2="8" y2="0"/>
+		<line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="8" y1="-1" x2="8" y2="-2"/>
+	</g>
+</g>
+<rect x="9" y="11" fill="#888985" width="26" height="22"/>
+<polygon fill="#FFFFFF" points="23,13 21,13 14,13 14,18 15,18 16,15 21,15 21,28 20,29 18,29 18,31 26,31 26,29 24,29 23,28 23,15 
+	28,15 29,18 30,18 30,13 "/>
+<polygon fill="#FFFFFF" points="34,39 35,39 38,39 38,38 37,38 37,37 36,37 36,36 35,36 35,35 34,35 34,34 33,34 33,33 32,33 32,32 
+	31,32 31,31 30,31 30,30 29,30 29,29 28,29 28,43 29,43 29,42 30,42 30,41 31,41 31,40 32,40 32,41 33,41 33,43 34,43 34,45 36,45 
+	36,43 35,43 35,41 34,41 "/>
+<g>
+	<rect x="29" y="29" fill="#2F3436" width="1" height="1"/>
+	<rect x="30" y="30" fill="#2F3436" width="1" height="1"/>
+	<rect x="31" y="31" fill="#2F3436" width="1" height="1"/>
+	<rect x="32" y="32" fill="#2F3436" width="1" height="1"/>
+	<rect x="33" y="33" fill="#2F3436" width="1" height="1"/>
+	<rect x="34" y="34" fill="#2F3436" width="1" height="1"/>
+	<rect x="35" y="35" fill="#2F3436" width="1" height="1"/>
+	<rect x="36" y="36" fill="#2F3436" width="1" height="1"/>
+	<rect x="37" y="37" fill="#2F3436" width="1" height="1"/>
+	<rect x="31" y="40" fill="#2F3436" width="1" height="1"/>
+	<rect x="30" y="41" fill="#2F3436" width="1" height="1"/>
+	<rect x="29" y="42" fill="#2F3436" width="1" height="1"/>
+	<polygon fill="#2F3436" points="38,38 38,39 35,39 34,39 34,41 35,41 35,40 38,40 39,40 39,38 	"/>
+	<rect x="35" y="41" fill="#2F3436" width="1" height="2"/>
+	<rect x="36" y="43" fill="#2F3436" width="1" height="2"/>
+	<rect x="32" y="41" fill="#2F3436" width="1" height="2"/>
+	<rect x="33" y="43" fill="#2F3436" width="1" height="2"/>
+	<rect x="34" y="45" fill="#2F3436" width="2" height="1"/>
+	<polygon fill="#2F3436" points="28,29 29,29 29,28 28,28 28,27 27,27 27,43 27,44 29,44 29,43 28,43 	"/>
+</g>
 </svg>
