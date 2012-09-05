@@ -7,7 +7,8 @@ function testTxt(txt) {
 	txt.should.have.property("a").and.be.a('string');
 	txt.should.have.property("c").and.be.a('string');
 	txt.should.have.property("d").and.be.a('string');
-	txt.should.have.property("p").with.lengthOf(2);
+	txt.should.have.property("p").with.
+	lengthOf(2);
 	txt.should.have.property("t").and.be.a('string');
 }
 
@@ -33,6 +34,14 @@ describe('My Server', function() {
 			request.get('http://localhost:3000/t/3/0').set('Accept', 'application/json').end(function(res) {
 				should.exist(res.body);
 				testTxt(res.body);
+				done();
+			});
+		});
+	});
+	describe('GET /fa', function() {
+		it("should respond an array of occupied cells", function(done) {
+			request.get('http://localhost:3000/fa/3/0').set('Accept', 'application/json').end(function(res) {
+				should.exist(res.body);
 				done();
 			});
 		});
