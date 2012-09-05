@@ -290,37 +290,37 @@ div#footer * input[name*=a] {
 	-webkit-transition: background 0.5s;
 	-moz-transition: background 0.5s;
 }
-.z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
+.z1 > .msg.butter:hover, .z2 > .msg.butter, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
+.z1 > .msg.orange:hover, .z2 > .msg.orange, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.chocolate:hover, .z2 > .msg.chocolate:hover, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
+.z1 > .msg.chocolate:hover, .z2 > .msg.chocolate, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.chameleon:hover, .z2 > .msg.chameleon:hover, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
+.z1 > .msg.chameleon:hover, .z2 > .msg.chameleon, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
 	background-color: #8ae234; /* Chameleon Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.skyblue:hover, .z2 > .msg.skyblue:hover, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
+.z1 > .msg.skyblue:hover, .z2 > .msg.skyblue, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.plum:hover, .z2 > .msg.plum:hover, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
+.z1 > .msg.plum:hover, .z2 > .msg.plum, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
 	background-color: #ad7fa8; /* Plum Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.scarletred:hover, .z2 > .msg.scarletred:hover, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
+.z1 > .msg.scarletred:hover, .z2 > .msg.scarletred, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
