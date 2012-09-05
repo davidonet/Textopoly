@@ -203,30 +203,37 @@ div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
 	border-radius: 50px;
 	margin-right: 35px;
 	margin-left: 35px;
-	border: solid 2px #EEEEEC;
-	background-color: #888a85;
 }
 
-div#btnCenter.normal {
+div#btnCenter {
 	background: url('btn/btnCenter.svg');
-	background-color: #888a85;
 }
 
-div#btnText.normal {
+div#btnText {
 	background: url('btn/btnText.svg');
-	background-color: #888a85;
 }
-div#btnPath.normal {
+div#btnPath {
 	background: url('btn/btnPath.svg');
-	background-color: #888a85;
 }
-div#btnShow.normal {
+div#btnShow {
 	background: url('btn/btnShow.svg');
-	background-color: #888a85;
 }
-div#btnFind.normal {
+div#btnFind {
 	background: url('btn/btnFind.svg');
+}
+
+/*etats des boutons*/
+
+div#btnCenter.normal, div#btnText.normal, div#btnPath.normal, div#btnShow.normal, div#btnFind.normal {
+
 	background-color: #888a85;
+	border: solid 2px #EEEEEC;
+}
+
+div#btnCenter.active, div#btnText.active, div#btnPath.active, div#btnShow.active, div#btnFind.active {
+
+	background-color: #888a85;
+	border: solid 2px #ff0000;
 }
 
 .faded {
@@ -311,7 +318,6 @@ div#footer * input[name*=a] {
 
 /* MSG COLORS */
 
-
 .z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
 	-webkit-transition: background 0.25s;
@@ -348,38 +354,27 @@ div#footer * input[name*=a] {
 	-moz-transition: background 0.25s;
 }
 
-
-
 .z2 > .msg.butter {
 	background-color: rgba(252, 233, 79, 0.5); /* Butter Lighter */
-
-
 }
 .z2 > .msg.orange {
 	background-color: rgba(252, 175, 62, 0.5); /* Orange Lighter */
-
 }
 .z2 > .msg.chocolate {
 	background-color: rgba(233, 185, 110, 0.5); /* Chocolate Lighter */
-
 }
 .z2 > .msg.chameleon {
-	background-color:rgba(138, 226, 52, 0.5); /* Chameleon Lighter */
-
+	background-color: rgba(138, 226, 52, 0.5); /* Chameleon Lighter */
 }
 .z2 > .msg.skyblue {
 	background-color: rgba(114, 159, 207, 0.5); /* Sky Blue Lighter */
-
 }
 .z2 > .msg.plum {
 	background-color: rgba(173, 127, 168, 0.5); /* Plum Lighter */
-
 }
 .z2 > .msg.scarletred {
 	background-color: rgba(239, 41, 41, 0.5); /* Scarlet Red Lighter */
-
 }
-
 
 /* ZONES EN COURS D'ÉCRITURE */
 
