@@ -17,6 +17,14 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 		$(".pathMode").switchClass("pathMode", "default", 500);
 		return false;
 	});
+	
+	helper.btnClic("#btnText", function(event) {
+		return false;
+	});
+	helper.btnClic("#btnCenter", function(event) {
+		return false;
+	});
+
 
 	helper.btnOver("#btnCenter", function(event) {
 		return false;
