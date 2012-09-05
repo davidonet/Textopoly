@@ -17,7 +17,7 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 		$(".pathMode").switchClass("pathMode", "default", 500);
 		return false;
 	});
-	
+
 	helper.btnClic("#btnText", function(event) {
 		return false;
 	});
@@ -25,22 +25,11 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 		return false;
 	});
 
-
-	helper.btnOver("#btnCenter", function(event) {
-		return false;
-	});
-	helper.btnOver("#btnText", function(event) {
-		return false;
-	});
-	helper.btnOver("#btnPath", function(event) {
-		return false;
-	});
-	helper.btnOver("#btnShow", function(event) {
-		return false;
-	});
-	helper.btnOver("#btnFind", function(event) {
-		return false;
-	});
+	helper.btnOver("#btnCenter");
+	helper.btnOver("#btnText");
+	helper.btnOver("#btnPath");
+	helper.btnOver("#btnShow");
+	helper.btnOver("#btnFind");
 
 	/**
 	 * Draggable Map with dynamic load
