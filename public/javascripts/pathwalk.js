@@ -121,11 +121,13 @@ define(['helper'], function(helper) {
 			$('svg').remove();
 		},
 		updatePath : function() {
-			paper = Raphael('content');
-			$('svg').hide();
-			$.getJSON('/allpath', function(data) {
-				$(data).each(function(index, path) {
-					drawPath(path.pw);
+			if (params.zoom != 2) {
+				paper = Raphael('content');
+				$('svg').hide();
+				$.getJSON('/allpath', function(data) {
+					$(data).each(function(index, path) {
+						drawPath(path.pw);
+					});
 					$('svg').css({
 						'z-index' : '-10',
 						'position' : 'fixed',
@@ -135,7 +137,7 @@ define(['helper'], function(helper) {
 					$('#uiWrap').after($('svg'));
 					$('svg').fadeIn(300);
 				});
-			});
+			}
 		}
 	};
 });
