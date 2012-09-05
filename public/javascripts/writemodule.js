@@ -4,7 +4,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	var textarea = true;
 	var msgInfo = false;
 	var auth = ($.cookie("author") !== null);
-	var isFatFree = false;
+	var freeZone;
 	var isBooked = false;
 	var uploader = new qq.FileUploader({
 		element : $('.imageArea')[0],
@@ -34,7 +34,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			$('.editArea > .s.handle').show();
 			$('textarea[name*=t]').val('');
 			$('input[name*=image]').val('');
-
 			$('.imageArea').hide();
 			$('.authorArea').hide();
 			$('textarea[name*=t]').show();
@@ -115,6 +114,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	});
 
 	function writingBox(xPos, yPos, data) {
+		isFatFree = false;
 		var dc = data.pos;
 		$('#informationBox').fadeOut(100);
 		if ($('#writingBox').attr('dc')) {
@@ -144,15 +144,13 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		// récupère y de dc
 		booking.book(xGrid, yGrid, 's', params.c, userinfo.get());
 		var position = $('#writingBox').position();
-
+		freeZone = data.freeZone;
 		$('.editArea > .e.handle').hide();
 		$('.editArea > .s.handle').hide();
-		if (data.freeZone.l === 0)
+		if (freeZone.l === 0)
 			$('.editArea > .e.handle').show();
-		if (data.freeZone.t === 0)
+		if (freeZone.t === 0)
 			$('.editArea > .s.handle').show();
-		if (data.freeZone.f === 0)
-			isFatFree = true;
 	}
 
 	/***********************************************************************************
@@ -183,7 +181,8 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	// WRITINGBOX EAST > scale box on X direction
 	$('.editArea > .e.handle').click(function() {
 		$(this).hide();
-		if (!isFatFree)
+
+		if (freeZone.f !== 0)
 			$('.editArea > .s.handle').hide();
 		if ($('.editArea').hasClass('s')) {
 			$('.editArea').switchClass('s', 'l', delay, function() {
@@ -198,6 +197,8 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				handlesPos('.editArea');
 				$('.editArea > .e.handle').switchClass('al', 'ar', 0);
 				$('.editArea > .e.handle').show();
+				if (freeZone.t === 0)
+					$('.editArea > .s.handle').show();
 				newSize('s');
 			});
 		} else if ($('.editArea').hasClass('t')) {
@@ -263,8 +264,8 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	// WRITINGBOX SOUTH > scale box on Y direction
 	$('.editArea > .s.handle').click(function() {
 		$(this).hide();
-		if (!isFatFree)
-			$('.editArea > .s.handle').hide();
+		if (freeZone.f !== 0)
+			$('.editArea > .e.handle').hide();
 		if ($('.editArea').hasClass('s')) {
 
 			$('.editArea').switchClass('s', 't', delay, function() {
@@ -287,6 +288,8 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				handlesPos('.editArea');
 				$('.editArea > .s.handle').switchClass('au', 'ad', 0);
 				$('.editArea > .s.handle').show();
+				if (freeZone.l === 0)
+					$('.editArea > .e.handle').show();
 				newSize('s');
 			});
 		} else if ($('.editArea').hasClass('f')) {
@@ -385,31 +388,6 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		return false;
 	});
 
-	// INFOBOX EAST >  path action
-
-	/*
-	var aPathPack;
-	$('.infoArea > .e.handle').click(function() {
-	if (aPathPack === null) {
-	aPathPack = pathwalk.startPath();
-	pathwalk.addNode(aPathPack, $('#informationBox').attr('dc'));
-	$("#content").click(function(event) {
-	var aDC = $(event.target).attr('dc');
-	if (aDC === undefined)
-	aDC = $(event.target.parentNode).attr('dc');
-	pathwalk.addNode(aPathPack, aDC);
-	});
-	$('.infoArea > .e.handle').attr('title', 'Valider le chemin');
-	} else {
-	pathwalk.endPath(aPathPack);
-	aPathPack = null;
-	$("#content").unbind('click');
-	$('.infoArea > .e.handle').attr('title', 'Créer chemin');
-	}
-	return false;
-	});
-
-	*/
 	// INFOBOX SOUTH EAST >  display msgInfo
 	$('.infoArea > .se.handle').click(function() {
 		var dc = $('#informationBox').attr('dc').split(',');
@@ -472,25 +450,37 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	 * END SWITCHLIVETYPE
 	 ***********************************************************************************/
 	return {
-		initBox : function(data) {
-			// prend un objet :
-			// data.pos : coordonnées de la cellule
-			// data.freeZone : nombre de cases occupées (0 si libre)
-			// data.freeZone.s : cellule simple
-			// data.freeZone.l : cellule longue
-			// data.freeZone.t : cellule haute
-			// data.freeZone.f : cellule grosse
-			var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
-			if (data.freeZone.s === 0) {
-				// La case est libre il faut positionner la writing box
-				writingBox(x, y, data);
-			} else {
-			}
-		},
 		updateClick : function() {
+			if (params.zoom != 2) {
+				$('#content').unbind('click');
+				$('.msg').unbind('click');
+			} else {
+				$('#content').click(function(event) {
+					$('#informationBox').fadeOut(100);
+					if (event.pageX !== null) {
+						var x = event.pageX - (params.stepx / 2), y = event.pageY - (params.stepy / 2);
+						var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
+						$.ajax({
+							url : 'fa/' + posX + '/' + posY,
+							dataType : 'json',
+							success : function(fA) {
+								if (fA.s === 0) {
+									// La case est libre il faut positionner la writing box
+									var data = {
+										pos : [posX, posY],
+										freeZone : fA,
+										event : event
+									};
+									var x = helper.posToLeft(data.pos), y = helper.posToTop(data.pos);
+									writingBox(x, y, data);
+								} else {
+								}
 
-			$('.msg').on('click', function(event) {
-				if ($('#map').hasClass('z2')) {
+							}
+						});
+					}
+				});
+				$('.msg').click(function(event) {
 					var elt = this;
 					var position = $(elt).position();
 					// récupère la position absolue d'un élément .fz
@@ -544,9 +534,9 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 							});
 						}
 					}
-				}
-				return false;
-			});
+					return false;
+				});
+			}
 		}
 	};
 });
