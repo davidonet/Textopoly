@@ -354,7 +354,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	 ***********************************************************************************/
 
 	$('.infoArea > .nw.handle').click(function() {
-		$('#informationBox').fadeOut(200)
+		$('#informationBox').fadeOut(200);
 		return false;
 
 	});
