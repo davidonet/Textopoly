@@ -21,8 +21,15 @@ html {
 }
 
 body {
-	background: #d3d7cf; /* Aluminium 1 */
 	height: 100%;
+}
+
+.default {
+
+	background: #d3d7cf; /* Aluminium 1 */
+}
+.pathMode {
+	background: #BABDB6;
 }
 
 .smooth_zoom_preloader {
