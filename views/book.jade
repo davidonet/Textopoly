@@ -1,7 +1,7 @@
 body.default
 div#content
   div#uiWrap
-    div#header
+    div#header.small
       div#topbar
       div#title
         h1 TEXTOPOLY
@@ -13,7 +13,7 @@ div#content
         
      div#bookView.z2
      
-        h1 chemin de #{a}
+        h2 chemin de #{a}
         each txt in pathwalk.pw
           if txt.i
             img(src='/getimg/['+txt.p+']')

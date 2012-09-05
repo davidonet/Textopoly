@@ -20,15 +20,22 @@ div#uiWrap {
 	margin-right: auto;
 }
 div#header {
+	font-family: "FuturaCondensedMedium", sans-serif;
 	position: absolute;
 	z-index: 1500;
 	width: 960px;
-	height: 120px;
 	top: 0px;
 	margin: 0px auto;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	cursor: default;
+}
+
+div#header.big {
+	height: 120px;
+}
+div#header.small {
+	height: 42px;
 }
 div#header > #topbar {
 	position: relative;
@@ -88,17 +95,14 @@ div#footer {
 }
 /* MISE EN FORME*/
 
-/* HEADER */
+/* HEADER BIG*/
 
-div#header {
-	font-family: "FuturaCondensedMedium", sans-serif;
-}
-div#title {
+div#header.big div#title {
 	float: left;
 	width: 320px;
 	height: 84px;
 }
-div#title > h1 {
+div#header.big h1 {
 	float: left;
 	margin-left: 10px;
 	margin-top: 10px;
@@ -107,7 +111,7 @@ div#title > h1 {
 	color: #2e3436; /* Aluminium 2 Darker */
 	letter-spacing: 4px;
 }
-div#title > div#blink {
+div#header.big div#blink {
 	float: left;
 	margin-top: 15px;
 	margin-left: 10px;
@@ -152,6 +156,31 @@ div#slider > p > a {
 }
 div#slider > p > a:hover {
 	color: #555753; /* Aluminium 2 */
+}
+
+/* HEADER SMALL*/
+
+div#header.small div#title {
+	float: left;
+	width: 320px;
+	height: 42px;
+}
+div#header.small h1 {
+	float: left;
+	margin-left: 10px;
+	margin-top: 0px;
+	height: 42px;
+	font-size: 32px;
+	color: #2e3436; /* Aluminium 2 Darker */
+	letter-spacing: 2px;
+}
+div#header.small div#blink {
+	float: left;
+	margin-top: 2px;
+	margin-left: 5px;
+	width: 2px;
+	height: 32px;
+	background-color: #2e3436; /* Aluminium 2 Darker */
 }
 /* TOP MENU */
 
