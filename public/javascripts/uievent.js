@@ -12,7 +12,8 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 	});
 
 	helper.btnClic("#btnPath", function(event) {
-		console.log("Chemin");
+
+		
 		$(".default").switchClass("default", "pathMode", 500);
 		$(".pathMode").switchClass("pathMode", "default", 500);
 		return false;
