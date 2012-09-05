@@ -159,7 +159,9 @@ define(['helper', "pathwalk", "dynload"], function(helper, pathwalk, dynload) {
 					zoom = 1;
 			}
 			if (zoom != params.zoom) {
-				$('#map').fadeOut(300, function() {
+				$('#writingBox').hide();
+				$('#informationBox').hide();
+				$('#map').fadeOut(100, function() {
 					$('#map').removeClass('z1').removeClass('z2').removeClass('z4').removeClass('z10').removeClass('z20').removeClass('z40');
 					switch(sliderValue) {
 						case 0:
