@@ -13,11 +13,13 @@ define(["helper"], function(helper) {
 					}
 					newTxt.attr('dc', data.p);
 					newTxt.css(helper.posToCSS(data.p));
-
+					$('#map').append(newTxt);
 					if (params.zoom < 20) {
 						var newContent;
 						if ('image' === data.c) {
-							newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]");
+							newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]").load(function() {
+								newTxt.fadeIn(1000);
+							});
 						} else {
 							if (data.t) {
 								// text filled cell
@@ -27,11 +29,11 @@ define(["helper"], function(helper) {
 								newContent = $(document.createElement("p")).addClass("author").text(data.a);
 								newTxt.addClass('l0');
 							}
+							newTxt.fadeIn(1000);
 						}
 						newTxt.append(newContent);
 					}
-					$('#map').append(newTxt);
-					newTxt.fadeIn(500);
+
 				}
 			}
 		},
