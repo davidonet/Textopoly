@@ -61,6 +61,22 @@ div#main {
 	margin-left: 10px;
 	overflow: auto;
 }
+
+div#bookView {
+	position: absolute;
+	width: 495px;
+	top: 140px;
+	bottom:40px;
+	margin-left: 10px;
+	overflow: auto;
+}
+div#bookView > .msg {
+	display:block;
+	position: relative;
+	
+}
+div#bookView > h1{
+}
 div#footer {
 	position: absolute;
 	bottom: 0px;
@@ -189,7 +205,6 @@ div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
 	margin-left: 35px;
 	border: solid 2px #EEEEEC;
 	background-color: #888a85;
-
 }
 
 div#btnCenter.normal {
@@ -212,7 +227,7 @@ div#btnFind.normal {
 }
 
 .faded {
-	opacity:0.5;
+	opacity: 0.5;
 }
 
 div#btnCenter.over, div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
