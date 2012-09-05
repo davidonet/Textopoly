@@ -3,20 +3,36 @@ define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwa
 	/**
 	 * Top Menu Handling
 	 */
-	helper.btnClic("#btnShow");
-	helper.btnClic("#btnFind");
-	
-	helper.btnClic("#btnPath", function() {
-		console.log("Chemin");
-		$(".default").switchClass("default","pathMode",500);
-		$(".pathMode").switchClass("pathMode","default",500);		
+	helper.btnClic("#btnShow", function(event) {
+		return false;
 	});
 
-	helper.btnOver("#btnCenter");
-	helper.btnOver("#btnText");
-	helper.btnOver("#btnPath");
-	helper.btnOver("#btnShow");
-	helper.btnOver("#btnFind");
+	helper.btnClic("#btnFind", function(event) {
+		return false;
+	});
+
+	helper.btnClic("#btnPath", function(event) {
+		console.log("Chemin");
+		$(".default").switchClass("default", "pathMode", 500);
+		$(".pathMode").switchClass("pathMode", "default", 500);
+		return false;
+	});
+
+	helper.btnOver("#btnCenter", function(event) {
+		return false;
+	});
+	helper.btnOver("#btnText", function(event) {
+		return false;
+	});
+	helper.btnOver("#btnPath", function(event) {
+		return false;
+	});
+	helper.btnOver("#btnShow", function(event) {
+		return false;
+	});
+	helper.btnOver("#btnFind", function(event) {
+		return false;
+	});
 
 	/**
 	 * Draggable Map with dynamic load

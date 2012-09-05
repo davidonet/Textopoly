@@ -67,11 +67,7 @@ define([], function() {
 		 * Menu button handling
 		 */
 		btnClic : function(bouton, fn) {
-			$(bouton).click(function() {
-
-				fn();
-				return false;
-			});
+			$(bouton).click(fn);
 		}
 	};
 });
