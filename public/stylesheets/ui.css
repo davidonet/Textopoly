@@ -66,16 +66,15 @@ div#bookView {
 	position: absolute;
 	width: 495px;
 	top: 140px;
-	bottom:40px;
+	bottom: 40px;
 	margin-left: 10px;
 	overflow: auto;
 }
 div#bookView > .msg {
-	display:block;
+	display: block;
 	position: relative;
-	
 }
-div#bookView > h1{
+div#bookView > h1 {
 }
 div#footer {
 	position: absolute;
@@ -208,22 +207,25 @@ div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
 }
 
 div#btnCenter.normal {
-
+	background: url('btn/btnCenter.svg');
+	background-color: #888a85;
 }
 
 div#btnText.normal {
-
-	background: url('btn/BOUYA.svg');
+	background: url('btn/btnText.svg');
 	background-color: #888a85;
 }
 div#btnPath.normal {
-
+	background: url('btn/btnPath.svg');
+	background-color: #888a85;
 }
 div#btnShow.normal {
-
+	background: url('btn/btnShow.svg');
+	background-color: #888a85;
 }
 div#btnFind.normal {
-
+	background: url('btn/btnFind.svg');
+	background-color: #888a85;
 }
 
 .faded {
@@ -305,41 +307,79 @@ div#footer * input[name*=a] {
 	-webkit-transition: background 0.5s;
 	-moz-transition: background 0.5s;
 }
-.z1 > .msg.butter:hover, .z2 > .msg.butter, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
+
+/* MSG COLORS */
+
+
+.z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.orange:hover, .z2 > .msg.orange, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
+.z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.chocolate:hover, .z2 > .msg.chocolate, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
+.z1 > .msg.chocolate:hover, .z2 > .msg.chocolate:hover, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.chameleon:hover, .z2 > .msg.chameleon, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
+.z1 > .msg.chameleon:hover, .z2 > .msg.chameleon:hover, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
 	background-color: #8ae234; /* Chameleon Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.skyblue:hover, .z2 > .msg.skyblue, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
+.z1 > .msg.skyblue:hover, .z2 > .msg.skyblue:hover, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.plum:hover, .z2 > .msg.plum, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
+.z1 > .msg.plum:hover, .z2 > .msg.plum:hover, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
 	background-color: #ad7fa8; /* Plum Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
-.z1 > .msg.scarletred:hover, .z2 > .msg.scarletred, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
+.z1 > .msg.scarletred:hover, .z2 > .msg.scarletred:hover, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
 	background-color: #ef2929; /* Scarlet Red Lighter */
 	-webkit-transition: background 0.25s;
 	-moz-transition: background 0.25s;
 }
+
+
+
+.z2 > .msg.butter {
+	background-color: rgba(252, 233, 79, 0.5); /* Butter Lighter */
+
+
+}
+.z2 > .msg.orange {
+	background-color: rgba(252, 175, 62, 0.5); /* Orange Lighter */
+
+}
+.z2 > .msg.chocolate {
+	background-color: rgba(233, 185, 110, 0.5); /* Chocolate Lighter */
+
+}
+.z2 > .msg.chameleon {
+	background-color:rgba(138, 226, 52, 0.5); /* Chameleon Lighter */
+
+}
+.z2 > .msg.skyblue {
+	background-color: rgba(114, 159, 207, 0.5); /* Sky Blue Lighter */
+
+}
+.z2 > .msg.plum {
+	background-color: rgba(173, 127, 168, 0.5); /* Plum Lighter */
+
+}
+.z2 > .msg.scarletred {
+	background-color: rgba(239, 41, 41, 0.5); /* Scarlet Red Lighter */
+
+}
+
+
 /* ZONES EN COURS D'ÉCRITURE */
 
 p.author {
