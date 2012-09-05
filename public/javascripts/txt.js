@@ -33,6 +33,10 @@ define(["helper"], function(helper) {
 						}
 						newTxt.append(newContent);
 					}
+					else
+					{
+						newTxt.fadeIn(1500);
+					}
 
 				}
 			}
