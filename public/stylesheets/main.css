@@ -46,7 +46,7 @@ body {
 
 
 
-.msg > p, textarea[name*=t] {
+.msg > p, textarea#write {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
 	-webkit-hyphens: auto;
