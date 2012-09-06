@@ -48,7 +48,7 @@ div.msgInfo {
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
 
-textarea[name*=t] {
+textarea#write {
 	position: relative;
 	padding-left: 10px;
 	padding-right: 10px;

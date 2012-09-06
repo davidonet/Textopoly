@@ -322,10 +322,6 @@ div#footer > div#options {
 	width: 300px;
 }
 
-div#footer * input[name*=a] {
-
-	float: right;
-}
 /* MSG SURVOLS */
 .fz {
 	position: absolute;
