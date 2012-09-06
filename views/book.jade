@@ -18,9 +18,8 @@ div#content
           if txt.i
             img(src='/getimg/['+txt.p+']')
           else
-            div.msg(class=txt.s+' '+txt.c+' '+txt.lc)
-              p #{txt.t}
-      
+              p(class=txt.s+' '+txt.c+' '+txt.lc) #{txt.t}
+              br      
       div#footer
         a(href="/mpath/"+a) #{a} | 
         a(href="/mauth") Auteurs
