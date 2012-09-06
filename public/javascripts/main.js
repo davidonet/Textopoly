@@ -10,10 +10,18 @@ require(["jquery", "jquery-ui", "lib/jquery.ui.touch-punch", "lib/jquery.form", 
 				require(["pathwalk"], function() {
 					require(["dynload"], function(dynload) {
 						require(["pathwalk"], function(pathwalk) {
+							$('#map').show();
 							dynload.loadSection(params, pathwalk.updatePath);
-							$('#map').fadeIn(500);
-
 						});
+						var isOn = false;
+						setInterval(function() {
+							if (isOn)
+								$('#blink').hide();
+							else
+								$('#blink').show();
+							isOn = !isOn;
+						}, 1000);
+
 						require(["userinfo"]);
 						require(["writemodule"]);
 						require(["uievent"]);
@@ -23,3 +31,4 @@ require(["jquery", "jquery-ui", "lib/jquery.ui.touch-punch", "lib/jquery.form", 
 		});
 	});
 });
+
