@@ -4,24 +4,24 @@
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
 <g>
-	<rect x="8" y="14" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="14" fill="#888985" width="36" height="3"/>
-	<rect x="8" y="9" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="9" fill="#888985" width="36" height="3"/>
-	<rect x="8" y="19" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="19" fill="#888985" width="36" height="3"/>
-	<rect x="8" y="24" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="24" fill="#888985" width="36" height="3"/>
-	<rect x="8" y="29" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="29" fill="#888985" width="36" height="3"/>
-	<rect x="8" y="34" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="34" fill="#888985" width="36" height="3"/>
-	<rect x="8" y="39" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="39" fill="#888985" width="36" height="3"/>
-	<rect x="8" y="44" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="44" fill="#888985" width="36" height="3"/>
-	<rect x="8" y="49" fill="#888985" width="6" height="3"/>
-	<rect x="16" y="49" fill="#888985" width="36" height="3"/>
+	<rect x="8" y="14" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="14" fill="#B8BBB4" width="36" height="3"/>
+	<rect x="8" y="9" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="9" fill="#B8BBB4" width="36" height="3"/>
+	<rect x="8" y="19" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="19" fill="#B8BBB4" width="36" height="3"/>
+	<rect x="8" y="24" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="24" fill="#B8BBB4" width="36" height="3"/>
+	<rect x="8" y="29" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="29" fill="#B8BBB4" width="36" height="3"/>
+	<rect x="8" y="34" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="34" fill="#B8BBB4" width="36" height="3"/>
+	<rect x="8" y="39" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="39" fill="#B8BBB4" width="36" height="3"/>
+	<rect x="8" y="44" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="44" fill="#B8BBB4" width="36" height="3"/>
+	<rect x="8" y="49" fill="#B8BBB4" width="6" height="3"/>
+	<rect x="16" y="49" fill="#B8BBB4" width="36" height="3"/>
 </g>
 <path fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 	M23.174,30.777c-0.648,0-1.304-0.068-1.942-0.207c-2.394-0.516-4.441-1.93-5.768-3.98c-1.325-2.052-1.771-4.495-1.255-6.881

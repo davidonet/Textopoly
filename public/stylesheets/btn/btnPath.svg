@@ -7,15 +7,15 @@
 <line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="0" y1="32.005" x2="49.93" y2="32.005"/>
 <line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="14.756" y1="0" x2="14.756" y2="50"/>
 <line fill="none" stroke="#B8BBB4" stroke-width="2" stroke-miterlimit="10" x1="35.025" y1="0" x2="35.025" y2="50"/>
-<path fill="none" stroke="#888985" stroke-width="2" stroke-miterlimit="10" d="M0.129,21.489
+<path fill="none" stroke="#2F3436" stroke-width="2" stroke-miterlimit="10" d="M0.129,21.489
 	C9.5,26.677,14.168,11.828,17.014,6.961c1.068-1.827,3.685-4.855,5.719-2.356c1.998,2.455,2.144,5.997,0.17,10.396
 	c-2.062,4.595-4.389,9.087-6.297,13.751c-1.379,3.369-3.799,9.033-2.373,12.756c1.485,3.883,6.451,3.408,7.841,2.512
 	c1.585-1.021,3.175-2.473,4.928-5.02"/>
-<circle fill="#888985" cx="22" cy="4.5" r="3"/>
-<circle fill="#888985" cx="19" cy="22.5" r="3"/>
+<circle fill="#2F3436" cx="22" cy="4.5" r="3"/>
+<circle fill="#2F3436" cx="19" cy="22.5" r="3"/>
 <rect x="26" y="8" fill="#FFFFFF" width="4" height="29"/>
 <polygon fill="#FFFFFF" points="31,8 42,8 38,13 42,18 31,18 "/>
-<path fill="none" stroke="#888985" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="3,3" d="M29.016,36.293
+<path fill="none" stroke="#2F3436" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="3,3" d="M29.016,36.293
 	c3.422-3.875,5.727-12.066,10.267-14.108c2.976-1.338,8.184,3.01,10.612,2.417"/>
-<ellipse fill="none" stroke="#888985" stroke-width="2" stroke-miterlimit="10" cx="27.994" cy="38.001" rx="2.006" ry="1.999"/>
+<ellipse fill="none" stroke="#2F3436" stroke-width="2" stroke-miterlimit="10" cx="27.994" cy="38.001" rx="2.006" ry="1.999"/>
 </svg>
