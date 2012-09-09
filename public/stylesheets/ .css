@@ -9,14 +9,14 @@
   width: 480px;
   height: 320px;
 }
-.z1 > .msg.s.l4 > p {
+.z1 > .msg.s .l4 > p {
   margin-top: -12px;
   font-size: 216px;
   line-height: 320px;
   letter-spacing: 0px;
   text-align: center;
 }
-.z1 > .msg.s.l15 > p {
+.z1 > .msg.s .l15 > p {
   margin-top: 8px;
   font-size: 144px;
   line-height: 80px;
@@ -40,14 +40,14 @@
   width: 240px;
   height: 160px;
 }
-.z2 > .msg.s.l4 > p {
+.z2 > .msg.s .l4 > p {
   margin-top: -6px;
   font-size: 108px;
   line-height: 160px;
   letter-spacing: 0px;
   text-align: center;
 }
-.z2 > .msg.s.l15 > p {
+.z2 > .msg.s .l15 > p {
   margin-top: 4px;
   font-size: 72px;
   line-height: 40px;
@@ -71,14 +71,14 @@
   width: 120px;
   height: 80px;
 }
-.z4 > .msg.s.l4 > p {
+.z4 > .msg.s .l4 > p {
   margin-top: -3px;
   font-size: 54px;
   line-height: 80px;
   letter-spacing: 0px;
   text-align: center;
 }
-.z4 > .msg.s.l15 > p {
+.z4 > .msg.s .l15 > p {
   margin-top: 2px;
   font-size: 36px;
   line-height: 20px;
@@ -102,14 +102,14 @@
   width: 48px;
   height: 32px;
 }
-.z10 > .msg.s.l4 > p {
+.z10 > .msg.s .l4 > p {
   margin-top: -1.2px;
   font-size: 21.6px;
   line-height: 32px;
   letter-spacing: 0px;
   text-align: center;
 }
-.z10 > .msg.s.l15 > p {
+.z10 > .msg.s .l15 > p {
   margin-top: 0.8px;
   font-size: 14.4px;
   line-height: 8px;
@@ -133,14 +133,14 @@
   width: 24px;
   height: 16px;
 }
-.z20 > .msg.s.l4 > p {
+.z20 > .msg.s .l4 > p {
   margin-top: -0.6px;
   font-size: 10.8px;
   line-height: 16px;
   letter-spacing: 0px;
   text-align: center;
 }
-.z20 > .msg.s.l15 > p {
+.z20 > .msg.s .l15 > p {
   margin-top: 0.4px;
   font-size: 7.2px;
   line-height: 4px;
@@ -164,14 +164,14 @@
   width: 12px;
   height: 8px;
 }
-.z40 > .msg.s.l4 > p {
+.z40 > .msg.s .l4 > p {
   margin-top: -0.3px;
   font-size: 5.4px;
   line-height: 8px;
   letter-spacing: 0px;
   text-align: center;
 }
-.z40 > .msg.s.l15 > p {
+.z40 > .msg.s .l15 > p {
   margin-top: 0.2px;
   font-size: 3.6px;
   line-height: 2px;
