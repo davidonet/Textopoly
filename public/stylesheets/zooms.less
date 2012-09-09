@@ -1,0 +1,139 @@
+/***********************************************************************************
+ *  DIFFERENTS ZOOM LEVELS
+ ***********************************************************************************/
+
+/* MSG SIZE & TYPOGRAPHY DEFAULT*/
+
+.s(@zoom){
+  width: 480px/@zoom;
+  height: 320px/@zoom;
+    &.l4 {
+        >p{
+          margin-top: -12px/@zoom;
+          font-size: 216px/@zoom;
+          line-height: 320px/@zoom;
+          letter-spacing: 0px/@zoom;    
+          text-align: center;         
+        }
+  }
+}
+
+.l(@zoom){
+  width: 960px/@zoom;
+  height: 320px/@zoom;
+}
+
+.t(@zoom){
+  width: 480px/@zoom;
+  height: 640px/@zoom;
+}
+
+.f(@zoom){
+  width: 960px/@zoom;
+  height: 640px/@zoom;
+}
+
+/* MSG FONT */
+
+
+/* Z1 */
+
+.z1 {
+  >.msg.s{
+    .s(1);
+}
+  >.msg.l{
+    .l(1);
+}
+  >.msg.t{
+    .t(1);
+}
+  >.msg.f{
+    .f(1);
+}
+}
+
+/* Z2 */
+
+.z2 {
+  >.msg.s{
+    .s(2);
+}
+  >.msg.l{
+    .l(2);
+}
+  >.msg.t{
+    .t(2);
+}
+  >.msg.f{
+    .f(2);
+}
+}
+
+/* Z4 */
+
+.z4 {
+  >.msg.s{
+    .s(4);
+}
+  >.msg.l{
+    .l(4);
+}
+  >.msg.t{
+    .t(4);
+}
+  >.msg.f{
+    .f(4);
+}
+}
+
+/* Z10 */
+
+.z4 {
+  >.msg.s{
+    .s(10);
+}
+  >.msg.l{
+    .l(10);
+}
+  >.msg.t{
+    .t(10);
+}
+  >.msg.f{
+    .f(10);
+}
+}
+
+/* Z20 */
+
+.z4 {
+  >.msg.s{
+    .s(20);
+}
+  >.msg.l{
+    .l(20);
+}
+  >.msg.t{
+    .t(20);
+}
+  >.msg.f{
+    .f(20);
+}
+}
+
+/* Z40 */
+
+.z4 {
+  >.msg.s{
+    .s(40);
+}
+  >.msg.l{
+    .l(40);
+}
+  >.msg.t{
+    .t(40);
+}
+  >.msg.f{
+    .f(40);
+}
+}

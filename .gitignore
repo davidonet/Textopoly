@@ -2,3 +2,5 @@ node_modules
 sensible.js
 
 .pydevproject
+
+public/stylesheets/.DS_Store

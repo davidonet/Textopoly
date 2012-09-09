@@ -1,0 +1,86 @@
+/* TEXTOPOLY ICON SET */
+
+/* POIGNÉES */
+
+.handle {
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	display: block;
+	position: absolute;
+	cursor: default;
+	border: solid 2px #eeeeec; /* Aluminium 2 Darker */
+	background-color: #888a85; /* Aluminium 2 Lighter */
+}
+.handle:hover {
+	background-color: #555753; /* Aluminium 2 */
+}
+
+
+/* Cancel */
+.ca {
+	background-image: url('icons/cancel.svg');
+}
+
+.ca:hover {
+	background-color: #CC0000;
+}
+
+/* Delete */
+.de {
+	background-image: url('icons/delete.svg');
+}
+
+.de:hover {
+	background-color: #CC0000;
+}
+
+
+/* OK */
+.ok {
+	background-image: url('icons/accept.svg');
+}
+.ok:hover {
+	background-color: #73D216;
+}
+
+/* MEDIA */
+
+.me {
+	background-image: url('icons/media.svg');
+}
+
+/* TEXTE */
+
+.tx {
+	background-image: url('icons/text.svg');
+}
+
+/* INFO */
+
+.in {
+	background-image: url('icons/information.svg');
+}
+
+/* CHEMIN */
+
+.pa {
+	background-image: url('icons/path.svg');
+}
+/* FLÈCHE DROITE */
+.ar {
+	background-image: url('icons/arrow_right.svg');
+}
+
+/* FLÈCHE GAUCHE */
+.al {
+	background-image: url('icons/arrow_left.svg');
+}
+/* FLÈCHE HAUT */
+.au {
+	background-image: url('icons/arrow_up.svg');
+}
+/* FLÈCHE BAS */
+.ad {
+	background-image: url('icons/arrow_down.svg');
+}

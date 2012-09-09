@@ -1,0 +1,44 @@
+/***********************************************************************************
+ *  MAIN LESS
+ ***********************************************************************************/
+@NotCourier: "NotCourierSansRegular", monospace;
+@Futura: 'FuturaCondensedMedium';
+
+/* VALEURS GLOBALES*/
+
+html {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-user-select: none;
+}
+
+body {
+  height: 100%;
+  
+  &.default {
+      background: @aluminium1;
+      }
+  &.pathMode {
+      background: @aluminium2;    
+  }
+  
+}
+
+.msg {
+  display: block;
+  position: absolute;
+  cursor: default;
+  border:solid 1px;
+}
+
+.msg > p, textarea#write {
+  font-family: @NotCourier;
+  color: @aluminium2D;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  word-wrap: break-word;
+}
+
+.msg > img {
+  width: 100%;
+  height: 100%;
+}
