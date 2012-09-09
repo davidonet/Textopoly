@@ -1,43 +1,9 @@
-/***********************************************************************************
- *  DIFFERENTS ZOOM LEVELS
- ***********************************************************************************/
-
-/* MSG SIZE & TYPOGRAPHY DEFAULT*/
-
-/* SMALL*/
+/* MSG SIZE DEFAULT*/
 
 .small(@zoom) {
   width: 480px/@zoom;
   height: 320px/@zoom;
-  
-  
-  
-  &.l4 {
-    
-          >p{
-          margin-top: -12px/@zoom;
-          font-size: 216px/@zoom;
-          line-height: 320px/@zoom;
-          letter-spacing: 0px/@zoom;    
-          text-align: center;         
-        }
-      }
- 
- 
- 
-  &.l15 {
-          >p{
-  margin-top: 8px/@zoom;
-  font-size: 144px/@zoom;
-  line-height: 80px/@zoom;
-  letter-spacing: 0px/@zoom;
-  text-align: center;
-       }        
-      }  
-  
 }
-
-
 
 .long(@zoom){
   width: 960px/@zoom;
@@ -54,7 +20,257 @@
   height: 640px/@zoom;
 }
 
-/* MSG FONT */
+/* MSG TYPOGRAPHY DEFAULT*/
+
+/* lS is for SMALL*/
+
+.lS(@zoom) {
+  
+   &.l4 {
+         >p {
+          margin-top: -12px/@zoom;
+          font-size: 216px/@zoom;
+          line-height: 320px/@zoom;
+          letter-spacing: 0px/@zoom;    
+          text-align: center;         
+        }
+      }
+ 
+   &.l15 {
+          >p{
+           margin-top: 8px/@zoom;
+           font-size: 144px/@zoom;
+           line-height: 80px/@zoom;
+           letter-spacing: 0px/@zoom;
+           text-align: center;
+         }        
+      }  
+
+   &.l50 {
+          >p{
+            margin-top: -4px/@zoom;
+            font-size: 48px/@zoom;
+            line-height: 80px/@zoom;
+            letter-spacing: 0px/@zoom;
+                        text-align: left;
+
+         }        
+      }
+   &.l150 {
+          >p{
+    margin-top: 0px/@zoom;
+    font-size: 36px/@zoom;
+    line-height: 40px/@zoom;
+    text-align: left;
+    letter-spacing: 0px/@zoom;
+         } 
+         }  
+    &.l300 {
+          >p{
+    margin-top: 14px/@zoom;
+    font-size: 24px/@zoom;
+    line-height: 20px/@zoom;
+    text-align: left;
+    letter-spacing: 4px/@zoom;
+         }  
+         }  
+      &.l600 {
+          >p{
+    margin-top: 16px/@zoom;
+    font-size: 14px/@zoom;
+    line-height: 20px/@zoom;
+    text-align: justify;
+    letter-spacing: 2px/@zoom;
+         }               
+      }      
+}
+
+/* lL is for LONG*/
+.lL(@zoom) {
+  
+   &.l4 {
+         >p {
+    margin-top: -38px/@zoom;
+    font-size: 372px/@zoom;
+    line-height: 320px/@zoom;
+    text-align: center;
+    letter-spacing: 60px/@zoom;         
+        }
+      }
+ 
+   &.l15 {
+          >p{
+    margin-top: 114px/@zoom;
+    font-size: 120px/@zoom;
+    line-height: 80px/@zoom;
+    text-align: center;
+    letter-spacing: -24px/@zoom;
+         }        
+      }  
+
+   &.l50 {
+          >p{
+    margin-top: 2px/@zoom;
+    font-size: 96px/@zoom;
+    line-height: 80px/@zoom;
+    text-align: right;
+    letter-spacing: 0px/@zoom;
+         }        
+      }
+   &.l150 {
+          >p{
+    margin-top: 12px/@zoom;
+    font-size: 60px/@zoom;
+    line-height: 40px/@zoom;
+    text-align: center;
+    letter-spacing: 0px/@zoom;
+         } 
+         }  
+    &.l300 {
+          >p{
+    margin-top: 0px/@zoom;
+    font-size: 36px/@zoom;
+    line-height: 40px/@zoom;
+    text-align: justify;
+    letter-spacing: 0px/@zoom;
+         }  
+         }  
+      &.l600 {
+          >p{
+    margin-top: 34px/@zoom;
+    font-size: 24px/@zoom;
+    line-height: 20px/@zoom;
+    text-align: justify;
+    letter-spacing: 4px/@zoom;
+         }               
+      }      
+}
+
+/* lT is for TALL*/
+.lT(@zoom) {
+  
+   &.l4 {
+         >p {
+    margin-top: 116px/@zoom;
+    font-size: 324px/@zoom;
+    line-height: 320px/@zoom;
+    text-align: justify;
+    letter-spacing: -80px/@zoom;      
+        }
+      }
+ 
+   &.l15 {
+          >p{
+    margin-top: 10px/@zoom;
+    font-size: 140px/@zoom;
+    line-height: 200px/@zoom;
+    text-align: justify;
+    letter-spacing: 0px/@zoom;
+         }        
+      }  
+
+   &.l50 {
+          >p{
+    margin-top: 2px/@zoom;
+    font-size: 96px/@zoom;
+    line-height: 80px/@zoom;
+    text-align: right;
+    letter-spacing: 0px/@zoom;
+         }        
+      }
+   &.l150 {
+          >p{
+    margin-top: 0px/@zoom;
+    font-size: 36px/@zoom;
+    line-height: 80px/@zoom;
+    text-align: justify;
+    letter-spacing: 0px/@zoom;
+         } 
+         }  
+    &.l300 {
+          >p{
+    margin-top: 0px/@zoom;
+    font-size: 36px/@zoom;
+    line-height: 40px/@zoom;
+    text-align: left;
+    letter-spacing: -2px/@zoom;
+         }  
+         }  
+      &.l600 {
+          >p{
+    margin-top: 4px/@zoom;
+    font-size: 24px/@zoom;
+    line-height: 40px/@zoom;
+    text-align: justify;
+    letter-spacing: -4px/@zoom;
+         }               
+      }      
+}
+/* lF is for FAT*/
+.lF(@zoom) {
+  
+   &.l4 {
+         >p {
+    margin-top: 2px/@zoom;
+    font-size: 444px/@zoom;
+    line-height: 640px/@zoom;
+    text-align: center;
+    letter-spacing: 40px/@zoom;     
+        }
+      }
+ 
+   &.l15 {
+          >p{
+    margin-top: 80px/@zoom;
+    font-size: 240px/@zoom;
+    line-height: 160px/@zoom;
+    text-align: left;
+    letter-spacing: 0px/@zoom;
+         }        
+      }  
+
+   &.l50 {
+          >p{
+    margin-top: 0px/@zoom;
+    font-size: 108px/@zoom;
+    line-height: 160px/@zoom;
+    text-align: center;
+    letter-spacing: 0px/@zoom;
+         }        
+      }
+   &.l150 {
+          >p{
+    margin-top: -8px/@zoom;
+    font-size: 72px/@zoom;
+    line-height: 80px/@zoom;
+    text-align: left;
+    letter-spacing: 2px/@zoom;
+         } 
+         }  
+    &.l300 {
+          >p{
+    margin-top: 36px/@zoom;
+    font-size: 50px/@zoom;
+    line-height: 40px/@zoom;
+    text-align: center;
+    letter-spacing: 10px/@zoom;
+         }  
+         }  
+      &.l600 {
+          >p{
+    margin-top: 0px/@zoom;
+    font-size: 36px/@zoom;
+    line-height: 40px/@zoom;
+    text-align: justify;
+    letter-spacing: 0px/@zoom;
+         }               
+      }      
+}
+
+/***********************************************************************************
+ *  DIFFERENTS ZOOM LEVELS
+ ***********************************************************************************/
+
 
 
 /* Z1 */
@@ -62,15 +278,19 @@
 .z1 {
   >.msg.s{
     .small(1);
+    .lS(1);
 }
   >.msg.l{
     .long(1);
+    .lL(1);
 }
   >.msg.t{
     .tall(1);
+    .lT(1);
 }
   >.msg.f{
     .fat(1);
+    .lF(1);
 }
 }
 
@@ -79,15 +299,19 @@
 .z2 {
   >.msg.s{
     .small(2);
+    .lS(2)
 }
   >.msg.l{
     .long(2);
+    .lL(2);
 }
   >.msg.t{
     .tall(2);
+    .lT(2);
 }
   >.msg.f{
     .fat(2);
+    .lF(2);
 }
 }
 
@@ -96,15 +320,19 @@
 .z4 {
   >.msg.s{
     .small(4);
+    .lS(4);
 }
   >.msg.l{
     .long(4);
+    .lL(4);
 }
   >.msg.t{
     .tall(4);
+    .lT(4);
 }
   >.msg.f{
     .fat(4);
+    .lF(4);
 }
 }
 
@@ -113,15 +341,19 @@
 .z10 {
   >.msg.s{
     .small(10);
+    .lS(10);
 }
   >.msg.l{
     .long(10);
+    .lL(10);
 }
   >.msg.t{
     .tall(10);
+    .lT(10);
 }
   >.msg.f{
     .fat(10);
+    .lF(10);
 }
 }
 
