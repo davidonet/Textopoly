@@ -49,6 +49,7 @@ app.configure('production', function() {
 	app.use(express.errorHandler());
 });
 
-require('./routes')(app);
+var libpath = (process.env.YOUR_LIBRARY_NAME_COV ? './routes-cov' : './routes');
+require(libpath)(app);
 
 app.listen(3000);
