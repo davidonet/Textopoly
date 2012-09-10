@@ -5,7 +5,6 @@ define(["helper"], function(helper) {
 			if (aMsg !== undefined) {
 				if (0 === aMsg.length) {
 					var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c).appendTo("#map");
-					newTxt.hide();
 					if (data !== undefined) {
 						if (data.t !== undefined) {
 							newTxt.addClass(helper.txtLen2Class(data.t.length));
@@ -13,7 +12,7 @@ define(["helper"], function(helper) {
 					}
 					newTxt.attr('dc', data.p);
 					newTxt.css(helper.posToCSS(data.p));
-					
+
 					if (params.zoom < 20) {
 						var newContent;
 						if ('image' === data.c) {
@@ -29,13 +28,10 @@ define(["helper"], function(helper) {
 								newContent = $(document.createElement("p")).addClass("author").text(data.a);
 								newTxt.addClass('l0');
 							}
-							newTxt.fadeIn(1000);
-						}
-						newTxt.append(newContent);
-					} else {
-						newTxt.fadeIn(1500);
-					}
 
+						}
+						newContent.appendTo(newTxt);
+					}
 				}
 			}
 		},
