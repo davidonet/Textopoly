@@ -3,7 +3,7 @@ requirejs.config({
 		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
 	}
 });
-require(["jquery", "jquery-ui", "modeHandler", "mapModule"], function($, jqui, modeHandler, mapModule) {
+require(["jquery", "jquery-ui", "modeHandler", "mapModule","uievent"], function($, jqui, modeHandler, mapModule,uievent) {
 	$(function() {
 		(function($, sr) {
 			// debouncing function from John Hann
@@ -48,6 +48,7 @@ require(["jquery", "jquery-ui", "modeHandler", "mapModule"], function($, jqui, m
 
 			modeHandler.init();
 			mapModule.init();
+			uievent.init();
 			modeHandler.refresh();
 		});
 	});

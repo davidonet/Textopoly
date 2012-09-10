@@ -1,4 +1,112 @@
 define(["lib/jquery.tipsy"], function() {
+
+	$('.infoArea > .nw.handle').click(function() {
+		$('#informationBox').fadeOut(200);
+		return false;
+
+	});
+
+	// INFOBOX NORTH EAST >  delete action
+	$('.infoArea > .ne.handle').click(function() {
+		var dc = $('#informationBox').attr('dc').split(',');
+		var xGrid = dc[0];
+		var yGrid = dc[1];
+		console.log(xGrid + ' ' + yGrid);
+
+		$('#removebox').dialog({
+			"resizable" : false,
+			"title" : "Suppression ?",
+			buttons : {
+				"Non, je ne préfère pas" : function() {
+					$(this).dialog("close");
+				},
+				"Oui" : function() {
+					$(this).dialog("close");
+					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
+						$('#informationBox').fadeOut(500);
+					});
+				}
+			}
+
+		});
+		return false;
+	});
+
+	// INFOBOX SOUTH EAST >  display msgInfo
+	$('.infoArea > .se.handle').click(function() {
+		var dc = $('#informationBox').attr('dc').split(',');
+		userinfo.msgInfo(dc[0], dc[1], function(data) {
+			$('#infoname').text('Écrit par : ' + data.a);
+			var aDate = new Date(data.d);
+			$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
+			$("a[href='#permalink']").attr('href', 'http://dev.textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+
+		});
+		$('.infoArea > .msgInfo').toggle('slow', function() {
+			// Animation complete.
+		});
+		return false;
+	});
+
+	bindMsg = function() {
+
+		$('.msg').click(function(event) {
+			var elt = this;
+			var position = $(elt).position();
+			// récupère la position absolue d'un élément .fz
+			var xPos = position.left;
+			var yPos = position.top;
+			isBooked = $(elt).hasClass('l0');
+			isImage = $(elt).hasClass('image');
+
+			if (isBooked === true && isImage === false) {
+				// rien ne se passe
+				console.log("Booked msg");
+
+			} else {
+
+				resetWritingBox();
+				// positionnement du formulaire d'écriture
+				//$('#writingBox').fadeOut(100);
+				$('.infoArea > .msgInfo').hide();
+				$('#informationBox').css({
+					'left' : xPos - 10,
+					'top' : yPos - 10
+				});
+				$('#informationBox').fadeIn(100);
+
+				// récupère la position
+				var dc = $(elt).attr('dc');
+
+				$('#informationBox').attr('dc', dc);
+
+				// règle la taille en fonction du type de case
+
+				if ($(elt).hasClass('s')) {
+
+					$('.infoArea').switchClass('l t f', 's', delay, function() {
+						helper.handlesPos('.infoArea');
+					});
+				} else if ($(elt).hasClass('l')) {
+
+					$('.infoArea').switchClass('s t f', 'l', delay, function() {
+						helper.handlesPos('.infoArea');
+					});
+				} else if ($(elt).hasClass('t')) {
+
+					$('.infoArea').switchClass('s l f', 't', delay, function() {
+						helper.handlesPos('.infoArea');
+					});
+				} else if ($(elt).hasClass('f')) {
+
+					$('.infoArea').switchClass('s l t', 'f', delay, function() {
+						helper.handlesPos('.infoArea');
+					});
+				}
+			}
+			return false;
+		});
+	};
 	return {
 		init : function() {
 			$('.editArea > .nw.handle').tipsy({
@@ -57,6 +165,7 @@ define(["lib/jquery.tipsy"], function() {
 				gravity : 'w' // gravity
 			});
 
-		}
+		},
+		bindMsg : bindMsg
 	};
 });

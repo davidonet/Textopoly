@@ -1,4 +1,4 @@
-define(['helper', 'defaultMode'], function(helper, defaultMode) {
+define(['helper', 'defaultMode', 'writeMode'], function(helper, defaultMode, writeMode) {
 	params.currentMode = 'default';
 	var currentMode = defaultMode;
 
@@ -10,11 +10,15 @@ define(['helper', 'defaultMode'], function(helper, defaultMode) {
 	};
 
 	function changeMode(newMode) {
+		currentMode.leave();
 		$(params.currentMode).switchClass(params.currentMode, newMode, 500);
 		params.currentMode = newMode;
 		if (params.currentMode == 'default') {
 			currentMode = defaultMode;
+		} else if (params.currentMode == 'writeMode') {
+			currentMode = writeMode;
 		}
+		currentMode.init();
 		refresh();
 	}
 
@@ -36,9 +40,11 @@ define(['helper', 'defaultMode'], function(helper, defaultMode) {
 				return false;
 			});
 			helper.btnClic("#btnCenter", function(event) {
+				$('#map').animate({
+					left : 0,
+					top : 0
+				});
 				changeMode('default');
-				params.xcenter = 0;
-				params.ycenter = 0;
 				return false;
 			});
 		},

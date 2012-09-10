@@ -1,4 +1,4 @@
-define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, pathWalk) {
+define(['helper', 'pathWalk'], function(helper, pathWalk) {
 
 	function computeCellSize() {
 		switch(params.zoom) {
@@ -89,31 +89,6 @@ define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, path
 		return zoom;
 	}
 
-	var handleMouseWheel = function(e) {
-		var delta = 0, element = $('#zoomSlider'), value, result;
-		value = element.slider('value');
-
-		if (e.wheelDelta) {
-			delta = -e.wheelDelta;
-		}
-		if (e.detail) {
-			delta = e.detail * 4;
-		}
-
-		value -= delta / 128;
-		if (value > 5) {
-			value = 5;
-		}
-		if (value < 0) {
-			value = 0;
-		}
-
-		if (result !== false) {
-			element.slider('value', value);
-		}
-		return false;
-	};
-
 	var zoomTo = function(zoomLevel) {
 		$('#writingBox').hide();
 		$('#informationBox').hide();
@@ -150,7 +125,9 @@ define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, path
 			});
 			computeCellSize();
 			computeParams();
-			modeHandler.refresh();
+			require(["modeHandler"], function(modeHandler) {
+				modeHandler.refresh();
+			});
 		});
 	};
 
@@ -162,7 +139,7 @@ define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, path
 				if (event.pageX !== null) {
 					var x = event.pageX - (params.stepx / 2), y = event.pageY - (params.stepy / 2);
 					var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
-					$("#posInfo").text(posX+','+posY);
+					$("#posInfo").text(posX + ',' + posY);
 				}
 			});
 
@@ -176,7 +153,9 @@ define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, path
 						"xmax" : xmin + params.txtwidth + 2,
 						"ymax" : ymin + params.txtheight + 2
 					};
-					modeHandler.refresh(lparam);
+					require(["modeHandler"], function(modeHandler) {
+						modeHandler.refresh(lparam);
+					});
 				},
 				start : function(event, ui) {
 					pathWalk.hidePath();
@@ -194,21 +173,10 @@ define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, path
 					"xmax" : xmin + params.txtwidth,
 					"ymax" : ymin + params.txtheight
 				};
-
-				modeHandler.refresh(lparam);
+				require(["modeHandler"], function(modeHandler) {
+					modeHandler.refresh(lparam);
+				});
 			});
-
-			// Réglage du zoomSlider
-			if ($.browser.webkit) {
-				window.addEventListener('mousewheel', handleMouseWheel, false);
-				// Chrome/Safari
-			} else if ($.browser.mozilla) {
-				window.addEventListener('DOMMouseScroll', handleMouseWheel, false);
-				// Firefox
-			} else {
-				window.addEventListener('mousewheel', handleMouseWheel, false);
-				// others (Opera, Explorer9)
-			}
 
 			$('#zoomSlider').slider({
 				orientation : "vertical",
