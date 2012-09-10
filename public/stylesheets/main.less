@@ -2,9 +2,11 @@
  *  MAIN LESS
  ***********************************************************************************/
 @NotCourier: "NotCourierSansRegular", monospace;
-@Futura: 'FuturaCondensedMedium';
+@Futura: 'FuturaCondensedMedium',sans-serif;
 
-/* VALEURS GLOBALES*/
+@siteWidth: 960px;
+
+/* GLOBALS*/
 
 html {
   -webkit-font-smoothing: subpixel-antialiased;
@@ -23,12 +25,43 @@ body {
   
 }
 
+h1, h2, h3, h4, h5, h6, label, input {
+    font-family: @Futura;
+    text-transform: uppercase;
+    color: @aluminium2;
+    }
+    
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+}
+h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+input {
+    font-size: 14px;
+}
+label {
+    font-size: 14px;
+    letter-spacing: 1px;
+}    
+
+/* MSG DISPLAY */
+
 .msg {
   display: block;
   position: absolute;
-  cursor: default;
-  border:solid 1px;
   overflow: hidden;
+    cursor: move;
+
   
   >p,textarea#write {
   font-family: @NotCourier;
@@ -37,9 +70,63 @@ body {
   -moz-hyphens: auto;
   word-wrap: break-word;
   }
+  
   >img {
   width: 100%;
   height: 100%;
 
 }
 }
+
+/***********************************************************************************
+ *  ZONING
+ ***********************************************************************************/
+
+div#content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+div#map {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: move;
+}
+div#uiWrap {
+    position: relative;
+    width: @siteWidth;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#header {
+    z-index: 1500;
+    font-family: @Futura;
+    position: absolute;
+    width: @siteWidth;
+    top: 0px;
+    margin: 0px auto;
+    background-color: @aluminium1;
+    background-color: @aluminium1L;
+    
+    &.big {
+            height: 120px;   
+    }
+    
+    &.small {
+    height: 42px;
+}
+    >#topbar {
+    position: relative;
+    width: @siteWidth - 20px;
+    height: 4px;
+    top: 0px;
+    margin: 0px auto;
+    background-color: @aluminium2D;
+}
+    
+}
+

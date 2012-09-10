@@ -1,50 +1,4 @@
-/* ZONING DE L'INTERFACE */
 
-div#content {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
-div#map {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	cursor: move;
-}
-div#uiWrap {
-	position: relative;
-	width: 960px;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-div#header {
-	font-family: "FuturaCondensedMedium", sans-serif;
-	position: absolute;
-	z-index: 1500;
-	width: 960px;
-	top: 0px;
-	margin: 0px auto;
-	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
-	cursor: default;
-}
-
-div#header.big {
-	height: 120px;
-}
-div#header.small {
-	height: 42px;
-}
-div#header > #topbar {
-	position: relative;
-	width: 940px;
-	height: 4px;
-	top: 0px;
-	margin: 0px auto;
-	background-color: #2e3436 /* Aluminium 2 Darker */
-}
 div#zoomWrap {
 	position: absolute;
 	top: 120px;
@@ -182,6 +136,8 @@ div#header.small div#blink {
 	height: 32px;
 	background-color: #2e3436; /* Aluminium 2 Darker */
 }
+
+
 /* TOP MENU */
 
 div#topmenu {
