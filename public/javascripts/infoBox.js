@@ -149,12 +149,14 @@ define(["lib/jquery.tipsy"], function() {
 			// INFOBOX SOUTH EAST >  display msgInfo
 			$('.infoArea > .se.handle').click(function() {
 				var dc = $('#informationBox').attr('dc').split(',');
-				userinfo.msgInfo(dc[0], dc[1], function(data) {
-					$('#infoname').text('Écrit par : ' + data.a);
-					var aDate = new Date(data.d);
-					$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
-					$("a[href='#permalink']").attr('href', 'http://dev.textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+				require(["userinfo"], function(userinfo) {
+					userinfo.msgInfo(dc[0], dc[1], function(data) {
+						$('#infoname').text('Écrit par : ' + data.a);
+						var aDate = new Date(data.d);
+						$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
+						$("a[href='#permalink']").attr('href', 'http://dev.textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 
+					});
 				});
 				$('.infoArea > .msgInfo').toggle('slow', function() {
 					// Animation complete.
