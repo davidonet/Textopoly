@@ -15,12 +15,14 @@ define(["helper"], function(helper) {
 				newTxt.css(helper.posToCSS(data.p));
 
 				if (params.zoom < 20) {
-					var newContent = null;
+					
 					if ('image' === data.c) {
-						newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]").hide().load(function() {
+						var newImage = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]").hide().load(function() {
+							$(this).appendTo(newTxt);
 							$(this).fadeIn(1000);
 						});
 					} else {
+						var newContent = null;
 						if (data.t) {
 							// text filled cell
 							newContent = $(document.createElement("p")).text(data.t);
@@ -29,9 +31,9 @@ define(["helper"], function(helper) {
 							newContent = $(document.createElement("p")).addClass("author").text(data.a);
 							newTxt.addClass('l0');
 						}
-
+						$(newContent).appendTo(newTxt);
 					}
-					$(newContent).appendTo(newTxt);
+
 				}
 			}
 		}
