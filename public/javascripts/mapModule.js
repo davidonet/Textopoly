@@ -114,8 +114,57 @@ define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, path
 		return false;
 	};
 
+	var zoomTo = function(zoomLevel) {
+		$('#writingBox').hide();
+		$('#informationBox').hide();
+		$('#map').fadeOut(100, function() {
+			$('#map').removeClass('z1').removeClass('z2').removeClass('z4').removeClass('z10').removeClass('z20').removeClass('z40');
+			params.zoom = zoomLevel;
+			switch(zoomLevel) {
+				case 40:
+					$('#map').addClass('z40');
+					break;
+				case 20:
+					$('#map').addClass('z20');
+					break;
+				case 10:
+					$('#map').addClass('z10');
+					break;
+				case 4:
+					$('#map').addClass('z4');
+					break;
+				case 2:
+					$('#map').addClass('z2');
+					break;
+				case 1:
+					$('#map').addClass('z1');
+			}
+
+			$('.msg').remove();
+			$('svg').remove();
+			params.xcenter = helper.getCenterX();
+			params.ycenter = helper.getCenterY();
+			$('#map').css({
+				top : 0,
+				left : 0
+			});
+			computeCellSize();
+			computeParams();
+			modeHandler.refresh();
+		});
+	};
+
 	return {
+		zoomTo : zoomTo,
 		init : function() {
+
+			$('#content').mousemove(function(event) {
+				if (event.pageX !== null) {
+					var x = event.pageX - (params.stepx / 2), y = event.pageY - (params.stepy / 2);
+					var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
+					$("#posInfo").text(posX+','+posY);
+				}
+			});
 
 			$('#map').draggable({
 				stop : function(event, ui) {
@@ -168,54 +217,14 @@ define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, path
 				step : 1,
 				value : getZoomSlider(),
 				change : function() {
-
 					var sliderValue = $(this).slider("option", "value");
 					var zoom = getZoomValue(sliderValue);
 					if (zoom != params.zoom) {
-						$('#writingBox').hide();
-						$('#informationBox').hide();
-						$('#map').fadeOut(100, function() {
-							$('#map').removeClass('z1').removeClass('z2').removeClass('z4').removeClass('z10').removeClass('z20').removeClass('z40');
-							switch(sliderValue) {
-								case 0:
-									params.zoom = 40;
-									$('#map').addClass('z40');
-									break;
-								case 1:
-									params.zoom = 20;
-									$('#map').addClass('z20');
-									break;
-								case 2:
-									params.zoom = 10;
-									$('#map').addClass('z10');
-									break;
-								case 3:
-									params.zoom = 4;
-									$('#map').addClass('z4');
-									break;
-								case 4:
-									params.zoom = 2;
-									$('#map').addClass('z2');
-									break;
-								case 5:
-									params.zoom = 1;
-									$('#map').addClass('z1');
-							}
-							$('.msg').remove();
-							$('svg').remove();
-							params.xcenter = helper.getCenterX();
-							params.ycenter = helper.getCenterY();
-							$('#map').css({
-								top : 0,
-								left : 0
-							});
-							computeCellSize();
-							computeParams();
-							modeHandler.refresh();
-						});
+						zoomTo(zoom);
 					}
 				}
 			});
+
 			computeParams();
 			// center map
 			$('#map').css({
