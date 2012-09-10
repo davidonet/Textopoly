@@ -75,6 +75,7 @@ global.red.unbook = function(aTxt, fn) {
 	normalizePos(aTxt);
 	var multi = this.multi();
 	var x = aTxt.p[0], y = aTxt.p[1];
+	multi.srem("b", (x + 0) + "," + (y + 0));
 	multi.srem("b", (x + 1) + "," + (y + 0));
 	multi.srem("b", (x + 1) + "," + (y + 1));
 	multi.srem("b", (x + 0) + "," + (y + 1));
