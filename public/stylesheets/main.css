@@ -37,16 +37,7 @@ body {
 	background: #BABDB6;
 }
 
-.smooth_zoom_preloader {
-	background-image: url('/images/preloader.gif');
-}
-.smooth_zoom_icons {
-	background-image: url('/images/icons.png);
-}
-
-
-
-.msg > p, textarea[name*=t] {
+.msg > p, textarea#write {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
 	-webkit-hyphens: auto;

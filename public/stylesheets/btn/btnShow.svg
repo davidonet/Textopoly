@@ -3,23 +3,23 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="47" y1="0" x2="47" y2="50"/>
-<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="0" y1="19.156" x2="49.919" y2="19.156"/>
-<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="0.073" y1="31.169" x2="50" y2="31.169"/>
-<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="0" y1="8" x2="50" y2="8"/>
-<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="17" y1="0" x2="17" y2="50"/>
-<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="3" y1="0" x2="3" y2="50"/>
-<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="33" y1="0.367" x2="33" y2="49.726"/>
-<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="50" y1="43" x2="0" y2="43"/>
-<path fill="none" stroke="#555854" stroke-width="2" stroke-miterlimit="10" d="M61.849,60.731
-	c-6.715-20.295-15.062-22.096-36.176-29.519C8,25,4.087,12.881-0.458,1.377"/>
-<path fill="none" stroke="#555854" stroke-width="2" stroke-miterlimit="10" d="M62.233-8.567
-	c-3.703-1.144-8.656-5.766-12.331-1.102c-3.676,4.665,2.776,17.795-1.137,19.754c-3.836,1.921-19.823,1.922-30.735,16.415
-	c-8.705,11.562-2.384,16.274,1.33,19.742c3.714,3.465,8.662,6.927,3.761,12.759"/>
-<path fill="none" stroke="#555854" stroke-width="2" stroke-miterlimit="10" d="M21.689-6.59c0,0-3.891-6.547,1.852-1.253
-	C29.283-2.55,37.117,8.996,37.514,21.581C38,37,37.999,55.812,37.27,57.925"/>
-<polygon fill="#FFFFFF" points="34,11 25,2 16,11 25,6.729 "/>
-<polygon fill="#FFFFFF" points="15.999,39 24.999,48 33.998,39 24.999,43.271 "/>
-<polygon fill="#FFFFFF" points="38.999,34.001 47.999,25.001 38.999,16.001 43.271,25.001 "/>
-<polygon fill="#FFFFFF" points="10.999,15.999 1.999,24.999 10.999,33.999 6.728,24.999 "/>
+<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="47.113" y1="0.491" x2="47.113" y2="50.491"/>
+<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="0.113" y1="19.647" x2="50.031" y2="19.647"/>
+<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="0.186" y1="31.66" x2="50.113" y2="31.66"/>
+<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="0.113" y1="8.491" x2="50.113" y2="8.491"/>
+<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="17.113" y1="0.491" x2="17.113" y2="50.491"/>
+<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="3.113" y1="0.491" x2="3.113" y2="50.491"/>
+<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="33.113" y1="0.858" x2="33.113" y2="50.218"/>
+<line fill="none" stroke="#B8BBB4" stroke-width="1.5" stroke-miterlimit="10" x1="50.113" y1="43.491" x2="0.113" y2="43.491"/>
+<path opacity="0.9" fill="none" stroke="#EEEEEC" stroke-width="2" stroke-miterlimit="10" d="M61.963,61.222
+	C55.246,40.927,46.9,39.126,25.786,31.703C8.113,25.491,4.2,13.372-0.345,1.868"/>
+<path opacity="0.9" fill="none" stroke="#EEEEEC" stroke-width="2" stroke-miterlimit="10" d="M62.346-8.076
+	c-3.703-1.144-8.656-5.766-12.33-1.102c-3.676,4.665,2.775,17.795-1.137,19.754c-3.836,1.921-19.824,1.922-30.737,16.416
+	c-8.704,11.562-2.383,16.273,1.33,19.742c3.715,3.465,8.663,6.927,3.762,12.759"/>
+<path opacity="0.9" fill="none" stroke="#EEEEEC" stroke-width="2" stroke-miterlimit="10" d="M21.802-6.099
+	c0,0-3.892-6.547,1.852-1.253C29.396-2.058,37.23,9.487,37.627,22.072c0.486,15.419,0.484,34.232-0.244,36.344"/>
+<polygon fill="#FFFFFF" points="34.113,11.491 25.113,2.491 16.113,11.491 25.113,7.22 "/>
+<polygon fill="#FFFFFF" points="16.112,39.491 25.112,48.491 34.111,39.491 25.112,43.763 "/>
+<polygon fill="#FFFFFF" points="39.111,34.492 48.111,25.492 39.111,16.492 43.385,25.492 "/>
+<polygon fill="#FFFFFF" points="11.112,16.49 2.112,25.49 11.112,34.49 6.841,25.49 "/>
 </svg>

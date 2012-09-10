@@ -32,11 +32,11 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			$('.editArea > .sw.handle').show();
 			$('.editArea > .e.handle').show();
 			$('.editArea > .s.handle').show();
-			$('textarea[name*=t]').val('');
+			$('textarea#write').val('');
 			$('input[name*=image]').val('');
 			$('.imageArea').hide();
 			$('.authorArea').hide();
-			$('textarea[name*=t]').show();
+			$('textarea#write').show();
 			$('#writingBox').removeAttr('dc');
 			textarea = true;
 		});
@@ -127,7 +127,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			'top' : yPos - 10
 		}).fadeIn();
 
-		$('textarea[name*=t]').focus();
+		$('textarea#write').focus();
 		$('.editArea').switchClass('l t f', 's', delay, function() {
 			handlesPos('.editArea');
 		});
@@ -190,6 +190,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				$('.editArea > .e.handle').switchClass('ar', 'al', 0);
 				$('.editArea > .e.handle').show();
 				newSize('l');
+
 			});
 		} else if ($('.editArea').hasClass('l')) {
 
@@ -228,7 +229,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 			$('.editArea > .e.handle').hide();
 			$('.editArea > .s.handle').hide();
 			$('.imageArea').hide();
-			$('textarea[name*=t]').hide();
+			$('textarea#write').hide();
 			$('.authorArea').show();
 
 		} else {
@@ -245,7 +246,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 				'c' : params.c,
 				'x' : dc[0],
 				'y' : dc[1],
-				't' : $('textarea[name*=t]').val(),
+				't' : $('textarea#write').val(),
 				's' : aSize
 			};
 			$.ajax({
@@ -307,9 +308,9 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	// WRITINGBOX SOUTH WEST > media uploader
 	$('.editArea > .sw.handle').click(function() {
 		if (textarea === true) {
-			$('textarea[name*=t]').val('');
+			$('textarea#write').val('');
 			$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
-			$('textarea[name*=t]').hide();
+			$('textarea#write').hide();
 
 			$('.imageArea').show();
 			var dc = $('#writingBox').attr('dc').split(',');
@@ -333,7 +334,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 		} else {
 			$('input[name*=image]').val('');
 			$('.imageArea').hide();
-			$('textarea[name*=t]').show();
+			$('textarea#write').show();
 			$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
 			textarea = true;
 		}
@@ -411,7 +412,7 @@ define(["lib/fileuploader", "pathwalk", "userinfo", "booking", "helper"], functi
 	 * BEGIN SWITCHLIVETYPE
 	 ***********************************************************************************/
 
-	var wT = 'textarea[name*=t]';
+	var wT = 'textarea#write';
 	var wA = '.editArea';
 	// controls character input/counter
 	$(wT).keyup(function() {

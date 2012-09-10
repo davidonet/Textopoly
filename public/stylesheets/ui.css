@@ -20,15 +20,22 @@ div#uiWrap {
 	margin-right: auto;
 }
 div#header {
+	font-family: "FuturaCondensedMedium", sans-serif;
 	position: absolute;
 	z-index: 1500;
 	width: 960px;
-	height: 120px;
 	top: 0px;
 	margin: 0px auto;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	cursor: default;
+}
+
+div#header.big {
+	height: 120px;
+}
+div#header.small {
+	height: 42px;
 }
 div#header > #topbar {
 	position: relative;
@@ -65,7 +72,7 @@ div#main {
 div#bookView {
 	position: absolute;
 	width: 495px;
-	top: 140px;
+	top: 50px;
 	bottom: 40px;
 	margin-left: 10px;
 	overflow: auto;
@@ -81,24 +88,21 @@ div#footer {
 	bottom: 0px;
 	z-index: 2000;
 	width: 960px;
-	height: 40px;
+	height: 20px;
 	border-top: #2e3436 dashed 1px;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
 /* MISE EN FORME*/
 
-/* HEADER */
+/* HEADER BIG*/
 
-div#header {
-	font-family: "FuturaCondensedMedium", sans-serif;
-}
-div#title {
+div#header.big div#title {
 	float: left;
 	width: 320px;
 	height: 84px;
 }
-div#title > h1 {
+div#header.big h1 {
 	float: left;
 	margin-left: 10px;
 	margin-top: 10px;
@@ -107,7 +111,7 @@ div#title > h1 {
 	color: #2e3436; /* Aluminium 2 Darker */
 	letter-spacing: 4px;
 }
-div#title > div#blink {
+div#header.big div#blink {
 	float: left;
 	margin-top: 15px;
 	margin-left: 10px;
@@ -152,6 +156,31 @@ div#slider > p > a {
 }
 div#slider > p > a:hover {
 	color: #555753; /* Aluminium 2 */
+}
+
+/* HEADER SMALL*/
+
+div#header.small div#title {
+	float: left;
+	width: 320px;
+	height: 42px;
+}
+div#header.small h1 {
+	float: left;
+	margin-left: 10px;
+	margin-top: 0px;
+	height: 42px;
+	font-size: 32px;
+	color: #2e3436; /* Aluminium 2 Darker */
+	letter-spacing: 2px;
+}
+div#header.small div#blink {
+	float: left;
+	margin-top: 2px;
+	margin-left: 5px;
+	width: 2px;
+	height: 32px;
+	background-color: #2e3436; /* Aluminium 2 Darker */
 }
 /* TOP MENU */
 
@@ -293,87 +322,66 @@ div#footer > div#options {
 	width: 300px;
 }
 
-div#footer * input[name*=a] {
-
-	float: right;
-}
 /* MSG SURVOLS */
-.fz {
-	position: absolute;
-	display: block;
-	-webkit-transition: background 0.5s;
-	width: 100%;
-	height: 100%;
-}
-.fz:hover {
-	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	cursor: text;
-	-webkit-transition: background 0.25s;
-	-moz-transition: background 0.25s;
-}
+
 .msg.butter, .msg.orange, .msg.chocolate, .msg.chameleon, .msg.skyblue, .msg.plum, .msg.scarletred {
-	-webkit-transition: background 0.5s;
-	-moz-transition: background 0.5s;
+	/*
+	-webkit-transition: background 0.25s;
+	-moz-transition: background 0.25s; */
 }
 
 /* MSG COLORS */
 
 .z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
 	background-color: #fce94f; /* Butter Lighter */
-	-webkit-transition: background 0.25s;
-	-moz-transition: background 0.25s;
+	
+
 }
 .z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
 	background-color: #fcaf3e; /* Orange Lighter */
-	-webkit-transition: background 0.25s;
-	-moz-transition: background 0.25s;
+
 }
 .z1 > .msg.chocolate:hover, .z2 > .msg.chocolate:hover, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
 	background-color: #e9b96e; /* Chocolate Lighter */
-	-webkit-transition: background 0.25s;
-	-moz-transition: background 0.25s;
+
 }
 .z1 > .msg.chameleon:hover, .z2 > .msg.chameleon:hover, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
 	background-color: #8ae234; /* Chameleon Lighter */
-	-webkit-transition: background 0.25s;
-	-moz-transition: background 0.25s;
+
 }
 .z1 > .msg.skyblue:hover, .z2 > .msg.skyblue:hover, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
 	background-color: #729fcf; /* Sky Blue Lighter */
-	-webkit-transition: background 0.25s;
-	-moz-transition: background 0.25s;
+
 }
 .z1 > .msg.plum:hover, .z2 > .msg.plum:hover, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
 	background-color: #ad7fa8; /* Plum Lighter */
-	-webkit-transition: background 0.25s;
-	-moz-transition: background 0.25s;
+
 }
 .z1 > .msg.scarletred:hover, .z2 > .msg.scarletred:hover, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
 	background-color: #ef2929; /* Scarlet Red Lighter */
-	-webkit-transition: background 0.25s;
-	-moz-transition: background 0.25s;
+
 }
 
 .z2 > .msg.butter {
-	background-color: rgba(252, 233, 79, 0.5); /* Butter Lighter */
+	background-color: rgba(252, 233, 79, 0.3); /* Butter Lighter */
 }
 .z2 > .msg.orange {
-	background-color: rgba(252, 175, 62, 0.5); /* Orange Lighter */
+	background-color: rgba(252, 175, 62, 0.3); /* Orange Lighter */
 }
 .z2 > .msg.chocolate {
-	background-color: rgba(233, 185, 110, 0.5); /* Chocolate Lighter */
+	background-color: rgba(233, 185, 110, 0.3); /* Chocolate Lighter */
 }
 .z2 > .msg.chameleon {
-	background-color: rgba(138, 226, 52, 0.5); /* Chameleon Lighter */
+	background-color: rgba(138, 226, 52, 0.3); /* Chameleon Lighter */
 }
 .z2 > .msg.skyblue {
-	background-color: rgba(114, 159, 207, 0.5); /* Sky Blue Lighter */
+	background-color: rgba(114, 159, 207, 0.3); /* Sky Blue Lighter */
 }
 .z2 > .msg.plum {
-	background-color: rgba(173, 127, 168, 0.5); /* Plum Lighter */
+	background-color: rgba(173, 127, 168, 0.3); /* Plum Lighter */
 }
 .z2 > .msg.scarletred {
-	background-color: rgba(239, 41, 41, 0.5); /* Scarlet Red Lighter */
+	background-color: rgba(239, 41, 41, 0.3); /* Scarlet Red Lighter */
 }
 
 /* ZONES EN COURS D'ÉCRITURE */

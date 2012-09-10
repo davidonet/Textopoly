@@ -48,7 +48,7 @@ div.msgInfo {
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
 
-textarea[name*=t] {
+textarea#write {
 	position: relative;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -91,22 +91,22 @@ div.editArea.f, div.infoArea.f, .f > div.msgInfo {
 
 /* TEXT AREA */
 
-div.editArea.s > textarea[name*=t] {
+div.editArea.s > textarea#write {
 
 	width: 220px;
 	height: 160px;
 }
 
-div.editArea.l > textarea[name*=t] {
+div.editArea.l > textarea#write {
 	width: 460px;
 	height: 160px;
 }
 
-div.editArea.t > textarea[name*=t] {
+div.editArea.t > textarea#write {
 	width: 220px;
 	height: 320px;
 }
-div.editArea.f > textarea[name*=t] {
+div.editArea.f > textarea#write {
 	width: 460px;
 	height: 320px;
 }
