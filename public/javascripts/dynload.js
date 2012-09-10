@@ -1,4 +1,4 @@
-define(["txt", 'writemodule'], function(txt, writemodule) {
+define(["txt"], function(txt) {
 	return {
 		loadSection : function(bounds, fn) {
 			txt.removeInvisible();
@@ -10,7 +10,6 @@ define(["txt", 'writemodule'], function(txt, writemodule) {
 					$(section.texts).each(function(index, data) {
 						txt.insert(data);
 					});
-					writemodule.updateClick();
 					fn();
 				}
 			});

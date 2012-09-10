@@ -1,4 +1,4 @@
-define(['lib/jquery.cookie'], function() {
+define(['lib/jquery.cookie', "lib/syronex-colorpicker"], function() {
 	$('#current_author').val($.cookie("author"));
 	$('#current_author').keyup(function() {
 		$.cookie("author", $('#current_author').val());

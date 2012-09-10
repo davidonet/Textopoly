@@ -5,6 +5,7 @@ define(["helper"], function(helper) {
 			if (aMsg !== undefined) {
 				if (0 === aMsg.length) {
 					var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c).appendTo("#map");
+					
 					if (data !== undefined) {
 						if (data.t !== undefined) {
 							newTxt.addClass(helper.txtLen2Class(data.t.length));

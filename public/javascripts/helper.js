@@ -7,6 +7,15 @@ define([], function() {
 		return (p[1] - params.ymin) * params.stepy;
 	}
 
+	var isOn = false;
+	setInterval(function() {
+		if (isOn)
+			$('#blink').hide();
+		else
+			$('#blink').show();
+		isOn = !isOn;
+	}, 1000);
+
 	return {
 		initLeft : (((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2),
 		initTop : (((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2),
