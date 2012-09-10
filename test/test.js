@@ -1,6 +1,7 @@
 var request = require('superagent');
 var app = require('../app');
 var should = require('should');
+var expect = require('expect.js'), Browser = require('zombie'), browser = new Browser();
 
 function testTxt(txt) {
 	txt.should.have.property("a").and.be.a('string');
@@ -124,7 +125,7 @@ describe('Textopoly Server Side', function() {
 		});
 		describe('Cell in section', function() {
 			it("should contains our msg", function(done) {
-				request.get('http://localhost:3000/section?xmin='+(aTxt.p[0]-1)+'&xmax='+(aTxt.p[0]+1)+'&ymin='+(aTxt.p[1]-1)+'&ymax='+(aTxt.p[1]+1)).set('Accept', 'application/json').end(function(res) {
+				request.get('http://localhost:3000/section?xmin=' + (aTxt.p[0] - 1) + '&xmax=' + (aTxt.p[0] + 1) + '&ymin=' + (aTxt.p[1] - 1) + '&ymax=' + (aTxt.p[1] + 1)).set('Accept', 'application/json').end(function(res) {
 					should.exist(res.body);
 					res.body.should.have.property("texts");
 					equalTxt(res.body.texts[0], aTxt);
@@ -161,4 +162,49 @@ describe('Textopoly Server Side', function() {
 			});
 		});
 	});
+	describe('Authors list', function() {
+		it("should give a list of authors", function(done) {
+			request.get('http://localhost:3000/authors').set('Accept', 'application/json').end(function(res) {
+				should.exist(res.body);
+				done();
+			});
+		});
+	});
+	describe('Path list', function() {
+		it("should give a list of paths", function(done) {
+			request.get('http://localhost:3000/allpath').set('Accept', 'application/json').end(function(res) {
+				should.exist(res.body);
+				done();
+			});
+		});
+	});
+	describe('Authors page', function() {
+		it("should give an authors list", function(done) {
+			browser.visit('http://localhost:3000/mauth', function() {
+				done();
+			});
+		});
+	});
+	describe('Author page', function() {
+		it("should give a txt list and pathwalk list", function(done) {
+			browser.visit('http://localhost:3000/mpath/Adrien', function() {
+				done();
+			});
+		});
+	});
+	describe('Path page', function() {
+		it("should give a txt list and pathwalk list", function(done) {
+			browser.visit('http://localhost:3000/mbook/4fc4b9ad4d71520266000120', function() {
+				done();
+			});
+		});
+	});
+	describe('Main page', function() {
+		it("should respond an html page", function(done) {
+			browser.visit('http://localhost:3000/', function() {
+				done();
+			});
+		});
+	});
+
 });

@@ -3,7 +3,7 @@ define(['helper', 'defaultMode', 'writeMode'], function(helper, defaultMode, wri
 	var currentMode = defaultMode;
 
 	var refresh = function(localParams) {
-		console.log("refresh to mode : " + params.currentMode + " at zoom : " + params.zoom + " center : " + params.xcenter + "," + params.ycenter);
+		//console.log("refresh to mode : " + params.currentMode + " at zoom : " + params.zoom + " center : " + params.xcenter + "," + params.ycenter);
 		if (localParams === undefined)
 			localParams = params;
 		currentMode.refresh(localParams);
