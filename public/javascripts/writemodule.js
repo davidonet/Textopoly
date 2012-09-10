@@ -108,11 +108,13 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 
 	// WRITINGBOX NORTH WEST > cancel action
 	$('.editArea > .nw.handle').click(function() {
-		if ($('#writingBox').attr('dc')) {
-			var aDC = $('#writingBox').attr('dc').split(',');
-			booking.unbook(aDC[0], aDC[1]);
-		}
-		resetWritingBox();
+		require(["booking"], function(booking) {
+			if ($('#writingBox').attr('dc')) {
+				var aDC = $('#writingBox').attr('dc').split(',');
+				booking.unbook(aDC[0], aDC[1]);
+			}
+			resetWritingBox();
+		});
 		return false;
 	});
 	// WRITINGBOX EAST > scale box on X direction

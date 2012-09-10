@@ -1,4 +1,4 @@
-define(['helper'], function(helper) {
+define(['helper',"infoBox"], function(helper,infoBox) {
 	var handleMouseWheel = function(e) {
 		var delta = 0, element = $('#zoomSlider'), value, result;
 		value = element.slider('value');
@@ -60,6 +60,7 @@ define(['helper'], function(helper) {
 			helper.btnOver("#btnShow");
 			helper.btnOver("#btnFind");
 			bindZoom();
+			infoBox.init();
 		},
 		bindZoom : bindZoom,
 		unbindZoom : unbindZoom

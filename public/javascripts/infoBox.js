@@ -1,56 +1,9 @@
 define(["lib/jquery.tipsy"], function() {
-
-	$('.infoArea > .nw.handle').click(function() {
-		$('#informationBox').fadeOut(200);
-		return false;
-
-	});
-
-	// INFOBOX NORTH EAST >  delete action
-	$('.infoArea > .ne.handle').click(function() {
-		var dc = $('#informationBox').attr('dc').split(',');
-		var xGrid = dc[0];
-		var yGrid = dc[1];
-		console.log(xGrid + ' ' + yGrid);
-
-		$('#removebox').dialog({
-			"resizable" : false,
-			"title" : "Suppression ?",
-			buttons : {
-				"Non, je ne préfère pas" : function() {
-					$(this).dialog("close");
-				},
-				"Oui" : function() {
-					$(this).dialog("close");
-					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
-						$('#informationBox').fadeOut(500);
-					});
-				}
-			}
-
-		});
-		return false;
-	});
-
-	// INFOBOX SOUTH EAST >  display msgInfo
-	$('.infoArea > .se.handle').click(function() {
-		var dc = $('#informationBox').attr('dc').split(',');
-		userinfo.msgInfo(dc[0], dc[1], function(data) {
-			$('#infoname').text('Écrit par : ' + data.a);
-			var aDate = new Date(data.d);
-			$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
-			$("a[href='#permalink']").attr('href', 'http://dev.textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
-
-		});
-		$('.infoArea > .msgInfo').toggle('slow', function() {
-			// Animation complete.
-		});
-		return false;
-	});
-
+	var delay = 150;
 	bindMsg = function() {
 
 		$('.msg').click(function(event) {
+
 			var elt = this;
 			var position = $(elt).position();
 			// récupère la position absolue d'un élément .fz
@@ -60,12 +13,8 @@ define(["lib/jquery.tipsy"], function() {
 			isImage = $(elt).hasClass('image');
 
 			if (isBooked === true && isImage === false) {
-				// rien ne se passe
-				console.log("Booked msg");
-
 			} else {
 
-				resetWritingBox();
 				// positionnement du formulaire d'écriture
 				//$('#writingBox').fadeOut(100);
 				$('.infoArea > .msgInfo').hide();
@@ -81,28 +30,29 @@ define(["lib/jquery.tipsy"], function() {
 				$('#informationBox').attr('dc', dc);
 
 				// règle la taille en fonction du type de case
+				require(["helper"], function(helper) {
+					if ($(elt).hasClass('s')) {
 
-				if ($(elt).hasClass('s')) {
+						$('.infoArea').switchClass('l t f', 's', delay, function() {
+							helper.handlesPos('.infoArea');
+						});
+					} else if ($(elt).hasClass('l')) {
 
-					$('.infoArea').switchClass('l t f', 's', delay, function() {
-						helper.handlesPos('.infoArea');
-					});
-				} else if ($(elt).hasClass('l')) {
+						$('.infoArea').switchClass('s t f', 'l', delay, function() {
+							helper.handlesPos('.infoArea');
+						});
+					} else if ($(elt).hasClass('t')) {
 
-					$('.infoArea').switchClass('s t f', 'l', delay, function() {
-						helper.handlesPos('.infoArea');
-					});
-				} else if ($(elt).hasClass('t')) {
+						$('.infoArea').switchClass('s l f', 't', delay, function() {
+							helper.handlesPos('.infoArea');
+						});
+					} else if ($(elt).hasClass('f')) {
 
-					$('.infoArea').switchClass('s l f', 't', delay, function() {
-						helper.handlesPos('.infoArea');
-					});
-				} else if ($(elt).hasClass('f')) {
-
-					$('.infoArea').switchClass('s l t', 'f', delay, function() {
-						helper.handlesPos('.infoArea');
-					});
-				}
+						$('.infoArea').switchClass('s l t', 'f', delay, function() {
+							helper.handlesPos('.infoArea');
+						});
+					}
+				});
 			}
 			return false;
 		});
@@ -165,7 +115,57 @@ define(["lib/jquery.tipsy"], function() {
 				gravity : 'w' // gravity
 			});
 
+			$('.infoArea > .nw.handle').click(function() {
+				$('#informationBox').fadeOut(200);
+				return false;
+
+			});
+
+			// INFOBOX NORTH EAST >  delete action
+			$('.infoArea > .ne.handle').click(function() {
+				var dc = $('#informationBox').attr('dc').split(',');
+				var xGrid = dc[0];
+				var yGrid = dc[1];
+
+				$('#removebox').dialog({
+					"resizable" : false,
+					"title" : "Suppression ?",
+					buttons : {
+						"Non, je ne préfère pas" : function() {
+							$(this).dialog("close");
+						},
+						"Oui" : function() {
+							$(this).dialog("close");
+							$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
+								$('#informationBox').fadeOut(500);
+							});
+						}
+					}
+
+				});
+				return false;
+			});
+
+			// INFOBOX SOUTH EAST >  display msgInfo
+			$('.infoArea > .se.handle').click(function() {
+				var dc = $('#informationBox').attr('dc').split(',');
+				userinfo.msgInfo(dc[0], dc[1], function(data) {
+					$('#infoname').text('Écrit par : ' + data.a);
+					var aDate = new Date(data.d);
+					$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
+					$("a[href='#permalink']").attr('href', 'http://dev.textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+
+				});
+				$('.infoArea > .msgInfo').toggle('slow', function() {
+					// Animation complete.
+				});
+				return false;
+			});
+			bindMsg();
 		},
-		bindMsg : bindMsg
+		bindMsg : bindMsg,
+		unbindMsg : function() {
+			$('.msg').unbind('click');
+		}
 	};
 });
