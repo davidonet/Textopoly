@@ -5,7 +5,7 @@ define(["helper"], function(helper) {
 			if (aMsg !== undefined) {
 				if (0 === aMsg.length) {
 					var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c).appendTo("#map");
-					
+
 					if (data !== undefined) {
 						if (data.t !== undefined) {
 							newTxt.addClass(helper.txtLen2Class(data.t.length));
@@ -15,10 +15,10 @@ define(["helper"], function(helper) {
 					newTxt.css(helper.posToCSS(data.p));
 
 					if (params.zoom < 20) {
-						var newContent;
+						var newContent = null;
 						if ('image' === data.c) {
-							newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]").load(function() {
-								newTxt.fadeIn(1000);
+							newContent = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]").hide().load(function() {
+								$(this).fadeIn(1000);
 							});
 						} else {
 							if (data.t) {
@@ -31,7 +31,7 @@ define(["helper"], function(helper) {
 							}
 
 						}
-						newContent.appendTo(newTxt);
+						$(newContent).appendTo(newTxt);
 					}
 				}
 			}

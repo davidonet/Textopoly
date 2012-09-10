@@ -1,13 +1,13 @@
-define(["dynload", "pathwalk"], function(dynload, pathwalk) {
+define(["dynload", "pathWalk"], function(dynload, pathWalk) {
 	return {
-		refresh : function() {
+		refresh : function(localParams) {
 			var postTxtLoad = function() {
 			};
 			if ((2 < params.zoom) && (params.zoom < 20)) {
 				//Activate path display
-				postTxtLoad = pathwalk.updatePath;
+				postTxtLoad = pathWalk.updatePath;
 			}
-			dynload.loadSection(params, postTxtLoad);
+			dynload.loadSection(localParams, postTxtLoad);
 		}
 	};
 });

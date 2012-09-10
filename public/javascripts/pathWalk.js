@@ -121,23 +121,22 @@ define(['helper'], function(helper) {
 			$('svg').remove();
 		},
 		updatePath : function() {
-			if (params.zoom != 2) {
-				paper = Raphael('content');
-				$('svg').hide();
-				$.getJSON('/allpath', function(data) {
-					$(data).each(function(index, path) {
-						drawPath(path.pw);
-					});
-					$('svg').css({
-						'z-index' : '-10',
-						'position' : 'fixed',
-						'top' : '0px',
-						'left' : '0px'
-					});
-					$('#uiWrap').after($('svg'));
-					$('svg').fadeIn(300);
+			$('svg').remove();
+			paper = Raphael('content');
+			$('svg').hide();
+			$.getJSON('/allpath', function(data) {
+				$(data).each(function(index, path) {
+					drawPath(path.pw);
 				});
-			}
+				$('svg').css({
+					'z-index' : '-10',
+					'position' : 'fixed',
+					'top' : '0px',
+					'left' : '0px'
+				});
+				$('#uiWrap').after($('svg'));
+				$('svg').fadeIn(300);
+			});
 		}
 	};
 });

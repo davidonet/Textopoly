@@ -1,4 +1,4 @@
-define(['helper','modeHandler'], function(helper,modeHandler) {
+define(['helper', 'modeHandler', 'pathWalk'], function(helper, modeHandler, pathWalk) {
 
 	function computeCellSize() {
 		switch(params.zoom) {
@@ -27,7 +27,6 @@ define(['helper','modeHandler'], function(helper,modeHandler) {
 				params.stepy = 4;
 				break;
 		}
-
 	}
 
 	function computeParams() {
@@ -40,7 +39,7 @@ define(['helper','modeHandler'], function(helper,modeHandler) {
 		params.ymax = Math.ceil(params.ycenter + params.txtheight / 2);
 	}
 
-	function getZoomValue() {
+	function getZoomSlider() {
 		var zoomValue = 3;
 
 		switch(params.zoom) {
@@ -66,9 +65,76 @@ define(['helper','modeHandler'], function(helper,modeHandler) {
 		return zoomValue;
 	}
 
+	function getZoomValue(sliderValue) {
+		var zoom = params.zoom;
+		switch(sliderValue) {
+			case 0:
+				zoom = 40;
+				break;
+			case 1:
+				zoom = 20;
+				break;
+			case 2:
+				zoom = 10;
+				break;
+			case 3:
+				zoom = 4;
+				break;
+			case 4:
+				zoom = 2;
+				break;
+			case 5:
+				zoom = 1;
+		}
+		return zoom;
+	}
+
+	var handleMouseWheel = function(e) {
+		var delta = 0, element = $('#zoomSlider'), value, result;
+		value = element.slider('value');
+
+		if (e.wheelDelta) {
+			delta = -e.wheelDelta;
+		}
+		if (e.detail) {
+			delta = e.detail * 4;
+		}
+
+		value -= delta / 128;
+		if (value > 5) {
+			value = 5;
+		}
+		if (value < 0) {
+			value = 0;
+		}
+
+		if (result !== false) {
+			element.slider('value', value);
+		}
+		return false;
+	};
+
 	return {
 		init : function() {
-			$(window).resize(function() {
+
+			$('#map').draggable({
+				stop : function(event, ui) {
+					var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
+					var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
+					var lparam = {
+						"xmin" : xmin - 2,
+						"ymin" : ymin - 2,
+						"xmax" : xmin + params.txtwidth + 2,
+						"ymax" : ymin + params.txtheight + 2
+					};
+					modeHandler.refresh(lparam);
+				},
+				start : function(event, ui) {
+					pathWalk.hidePath();
+				}
+			});
+
+			$(window).smartresize(function() {
 				params.txtwidth = Math.ceil(($(window).width()) / params.stepx);
 				params.txtheight = Math.ceil(($(window).height()) / params.stepy);
 				var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
@@ -79,33 +145,9 @@ define(['helper','modeHandler'], function(helper,modeHandler) {
 					"xmax" : xmin + params.txtwidth,
 					"ymax" : ymin + params.txtheight
 				};
-				modeHandler.refresh();
+
+				modeHandler.refresh(lparam);
 			});
-
-			var handleMouseWheel = function(e) {
-				var delta = 0, element = $('#zoomSlider'), value, result;
-				value = element.slider('value');
-
-				if (e.wheelDelta) {
-					delta = -e.wheelDelta;
-				}
-				if (e.detail) {
-					delta = e.detail * 4;
-				}
-
-				value -= delta / 128;
-				if (value > 5) {
-					value = 5;
-				}
-				if (value < 0) {
-					value = 0;
-				}
-
-				if (result !== false) {
-					element.slider('value', value);
-				}
-				return false;
-			};
 
 			// Réglage du zoomSlider
 			if ($.browser.webkit) {
@@ -124,30 +166,11 @@ define(['helper','modeHandler'], function(helper,modeHandler) {
 				min : 0,
 				max : 5,
 				step : 1,
-				value : getZoomValue(),
+				value : getZoomSlider(),
 				change : function() {
 
 					var sliderValue = $(this).slider("option", "value");
-					var zoom = params.zoom;
-					switch(sliderValue) {
-						case 0:
-							zoom = 40;
-							break;
-						case 1:
-							zoom = 20;
-							break;
-						case 2:
-							zoom = 10;
-							break;
-						case 3:
-							zoom = 4;
-							break;
-						case 4:
-							zoom = 2;
-							break;
-						case 5:
-							zoom = 1;
-					}
+					var zoom = getZoomValue(sliderValue);
 					if (zoom != params.zoom) {
 						$('#writingBox').hide();
 						$('#informationBox').hide();

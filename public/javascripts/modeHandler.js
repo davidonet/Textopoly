@@ -1,15 +1,20 @@
 define(['helper', 'defaultMode'], function(helper, defaultMode) {
 	params.currentMode = 'default';
+	var currentMode = defaultMode;
 
-	function refresh() {
+	var refresh = function(localParams) {
 		console.log("refresh to mode : " + params.currentMode + " at zoom : " + params.zoom + " center : " + params.xcenter + "," + params.ycenter);
-		if (params.currentMode == 'default')
-			defaultMode.refresh();
-	}
+		if (localParams === undefined)
+			localParams = params;
+		currentMode.refresh(localParams);
+	};
 
 	function changeMode(newMode) {
 		$(params.currentMode).switchClass(params.currentMode, newMode, 500);
 		params.currentMode = newMode;
+		if (params.currentMode == 'default') {
+			currentMode = defaultMode;
+		}
 		refresh();
 	}
 
@@ -37,9 +42,7 @@ define(['helper', 'defaultMode'], function(helper, defaultMode) {
 				return false;
 			});
 		},
-		refresh : function() {
-			refresh();
-		}
+		refresh : refresh
 	};
 });
 

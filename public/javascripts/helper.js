@@ -20,7 +20,7 @@ define([], function() {
 		initLeft : (((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2),
 		initTop : (((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2),
 		getCenterX : function() {
-			return (params.xmin - 1) - Math.floor((2 * $('#map').position().left - $(document).width()) / (2 * params.stepx));
+			return (params.xmin ) - Math.floor((2 * $('#map').position().left - $(document).width()) / (2 * params.stepx));
 		},
 
 		getCenterY : function() {
