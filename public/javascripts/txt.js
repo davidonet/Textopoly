@@ -4,7 +4,7 @@ define(["helper"], function(helper) {
 			var aMsg = $('.msg[dc="' + data.p + '"]');
 			if (aMsg !== undefined) {
 				if (0 === aMsg.length) {
-					var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c);
+					var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c).appendTo("#map");
 					newTxt.hide();
 					if (data !== undefined) {
 						if (data.t !== undefined) {
@@ -13,7 +13,7 @@ define(["helper"], function(helper) {
 					}
 					newTxt.attr('dc', data.p);
 					newTxt.css(helper.posToCSS(data.p));
-					$('#map').append(newTxt);
+					
 					if (params.zoom < 20) {
 						var newContent;
 						if ('image' === data.c) {
@@ -32,9 +32,7 @@ define(["helper"], function(helper) {
 							newTxt.fadeIn(1000);
 						}
 						newTxt.append(newContent);
-					}
-					else
-					{
+					} else {
 						newTxt.fadeIn(1500);
 					}
 
