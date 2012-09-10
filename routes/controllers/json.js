@@ -112,7 +112,6 @@ exports.insert = function(req, res) {
 
 exports.remove = function(req, res) {
 	db.gridfs().unlink('[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
-		console.log("image removed");
 	});
 	var aTxt = req.query;
 	normalizePos(aTxt);
