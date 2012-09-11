@@ -28,6 +28,9 @@ io.sockets.on('connection', function(socket) {
 });
 // Configuration
 
+var pubpath = (process.env.JS_COV ? 'public-cov' : 'public');
+
+
 app.configure(function() {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
@@ -49,7 +52,7 @@ app.configure('production', function() {
 	app.use(express.errorHandler());
 });
 
-var libpath = (process.env.YOUR_LIBRARY_NAME_COV ? './routes-cov' : './routes');
+var libpath = (process.env.NODE_COV ? './routes-cov' : './routes');
 require(libpath)(app);
 
 app.listen(3000);
