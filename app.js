@@ -28,7 +28,7 @@ io.sockets.on('connection', function(socket) {
 });
 // Configuration
 
-var pubpath = (process.env.JS_COV ? 'public-cov' : 'public');
+var pubpath = (process.env.JS_COV ? '/public-cov' : '/public');
 
 
 app.configure(function() {
@@ -37,7 +37,7 @@ app.configure(function() {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
-	app.use(express['static'](__dirname + '/public'));
+	app.use(express['static'](__dirname + pubpath));
 	app.enable("jsonp callback");
 });
 

@@ -10,7 +10,7 @@ coverage-server:
 coverage-client:
 	rm -rf public-cov
 	jscoverage public public-cov
-	JS_COV=1 node app
+	JS_COV=1 node app.js
 	rm -rf public-cov
 
 .PHONY: test
