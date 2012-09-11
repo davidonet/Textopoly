@@ -1,21 +1,4 @@
 
-div#zoomWrap {
-	position: absolute;
-	top: 120px;
-	bottom: 30px;
-	width: 24px;
-	margin-left: 10px;
-}
-div#zoom {
-	position: absolute;
-	top: 50%;
-	margin-top: -100px;
-	z-index: 2000;
-	height: 200px;
-	width: 24px;
-	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
-}
 div#main {
 	position: absolute;
 	top: 140px;
@@ -23,152 +6,15 @@ div#main {
 	overflow: auto;
 }
 
-div#bookView {
-	position: absolute;
-	width: 495px;
-	top: 50px;
-	bottom: 40px;
-	margin-left: 10px;
-	overflow: auto;
-}
-div#bookView > .msg {
-	display: block;
-	position: relative;
-}
-div#bookView > h1 {
-}
-div#footer {
-	position: absolute;
-	bottom: 0px;
-	z-index: 2000;
-	width: 960px;
-	height: 20px;
-	border-top: #2e3436 dashed 1px;
-	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
-}
+
 /* MISE EN FORME*/
 
 /* HEADER BIG*/
 
-div#header.big div#title {
-	float: left;
-	width: 320px;
-	height: 84px;
-}
-div#header.big h1 {
-	float: left;
-	margin-left: 10px;
-	margin-top: 10px;
-	height: 84px;
-	font-size: 64px;
-	color: #2e3436; /* Aluminium 2 Darker */
-	letter-spacing: 4px;
-}
-div#header.big div#blink {
-	float: left;
-	margin-top: 15px;
-	margin-left: 10px;
-	width: 3px;
-	height: 72px;
-	background-color: #2e3436; /* Aluminium 2 Darker */
-}
-div#slider {
-	float: left;
-	margin-left: 100px;
-	width: 440px;
-	margin-top: 17px;
-	text-align: center;
-	color: #888a85; /* Aluminium 2 Lighter */
-}
-div#leftA, div#rightA {
-	position: absolute;
-	font-size: 30px;
-	top: 38px;
-	color: #888a85; /* Aluminium 2 Lighter */
-}
-div#leftA {
-	left: 390px;
-}
-div#rightA {
-	left: 870px;
-}
-div#slider > h2 {
-	font-size: 22px;
-	line-height: 32px;
-}
-div#slider > p {
-	font-size: 18px;
-	line-height: 32px;
-	letter-spacing: 1px;
-}
-div#slider > h2 > strong {
-	color: #555753; /* Aluminium 2 */
-}
-div#slider > p > a {
-	color: #888a85; /* Aluminium 2 Lighter */
-}
-div#slider > p > a:hover {
-	color: #555753; /* Aluminium 2 */
-}
-
 /* HEADER SMALL*/
-
-div#header.small div#title {
-	float: left;
-	width: 320px;
-	height: 42px;
-}
-div#header.small h1 {
-	float: left;
-	margin-left: 10px;
-	margin-top: 0px;
-	height: 42px;
-	font-size: 32px;
-	color: #2e3436; /* Aluminium 2 Darker */
-	letter-spacing: 2px;
-}
-div#header.small div#blink {
-	float: left;
-	margin-top: 2px;
-	margin-left: 5px;
-	width: 2px;
-	height: 32px;
-	background-color: #2e3436; /* Aluminium 2 Darker */
-}
-
 
 /* TOP MENU */
 
-div#topmenu {
-	z-index: 2000;
-	display: block;
-	float: right;
-	margin-right: 10px;
-	margin-top: 10px;
-}
-div#btnHelp, div#btnFocus {
-	display: block;
-	float: left;
-	width: 16px;
-	height: 16px;
-	border-radius: 16px;
-	cursor: default;
-	border: solid 2px #eeeeec; /* Aluminium 2 Darker */
-	background-color: #888a85; /* Aluminium 2 Lighter */
-}
-div#btnHelp.normal {
-	margin-right: 2px;
-}
-div#btnFocus.normal {
-}
-div#btnHelp:hover {
-	margin-right: 2px;
-	background-color: #555753; /* Aluminium 2 */
-}
-div#btnFocus:hover {
-	background-color: #555753; /* Aluminium 2 */
-}
 /* MAIN MENU */
 
 div#mainMenu {
@@ -226,7 +72,7 @@ div#btnCenter.active, div#btnText.active, div#btnPath.active, div#btnShow.active
 }
 
 div#btnCenter.over, div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
-	/*border: solid 2px #2e3436;*/
+	border: solid 2px #2e3436;
 	background-color: #555753;
 }
 /*HELP MENU*/

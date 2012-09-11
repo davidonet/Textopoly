@@ -6,6 +6,24 @@
 
 @siteWidth: 960px;
 
+/* BUTTONS MIXIN*/
+
+.button (@radius) {
+    display: block;
+    cursor: default;
+    width: @radius;
+    height: @radius;
+    border-radius: @radius*2;
+    border: solid 2px @aluminium1L;
+    background-color: @aluminium2L;
+    
+    &:hover{
+     border: solid 2px @aluminium2D;
+     background-color: @aluminium2;   
+    }
+}
+
+
 /* GLOBALS*/
 
 html {
@@ -111,14 +129,209 @@ div#header {
     margin: 0px auto;
     background-color: @aluminium1;
     background-color: @aluminium1L;
+  
+  
+    /* TOP MENU*/  
     
+      
+    #topmenu {
+    z-index: 2000;
+    display: block;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    
+    
+#btnHelp, div#btnFocus {
+    float:left;
+    .button(16px);
+
+}
+#btnHelp{
+        margin-right: 4px;
+
+    
+}
+
+}
+    
+  /* HEADER BIG*/  
+  
     &.big {
-            height: 120px;   
+            height: 120px;
+          
+          
+        #title {
+                
+             float: left;
+             width: 320px;
+            height: 84px;
+        
+        h1 {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 84px;
+    font-size: 64px;
+    color: @aluminium2D;
+    letter-spacing: 4px;
+}
+
+#blink {
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 3px;
+    height: 72px;
+    background-color:@aluminium2D;
+}}
+
+
+div#leftA, div#rightA {
+    position: absolute;
+    font-size: 30px;
+    top: 38px;
+    color: @aluminium2L;
+
+}
+
+div#leftA {
+    left: 390px;
+}
+
+#slider {
+    float: left;
+    margin-left: 100px;
+    width: 440px;
+    margin-top: 17px;
+    text-align: center;
+    color: @aluminium2L;
+    
+            >h2 {
+    font-size: 22px;
+    line-height: 32px;
+    
+    >strong {
+    color: @aluminium2;
+}
+    
+    
+}
+
+>p {
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    
+    a {
+    color: @aluminium2L;
+    
+    &:hover {
+    color: @aluminium2;
+}
+}
+    
+    
+}
+            
+            
     }
+
+div#rightA {
+    left: 870px;
+}
+
+
+/***********************************************************************************
+ *  WIP
+ ***********************************************************************************/
+
+div#mainMenu {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 95px;
+    width: 620px;
+    height: 50px;
+    z-index: 100;
+}
+   
+div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
+    z-index: 100;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-right: 35px;
+    margin-left: 35px;
+}
+
+div#btnCenter {
+    background: url('btn/btnCenter.svg');
+}
+
+div#btnText {
+    background: url('btn/btnText.svg');
+}
+div#btnPath {
+    background: url('btn/btnPath.svg');
+}
+div#btnShow {
+    background: url('btn/btnShow.svg');
+}
+div#btnFind {
+    background: url('btn/btnFind.svg');
+}
+     
+     
+     /*etats des boutons*/
+
+div#btnCenter.normal, div#btnText.normal, div#btnPath.normal, div#btnShow.normal, div#btnFind.normal {
+
+    background-color: #888a85;
+    border: solid 2px #EEEEEC;
+}       
+
+
+/***********************************************************************************
+ *  WIP
+ ***********************************************************************************/
+
+               
+    }
+    
+    /* HEADER SMALL*/
+
     
     &.small {
     height: 42px;
+    
+    #title {
+    float: left;
+    width: 320px;
+    height: 42px;
+    
+    h1 {
+    float: left;
+    margin-left: 10px;
+    margin-top: 0px;
+    height: 42px;
+    font-size: 32px;
+    color: #2e3436; /* Aluminium 2 Darker */
+    letter-spacing: 2px;
 }
+
+#blink {
+    float: left;
+    margin-top: 2px;
+    margin-left: 5px;
+    width: 2px;
+    height: 32px;
+    background-color: @aluminium2D;
+} } }
+
+    /* TOP BAR*/
+
     >#topbar {
     position: relative;
     width: @siteWidth - 20px;
@@ -130,3 +343,49 @@ div#header {
     
 }
 
+/* END HEADER */
+
+#bookView {
+    position: absolute;
+    width: 495px;
+    top: 50px;
+    bottom: 40px;
+    margin-left: 10px;
+    overflow: auto;
+    
+>.msg {
+    display: block;
+    position: relative;
+} 
+}
+
+
+div#zoomWrap {
+    position: absolute;
+    top: 120px;
+    bottom: 30px;
+    width: 24px;
+    margin-left: 10px;
+}
+
+div#zoom {
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    z-index: 2000;
+    height: 200px;
+    width: 24px;
+    background-color: @aluminium1L;
+    
+}
+
+div#footer {
+    position: absolute;
+    bottom: 0px;
+    z-index: 2000;
+    width: 960px;
+    height: 20px;
+    border-top: #2e3436 dashed 1px;
+    background-color: #eeeeec; /* Aluminium 1 Lighter */
+    background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
+}
