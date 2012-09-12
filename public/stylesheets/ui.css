@@ -261,8 +261,8 @@ div#btnCenter.normal, div#btnText.normal, div#btnPath.normal, div#btnShow.normal
 
 div#btnCenter.active, div#btnText.active, div#btnPath.active, div#btnShow.active, div#btnFind.active {
 
-	background-color: #888a85;
-	border: solid 2px #ff0000;
+    background-color: #555753;
+	border: solid 2px #2e3436;
 }
 
 .faded {
