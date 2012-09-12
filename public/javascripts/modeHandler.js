@@ -1,4 +1,4 @@
-define(['helper', 'defaultMode', 'writeMode'], function(helper, defaultMode, writeMode) {
+define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, defaultMode, writeMode, mapModule) {
 	params.currentMode = 'default';
 	var currentMode = defaultMode;
 
@@ -40,10 +40,7 @@ define(['helper', 'defaultMode', 'writeMode'], function(helper, defaultMode, wri
 				return false;
 			});
 			helper.btnClic("#btnCenter", function(event) {
-				$('#map').animate({
-					left : 0,
-					top : 0
-				});
+				mapModule.centerTo([0, 0]);
 				changeMode('default');
 				return false;
 			});

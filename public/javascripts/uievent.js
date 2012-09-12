@@ -1,4 +1,4 @@
-define(['helper',"infoBox"], function(helper,infoBox) {
+define(['lib/jgesture/js','helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) {
 	var handleMouseWheel = function(e) {
 		var delta = 0, element = $('#zoomSlider'), value, result;
 		value = element.slider('value');
@@ -20,6 +20,9 @@ define(['helper',"infoBox"], function(helper,infoBox) {
 
 		if (result !== false) {
 			element.slider('value', value);
+			var x = e.pageX - (params.stepx / 2), y = e.pageY - (params.stepy / 2);
+			var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
+			mapModule.centerTo([posX, posY]);
 		}
 		e.preventDefault();
 		return false;
@@ -36,6 +39,9 @@ define(['helper',"infoBox"], function(helper,infoBox) {
 			window.addEventListener('mousewheel', handleMouseWheel, false);
 			// others (Opera, Explorer9)
 		}
+		$(window).bind('pinch', function(event) {
+		  
+		});
 	};
 
 	var unbindZoom = function() {
@@ -50,7 +56,6 @@ define(['helper',"infoBox"], function(helper,infoBox) {
 			// others (Opera, Explorer9)
 		}
 	};
-
 
 	return {
 		init : function() {

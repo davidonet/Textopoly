@@ -125,14 +125,24 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 			});
 			computeCellSize();
 			computeParams();
+			$('#zoomSlider').slider('value', getZoomSlider());
 			require(["modeHandler"], function(modeHandler) {
 				modeHandler.refresh();
 			});
 		});
 	};
 
+	centerTo = function(pos) {
+		var x = helper.posToLeft(pos), y = helper.posToTop(pos);
+		$("#map").css({
+			left : Math.floor($(document).width()/2)-x,
+			top : Math.floor($(document).height()/2)-y
+		});
+	};
+
 	return {
 		zoomTo : zoomTo,
+		centerTo : centerTo,
 		init : function() {
 
 			$('#content').mousemove(function(event) {
