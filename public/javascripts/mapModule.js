@@ -132,18 +132,20 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 		});
 	};
 
-	centerTo = function(pos, smooth) {
-		var x = 1+Math.floor(helper.posToLeft(pos)/2)*2, y = 1+Math.floor(helper.posToTop(pos)/2)*2;
+	centerTo = function(pos, smooth, fn) {
+		var x = 1 + Math.floor(helper.posToLeft(pos) / 2) * 2, y = 1 + Math.floor(helper.posToTop(pos) / 2) * 2;
+
 		if (smooth) {
 			$("#map").animate({
 				left : Math.floor($(document).width() / 2) - x,
 				top : Math.floor($(document).height() / 2) - y
-			});
+			}, fn);
 		} else {
 			$("#map").css({
 				left : Math.floor($(document).width() / 2) - x,
 				top : Math.floor($(document).height() / 2) - y
 			});
+			fn();
 		}
 	};
 
@@ -154,9 +156,7 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 
 			$('#content').mousemove(function(event) {
 				if (event.pageX !== null) {
-					var x = event.pageX - (params.stepx / 2), y = event.pageY - (params.stepy / 2);
-					var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
-					$("#posInfo").text(posX + ',' + posY);
+					$("#posInfo").text(helper.xToPos(event.pageX) + ',' + helper.yToPos(event.pageY));
 				}
 			});
 

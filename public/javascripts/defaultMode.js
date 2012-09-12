@@ -1,4 +1,4 @@
-define(["txt", "pathWalk", "infoBox", "mapModule"], function(txt, pathWalk, infoBox, mapModule) {
+define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, pathWalk, infoBox, mapModule, helper) {
 	return {
 		init : function() {
 
@@ -9,10 +9,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule"], function(txt, pathWalk, info
 					infoBox.bindMsg();
 				} else {
 					$('.msg').dblclick(function(e) {
-						var x = e.pageX - (params.stepx / 2), y = e.pageY - (params.stepy / 2);
-						var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
-						mapModule.centerTo([posX, posY]);
-						mapModule.zoomTo(2);
+						mapModule.centerTo([helper.xToPos(e.pageX), helper.yToPos(e.pageY)], false, function() {
+							mapModule.zoomTo(2);
+						});
 					});
 				}
 				if ((1 < params.zoom) && (params.zoom < 20)) {

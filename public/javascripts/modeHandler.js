@@ -25,24 +25,35 @@ define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, def
 	return {
 		init : function() {
 			helper.btnClic("#btnShow", function(event) {
+				$('.active').switchClass('active','normal');
+				$(this).switchClass('normal','active');
 				changeMode('default');
 				return false;
 			});
 			helper.btnClic("#btnFind", function(event) {
+				$('.active').switchClass('active','normal');
+				$(this).switchClass('normal','active');
 				return false;
 			});
 			helper.btnClic("#btnPath", function(event) {
+				$('.active').switchClass('active','normal');
+				$(this).switchClass('normal','active');
 				changeMode('pathMode');
 				return false;
 			});
 			helper.btnClic("#btnText", function(event) {
+				$('.active').switchClass('active','normal');
+				$(this).switchClass('normal','active');				
 				changeMode('writeMode');
 				return false;
 			});
 			helper.btnClic("#btnCenter", function(event) {
-				mapModule.centerTo([0, 0],true);
-				changeMode('default');
-				return false;
+				$('svg').hide();
+				mapModule.centerTo([0, 0], true, function() {
+					mapModule.zoomTo(params.zoom);
+					return false;
+				});
+
 			});
 		},
 		refresh : refresh
