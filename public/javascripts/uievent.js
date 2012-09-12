@@ -1,4 +1,4 @@
-define(['lib/jgesture.min','helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) {
+define(['lib/jgestures.min', 'helper', "infoBox", "mapModule"], function(jg, helper, infoBox, mapModule) {
 	var handleMouseWheel = function(e) {
 		var delta = 0, element = $('#zoomSlider'), value, result;
 		value = element.slider('value');
@@ -20,9 +20,6 @@ define(['lib/jgesture.min','helper', "infoBox", "mapModule"], function(helper, i
 
 		if (result !== false) {
 			element.slider('value', value);
-			var x = e.pageX - (params.stepx / 2), y = e.pageY - (params.stepy / 2);
-			var posX = params.xmin + Math.floor((x - $('#map').position().left) / params.stepx), posY = params.ymin + Math.floor((y - $('#map').position().top) / params.stepy);
-			mapModule.centerTo([posX, posY]);
 		}
 		e.preventDefault();
 		return false;
@@ -40,7 +37,7 @@ define(['lib/jgesture.min','helper', "infoBox", "mapModule"], function(helper, i
 			// others (Opera, Explorer9)
 		}
 		$(window).bind('pinch', function(event) {
-		  
+
 		});
 	};
 
@@ -59,6 +56,7 @@ define(['lib/jgesture.min','helper', "infoBox", "mapModule"], function(helper, i
 
 	return {
 		init : function() {
+
 			helper.btnOver("#btnCenter");
 			helper.btnOver("#btnText");
 			helper.btnOver("#btnPath");
@@ -66,6 +64,7 @@ define(['lib/jgesture.min','helper', "infoBox", "mapModule"], function(helper, i
 			helper.btnOver("#btnFind");
 			bindZoom();
 			infoBox.init();
+
 		},
 		bindZoom : bindZoom,
 		unbindZoom : unbindZoom
