@@ -1,4 +1,4 @@
-define(['lib/jgesture/js','helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) {
+define(['lib/jgesture','helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) {
 	var handleMouseWheel = function(e) {
 		var delta = 0, element = $('#zoomSlider'), value, result;
 		value = element.slider('value');
