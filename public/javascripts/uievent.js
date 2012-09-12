@@ -7,10 +7,10 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 			delta = -e.wheelDelta;
 		}
 		if (e.detail) {
-			delta = e.detail * 4;
+			delta = e.detail;
 		}
 
-		value -= delta / 128;
+		value -= delta / 200;
 		if (value > 5) {
 			value = 5;
 		}
@@ -21,6 +21,7 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 		if (result !== false) {
 			element.slider('value', value);
 		}
+
 		e.preventDefault();
 		return false;
 	};
@@ -36,30 +37,6 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 			window.addEventListener('mousewheel', handleMouseWheel, false);
 			// others (Opera, Explorer9)
 		}
-		require(["hammer", "jqhammer"], function() {
-			$("#content").hammer({
-				prevent_default : true
-			}).bind('transform', function(ev) {
-				console.log(ev.scale);
-
-				var delta = 0, element = $('#zoomSlider'), value, result;
-				value = element.slider('value');
-
-				value += (Math.floor(ev.scale)<1?-1:1);
-
-				if (value > 5) {
-					value = 5;
-				}
-				if (value < 0) {
-					value = 0;
-				}
-
-				if (result !== false) {
-					element.slider('value', value);
-				}
-				return false;
-			});
-		});
 
 	};
 
