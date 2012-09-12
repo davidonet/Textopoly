@@ -132,12 +132,19 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 		});
 	};
 
-	centerTo = function(pos) {
-		var x = helper.posToLeft(pos), y = helper.posToTop(pos);
-		$("#map").css({
-			left : Math.floor($(document).width()/2)-x,
-			top : Math.floor($(document).height()/2)-y
-		});
+	centerTo = function(pos, smooth) {
+		var x = 1+Math.floor(helper.posToLeft(pos)/2)*2, y = 1+Math.floor(helper.posToTop(pos)/2)*2;
+		if (smooth) {
+			$("#map").animate({
+				left : Math.floor($(document).width() / 2) - x,
+				top : Math.floor($(document).height() / 2) - y
+			});
+		} else {
+			$("#map").css({
+				left : Math.floor($(document).width() / 2) - x,
+				top : Math.floor($(document).height() / 2) - y
+			});
+		}
 	};
 
 	return {

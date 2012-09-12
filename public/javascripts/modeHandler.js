@@ -40,7 +40,7 @@ define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, def
 				return false;
 			});
 			helper.btnClic("#btnCenter", function(event) {
-				mapModule.centerTo([0, 0]);
+				mapModule.centerTo([0, 0],true);
 				changeMode('default');
 				return false;
 			});
