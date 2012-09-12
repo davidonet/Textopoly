@@ -1,4 +1,4 @@
-define(['lib/jgestures.min', 'helper', "infoBox", "mapModule"], function(jg, helper, infoBox, mapModule) {
+define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) {
 	var handleMouseWheel = function(e) {
 		var delta = 0, element = $('#zoomSlider'), value, result;
 		value = element.slider('value');
@@ -36,9 +36,31 @@ define(['lib/jgestures.min', 'helper', "infoBox", "mapModule"], function(jg, hel
 			window.addEventListener('mousewheel', handleMouseWheel, false);
 			// others (Opera, Explorer9)
 		}
-		$(window).bind('pinch', function(event) {
+		require(["hammer", "jqhammer"], function() {
+			$("#content").hammer({
+				prevent_default : true
+			}).bind('transform', function(ev) {
+				console.log(ev.scale);
 
+				var delta = 0, element = $('#zoomSlider'), value, result;
+				value = element.slider('value');
+
+				value += (Math.floor(ev.scale)<1?-1:1);
+
+				if (value > 5) {
+					value = 5;
+				}
+				if (value < 0) {
+					value = 0;
+				}
+
+				if (result !== false) {
+					element.slider('value', value);
+				}
+				return false;
+			});
 		});
+
 	};
 
 	var unbindZoom = function() {

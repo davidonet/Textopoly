@@ -1,9 +1,11 @@
 requirejs.config({
 	paths : {
-		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
+		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min',
+		'hammer' : 'http://eightmedia.github.com/hammer.js/hammer',
+		'jqhammer' : 'http://eightmedia.github.com/hammer.js/jquery.hammer'
 	}
 });
-require(["jquery", "jquery-ui", "modeHandler", "mapModule","uievent"], function($, jqui, modeHandler, mapModule,uievent) {
+require(["jquery", "jquery-ui", "modeHandler", "mapModule", "uievent"], function($, jqui, modeHandler, mapModule, uievent) {
 	$(function() {
 		(function($, sr) {
 			// debouncing function from John Hann
