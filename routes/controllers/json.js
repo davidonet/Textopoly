@@ -84,8 +84,7 @@ exports.newpath = function(req, res) {
 };
 
 exports.fa = function(req, res) {
-	var x = parseInt(req.params.x, 10),
-	y = parseInt(req.params.y, 10);
+	var x = parseInt(req.params.x, 10), y = parseInt(req.params.y, 10);
 	red.single(x, y, function(err, ret) {
 		res.json(ret);
 	});
@@ -118,5 +117,33 @@ exports.remove = function(req, res) {
 	db.txt.removeTxt(aTxt, function(err) {
 		res.json(err);
 		io.sockets.emit('unbook', aTxt);
+	});
+};
+
+var RSS = require('rss');
+
+exports.rss = function(req, res) {
+	var feed = new RSS({
+		title : 'Textopoly',
+		description : 'un outil d’écriture en ligne',
+		feed_url : 'http://dev.textopoloy.org/rss.xml',
+		site_url : 'http://dev.textopoloy.org',
+		author : 'La Panacée'
+	});
+	db.txt.last20(function(err, items) {
+		items.forEach(function(txt, idx) {
+			feed.item({
+				title : txt.p,
+				description : txt.t,
+				url : 'http://dev.textopoly.org/view?zoom=2&xcenter=' + txt.p[0] + '&ycenter=' + txt.p[1],
+				guid : txt._id.toString(),
+				author : txt.a,
+				date : txt.d
+			});
+		});
+		res.writeHead('200', {
+			'Content-Type' : 'application/rss+xml'
+		});
+		res.end(feed.xml());
 	});
 };

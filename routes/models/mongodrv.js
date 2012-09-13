@@ -149,5 +149,8 @@ db.bind('txt', {
 				});
 			});
 		});
+	},
+	last20 : function(fn){
+		this.find().sort({d:-1}).limit(20).toArray(fn);
 	}
 });

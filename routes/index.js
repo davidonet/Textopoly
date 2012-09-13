@@ -11,8 +11,6 @@ var bookC = require('./controllers/book');
 
 module.exports = function(app) {
 	app.get('/', mapC.view);
-	app.get('/map', mapC.map);
-	app.get('/mapimg.svg', mapC.mapimg);
 	app.get('/view', mapC.view);
 	app.get('/getimg/:pos', imgC.getimg);
 	app.get('/t/:x/:y', jsonC.atxt);
@@ -29,6 +27,7 @@ module.exports = function(app) {
 	app.get('/allpath', jsonC.allpath);
 	app.get('/msg', jsonC.msg);
 	
+	app.get('/rss',jsonC.rss);
 	
 	app.get('/mbook/:id', bookC.path);
 	app.get('/mpath/:a', bookC.choice);
