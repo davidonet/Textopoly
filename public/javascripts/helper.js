@@ -16,15 +16,26 @@ define([], function() {
 		isOn = !isOn;
 	}, 1000);
 
+	var xToPos = function(X) {
+		var x = X - (params.stepx / 2);
+		return params.xmin + Math.ceil((x - $('#map').position().left) / params.stepx);
+	};
+	var yToPos = function(Y) {
+		var y = Y - (params.stepy / 2);
+		return params.ymin + Math.ceil((y - $('#map').position().top) / params.stepy);
+	};
+
 	return {
+		xToPos : xToPos,
+		yToPos : yToPos,
 		initLeft : (((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2),
 		initTop : (((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2),
 		getCenterX : function() {
-			return (params.xmin ) - Math.floor((2 * $('#map').position().left - $(document).width()) / (2 * params.stepx));
+			return xToPos($(document).width() / 2);
 		},
 
 		getCenterY : function() {
-			return (params.ymin - 1) - Math.floor((2 * $('#map').position().top - $(document).height()) / (2 * params.stepy));
+			return yToPos($(document).height() / 2);
 		},
 		posToLeft : posToLeft,
 		posToTop : posToTop,

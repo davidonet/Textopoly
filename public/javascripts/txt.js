@@ -15,7 +15,7 @@ define(["helper"], function(helper) {
 				newTxt.css(helper.posToCSS(data.p));
 
 				if (params.zoom < 20) {
-					
+
 					if ('image' === data.c) {
 						var newImage = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]").hide().load(function() {
 							$(this).appendTo(newTxt);
@@ -34,6 +34,7 @@ define(["helper"], function(helper) {
 						$(newContent).appendTo(newTxt);
 					}
 
+				} else {
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-define(['helper',"infoBox"], function(helper,infoBox) {
+define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) {
 	var handleMouseWheel = function(e) {
 		var delta = 0, element = $('#zoomSlider'), value, result;
 		value = element.slider('value');
@@ -7,10 +7,10 @@ define(['helper',"infoBox"], function(helper,infoBox) {
 			delta = -e.wheelDelta;
 		}
 		if (e.detail) {
-			delta = e.detail * 4;
+			delta = e.detail;
 		}
 
-		value -= delta / 128;
+		value -= delta / 200;
 		if (value > 5) {
 			value = 5;
 		}
@@ -21,6 +21,7 @@ define(['helper',"infoBox"], function(helper,infoBox) {
 		if (result !== false) {
 			element.slider('value', value);
 		}
+
 		e.preventDefault();
 		return false;
 	};
@@ -36,6 +37,7 @@ define(['helper',"infoBox"], function(helper,infoBox) {
 			window.addEventListener('mousewheel', handleMouseWheel, false);
 			// others (Opera, Explorer9)
 		}
+
 	};
 
 	var unbindZoom = function() {
@@ -51,9 +53,9 @@ define(['helper',"infoBox"], function(helper,infoBox) {
 		}
 	};
 
-
 	return {
 		init : function() {
+
 			helper.btnOver("#btnCenter");
 			helper.btnOver("#btnText");
 			helper.btnOver("#btnPath");
@@ -61,6 +63,7 @@ define(['helper',"infoBox"], function(helper,infoBox) {
 			helper.btnOver("#btnFind");
 			bindZoom();
 			infoBox.init();
+
 		},
 		bindZoom : bindZoom,
 		unbindZoom : unbindZoom
