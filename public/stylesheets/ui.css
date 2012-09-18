@@ -1,25 +1,25 @@
 /* ZONING DE L'INTERFACE */
 
-div#content {
+#content {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 }
-div#map {
+#map {
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	cursor: move;
 }
-div#uiWrap {
+#uiWrap {
 	position: relative;
 	width: 960px;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
 }
-div#header {
+#header {
 	font-family: "FuturaCondensedMedium", sans-serif;
 	position: absolute;
 	z-index: 1500;
@@ -31,13 +31,13 @@ div#header {
 	cursor: default;
 }
 
-div#header.big {
+#header.big {
 	height: 120px;
 }
-div#header.small {
+#header.small {
 	height: 42px;
 }
-div#header > #topbar {
+#header > #topbar {
 	position: relative;
 	width: 940px;
 	height: 4px;
@@ -45,14 +45,14 @@ div#header > #topbar {
 	margin: 0px auto;
 	background-color: #2e3436 /* Aluminium 2 Darker */
 }
-div#zoomWrap {
+#zoomWrap {
 	position: absolute;
 	top: 120px;
 	bottom: 30px;
 	width: 24px;
 	margin-left: 10px;
 }
-div#zoom {
+#zoom {
 	position: absolute;
 	top: 50%;
 	margin-top: -100px;
@@ -62,14 +62,14 @@ div#zoom {
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
-div#main {
+#main {
 	position: absolute;
 	top: 140px;
 	margin-left: 10px;
 	overflow: auto;
 }
 
-div#bookView {
+#bookView {
 	position: absolute;
 	width: 495px;
 	top: 50px;
@@ -77,13 +77,13 @@ div#bookView {
 	margin-left: 10px;
 	overflow: auto;
 }
-div#bookView > .msg {
+#bookView > .msg {
 	display: block;
 	position: relative;
 }
-div#bookView > h1 {
+#bookView > h1 {
 }
-div#footer {
+#footer {
 	position: absolute;
 	bottom: 0px;
 	z-index: 2000;
@@ -97,12 +97,12 @@ div#footer {
 
 /* HEADER BIG*/
 
-div#header.big div#title {
+#header.big #title {
 	float: left;
 	width: 320px;
 	height: 84px;
 }
-div#header.big h1 {
+#header.big h1 {
 	float: left;
 	margin-left: 10px;
 	margin-top: 10px;
@@ -111,7 +111,7 @@ div#header.big h1 {
 	color: #2e3436; /* Aluminium 2 Darker */
 	letter-spacing: 4px;
 }
-div#header.big div#blink {
+#header.big #blink {
 	float: left;
 	margin-top: 15px;
 	margin-left: 10px;
@@ -119,7 +119,7 @@ div#header.big div#blink {
 	height: 72px;
 	background-color: #2e3436; /* Aluminium 2 Darker */
 }
-div#slider {
+#slider {
 	float: left;
 	margin-left: 100px;
 	width: 440px;
@@ -127,45 +127,45 @@ div#slider {
 	text-align: center;
 	color: #888a85; /* Aluminium 2 Lighter */
 }
-div#leftA, div#rightA {
+#leftA, #rightA {
 	position: absolute;
 	font-size: 30px;
 	top: 38px;
 	color: #888a85; /* Aluminium 2 Lighter */
 }
-div#leftA {
+#leftA {
 	left: 390px;
 }
-div#rightA {
+#rightA {
 	left: 870px;
 }
-div#slider > h2 {
+#slider > h2 {
 	font-size: 22px;
 	line-height: 32px;
 }
-div#slider > p {
+#slider > p {
 	font-size: 18px;
 	line-height: 32px;
 	letter-spacing: 1px;
 }
-div#slider > h2 > strong {
+#slider > h2 > strong {
 	color: #555753; /* Aluminium 2 */
 }
-div#slider > p > a {
+#slider > p > a {
 	color: #888a85; /* Aluminium 2 Lighter */
 }
-div#slider > p > a:hover {
+#slider > p > a:hover {
 	color: #555753; /* Aluminium 2 */
 }
 
 /* HEADER SMALL*/
 
-div#header.small div#title {
+#header.small #title {
 	float: left;
 	width: 320px;
 	height: 42px;
 }
-div#header.small h1 {
+#header.small h1 {
 	float: left;
 	margin-left: 10px;
 	margin-top: 0px;
@@ -174,7 +174,7 @@ div#header.small h1 {
 	color: #2e3436; /* Aluminium 2 Darker */
 	letter-spacing: 2px;
 }
-div#header.small div#blink {
+#header.small #blink {
 	float: left;
 	margin-top: 2px;
 	margin-left: 5px;
@@ -184,14 +184,14 @@ div#header.small div#blink {
 }
 /* TOP MENU */
 
-div#topmenu {
+#topmenu {
 	z-index: 2000;
 	display: block;
 	float: right;
 	margin-right: 10px;
 	margin-top: 10px;
 }
-div#btnHelp, div#btnFocus {
+#btnHelp, #btnFocus {
 	display: block;
 	float: left;
 	width: 16px;
@@ -201,21 +201,21 @@ div#btnHelp, div#btnFocus {
 	border: solid 2px #eeeeec; /* Aluminium 2 Darker */
 	background-color: #888a85; /* Aluminium 2 Lighter */
 }
-div#btnHelp.normal {
+#btnHelp.normal {
 	margin-right: 2px;
 }
-div#btnFocus.normal {
+#btnFocus.normal {
 }
-div#btnHelp:hover {
+#btnHelp:hover {
 	margin-right: 2px;
 	background-color: #555753; /* Aluminium 2 */
 }
-div#btnFocus:hover {
+#btnFocus:hover {
 	background-color: #555753; /* Aluminium 2 */
 }
 /* MAIN MENU */
 
-div#mainMenu {
+#mainMenu {
 	display: block;
 	position: absolute;
 	right: 20px;
@@ -224,7 +224,7 @@ div#mainMenu {
 	height: 50px;
 	z-index: 100;
 }
-div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
+#btnCenter, #btnText, #btnPath, #btnShow, #btnFind {
 	z-index: 100;
 	float: left;
 	width: 50px;
@@ -234,32 +234,32 @@ div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
 	margin-left: 35px;
 }
 
-div#btnCenter {
+#btnCenter {
 	background: url('btn/btnCenter.svg');
 }
 
-div#btnText {
+#btnText {
 	background: url('btn/btnText.svg');
 }
-div#btnPath {
+#btnPath {
 	background: url('btn/btnPath.svg');
 }
-div#btnShow {
+#btnShow {
 	background: url('btn/btnShow.svg');
 }
-div#btnFind {
+#btnFind {
 	background: url('btn/btnFind.svg');
 }
 
 /*etats des boutons*/
 
-div#btnCenter.normal, div#btnText.normal, div#btnPath.normal, div#btnShow.normal, div#btnFind.normal {
+#btnCenter.normal, #btnText.normal, #btnPath.normal, #btnShow.normal, #btnFind.normal {
 
 	background-color: #888a85;
 	border: solid 2px #EEEEEC;
 }
 
-div#btnCenter.active, div#btnText.active, div#btnPath.active, div#btnShow.active, div#btnFind.active {
+#btnCenter.active, #btnText.active, #btnPath.active, #btnShow.active, #btnFind.active {
 
     background-color: #555753;
 	border: solid 2px #2e3436;
@@ -269,13 +269,13 @@ div#btnCenter.active, div#btnText.active, div#btnPath.active, div#btnShow.active
 	opacity: 0.5;
 }
 
-div#btnCenter.over, div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
+#btnCenter.over, #btnText.over, #btnPath.over, #btnShow.over, #btnFind.over {
 	/*border: solid 2px #2e3436;*/
 	background-color: #555753;
 }
 /*HELP MENU*/
 
-div#hlpText, div#hlpPath, div#hlpShow, div#hlpFind {
+#hlpText, #hlpPath, #hlpShow, #hlpFind {
 	position: absolute;
 	z-index: -1000;
 	width: 120px;
@@ -286,7 +286,7 @@ div#hlpText, div#hlpPath, div#hlpShow, div#hlpFind {
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	overflow: hidden;
 }
-div#hlpText > p, div#hlpPath > p, div#hlpShow > p, div#hlpFind > p {
+#hlpText > p, #hlpPath > p, #hlpShow > p, #hlpFind > p {
 	margin-top: 30px;
 	text-align: center;
 	color: #2e3436 /* Aluminium 2 Darker */
@@ -294,7 +294,7 @@ div#hlpText > p, div#hlpPath > p, div#hlpShow > p, div#hlpFind > p {
 }
 /* ZOOM */
 
-div#zoomSlider {
+#zoomSlider {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
@@ -303,7 +303,7 @@ div#zoomSlider {
 }
 /* FOOTER */
 
-div#footer > h1 {
+#footer > h1 {
 	display: block;
 	float: left;
 	margin-top: 5px;
@@ -314,7 +314,7 @@ div#footer > h1 {
 	text-transform: uppercase;
 	color: #2e3436; /* Aluminium 2 Darker */
 }
-div#footer > div#options {
+#footer > #options {
 	display: block;
 	float: right;
 	margin-top: 5px;
