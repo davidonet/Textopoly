@@ -1,7 +1,7 @@
 /* TAILLES DES MSG ZOOM 1:4 */
 
 .z4 > .msg.s, .z4 > .fz.s {
-	width: 120px;
+	width: 120px;²
 	height: 80px;
 }
 .z4 > .msg.l {
@@ -148,7 +148,7 @@
 	letter-spacing: 0;
 }
 .z4 > .msg.t.l600 > p {
-	margin-top: 0 px;
+	margin-top: 0;
 	font-size: 6px;
 	line-height: 9px;
 	text-align: justify;
