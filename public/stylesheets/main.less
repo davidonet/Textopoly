@@ -25,6 +25,26 @@
     }
 }
 
+/* BIG BUTTONS MIXIN*/
+
+.bigButton (@radius: 50px) {
+    z-index: 100;
+    float: left;
+    margin-right: 35px;
+    margin-left: 35px;
+    display: block;
+    cursor: default;
+    width: @radius;
+    height: @radius;
+    border-radius: @radius*2;
+    border: solid 2px @aluminium1L;
+    background-color: @aluminium2L;
+    
+    &:hover {
+     border: solid 2px @aluminium2D;
+     background-color: @aluminium2;   
+    }
+}
 
 /* GLOBALS*/
 
@@ -259,13 +279,7 @@ div#mainMenu {
 }
    
 div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
-    z-index: 100;
-    float: left;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-right: 35px;
-    margin-left: 35px;
+.bigButton();
 }
 
 div#btnCenter {

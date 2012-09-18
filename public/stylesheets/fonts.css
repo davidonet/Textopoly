@@ -3,16 +3,16 @@
  ***********************************************************************************/
 
 @font-face {
-  font-family: 'NotCourierSansRegular';
-  src: url('fonts/notcouriersans-webfont.eot');
-  src: url('fonts/notcouriersans-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/notcouriersans-webfont.woff') format('woff'), url('fonts/notcouriersans-webfont.ttf') format('truetype'), url('fonts/notcouriersans-webfont.svg#NotCourierSansRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'NotCourierSansRegular';
+    src: url('fonts/notcouriersans-webfont.eot');
+    src: url('fonts/notcouriersans-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/notcouriersans-webfont.woff') format('woff'), url('fonts/notcouriersans-webfont.ttf') format('truetype'), url('fonts/notcouriersans-webfont.svg#NotCourierSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
-  font-family: 'FuturaCondensedMedium';
-  src: url('fonts/futura_c-webfont.eot');
-  src: url('fonts/futura_c-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/futura_c-webfont.woff') format('woff'), url('fonts/futura_c-webfont.ttf') format('truetype'), url('fonts/futura_c-webfont.svg#') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'FuturaCondensedMedium';
+    src: url('fonts/futura_c-webfont.eot');
+    src: url('fonts/futura_c-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/futura_c-webfont.woff') format('woff'), url('fonts/futura_c-webfont.ttf') format('truetype'), url('fonts/futura_c-webfont.svg#') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
