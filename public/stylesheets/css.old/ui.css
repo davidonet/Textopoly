@@ -1,99 +1,3 @@
-
-div#main {
-	position: absolute;
-	top: 140px;
-	margin-left: 10px;
-	overflow: auto;
-}
-
-
-/* MISE EN FORME*/
-
-/* HEADER BIG*/
-
-/* HEADER SMALL*/
-
-/* TOP MENU */
-
-/* MAIN MENU */
-
-div#mainMenu {
-	display: block;
-	position: absolute;
-	right: 20px;
-	top: 95px;
-	width: 620px;
-	height: 50px;
-	z-index: 100;
-}
-div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
-	z-index: 100;
-	float: left;
-	width: 50px;
-	height: 50px;
-	border-radius: 50px;
-	margin-right: 35px;
-	margin-left: 35px;
-}
-
-div#btnCenter {
-	background: url('btn/btnCenter.svg');
-}
-
-div#btnText {
-	background: url('btn/btnText.svg');
-}
-div#btnPath {
-	background: url('btn/btnPath.svg');
-}
-div#btnShow {
-	background: url('btn/btnShow.svg');
-}
-div#btnFind {
-	background: url('btn/btnFind.svg');
-}
-
-/*etats des boutons*/
-
-div#btnCenter.normal, div#btnText.normal, div#btnPath.normal, div#btnShow.normal, div#btnFind.normal {
-
-	background-color: #888a85;
-	border: solid 2px #EEEEEC;
-}
-
-div#btnCenter.active, div#btnText.active, div#btnPath.active, div#btnShow.active, div#btnFind.active {
-
-    background-color: #555753;
-	border: solid 2px #2e3436;
-}
-
-.faded {
-	opacity: 0.5;
-}
-
-div#btnCenter.over, div#btnText.over, div#btnPath.over, div#btnShow.over, div#btnFind.over {
-	border: solid 2px #2e3436;
-	background-color: #555753;
-}
-/*HELP MENU*/
-
-div#hlpText, div#hlpPath, div#hlpShow, div#hlpFind {
-	position: absolute;
-	z-index: -1000;
-	width: 120px;
-	height: 0px;
-	top: 25px;
-	border-top: 1px dashed #2e3436;
-	background-color: #eeeeec; /* Aluminium 1 Lighter */
-	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
-	overflow: hidden;
-}
-div#hlpText > p, div#hlpPath > p, div#hlpShow > p, div#hlpFind > p {
-	margin-top: 30px;
-	text-align: center;
-	color: #2e3436 /* Aluminium 2 Darker */
-
-}
 /* ZOOM */
 
 div#zoomSlider {
@@ -135,34 +39,37 @@ div#footer > div#options {
 /* MSG COLORS */
 
 .z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
-	background-color: #fce94f; /* Butter Lighter */
+	background-color: @butterL;
 	
 
 }
 .z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
-	background-color: #fcaf3e; /* Orange Lighter */
+	background-color: @orangeL;
 
 }
 .z1 > .msg.chocolate:hover, .z2 > .msg.chocolate:hover, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
-	background-color: #e9b96e; /* Chocolate Lighter */
+	background-color: @chocolateL;
 
 }
 .z1 > .msg.chameleon:hover, .z2 > .msg.chameleon:hover, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
-	background-color: #8ae234; /* Chameleon Lighter */
+	background-color: @chamelonL;
 
 }
 .z1 > .msg.skyblue:hover, .z2 > .msg.skyblue:hover, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
-	background-color: #729fcf; /* Sky Blue Lighter */
+	background-color: @skyblueL;
 
 }
 .z1 > .msg.plum:hover, .z2 > .msg.plum:hover, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
-	background-color: #ad7fa8; /* Plum Lighter */
+	background-color: @plumL;
 
 }
 .z1 > .msg.scarletred:hover, .z2 > .msg.scarletred:hover, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
-	background-color: #ef2929; /* Scarlet Red Lighter */
-
+	background-color: @scarletredL;
 }
+
+
+
+
 
 .z2 > .msg.butter {
 background-color: rgba(136, 138, 133, 0.2); /* Aluminium 1 Lighter */
