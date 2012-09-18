@@ -1,5 +1,5 @@
 /* WRITINGBOX */
-div#writingBox {
+#writingBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
@@ -10,7 +10,7 @@ div#writingBox {
 	cursor: text;
 }
 
-div#informationBox {
+#informationBox {
 	z-index: 1000;
 	position: absolute;
 	display: block;
@@ -21,7 +21,7 @@ div#informationBox {
 	cursor: default;
 }
 
-div#writingBox * h2, div#informationBox * h2 {
+#writingBox * h2, #informationBox * h2 {
 	padding-top: 20px;
 }
 
