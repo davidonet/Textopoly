@@ -42,7 +42,7 @@ body {
 	text-align: right;
 }
 
-.msg > p, textarea#write {
+.msg > p, #write {
 	font-family: "NotCourierSansRegular", monospace;
 	color: #2e3436; /* Aluminium 2 Darker */
 	-webkit-hyphens: auto;

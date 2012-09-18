@@ -1,8 +1,18 @@
 /***********************************************************************************
- * WRITEBOX / INFOBOX
+ * WRITEBOX / INFOBOX WORK IN PROGRESS
  ***********************************************************************************/
 
 /* WRITINGBOX */
+
+textarea#write {
+  font-family: @NotCourier;
+  color: @aluminium2D;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  word-wrap: break-word;
+  }
+  
+  
 div#writingBox {
     z-index: 1000;
     position: absolute;
@@ -92,7 +102,6 @@ div.editArea.f, div.infoArea.f, .f > div.msgInfo {
 /* TEXT AREA */
 
 div.editArea.s > textarea#write {
-
     width: 220px;
     height: 160px;
 }
@@ -112,7 +121,7 @@ div.editArea.f > textarea#write {
 }
 
 /***********************************************************************************
- *  SWITCHLIVETYPE
+ *  SWITCHLIVETYPE WORK IN PROGRESS
  ***********************************************************************************/
 
 /* STYLES DES ZOOM 1:2 SMALL*/
@@ -123,6 +132,7 @@ div.editArea.f > textarea#write {
     text-align: center;
     letter-spacing: 0px;
 }
+
 .z2 * .s.l15 > textarea {
     font-size: 72px;
     line-height: 40px;
@@ -153,6 +163,7 @@ div.editArea.f > textarea#write {
     text-align: justify;
     letter-spacing: 1px;
 }
+
 /* STYLES DES ZOOM 1:2 LONG*/
 
 .z2 * .l.l4 > textarea {
