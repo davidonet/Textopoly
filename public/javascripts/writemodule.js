@@ -353,6 +353,10 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	 ***********************************************************************************/
 	return {
 		updateClick : function() {
+			$('#writingBox').click(function(event){
+				event.stopPropagation();
+				return false;
+			});
 			if (params.zoom != 2) {
 				$('#content').unbind('click');
 				$('.msg').unbind('click');
