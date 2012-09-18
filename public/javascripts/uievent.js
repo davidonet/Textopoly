@@ -1,133 +1,71 @@
-define(['helper', 'pathwalk', 'dynload', 'writemodule'], function(helper, pathwalk, dynload, writemodule) {
+define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) {
+	var handleMouseWheel = function(e) {
+		var delta = 0, element = $('#zoomSlider'), value, result;
+		value = element.slider('value');
 
-	/**
-	 * Top Menu Handling
-	 */
-	helper.btnClic("#btnShow", function(event) {
+		if (e.wheelDelta) {
+			delta = -e.wheelDelta;
+		}
+		if (e.detail) {
+			delta = e.detail;
+		}
+
+		value -= delta / 200;
+		if (value > 5) {
+			value = 5;
+		}
+		if (value < 0) {
+			value = 0;
+		}
+
+		if (result !== false) {
+			element.slider('value', value);
+		}
+
+		e.preventDefault();
 		return false;
-	});
-
-	helper.btnClic("#btnFind", function(event) {
-		return false;
-	});
-
-	helper.btnClic("#btnPath", function(event) {
-
-		
-		$(".default").switchClass("default", "pathMode", 500);
-		$(".pathMode").switchClass("pathMode", "default", 500);
-		return false;
-	});
-
-	helper.btnClic("#btnText", function(event) {
-		return false;
-	});
-	helper.btnClic("#btnCenter", function(event) {
-		return false;
-	});
-
-	helper.btnOver("#btnCenter");
-	helper.btnOver("#btnText");
-	helper.btnOver("#btnPath");
-	helper.btnOver("#btnShow");
-	helper.btnOver("#btnFind");
-
-	/**
-	 * Draggable Map with dynamic load
-	 */
-
-	var localParams = {
-		xmin : params.xmin,
-		xmax : params.xmax,
-		ymin : params.ymin,
-		ymax : params.ymax
 	};
 
-	$('#map').draggable({
-		stop : function(event, ui) {
-			var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
-			var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
-			var lparam = {
-				"xmin" : xmin - 2,
-				"ymin" : ymin - 2,
-				"xmax" : xmin + params.txtwidth + 2,
-				"ymax" : ymin + params.txtheight + 2
-			};
-			dynload.loadSection(lparam, function() {
-			});
-			pathwalk.updatePath();
-		},
-		start : function(event, ui) {
-			pathwalk.hidePath();
+	var bindZoom = function() {
+		if ($.browser.webkit) {
+			window.addEventListener('mousewheel', handleMouseWheel, false);
+			// Chrome/Safari
+		} else if ($.browser.mozilla) {
+			window.addEventListener('DOMMouseScroll', handleMouseWheel, false);
+			// Firefox
+		} else {
+			window.addEventListener('mousewheel', handleMouseWheel, false);
+			// others (Opera, Explorer9)
 		}
-	});
 
-	
+	};
 
-	/***********************************************************************************
-	 * BEGIN TIPSY
-	 ***********************************************************************************/
+	var unbindZoom = function() {
+		if ($.browser.webkit) {
+			window.removeEventListener('mousewheel', handleMouseWheel, false);
+			// Chrome/Safari
+		} else if ($.browser.mozilla) {
+			window.removeEventListener('DOMMouseScroll', handleMouseWheel, false);
+			// Firefox
+		} else {
+			window.removeEventListener('mousewheel', handleMouseWheel, false);
+			// others (Opera, Explorer9)
+		}
+	};
 
-	// WritingBox bulles d'aides
+	return {
+		init : function() {
 
-	$('.editArea > .nw.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Fermer', // fallback text to use when no tooltip text
-		gravity : 'e' // gravity
-	});
+			helper.btnOver("#btnCenter");
+			helper.btnOver("#btnText");
+			helper.btnOver("#btnPath");
+			helper.btnOver("#btnShow");
+			helper.btnOver("#btnFind");
+			bindZoom();
+			infoBox.init();
 
-	$('.editArea > .e.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Agrandir / Réduire', // fallback text to use when no tooltip text
-		gravity : 'w' // gravity
-	});
-
-	$('.editArea > .se.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Poster', // fallback text to use when no tooltip text
-		gravity : 'w' // gravity
-	});
-
-	$('.editArea > .s.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Agrandir / Réduire', // fallback text to use when no tooltip text
-		gravity : 'n' // gravity
-	});
-
-	$('.editArea > .sw.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Texte / Image', // fallback text to use when no tooltip text
-		gravity : 'e' // gravity
-	});
-
-	// InfoBox bulles d'aides
-
-	$('.infoArea > .nw.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Fermer', // fallback text to use when no tooltip text
-		gravity : 'e' // gravity
-	});
-
-	$('.infoArea > .ne.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Supprimer', // fallback text to use when no tooltip text
-		gravity : 'w' // gravity
-	});
-
-	$('.infoArea > .e.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Créer un chemin', // fallback text to use when no tooltip text
-		gravity : 'w' // gravity
-	});
-
-	$('.infoArea > .se.handle').tipsy({
-		delayIn : 500, // delay before showing tooltip (ms)
-		fallback : 'Infos', // fallback text to use when no tooltip text
-		gravity : 'w' // gravity
-	});
-
-	/***********************************************************************************
-	 * END TIPSY
-	 ***********************************************************************************/
-
+		},
+		bindZoom : bindZoom,
+		unbindZoom : unbindZoom
+	};
 });

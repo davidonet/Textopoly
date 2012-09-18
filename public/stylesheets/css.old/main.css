@@ -30,11 +30,16 @@ body {
 }
 
 .default {
-
 	background: #d3d7cf; /* Aluminium 1 */
 }
 .pathMode {
 	background: #BABDB6;
+}
+
+#footer > #posInfo {
+	font-family: "FuturaCondensedMedium", monospace;
+	color: #2e3436; /* Aluminium 2 Darker */
+	text-align: right;
 }
 
 .msg > p, textarea#write {

@@ -7,15 +7,35 @@ define([], function() {
 		return (p[1] - params.ymin) * params.stepy;
 	}
 
+	var isOn = false;
+	setInterval(function() {
+		if (isOn)
+			$('#blink').hide();
+		else
+			$('#blink').show();
+		isOn = !isOn;
+	}, 1000);
+
+	var xToPos = function(X) {
+		var x = X - (params.stepx / 2);
+		return params.xmin + Math.ceil((x - $('#map').position().left) / params.stepx);
+	};
+	var yToPos = function(Y) {
+		var y = Y - (params.stepy / 2);
+		return params.ymin + Math.ceil((y - $('#map').position().top) / params.stepy);
+	};
+
 	return {
+		xToPos : xToPos,
+		yToPos : yToPos,
 		initLeft : (((params.xmin - params.xcenter - 1) * params.stepx) + $(document).width() / 2),
 		initTop : (((params.ymin - params.ycenter - 1) * params.stepy) + $(document).height() / 2),
 		getCenterX : function() {
-			return (params.xmin - 1) - Math.floor((2 * $('#map').position().left - $(document).width()) / (2 * params.stepx));
+			return xToPos($(document).width() / 2);
 		},
 
 		getCenterY : function() {
-			return (params.ymin - 1) - Math.floor((2 * $('#map').position().top - $(document).height()) / (2 * params.stepy));
+			return yToPos($(document).height() / 2);
 		},
 		posToLeft : posToLeft,
 		posToTop : posToTop,
@@ -68,6 +88,51 @@ define([], function() {
 		 */
 		btnClic : function(bouton, fn) {
 			$(bouton).click(fn);
+		},
+		handlesPos : function(targetArea) {
+			var r = 10;
+			var w = $(targetArea).parent().outerWidth();
+			var h = $(targetArea).parent().outerHeight();
+
+			$(targetArea + '>.nw.handle').css({
+				top : -2 * r,
+				left : -2 * r
+			});
+
+			$(targetArea + '> .n.handle').css({
+				top : -2 * r,
+				left : -2 * r + w / 2
+			});
+
+			$(targetArea + '> .ne.handle').css({
+				top : -2 * r,
+				left : -2 * r + w
+			});
+
+			$(targetArea + '> .e.handle').css({
+				top : -2 * r + h / 2,
+				left : -2 * r + w
+			});
+
+			$(targetArea + '> .se.handle').css({
+				top : -2 * r + h,
+				left : -2 * r + w
+			});
+
+			$(targetArea + '> .s.handle').css({
+				top : -2 * r + h,
+				left : -2 * r + w / 2
+			});
+
+			$(targetArea + '> .sw.handle').css({
+				top : -2 * r + h,
+				left : -2 * r
+			});
+
+			$(targetArea + '> .w.handle').css({
+				top : -2 * r + h / 2,
+				left : -2 * r
+			});
 		}
 	};
 });

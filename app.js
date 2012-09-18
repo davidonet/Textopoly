@@ -28,13 +28,16 @@ io.sockets.on('connection', function(socket) {
 });
 // Configuration
 
+var pubpath = (process.env.JS_COV ? '/public-cov' : '/public');
+
+
 app.configure(function() {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
-	app.use(express['static'](__dirname + '/public'));
+	app.use(express['static'](__dirname + pubpath));
 	app.enable("jsonp callback");
 });
 
@@ -49,6 +52,7 @@ app.configure('production', function() {
 	app.use(express.errorHandler());
 });
 
-require('./routes')(app);
+var libpath = (process.env.NODE_COV ? './routes-cov' : './routes');
+require(libpath)(app);
 
 app.listen(3000);

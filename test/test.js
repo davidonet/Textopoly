@@ -1,14 +1,24 @@
 var request = require('superagent');
 var app = require('../app');
 var should = require('should');
+var expect = require('expect.js'), Browser = require('zombie'), browser = new Browser();
 
 function testTxt(txt) {
-	/*jshint evil:true,es5: true*/
 	txt.should.have.property("a").and.be.a('string');
 	txt.should.have.property("c").and.be.a('string');
 	txt.should.have.property("d").and.be.a('string');
 	txt.should.have.property("p").and.lengthOf(2);
 	txt.should.have.property("t").and.be.a('string');
+	txt.should.have.property("s").and.be.a('string');
+}
+
+function equalTxt(txta, textb) {
+	txta.should.have.property("a").equal(textb.a);
+	txta.should.have.property("c").equal(textb.c);
+	//txta.should.have.property("p").equal(textb.p);
+	txta.should.have.property("t").equal(textb.t);
+	txta.should.have.property("s").equal(textb.s);
+
 }
 
 function testPath(path) {
@@ -75,4 +85,126 @@ describe('Textopoly Server Side', function() {
 			});
 		});
 	});
+	describe('Txt cell consistency', function() {
+		var aTxt = {
+			p : [-7000, 7000],
+			a : 'mocha',
+			t : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			c : 'butter',
+			s : 'f'
+		};
+		describe('Insert', function() {
+			it("should insert a msg a db", function(done) {
+				request.post('http://localhost:3000/insert').send(aTxt).set('Accept', 'application/json').end(function(res) {
+					should.exist(res.body);
+					equalTxt(res.body, aTxt);
+					done();
+				});
+			});
+		});
+		describe('Read', function() {
+			it("should read a msg equal to the one sent", function(done) {
+				request.get('http://localhost:3000/t/' + aTxt.p[0] + '/' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
+					should.exist(res.body);
+					equalTxt(res.body, aTxt);
+					done();
+				});
+			});
+		});
+		describe('Freespace booked', function() {
+			it("should have booked 16 cells", function(done) {
+				request.get('http://localhost:3000/fa/' + aTxt.p[0] + '/' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
+					should.exist(res.body);
+					res.body.should.have.property("s").equal(4);
+					res.body.should.have.property("l").equal(6);
+					res.body.should.have.property("t").equal(6);
+					res.body.should.have.property("f").equal(9);
+					done();
+				});
+			});
+		});
+		describe('Cell in section', function() {
+			it("should contains our msg", function(done) {
+				request.get('http://localhost:3000/section?xmin=' + (aTxt.p[0] - 1) + '&xmax=' + (aTxt.p[0] + 1) + '&ymin=' + (aTxt.p[1] - 1) + '&ymax=' + (aTxt.p[1] + 1)).set('Accept', 'application/json').end(function(res) {
+					should.exist(res.body);
+					res.body.should.have.property("texts");
+					equalTxt(res.body.texts[0], aTxt);
+					done();
+				});
+			});
+		});
+		describe('Remove', function() {
+			it("should remove msg txt", function(done) {
+				request.get('http://localhost:3000/remove?x=' + aTxt.p[0] + '&y=' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
+					should.exist(res.body);
+					done();
+				});
+			});
+		});
+		describe('Read', function() {
+			it("should read a null", function(done) {
+				request.get('http://localhost:3000/t/' + aTxt.p[0] + '/' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
+					should.exist(res.body);
+					done();
+				});
+			});
+		});
+		describe('Freespace freed', function() {
+			it("should have booked 16 cells", function(done) {
+				request.get('http://localhost:3000/fa/-2000/2000').set('Accept', 'application/json').end(function(res) {
+					should.exist(res.body);
+					res.body.should.have.property("s").equal(0);
+					res.body.should.have.property("l").equal(0);
+					res.body.should.have.property("t").equal(0);
+					res.body.should.have.property("f").equal(0);
+					done();
+				});
+			});
+		});
+	});
+	describe('Authors list', function() {
+		it("should give a list of authors", function(done) {
+			request.get('http://localhost:3000/authors').set('Accept', 'application/json').end(function(res) {
+				should.exist(res.body);
+				done();
+			});
+		});
+	});
+	describe('Path list', function() {
+		it("should give a list of paths", function(done) {
+			request.get('http://localhost:3000/allpath').set('Accept', 'application/json').end(function(res) {
+				should.exist(res.body);
+				done();
+			});
+		});
+	});
+	describe('Authors page', function() {
+		it("should give an authors list", function(done) {
+			browser.visit('http://localhost:3000/mauth', function() {
+				done();
+			});
+		});
+	});
+	describe('Author page', function() {
+		it("should give a txt list and pathwalk list", function(done) {
+			browser.visit('http://localhost:3000/mpath/Adrien', function() {
+				done();
+			});
+		});
+	});
+	describe('Path page', function() {
+		it("should give a txt list and pathwalk list", function(done) {
+			browser.visit('http://localhost:3000/mbook/4fc4b9ad4d71520266000120', function() {
+				done();
+			});
+		});
+	});
+	describe('Main page', function() {
+		it("should respond an html page", function(done) {
+			browser.visit('http://localhost:3000/', function() {
+				done();
+			});
+		});
+	});
+
 });
