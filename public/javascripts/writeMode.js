@@ -13,6 +13,7 @@ define(["mapModule", "txt", "uievent", "writemodule"], function(mapModule, txt, 
 			$('.msg').unbind('click');
 			$('#zoomSlider').slider("enable");
 			uievent.bindZoom();
+			$('#writingBox').fadeOut(100);
 		}
 	};
 });
