@@ -11,13 +11,19 @@ define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, def
 
 	function changeMode(newMode) {
 		currentMode.leave();
-		$(params.currentMode).switchClass(params.currentMode, newMode, 500);
+		$('.' + params.currentMode).switchClass(params.currentMode, newMode, 500);
 		params.currentMode = newMode;
 		if (params.currentMode == 'default') {
 			currentMode = defaultMode;
+
 		} else if (params.currentMode == 'writeMode') {
 			currentMode = writeMode;
+
+		} else if (params.currentMode == 'pathMode') {
+			currentMode = pathMode;
+
 		}
+
 		currentMode.init();
 		refresh();
 	}
@@ -25,25 +31,25 @@ define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, def
 	return {
 		init : function() {
 			helper.btnClic("#btnShow", function(event) {
-				$('.active').switchClass('active','normal');
-				$(this).switchClass('normal','active');
+				$('.active').switchClass('active', 'normal');
+				$(this).switchClass('normal', 'active');
 				changeMode('default');
 				return false;
 			});
 			helper.btnClic("#btnFind", function(event) {
-				$('.active').switchClass('active','normal');
-				$(this).switchClass('normal','active');
+				$('.active').switchClass('active', 'normal');
+				$(this).switchClass('normal', 'active');
 				return false;
 			});
 			helper.btnClic("#btnPath", function(event) {
-				$('.active').switchClass('active','normal');
-				$(this).switchClass('normal','active');
+				$('.active').switchClass('active', 'normal');
+				$(this).switchClass('normal', 'active');
 				changeMode('pathMode');
 				return false;
 			});
 			helper.btnClic("#btnText", function(event) {
-				$('.active').switchClass('active','normal');
-				$(this).switchClass('normal','active');				
+				$('.active').switchClass('active', 'normal');
+				$(this).switchClass('normal', 'active');
 				changeMode('writeMode');
 				return false;
 			});
