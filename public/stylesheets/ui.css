@@ -8,8 +8,8 @@
 }
 #map {
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	cursor: move;
 }
 #uiWrap {
@@ -24,8 +24,8 @@
 	position: absolute;
 	z-index: 1500;
 	width: 960px;
-	top: 0px;
-	margin: 0px auto;
+	top: 0;
+	margin: 0 auto;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	cursor: default;
@@ -41,8 +41,8 @@
 	position: relative;
 	width: 940px;
 	height: 4px;
-	top: 0px;
-	margin: 0px auto;
+	top: 0;
+	margin: 0 auto;
 	background-color: #2e3436 /* Aluminium 2 Darker */
 }
 #zoomWrap {
@@ -85,7 +85,7 @@
 }
 #footer {
 	position: absolute;
-	bottom: 0px;
+	bottom: 0;
 	z-index: 2000;
 	width: 960px;
 	height: 20px;
@@ -168,7 +168,7 @@
 #header.small h1 {
 	float: left;
 	margin-left: 10px;
-	margin-top: 0px;
+	margin-top: 0;
 	height: 42px;
 	font-size: 32px;
 	color: #2e3436; /* Aluminium 2 Darker */
@@ -279,7 +279,7 @@
 	position: absolute;
 	z-index: -1000;
 	width: 120px;
-	height: 0px;
+	height: 0;
 	top: 25px;
 	border-top: 1px dashed #2e3436;
 	background-color: #eeeeec; /* Aluminium 1 Lighter */
@@ -515,8 +515,8 @@ div.ctx {
 	position: absolute;
 	text-align: center;
 	width: 1em;
-	right: 0px;
-	top: 0px;
+	right: 0;
+	top: 0;
 	background-color: #EF2929;
 	font-family: "NotCourierSansRegular", monospace;
 	opacity: 0;
