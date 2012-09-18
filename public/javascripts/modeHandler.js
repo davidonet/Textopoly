@@ -10,6 +10,9 @@ define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, def
 	};
 
 	function changeMode(newMode) {
+		
+		if (newMode != params.currentMode) {
+		
 		currentMode.leave();
 		$('.' + params.currentMode).switchClass(params.currentMode, newMode, 500);
 		params.currentMode = newMode;
@@ -26,6 +29,8 @@ define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, def
 
 		currentMode.init();
 		refresh();
+		
+		}
 	}
 
 	return {
