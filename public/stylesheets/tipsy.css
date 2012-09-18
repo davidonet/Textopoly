@@ -16,9 +16,9 @@
 
 /* Rounded corners */
 .tipsy-inner {
-	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
+	border-radius: 3px;
 }
 
 /* Uncomment for shadow */
@@ -47,7 +47,7 @@
 }
 
 .tipsy-n .tipsy-arrow {
-	top: 0px;
+	top: 0;
 	left: 50%;
 	margin-left: -5px;
 	border-bottom-style: solid;
