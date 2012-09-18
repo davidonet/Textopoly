@@ -32,6 +32,11 @@
 .z20 > .l0.scarletred, .z40 > .l0.scarletred, .l0.scarletred
 
  {
+ 	-moz-animation-name: booked;
+	-moz-animation-duration: 1.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-direction: alternate;
+	-moz-animation-iteration-count: infinite;
 	-webkit-animation-name: booked;
 	-webkit-animation-duration: 1.5s;
 	-webkit-animation-timing-function: linear;
