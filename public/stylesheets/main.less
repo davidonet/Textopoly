@@ -54,7 +54,10 @@
     
 }
 
-/* GLOBALS*/
+
+/***********************************************************************************
+ *  GLOBALS
+ ***********************************************************************************/
 
 html {
   -webkit-font-smoothing: subpixel-antialiased;
@@ -69,6 +72,14 @@ body {
       }
   &.pathMode {
       background: @aluminium2;    
+  }
+  
+    &.writeMode {
+      background: @aluminium1;  
+      *.msg{
+       background: rgba(136, 138, 133, 0.2);    
+
+      }  
   }
   
 }
@@ -100,10 +111,17 @@ input {
 label {
     font-size: 14px;
     letter-spacing: 1px;
-}    
+}
 
-/* MSG DISPLAY */
+:focus {
+    outline: 0;
+    outline: none;
+}
 
+
+/***********************************************************************************
+ *  MSG DISPLAY
+ ***********************************************************************************/
 .msg {
   display: block;
   position: absolute;
@@ -125,6 +143,57 @@ label {
 
 }
 }
+
+
+/* MSG COLORS */
+
+
+.z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
+    background-color: @butterL;
+    
+}
+.z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
+    background-color: @orangeL;
+}
+.z1 > .msg.chocolate:hover, .z2 > .msg.chocolate:hover, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
+    background-color: @chocolateL;
+}
+.z1 > .msg.chameleon:hover, .z2 > .msg.chameleon:hover, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
+    background-color: @chamelonL;
+}
+.z1 > .msg.skyblue:hover, .z2 > .msg.skyblue:hover, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
+    background-color: @skyblueL;
+}
+.z1 > .msg.plum:hover, .z2 > .msg.plum:hover, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
+    background-color: @plumL;
+}
+.z1 > .msg.scarletred:hover, .z2 > .msg.scarletred:hover, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
+    background-color: @scarletredL;
+}
+
+
+.z20 > .msg.butter,.z40 > .msg.butter {
+    background-color: @butterD;
+}
+.z20 > .msg.orange, .z40 > .msg.orange {
+    background-color: @orangeD;
+}
+.z20 > .msg.chocolate,.z40 > .msg.chocolate  {
+    background-color: @chocolateD;
+}
+.z20 > .msg.chameleon, .z40 > .msg.chameleon {
+    background-color: @chameleonD; 
+}
+.z20 > .msg.skyblue, .z40 > .msg.skyblue{
+    background-color: @skyblueD; 
+}
+.z20 > .msg.plum, .z40 > .msg.plum {
+    background-color: @plumD; 
+}
+.z20 > .msg.scarletred,.z40 > .msg.scarletred {
+    background-color: @scarletredD; 
+}
+
 
 /***********************************************************************************
  *  ZONING
@@ -398,9 +467,6 @@ div#btnFind {
 }  
 }
 
-
-
-
 div#footer {
     position: absolute;
     bottom: 0px;
@@ -413,55 +479,3 @@ div#footer {
 }
 
 
-
-
-
-/* MSG COLORS */
-
-
-.z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
-    background-color: @butterL;
-    
-}
-.z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
-    background-color: @orangeL;
-}
-.z1 > .msg.chocolate:hover, .z2 > .msg.chocolate:hover, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
-    background-color: @chocolateL;
-}
-.z1 > .msg.chameleon:hover, .z2 > .msg.chameleon:hover, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
-    background-color: @chamelonL;
-}
-.z1 > .msg.skyblue:hover, .z2 > .msg.skyblue:hover, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
-    background-color: @skyblueL;
-}
-.z1 > .msg.plum:hover, .z2 > .msg.plum:hover, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
-    background-color: @plumL;
-}
-.z1 > .msg.scarletred:hover, .z2 > .msg.scarletred:hover, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
-    background-color: @scarletredL;
-}
-
-
-
-.z20 > .msg.butter,.z40 > .msg.butter {
-    background-color: @butterD;
-}
-.z20 > .msg.orange, .z40 > .msg.orange {
-    background-color: @orangeD;
-}
-.z20 > .msg.chocolate,.z40 > .msg.chocolate  {
-    background-color: @chocolateD;
-}
-.z20 > .msg.chameleon, .z40 > .msg.chameleon {
-    background-color: @chameleonD; 
-}
-.z20 > .msg.skyblue, .z40 > .msg.skyblue{
-    background-color: @skyblueD; 
-}
-.z20 > .msg.plum, .z40 > .msg.plum {
-    background-color: @plumD; 
-}
-.z20 > .msg.scarletred,.z40 > .msg.scarletred {
-    background-color: @scarletredD; 
-}
