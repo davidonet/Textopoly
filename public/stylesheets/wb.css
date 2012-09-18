@@ -3,8 +3,8 @@
 	z-index: 1000;
 	position: absolute;
 	display: block;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	border: dashed 2px #eeeeec; /* Aluminium 2 Darker */
 	padding: 8px;
 	cursor: text;
@@ -14,8 +14,8 @@
 	z-index: 1000;
 	position: absolute;
 	display: block;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	border: dashed 2px #555753; /* Aluminium 2 Darker */
 	padding: 8px;
 	cursor: default;
@@ -28,16 +28,16 @@
 div.editArea {
 	text-align: center;
 	position: relative;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 	/*border: dashed 1px blue;*/
 }
 
 div.infoArea {
 	position: relative;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	/*	background-color: rgba(238, 238, 236, 0.4); /* Aluminium 1 Lighter */
 
 }
@@ -121,25 +121,25 @@ div.editArea.f > textarea#write {
 	font-size: 108px;
 	line-height: 160px;
 	text-align: center;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .s.l15 > textarea {
 	font-size: 72px;
 	line-height: 40px;
 	text-align: center;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .s.l50 > textarea {
 	font-size: 24px;
 	line-height: 40px;
 	text-align: left;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .s.l150 > textarea {
 	font-size: 18px;
 	line-height: 20px;
 	text-align: left;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .s.l300 > textarea {
 	font-size: 12px;
@@ -171,19 +171,19 @@ div.editArea.f > textarea#write {
 	font-size: 48px;
 	line-height: 40px;
 	text-align: right;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .l.l150 > textarea {
 	font-size: 30px;
 	line-height: 20px;
 	text-align: center;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .l.l300 > textarea {
 	font-size: 18px;
 	line-height: 20px;
 	text-align: justify;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 > .l.l600 > textarea {
 	font-size: 12px;
@@ -203,19 +203,19 @@ div.editArea.f > textarea#write {
 	font-size: 70px;
 	line-height: 100px;
 	text-align: justify;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .t.l50 > textarea {
 	font-size: 48px;
 	line-height: 40px;
 	text-align: right;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .t.l150 > textarea {
 	font-size: 18px;
 	line-height: 40px;
 	text-align: justify;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .t.l300 > textarea {
 	font-size: 18px;
@@ -241,13 +241,13 @@ div.editArea.f > textarea#write {
 	font-size: 120px;
 	line-height: 80px;
 	text-align: left;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .f.l50 > textarea {
 	font-size: 54px;
 	line-height: 80px;
 	text-align: center;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
 .z2 * .f.l150 > textarea {
 	font-size: 36px;
@@ -265,5 +265,5 @@ div.editArea.f > textarea#write {
 	font-size: 18px;
 	line-height: 20px;
 	text-align: justify;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 }
