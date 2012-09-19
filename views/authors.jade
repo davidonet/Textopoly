@@ -1,3 +1,5 @@
-each a in authors
-  div
-    a(href="/mpath/"+a) #{a}
+extend mobile
+block body
+	each a in authors
+		div
+			a(href="/mpath/"+a) #{a}

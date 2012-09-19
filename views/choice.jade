@@ -1,13 +1,15 @@
-h2 
-  #{a}
-h3 Textes
-each t in txts
-  div 
-    a(href="/mtxt/"+t.p[0]+"/"+t.p[1]) #{t.p}
-h3 Chemins
-each p in paths
-  div
-    a(href="/mbook/"+p._id) #{p._id}
-hr
-footer
-  a(href="/mauth") Auteurs
+extend mobile
+block body
+	h2 
+		#{a}
+	h3 Textes
+	each t in txts
+		div 
+			a(href="/mtxt/"+t.p[0]+"/"+t.p[1]) #{t.p}
+	h3 Chemins
+	each p in paths
+		div
+			a(href="/mbook/"+p._id) #{p._id}
+	hr
+	footer
+		a(href="/mauth") Auteurs

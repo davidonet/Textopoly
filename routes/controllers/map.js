@@ -10,10 +10,8 @@ exports.view = function(req, res) {
 			zoom : zoom,
 			xcenter : xcenter,
 			ycenter : ycenter
-		},
-		layout:'layout'
-		
+		}
 	};
-	res.render('view.jade', data);
+	res.render('view', data);
 };
 

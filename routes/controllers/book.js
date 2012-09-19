@@ -29,8 +29,7 @@ exports.path = function(req, res) {
 		res.render('book.jade', {
 			title : "Textopoly | Chemin de " + items.a,
 			a : items.a,
-			pathwalk : items,
-			layout : 'mobile'
+			pathwalk : items			
 		});
 	});
 };
@@ -39,8 +38,7 @@ exports.authors = function(req, res) {
 	db.txt.authors(function(err, items) {
 		res.render('authors.jade', {
 			title : "Textopoly | Qui",
-			authors : items,
-			layout : 'mobile'
+			authors : items
 		});
 	});
 };
@@ -53,8 +51,7 @@ exports.txt = function(req, res) {
 		res.render('txt.jade', {
 			title : "Textopoly | " + req.params.x + "," + req.params.y,
 			t : items,
-			lc : txtLen2Class(items.t.length),
-			layout : 'mobile'
+			lc : txtLen2Class(items.t.length)
 		});
 	});
 };
@@ -66,8 +63,7 @@ exports.choice = function(req, res) {
 				title : "Textopoly | Chemins de " + req.params.a,
 				a : req.params.a,
 				paths : items,
-				txts : txts,
-				layout : 'mobile'
+				txts : txts
 			});
 		});
 	});

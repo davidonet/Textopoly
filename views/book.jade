@@ -1,25 +1,24 @@
-body.default
-div#content
-  div#uiWrap
-    div#header.small
-      div#topbar
-      div#title
-        h1 TEXTOPOLY
-        div#blink
-      
-      div#topmenu
-        div#btnHelp.normal
-        div#btnFocus.normal
-        
-     div#bookView.z2
-     
-        h2 chemin de #{a}
-        each txt in pathwalk.pw
-          if txt.i
-            img(src='/getimg/['+txt.p+']')
-          else
-              p(class=txt.s+' '+txt.c+' '+txt.lc) #{txt.t}
-              br      
-      div#footer
-        a(href="/mpath/"+a) #{a} | 
-        a(href="/mauth") Auteurs
+extend mobile
+block body
+	div#content
+		div#uiWrap
+			div#header.small
+				div#topbar
+				div#title
+					h1 TEXTOPOLY
+					div#blink
+				div#topmenu
+					div#btnHelp.normal
+					div#btnFocus.normal
+    
+			div#bookView.z2
+				h2 chemin de #{a}
+				each txt in pathwalk.pw
+					if txt.i
+						img(src='/getimg/['+txt.p+']')
+					else
+						p(class=txt.s+' '+txt.c+' '+txt.lc) #{txt.t}
+						br      
+				div#footer
+					a(href="/mpath/"+a) #{a} | 
+					a(href="/mauth") Auteurs

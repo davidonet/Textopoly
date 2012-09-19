@@ -1,78 +1,63 @@
-script(data-main='javascripts/main',src='javascripts/lib/require-jquery.js')
-body.default
-div#content
-  div#uiWrap
-    div#header.big
-      div#topbar
-      div#title
-        h1 TEXTOPOLY
-        div#blink
-      
-      div#topmenu
-        div#btnHelp.normal ππ
-        div#btnFocus.normal kk   
-        
-      div#leftA
-        <
-      div#slider
-        h2 TEXTOPOLY est en <strong>version dev</strong>
-        p à partir du 21 mai 2012 pour en savoir plus <a href="http://blog.textopoly.org" target="_blank">cliquez ici</a>
-      div#rightA
-        >
+extends layout
+block head
+	script(data-main='javascripts/main',src='javascripts/lib/require-jquery.js')
+block body
+	div#content
+		div#uiWrap
+			div#header.big
+				div#topbar
+				div#title
+					h1 TEXTOPOLY
+					div#blink
+				div#topmenu
+					div#btnHelp.normal ππ
+					div#btnFocus.normal kk   
+				div#leftA
+					<
+				div#slider
+					h2 TEXTOPOLY est en <strong>version dev</strong>
+					p à partir du 21 mai 2012 pour en savoir plus <a href="http://blog.textopoly.org" target="_blank">cliquez ici</a>
+				div#rightA
+					>
+				div#mainMenu
+					div#btnText.normal 
+					div#btnPath.normal
+					div#btnShow.normal 
+					div#btnCenter.normal
+					div#btnFind.normal 
+			div#zoomWrap
+				div#zoom
+					div#zoomSlider
+			div#footer
+				p#posInfo
+				input#searchMap(type="text", name="s")
+		div.grid#map(class='z'+params.zoom)
+			div#removebox(style='display:none')
+				small
+					span(stle='color:red') Attention
+					br
+					span Cette opération est irréversible.
+			div#writingBox(style='display:none')
+				div.editArea.s.l4
+					div.nw.handle.ca
+					div.e.handle.ar
+					div.se.handle.ok
+					div.s.handle.ad
+					div.sw.handle.me
+					textarea#write(name='t',rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='soft')
+					div.imageArea(style='display:none')
+					div.authorArea(style='display:none')
+						h2 Choisir un nom et une couleur
+						input#current_author(type="text", name="a")
+						div#colorPicker
+				div#informationBox(style='display:none')
+					div.infoArea.s
+						div.nw.handle.ca
+						div.ne.handle.de
+						div.se.handle.in
+					div.msgInfo(style='display:none')    
+						h2 Informations sur le billet
+						h3#infoname John Do
+						h3#infodate le 16 mai 2012 à 17 h 04
+						h3 <a href="#permalink" target="_blank">Permalien </a>
 
-
-      div#mainMenu
-        div#btnText.normal 
-        div#btnPath.normal
-        div#btnShow.normal 
-        div#btnCenter.normal
-        div#btnFind.normal 
-        
-        
-    div#zoomWrap
-      div#zoom
-        div#zoomSlider
-                
-    div#footer
-      p#posInfo
-      input#searchMap(type="text", name="s")
-  
-  div.grid#map(class='z'+params.zoom)
-        
-    div#removebox(style='display:none')
-      small
-        span(stle='color:red') Attention
-        br
-        span Cette opération est irréversible.
-    
-    div#writingBox(style='display:none')
-
-      div.editArea.s.l4
-        div.nw.handle.ca
-        div.e.handle.ar
-        div.se.handle.ok
-        div.so.handle.ad
-        div.sw.handle.me
-        
-        textarea#write(rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='soft')
-        
-        div.imageArea(style='display:none')
-                    
-        div.authorArea(style='display:none')
-          h2 Choisir un nom et une couleur
-          input#current_author(type="text", name="a")
-          div#colorPicker
-
-
-    div#informationBox(style='display:none')
-
-      div.infoArea.s
-        div.nw.handle.ca
-        div.ne.handle.de
-        div.se.handle.in
-        
-        div.msgInfo(style='display:none')    
-          h2 Informations sur le billet
-          h3#infoname John Do
-          h3#infodate le 16 mai 2012 à 17 h 04
-          h3 <a href="#permalink" target="_blank">Permalien </a>
