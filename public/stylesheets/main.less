@@ -48,7 +48,10 @@
     }   
     &.active {
      border: solid 2px @aluminium2D;
-     background-color: @aluminium2;   
+     background-color: @aluminium2;
+     box-shadow: 0px 0px 15px @aluminium2;
+   
+   
     }
      
     
@@ -71,11 +74,13 @@ body {
       background: @aluminium1;
       }
   &.pathMode {
-      background: @aluminium2;    
+      background: @aluminium2L;    
   }
   
     &.writeMode {
       background: @aluminium1;  
+      cursor: text;
+
       *.msg{
        background: rgba(136, 138, 133, 0.2);    
 
@@ -126,7 +131,7 @@ label {
   display: block;
   position: absolute;
   overflow: hidden;
-    cursor: move;
+  cursor: move;
 
   
   >p {
@@ -430,9 +435,13 @@ div#btnFind {
     margin-left: 10px;
     overflow: auto;
     
->.msg {
-    display: block;
-    position: relative;
+>p {
+    font-family: @NotCourier;
+    font-size:16px;
+    line-height: 24px;
+    text-align: left;
+    background:@aluminium1L;
+
 } 
 }
 
