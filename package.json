@@ -1,38 +1,45 @@
 {
-    "name": "textopoly",
-    "version": "0.0.1",
-    "author": "David O Net <contact@david-o.net>",
-    "description": "A collaborative text application",
-    "contributors": [
-        {
-            "name": "David Olivari",
-            "email": "david.olivari@gmail.com"
-        }
-    ],
-    "private": true,
-    "scripts": {
-        "start": "node app",
-        "test": "mocha",
-        "predeploy": "echo This will be run before deploying the app",
-        "postdeploy": "echo This will be run after deploying the app"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/davidonet/Textopoly"
-    },
-    "dependencies": {
-        "express": ">=3.0.0rc5",
-        "jade": "*",
-        "less-middleware": "*",
-        "mongoskin": ">= 0.4",
-        "socket.io": ">=0.9",
-        "imagemagick": ">=0.1.2",
-        "redis": ">=0.8",
-        "hiredis": "0.1",
-        "rss": ">=0.0.4"
-    },
-    "license": "GPL",
-    "engines": {
-        "node": ">=0.8"
-    }
+	"name": "textopoly",
+	"version": "0.0.1",
+	"author": "David O Net <contact@david-o.net>",
+	"description": "A collaborative text application",
+	"contributors": [
+		{
+			"name": "David Olivari",
+			"email": "david.olivari@gmail.com"
+		}
+	],
+	"private": true,
+	"scripts": {
+		"start": "node app",
+		"test": "mocha",
+		"predeploy": "echo This will be run before deploying the app",
+		"postdeploy": "echo This will be run after deploying the app"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/davidonet/Textopoly"
+	},
+	"dependencies": {
+		"express": ">=3.0.0rc5",
+		"jade": "*",
+		"less-middleware": "*",
+		"mongoskin": ">= 0.4",
+		"socket.io": ">=0.9",
+		"imagemagick": ">=0.1.2",
+		"redis": ">=0.8",
+		"hiredis": "0.1",
+		"rss": ">=0.0.4"
+	},
+	"devDependencies": {
+		"mocha": "*",
+		"should": "*",
+		"expect.js": "*",
+		"zombie": "*"
+	},
+	"license": "GPL",
+	"engines": {
+		"node": ">=0.8",
+		"npm": "1.1.x"
+	}
 }
