@@ -1,24 +1,26 @@
-!!! 5
+doctype 5
 html
-  head
-    title=title
-    meta(name="viewport",content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no")
-    link(rel='stylesheet', href='/stylesheets/reset.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/main.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/txt_z1.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/txt_z2.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/txt_z4.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/txt_z10.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/txt_z20.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/txt_z40.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/wb.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/ui.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/icons.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/Aristo/Aristo.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/tipsy.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/syronex-colorpicker.css',type='text/css')
-    link(rel='stylesheet', href='/stylesheets/animations.css',type='text/css')
-    script(type='text/javascript',src='javascripts/lib/raphael-min.js')
-    script(type='text/javascript')
-      var params=!{JSON.stringify(params)};
-  body!= body
+	head
+		title=title
+		meta(name="viewport",content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no")
+		link(rel='stylesheet', href='/stylesheets/reset.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/main.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/txt_z1.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/txt_z2.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/txt_z4.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/txt_z10.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/txt_z20.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/txt_z40.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/wb.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/ui.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/icons.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/Aristo/Aristo.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/tipsy.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/syronex-colorpicker.css',type='text/css')
+		link(rel='stylesheet', href='/stylesheets/animations.css',type='text/css')
+		script(type='text/javascript',src='javascripts/lib/raphael-min.js')
+		script(type='text/javascript')
+			var params=!{JSON.stringify(params)};
+		block head
+	body.default
+		block body

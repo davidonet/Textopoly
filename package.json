@@ -1,6 +1,6 @@
 {
     "name": "textopoly",
-    "version": "0.1.0",
+    "version": "0.0.1",
     "author": "David O Net <contact@david-o.net>",
     "description": "A collaborative text application",
     "contributors": [
@@ -9,8 +9,9 @@
             "email": "david.olivari@gmail.com"
         }
     ],
+    "private": true,
     "scripts": {
-        "start": "node app.js",
+        "start": "node app",
         "test": "mocha",
         "predeploy": "echo This will be run before deploying the app",
         "postdeploy": "echo This will be run after deploying the app"
@@ -21,7 +22,8 @@
     },
     "dependencies": {
         "express": ">=3.0.0rc5",
-        "jade": ">=0.27",
+        "jade": "*",
+        "less-middleware": "*",
         "mongoskin": ">= 0.4",
         "socket.io": ">=0.9",
         "imagemagick": ">=0.1.2",
