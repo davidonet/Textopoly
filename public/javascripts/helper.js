@@ -94,42 +94,42 @@ define([], function() {
 			var w = $(targetArea).parent().outerWidth();
 			var h = $(targetArea).parent().outerHeight();
 
-			$(targetArea + '> #nw.handle').css({
+			$(targetArea + '>.nw.handle').css({
 				top : -2 * r,
 				left : -2 * r
 			});
 
-			$(targetArea + '> #n.handle').css({
+			$(targetArea + '> .n.handle').css({
 				top : -2 * r,
 				left : -2 * r + w / 2
 			});
 
-			$(targetArea + '> #ne.handle').css({
+			$(targetArea + '> .ne.handle').css({
 				top : -2 * r,
 				left : -2 * r + w
 			});
 
-			$(targetArea + '> #e.handle').css({
+			$(targetArea + '> .e.handle').css({
 				top : -2 * r + h / 2,
 				left : -2 * r + w
 			});
 
-			$(targetArea + '> #se.handle').css({
+			$(targetArea + '> .se.handle').css({
 				top : -2 * r + h,
 				left : -2 * r + w
 			});
 
-			$(targetArea + '> #s.handle').css({
+			$(targetArea + '> .s.handle').css({
 				top : -2 * r + h,
 				left : -2 * r + w / 2
 			});
 
-			$(targetArea + '> #sw.handle').css({
+			$(targetArea + '> .sw.handle').css({
 				top : -2 * r + h,
 				left : -2 * r
 			});
 
-			$(targetArea + '> #w.handle').css({
+			$(targetArea + '> .w.handle').css({
 				top : -2 * r + h / 2,
 				left : -2 * r
 			});

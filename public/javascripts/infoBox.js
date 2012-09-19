@@ -59,31 +59,31 @@ define(["lib/jquery.tipsy"], function() {
 	};
 	return {
 		init : function() {
-			$('.editArea > #nw.handle').tipsy({
+			$('.editArea > .nw.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Fermer', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 
-			$('.editArea > #e.handle').tipsy({
+			$('.editArea > .e.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Agrandir / Réduire', // fallback text to use when no tooltip text
 				gravity : 'w' // gravity
 			});
 
-			$('.editArea > #se.handle').tipsy({
+			$('.editArea > .se.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Poster', // fallback text to use when no tooltip text
 				gravity : 'w' // gravity
 			});
 
-			$('.editArea > #s.handle').tipsy({
+			$('.editArea > .s.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Agrandir / Réduire', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity
 			});
 
-			$('.editArea > #sw.handle').tipsy({
+			$('.editArea > .sw.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Texte / Image', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
@@ -91,38 +91,38 @@ define(["lib/jquery.tipsy"], function() {
 
 			// InfoBox bulles d'aides
 
-			$('.infoArea > #nw.handle').tipsy({
+			$('.infoArea > .nw.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Fermer', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 
-			$('.infoArea > #ne.handle').tipsy({
+			$('.infoArea > .ne.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Supprimer', // fallback text to use when no tooltip text
 				gravity : 'w' // gravity
 			});
 
-			$('.infoArea > #e.handle').tipsy({
+			$('.infoArea > .e.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Créer un chemin', // fallback text to use when no tooltip text
 				gravity : 'w' // gravity
 			});
 
-			$('.infoArea > #se.handle').tipsy({
+			$('.infoArea > .se.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Infos', // fallback text to use when no tooltip text
 				gravity : 'w' // gravity
 			});
 
-			$('.infoArea > #nw.handle').click(function() {
+			$('.infoArea > .nw.handle').click(function() {
 				$('#informationBox').fadeOut(200);
 				return false;
 
 			});
 
 			// INFOBOX NORTH EAST >  delete action
-			$('.infoArea > #ne.handle').click(function() {
+			$('.infoArea > .ne.handle').click(function() {
 				var dc = $('#informationBox').attr('dc').split(',');
 				var xGrid = dc[0];
 				var yGrid = dc[1];
@@ -147,7 +147,7 @@ define(["lib/jquery.tipsy"], function() {
 			});
 
 			// INFOBOX SOUTH EAST >  display msgInfo
-			$('.infoArea > #se.handle').click(function() {
+			$('.infoArea > .se.handle').click(function() {
 				var dc = $('#informationBox').attr('dc').split(',');
 				require(["userinfo"], function(userinfo) {
 					userinfo.msgInfo(dc[0], dc[1], function(data) {
