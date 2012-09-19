@@ -6,7 +6,6 @@ app.configure(function() {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
-	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
@@ -20,12 +19,14 @@ app.configure(function() {
 
 app.configure('development', function() {
 	app.use(express.errorHandler());
+	app.use(express.logger('dev'));
 });
 
 var libpath = (process.env.NODE_COV ? './routes-cov' : './routes');
 require(libpath)(app);
 
-var server = http.createServer(app).listen(app.get('port'), function() {
-	global.io = socket.listen(server);
-});
+var server = http.createServer(app).listen(app.get('port'));
+
+global.io = socket.listen(server,{ log: false });
+io.set('log level', 0);
 
