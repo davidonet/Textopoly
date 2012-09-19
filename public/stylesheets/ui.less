@@ -5,22 +5,23 @@
 /* WRITINGBOX */
 
 #write {
-  font-family: @NotCourier;
-  color: @aluminium2D;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  word-wrap: break-word;
-  position: relative;
+    font-family: @NotCourier;
+    color: @aluminium2D;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    word-wrap: break-word;
+    position: relative;
     overflow: hidden;
     border: none;
     resize: none;
-    background-color: #eeeeec; /* Aluminium 1 Lighter */
-    background-color: rgba(0, 0, 0, 0); /* Aluminium 1 Lighter */  
-  
-  
-  }
-  
-  
+    background-color: @aluminium1;
+}
+
+#current_author {
+    width: 150px;
+    height: 20px;
+}
+
 #writingBox {
     z-index: 1000;
     position: absolute;
@@ -38,7 +39,7 @@
     display: block;
     top: 0px;
     left: 0px;
-    border: dashed 2px #555753; 
+    border: dashed 2px #555753;
     padding: 8px;
     cursor: default;
 }
@@ -69,17 +70,6 @@
     -webkit-user-select: text;
     background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
-
-#write {
-   
-}
-
-#current_author {
-    width: 150px;
-    height: 20px;
-}
-
-
 
 /* WRITING AREA */
 
@@ -121,15 +111,12 @@ div.editArea.f > #write {
     height: 320px;
 }
 
-
 /***********************************************************************************
  * POIGNÉES
  ***********************************************************************************/
 
-.handle {
-.button(16px);
-position: absolute;
-
+.handle {.button(16px);
+    position: absolute;
 }
 
 /***********************************************************************************
@@ -138,31 +125,24 @@ position: absolute;
 
 /* Cancel */
 .ca {
-    background-image: url('icons/cancel.svg');
-    &:hover {
+    background-image: url('icons/cancel.svg');&:hover {
     background-color: @scarletred;
+    }
 }
-}
-
 
 /* Delete */
 .de {
-    background-image: url('icons/delete.svg');
-    &:hover {
+    background-image: url('icons/delete.svg');&:hover {
     background-color: @scarletred;
+    }
 }
-}
-
-
 
 /* OK */
 .ok {
-    background-image: url('icons/accept.svg');
-    &:hover {
+    background-image: url('icons/accept.svg');&:hover {
     background-color: @chameleon;
+    }
 }
-}
-
 
 /* MEDIA */
 
@@ -205,7 +185,6 @@ position: absolute;
     background-image: url('icons/arrow_down.svg');
 }
 
-
 /***********************************************************************************
  *  COLORPICKER
  ***********************************************************************************/
@@ -237,11 +216,9 @@ position: absolute;
     background-position: -26px 0;
 }
 
-
 /***********************************************************************************
  *  QQUPLOAD
  ***********************************************************************************/
-
 
 .qq-uploader {
     position: relative;
