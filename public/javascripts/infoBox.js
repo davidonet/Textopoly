@@ -77,7 +77,7 @@ define(["lib/jquery.tipsy"], function() {
 				gravity : 'w' // gravity
 			});
 
-			$('.editArea > .s.handle').tipsy({
+			$('.editArea > .so.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Agrandir / Réduire', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity

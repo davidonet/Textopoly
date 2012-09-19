@@ -119,7 +119,7 @@ define([], function() {
 				left : -2 * r + w
 			});
 
-			$(targetArea + '> .s.handle').css({
+			$(targetArea + '> .so.handle').css({
 				top : -2 * r + h,
 				left : -2 * r + w / 2
 			});

@@ -28,11 +28,11 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 				});
 				$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
 				$('.editArea > .e.handle').switchClass('al', 'ar', 0);
-				$('.editArea > .s.handle').switchClass('au', 'ad', 0);
+				$('.editArea > .so.handle').switchClass('au', 'ad', 0);
 				$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
 				$('.editArea > .sw.handle').show();
 				$('.editArea > .e.handle').show();
-				$('.editArea > .s.handle').show();
+				$('.editArea > .so.handle').show();
 				$('textarea#write').val('');
 				$('input[name*=image]').val('');
 				$('.imageArea').hide();
@@ -67,7 +67,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 			});
 
 			$('.editArea > .e.handle').switchClass('al', 'ar', 0);
-			$('.editArea > .s.handle').switchClass('au', 'ad', 0);
+			$('.editArea > .so.handle').switchClass('au', 'ad', 0);
 			/*$('.editArea > .sw.handle').switchClass('tx', 'me', 0)*/
 
 			$('#writingBox').attr('dc', dc);
@@ -80,11 +80,11 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 			var position = $('#writingBox').position();
 			freeZone = data.freeZone;
 			$('.editArea > .e.handle').hide();
-			$('.editArea > .s.handle').hide();
+			$('.editArea > .so.handle').hide();
 			if (freeZone.l === 0)
 				$('.editArea > .e.handle').show();
 			if (freeZone.t === 0)
-				$('.editArea > .s.handle').show();
+				$('.editArea > .so.handle').show();
 		});
 	}
 
@@ -123,7 +123,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 			$(this).hide();
 
 			if (freeZone.f !== 0)
-				$('.editArea > .s.handle').hide();
+				$('.editArea > .so.handle').hide();
 			if ($('.editArea').hasClass('s')) {
 				$('.editArea').switchClass('s', 'l', delay, function() {
 					helper.handlesPos('.editArea');
@@ -139,7 +139,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 					$('.editArea > .e.handle').switchClass('al', 'ar', 0);
 					$('.editArea > .e.handle').show();
 					if (freeZone.t === 0)
-						$('.editArea > .s.handle').show();
+						$('.editArea > .so.handle').show();
 					newSize('s');
 				});
 			} else if ($('.editArea').hasClass('t')) {
@@ -169,7 +169,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 			if (userinfo.get() === null) {
 				$('.editArea > .sw.handle').hide();
 				$('.editArea > .e.handle').hide();
-				$('.editArea > .s.handle').hide();
+				$('.editArea > .so.handle').hide();
 				$('.imageArea').hide();
 				$('textarea#write').hide();
 				$('.authorArea').show();
@@ -206,7 +206,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	});
 
 	// WRITINGBOX SOUTH > scale box on Y direction
-	$('.editArea > .s.handle').click(function() {
+	$('.editArea > .so.handle').click(function() {
 		require(["helper"], function(helper) {
 			$(this).hide();
 			if (freeZone.f !== 0)
@@ -215,24 +215,24 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 
 				$('.editArea').switchClass('s', 't', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .s.handle').switchClass('ad', 'au', 0);
-					$('.editArea > .s.handle').show();
+					$('.editArea > .so.handle').switchClass('ad', 'au', 0);
+					$('.editArea > .so.handle').show();
 					newSize('t');
 				});
 			} else if ($('.editArea').hasClass('l')) {
 
 				$('.editArea').switchClass('l', 'f', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .s.handle').switchClass('ad', 'au', 0);
-					$('.editArea > .s.handle').show();
+					$('.editArea > .so.handle').switchClass('ad', 'au', 0);
+					$('.editArea > .so.handle').show();
 					newSize('f');
 				});
 			} else if ($('.editArea').hasClass('t')) {
 
 				$('.editArea').switchClass('t', 's', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .s.handle').switchClass('au', 'ad', 0);
-					$('.editArea > .s.handle').show();
+					$('.editArea > .so.handle').switchClass('au', 'ad', 0);
+					$('.editArea > .so.handle').show();
 					if (freeZone.l === 0)
 						$('.editArea > .e.handle').show();
 					newSize('s');
@@ -241,8 +241,8 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 
 				$('.editArea').switchClass('f', 'l', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .s.handle').switchClass('au', 'ad', 0);
-					$('.editArea > .s.handle').show();
+					$('.editArea > .so.handle').switchClass('au', 'ad', 0);
+					$('.editArea > .so.handle').show();
 					newSize('l');
 				});
 			}
