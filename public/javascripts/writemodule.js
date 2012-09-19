@@ -27,12 +27,12 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 					helper.handlesPos('.editArea');
 				});
 				$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
-				$('.editArea > .e.handle').switchClass('al', 'ar', 0);
-				$('.editArea > .s.handle').switchClass('au', 'ad', 0);
-				$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
-				$('.editArea > .sw.handle').show();
-				$('.editArea > .e.handle').show();
-				$('.editArea > .s.handle').show();
+				$('.editArea > #e.handle').switchClass('al', 'ar', 0);
+				$('.editArea > #s.handle').switchClass('au', 'ad', 0);
+				$('.editArea > #sw.handle').switchClass('tx', 'me', 0);
+				$('.editArea > #sw.handle').show();
+				$('.editArea > #e.handle').show();
+				$('.editArea > #s.handle').show();
 				$('textarea#write').val('');
 				$('input[name*=image]').val('');
 				$('.imageArea').hide();
@@ -66,9 +66,9 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 				helper.handlesPos('.editArea');
 			});
 
-			$('.editArea > .e.handle').switchClass('al', 'ar', 0);
-			$('.editArea > .s.handle').switchClass('au', 'ad', 0);
-			/*$('.editArea > .sw.handle').switchClass('tx', 'me', 0)*/
+			$('.editArea > #e.handle').switchClass('al', 'ar', 0);
+			$('.editArea > #s.handle').switchClass('au', 'ad', 0);
+			/*$('.editArea > #sw.handle').switchClass('tx', 'me', 0)*/
 
 			$('#writingBox').attr('dc', dc);
 			// récupère la propriété dc d'un élément .fz dans un tableau
@@ -79,12 +79,12 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 			booking.book(xGrid, yGrid, 's', params.c, userinfo.get());
 			var position = $('#writingBox').position();
 			freeZone = data.freeZone;
-			$('.editArea > .e.handle').hide();
-			$('.editArea > .s.handle').hide();
+			$('.editArea > #e.handle').hide();
+			$('.editArea > #s.handle').hide();
 			if (freeZone.l === 0)
-				$('.editArea > .e.handle').show();
+				$('.editArea > #e.handle').show();
 			if (freeZone.t === 0)
-				$('.editArea > .s.handle').show();
+				$('.editArea > #s.handle').show();
 		});
 	}
 
@@ -107,7 +107,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	 ***********************************************************************************/
 
 	// WRITINGBOX NORTH WEST > cancel action
-	$('.editArea > .nw.handle').click(function() {
+	$('.editArea > #nw.handle').click(function() {
 		require(["booking"], function(booking) {
 			if ($('#writingBox').attr('dc')) {
 				var aDC = $('#writingBox').attr('dc').split(',');
@@ -118,17 +118,17 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 		return false;
 	});
 	// WRITINGBOX EAST > scale box on X direction
-	$('.editArea > .e.handle').click(function() {
+	$('.editArea > #e.handle').click(function() {
 		require(["helper"], function(helper) {
 			$(this).hide();
 
 			if (freeZone.f !== 0)
-				$('.editArea > .s.handle').hide();
+				$('.editArea > #s.handle').hide();
 			if ($('.editArea').hasClass('s')) {
 				$('.editArea').switchClass('s', 'l', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .e.handle').switchClass('ar', 'al', 0);
-					$('.editArea > .e.handle').show();
+					$('.editArea > #e.handle').switchClass('ar', 'al', 0);
+					$('.editArea > #e.handle').show();
 					newSize('l');
 
 				});
@@ -136,26 +136,26 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 
 				$('.editArea').switchClass('l', 's', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .e.handle').switchClass('al', 'ar', 0);
-					$('.editArea > .e.handle').show();
+					$('.editArea > #e.handle').switchClass('al', 'ar', 0);
+					$('.editArea > #e.handle').show();
 					if (freeZone.t === 0)
-						$('.editArea > .s.handle').show();
+						$('.editArea > #s.handle').show();
 					newSize('s');
 				});
 			} else if ($('.editArea').hasClass('t')) {
 
 				$('.editArea').switchClass('t', 'f', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .e.handle').switchClass('ar', 'al', 0);
-					$('.editArea > .e.handle').show();
+					$('.editArea > #e.handle').switchClass('ar', 'al', 0);
+					$('.editArea > #e.handle').show();
 					newSize('f');
 				});
 			} else if ($('.editArea').hasClass('f')) {
 
 				$('.editArea').switchClass('f', 't', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .e.handle').switchClass('al', 'ar', 0);
-					$('.editArea > .e.handle').show();
+					$('.editArea > #e.handle').switchClass('al', 'ar', 0);
+					$('.editArea > #e.handle').show();
 					newSize('t');
 				});
 			}
@@ -164,12 +164,12 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	});
 
 	// WRITINGBOX SOUTH EAST > validate form / author informations
-	$('.editArea > .se.handle').click(function() {
+	$('.editArea > #se.handle').click(function() {
 		require(["userinfo"], function(userinfo) {
 			if (userinfo.get() === null) {
-				$('.editArea > .sw.handle').hide();
-				$('.editArea > .e.handle').hide();
-				$('.editArea > .s.handle').hide();
+				$('.editArea > #sw.handle').hide();
+				$('.editArea > #e.handle').hide();
+				$('.editArea > #s.handle').hide();
 				$('.imageArea').hide();
 				$('textarea#write').hide();
 				$('.authorArea').show();
@@ -206,43 +206,43 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	});
 
 	// WRITINGBOX SOUTH > scale box on Y direction
-	$('.editArea > .s.handle').click(function() {
+	$('.editArea > #s.handle').click(function() {
 		require(["helper"], function(helper) {
 			$(this).hide();
 			if (freeZone.f !== 0)
-				$('.editArea > .e.handle').hide();
+				$('.editArea > #e.handle').hide();
 			if ($('.editArea').hasClass('s')) {
 
 				$('.editArea').switchClass('s', 't', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .s.handle').switchClass('ad', 'au', 0);
-					$('.editArea > .s.handle').show();
+					$('.editArea > #s.handle').switchClass('ad', 'au', 0);
+					$('.editArea > #s.handle').show();
 					newSize('t');
 				});
 			} else if ($('.editArea').hasClass('l')) {
 
 				$('.editArea').switchClass('l', 'f', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .s.handle').switchClass('ad', 'au', 0);
-					$('.editArea > .s.handle').show();
+					$('.editArea > #s.handle').switchClass('ad', 'au', 0);
+					$('.editArea > #s.handle').show();
 					newSize('f');
 				});
 			} else if ($('.editArea').hasClass('t')) {
 
 				$('.editArea').switchClass('t', 's', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .s.handle').switchClass('au', 'ad', 0);
-					$('.editArea > .s.handle').show();
+					$('.editArea > #s.handle').switchClass('au', 'ad', 0);
+					$('.editArea > #s.handle').show();
 					if (freeZone.l === 0)
-						$('.editArea > .e.handle').show();
+						$('.editArea > #e.handle').show();
 					newSize('s');
 				});
 			} else if ($('.editArea').hasClass('f')) {
 
 				$('.editArea').switchClass('f', 'l', delay, function() {
 					helper.handlesPos('.editArea');
-					$('.editArea > .s.handle').switchClass('au', 'ad', 0);
-					$('.editArea > .s.handle').show();
+					$('.editArea > #s.handle').switchClass('au', 'ad', 0);
+					$('.editArea > #s.handle').show();
 					newSize('l');
 				});
 			}
@@ -251,7 +251,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	});
 
 	// WRITINGBOX SOUTH WEST > media uploader
-	$('.editArea > .sw.handle').click(function() {
+	$('.editArea > #sw.handle').click(function() {
 		require(["userinfo"], function(userinfo) {
 			if (textarea === true) {
 				$('textarea#write').val('');
@@ -277,12 +277,12 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 				};
 				uploader.setParams(data);
 				textarea = false;
-				$('.editArea > .sw.handle').switchClass('me', 'tx', 0);
+				$('.editArea > #sw.handle').switchClass('me', 'tx', 0);
 			} else {
 				$('input[name*=image]').val('');
 				$('.imageArea').hide();
 				$('textarea#write').show();
-				$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
+				$('.editArea > #sw.handle').switchClass('tx', 'me', 0);
 				textarea = true;
 			}
 		});
