@@ -123,7 +123,6 @@ define(['helper'], function(helper) {
 		updatePath : function() {
 			$('svg').remove();
 			paper = Raphael('content');
-			$('svg').hide();
 			$.getJSON('/allpath', function(data) {
 				$(data).each(function(index, path) {
 					drawPath(path.pw);
@@ -135,7 +134,6 @@ define(['helper'], function(helper) {
 					'left' : '0px'
 				});
 				$('#uiWrap').after($('svg'));
-				$('svg').fadeIn(300);
 			});
 		}
 	};
