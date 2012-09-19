@@ -11,23 +11,24 @@
 /* BUTTONS MIXIN*/
 
 .button (@radius) {
-    display: block;
-    cursor: default;
-    width: @radius;
-    height: @radius;
-    border-radius: @radius*2;
-    border: solid 2px @aluminium1L;
-    background-color: @aluminium2L;
-    
-    &:hover{
-     border: solid 2px @aluminium2D;
-     background-color: @aluminium2;   
+display: block;
+cursor: default;
+width: @radius;
+height: @radius;
+border-radius: @radius*2;
+border: solid 2px @aluminium1L;
+background-color: @aluminium2L;
+
+&
+:hover {
+    border: solid 2px @aluminium2D;
+    background-color: @aluminium2;
     }
-}
+    }
 
-/* BIG BUTTONS MIXIN*/
+    /* BIG BUTTONS MIXIN*/
 
-.bigButton (@radius: 50px) {
+    .bigButton (@radius: 50px) {
     z-index: 100;
     float: left;
     margin-right: 35px;
@@ -37,64 +38,56 @@
     width: @radius;
     height: @radius;
     border-radius: @radius*2;
-    
+
     &.normal {
-      border: solid 2px @aluminium1L;
-      background-color: @aluminium2L;        
+    border: solid 2px @aluminium1L;
+    background-color: @aluminium2L;
     }
     &.over {
-     border: solid 2px @aluminium2D;
-     background-color: @aluminium2;   
-    }   
-    &.active {
-     border: solid 2px @aluminium2D;
-     background-color: @aluminium2;
-     box-shadow: 0px 0px 15px @aluminium2;
-   
-   
+    border: solid 2px @aluminium2D;
+    background-color: @aluminium2;
     }
-     
-    
-}
+    &.active {
+    border: solid 2px @aluminium2D;
+    background-color: @aluminium2;
+    box-shadow: 0px 0px 15px @aluminium2;
 
+    }
+
+}
 
 /***********************************************************************************
  *  GLOBALS
  ***********************************************************************************/
 
 html {
-  -webkit-font-smoothing: subpixel-antialiased;
-  -webkit-user-select: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-user-select: none;
 }
 
 body {
-  height: 100%;
-  
-  &.default {
-      background: @aluminium1;
-      }
-  &.pathMode {
-      background: @aluminium2L;    
-  }
-  
+    height: 100%;&.default {
+    background: @aluminium1;
+    }
+    &.pathMode {
+    background: @aluminium2L;
+    }
+
     &.writeMode {
-      background: @aluminium1;  
-      cursor: text;
+    background: @aluminium1;
+    cursor: text;*.msg{
+    background: rgba(136, 138, 133, 0.2);
+}
+}
 
-      *.msg{
-       background: rgba(136, 138, 133, 0.2);    
-
-      }  
-  }
-  
 }
 
 h1, h2, h3, h4, h5, h6, label, input {
     font-family: @Futura;
     text-transform: uppercase;
     color: @aluminium2;
-    }
-    
+}
+
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -123,39 +116,32 @@ label {
     outline: none;
 }
 
-
 /***********************************************************************************
  *  MSG DISPLAY
  ***********************************************************************************/
 .msg {
-  display: block;
-  position: absolute;
-  overflow: hidden;
-  cursor: move;
-
-  
-  >p {
-  font-family: @NotCourier;
-  color: @aluminium2D;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  word-wrap: break-word;
-  }
-  
-  >img {
-  width: 100%;
-  height: 100%;
-
-}
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    cursor: move;>p {
+    font-family: @NotCourier;
+    color: @aluminium2D;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    word-wrap: break-word;
 }
 
+>
+img {
+    width: 100%;
+    height: 100%;
+}
+}
 
 /* MSG COLORS */
 
-
 .z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
     background-color: @butterL;
-    
 }
 .z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
     background-color: @orangeL;
@@ -176,29 +162,27 @@ label {
     background-color: @scarletredL;
 }
 
-
-.z20 > .msg.butter,.z40 > .msg.butter {
+.z20 > .msg.butter, .z40 > .msg.butter {
     background-color: @butterD;
 }
 .z20 > .msg.orange, .z40 > .msg.orange {
     background-color: @orangeD;
 }
-.z20 > .msg.chocolate,.z40 > .msg.chocolate  {
+.z20 > .msg.chocolate, .z40 > .msg.chocolate {
     background-color: @chocolateD;
 }
 .z20 > .msg.chameleon, .z40 > .msg.chameleon {
-    background-color: @chameleonD; 
+    background-color: @chameleonD;
 }
-.z20 > .msg.skyblue, .z40 > .msg.skyblue{
-    background-color: @skyblueD; 
+.z20 > .msg.skyblue, .z40 > .msg.skyblue {
+    background-color: @skyblueD;
 }
 .z20 > .msg.plum, .z40 > .msg.plum {
-    background-color: @plumD; 
+    background-color: @plumD;
 }
-.z20 > .msg.scarletred,.z40 > .msg.scarletred {
-    background-color: @scarletredD; 
+.z20 > .msg.scarletred, .z40 > .msg.scarletred {
+    background-color: @scarletredD;
 }
-
 
 /***********************************************************************************
  *  ZONING
@@ -233,45 +217,31 @@ label {
     margin: 0px auto;
     background-color: @aluminium1;
     background-color: @aluminium1L;
-  
-  
-    /* TOP MENU*/  
-    
-      
+
+    /* TOP MENU*/
+
     #topmenu {
     z-index: 2000;
     display: block;
     float: right;
     margin-right: 10px;
-    margin-top: 10px;
-    
-    
-#btnHelp, div#btnFocus {
-    float:left;
-    .button(16px);
-
+    margin-top: 10px;#btnHelp, div#btnFocus {
+    float: left;.button(16px);
 }
-#btnHelp{
-        margin-right: 4px;
-
-    
+#btnHelp {
+    margin-right: 4px;
 }
 
 }
-    
-  /* HEADER BIG*/  
-  
-    &.big {
-            height: 120px;
-          
-          
-        #title {
-                
-             float: left;
-             width: 320px;
-            height: 84px;
-        
-        h1 {
+
+/* HEADER BIG*/
+
+&
+.big {
+    height: 120px;#title {
+    float: left;
+    width: 320px;
+    height: 84px;h1 {
     float: left;
     margin-left: 10px;
     margin-top: 10px;
@@ -287,16 +257,15 @@ label {
     margin-left: 10px;
     width: 3px;
     height: 72px;
-    background-color:@aluminium2D;
-}}
-
+    background-color: @aluminium2D;
+    }
+}
 
 div#leftA, div#rightA {
     position: absolute;
     font-size: 30px;
     top: 38px;
     color: @aluminium2L;
-
 }
 
 div#leftA {
@@ -310,44 +279,35 @@ div#leftA {
     margin-top: 17px;
     text-align: center;
     color: @aluminium2L;
-    
-            >h2 {
-    font-size: 22px;
-    line-height: 32px;
-    
-    >strong {
-    color: @aluminium2;
-}
-    
-    
-}
 
->p {
+    >h2 {
+    font-size: 22px;
+    line-height: 32px;>strong {
+    color: @aluminium2;
+    }
+
+    }
+
+    >p {
     font-size: 18px;
     line-height: 32px;
-    letter-spacing: 1px;
-    
-    a {
+    letter-spacing: 1px;a {
     color: @aluminium2L;
-    
+
     &:hover {
     color: @aluminium2;
-}
-}
-    
-    
-}
-            
-            
     }
+    }
+
+    }
+
+}
 
 div#rightA {
     left: 870px;
 }
 
-
-  /*MAIN MENU*/  
-
+/*MAIN MENU*/
 
 div#mainMenu {
     display: block;
@@ -358,9 +318,8 @@ div#mainMenu {
     height: 50px;
     z-index: 100;
 }
-   
-div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
-.bigButton();
+
+div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {.bigButton();
 }
 
 div#btnCenter {
@@ -379,21 +338,17 @@ div#btnShow {
 div#btnFind {
     background: url('btn/btnFind.svg');
 }
-                 
-    }
-    
-    /* HEADER SMALL*/
 
-    
-    &.small {
-    height: 42px;
-    
-    #title {
+}
+
+/* HEADER SMALL*/
+
+&
+.small {
+    height: 42px;#title {
     float: left;
     width: 320px;
-    height: 42px;
-    
-    h1 {
+    height: 42px;h1 {
     float: left;
     margin-left: 10px;
     margin-top: 0px;
@@ -410,19 +365,18 @@ div#btnFind {
     width: 2px;
     height: 32px;
     background-color: @aluminium2D;
-} } }
+    } } }
 
     /* TOP BAR*/
 
     >#topbar {
     position: relative;
-    width: @siteWidth - 20px;
+    width: @siteWidth  - 20px;
     height: 4px;
     top: 0px;
     margin: 0px auto;
     background-color: @aluminium2D;
-}
-    
+    }
 }
 
 /* END HEADER */
@@ -433,27 +387,22 @@ div#btnFind {
     top: 50px;
     bottom: 40px;
     margin-left: 10px;
-    overflow: auto;
-    
->p {
+    overflow: auto;>p {
     font-family: @NotCourier;
-    font-size:16px;
+    font-size: 16px;
     line-height: 24px;
     text-align: left;
-    background:@aluminium1L;
+    background: @aluminium1L;
 
-} 
+    }
 }
-
 
 #zoomWrap {
     position: absolute;
     top: 120px;
     bottom: 30px;
     width: 24px;
-    margin-left: 10px;
-    
-  >#zoom {
+    margin-left: 10px;>#zoom {
     position: absolute;
     top: 50%;
     margin-top: -100px;
@@ -461,8 +410,7 @@ div#btnFind {
     height: 200px;
     width: 24px;
     background-color: @aluminium1L;
-    
-    
+
     >#zoomSlider {
     position: relative;
     margin-left: auto;
@@ -471,9 +419,7 @@ div#btnFind {
     height: 180px;
 }
 
-    
-    
-}  
+}
 }
 
 #footer {
@@ -486,5 +432,4 @@ div#btnFind {
     background-color: #eeeeec; /* Aluminium 1 Lighter */
     background-color: rgba(238, 238, 236, 0.9); /* Aluminium 1 Lighter */
 }
-
 
