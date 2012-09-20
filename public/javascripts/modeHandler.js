@@ -28,7 +28,6 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 
 			currentMode.init();
 			refresh();
-
 		}
 	}
 
@@ -64,7 +63,6 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 				return false;
 			});
 			helper.btnClic("#btnCenter", function(event) {
-				$('svg').hide();
 				mapModule.centerTo([0, 0], true, function() {
 					mapModule.zoomTo(params.zoom);
 					return false;

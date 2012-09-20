@@ -5,6 +5,9 @@ define(["helper"], function(helper) {
 		if (aMsg !== undefined) {
 			if (0 === aMsg.length) {
 				var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c).appendTo("#map");
+				if (data.a == params.findAuthor) {
+					newTxt.addClass("filter");
+				}
 
 				if (data !== undefined) {
 					if (data.t !== undefined) {
@@ -35,6 +38,11 @@ define(["helper"], function(helper) {
 					}
 
 				} else {
+
+				}
+			} else {
+				if (data.a == params.findAuthor) {
+					aMsg.addClass("filter");
 				}
 			}
 		}

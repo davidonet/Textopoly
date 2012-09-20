@@ -1,12 +1,12 @@
 define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, pathWalk, infoBox, mapModule, helper) {
 	return {
 		init : function() {
-
+			params.findAuthor = "davidonet";
 		},
 		refresh : function(localParams) {
 			var postTxtLoad = function() {
 				if (params.zoom == 2) {
-					infoBox.bindMsg();
+					
 				} else {
 					$('.msg').dblclick(function(e) {
 						mapModule.centerTo([helper.xToPos(e.pageX), helper.yToPos(e.pageY)], false, function() {
@@ -23,8 +23,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			txt.loadSection(localParams, postTxtLoad);
 		},
 		leave : function() {
-			infoBox.unbindMsg();
 			$('.msg').unbind('dblclick');
+			$('.filter').removeClass('filter');
+			params.findAuthor = undefined;
 		}
 	};
 });
