@@ -116,7 +116,7 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 			}
 
 			$('.msg').remove();
-			$('svg').remove();
+			pathWalk.hidePath();
 			params.xcenter = helper.getCenterX();
 			params.ycenter = helper.getCenterY();
 			$('#map').css({
@@ -191,6 +191,7 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 					"ymax" : ymin + params.txtheight
 				};
 				require(["modeHandler"], function(modeHandler) {
+					pathWalk.resize();
 					modeHandler.refresh(lparam);
 				});
 			});

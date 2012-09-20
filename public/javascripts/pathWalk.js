@@ -64,6 +64,20 @@ define(['helper'], function(helper) {
 		return aPath;
 	}
 
+	function resize(){
+		if (paper !== undefined)
+				if (paper.canvas !== undefined)
+					$(paper.canvas).remove();
+			paper = Raphael('content');
+			$(paper.canvas).css({
+				'z-index' : '-10',
+				'position' : 'fixed',
+				'top' : '0px',
+				'left' : '0px'
+			});
+			$('#uiWrap').after($(paper.canvas));
+	}
+
 	return {
 		startPath : function() {
 			var aPathPack = {
@@ -119,16 +133,10 @@ define(['helper'], function(helper) {
 		hidePath : function() {
 			paper.clear();
 		},
+		resize : resize,
 		updatePath : function() {
 			if (paper === undefined) {
-				paper = Raphael('content');
-				$(paper.canvas).css({
-					'z-index' : '-10',
-					'position' : 'fixed',
-					'top' : '0px',
-					'left' : '0px'
-				});
-				$('#uiWrap').after($(paper.canvas));
+				resize();
 			} else {
 				paper.clear();
 			}
