@@ -1,4 +1,4 @@
-define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'mapModule'], function(helper, defaultMode, writeMode, pathMode, mapModule) {
+define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModule'], function(helper, defaultMode, writeMode, pathMode, searchMode, mapModule) {
 	params.currentMode = 'default';
 	var currentMode = defaultMode;
 
@@ -18,12 +18,12 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'mapModule'], function
 			params.currentMode = newMode;
 			if (params.currentMode == 'default') {
 				currentMode = defaultMode;
-
 			} else if (params.currentMode == 'writeMode') {
 				currentMode = writeMode;
-
 			} else if (params.currentMode == 'pathMode') {
 				currentMode = pathMode;
+			} else if (params.currentMode == 'searchMode') {
+				currentMode = searchMode;
 			}
 
 			currentMode.init();
@@ -55,6 +55,12 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'mapModule'], function
 				$('.active').switchClass('active', 'normal');
 				$(this).switchClass('normal', 'active');
 				changeMode('writeMode');
+				return false;
+			});
+			helper.btnClic("#btnFind", function(event) {
+				$('.active').switchClass('active', 'normal');
+				$(this).switchClass('normal', 'active');
+				changeMode('searchMode');
 				return false;
 			});
 			helper.btnClic("#btnCenter", function(event) {
