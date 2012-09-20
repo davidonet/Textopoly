@@ -117,24 +117,25 @@ define(['helper'], function(helper) {
 		},
 		pathPlay : pathPlay,
 		hidePath : function() {
-			$(paper.canvas).remove();
+			paper.clear();
 		},
 		updatePath : function() {
-			
-			paper = Raphael('content');
-			$('#uiWrap').after($(paper.canvas));
-			
-			$.getJSON('/allpath', function(data) {
-				$(data).each(function(index, path) {
-					drawPath(path.pw);
-				});
-				$('svg').css({
+			if (paper === undefined) {
+				paper = Raphael('content');
+				$(paper.canvas).css({
 					'z-index' : '-10',
 					'position' : 'fixed',
 					'top' : '0px',
 					'left' : '0px'
 				});
-				
+				$('#uiWrap').after($(paper.canvas));
+			} else {
+				paper.clear();
+			}
+			$.getJSON('/allpath', function(data) {
+				$(data).each(function(index, path) {
+					drawPath(path.pw);
+				});
 			});
 		}
 	};
