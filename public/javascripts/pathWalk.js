@@ -117,12 +117,13 @@ define(['helper'], function(helper) {
 		},
 		pathPlay : pathPlay,
 		hidePath : function() {
-			$('svg').hide();
-			$('svg').remove();
+			$(paper.canvas).remove();
 		},
 		updatePath : function() {
-			$('svg').remove();
+			
 			paper = Raphael('content');
+			$('#uiWrap').after($(paper.canvas));
+			
 			$.getJSON('/allpath', function(data) {
 				$(data).each(function(index, path) {
 					drawPath(path.pw);
@@ -133,7 +134,7 @@ define(['helper'], function(helper) {
 					'top' : '0px',
 					'left' : '0px'
 				});
-				$('#uiWrap').after($('svg'));
+				
 			});
 		}
 	};
