@@ -1,4 +1,4 @@
-define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, defaultMode, writeMode, mapModule) {
+define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'mapModule'], function(helper, defaultMode, writeMode, pathMode, mapModule) {
 	params.currentMode = 'default';
 	var currentMode = defaultMode;
 
@@ -10,26 +10,25 @@ define(['helper', 'defaultMode', 'writeMode', 'mapModule'], function(helper, def
 	};
 
 	function changeMode(newMode) {
-		
+
 		if (newMode != params.currentMode) {
-		
-		currentMode.leave();
-		$('.' + params.currentMode).switchClass(params.currentMode, newMode, 500);
-		params.currentMode = newMode;
-		if (params.currentMode == 'default') {
-			currentMode = defaultMode;
 
-		} else if (params.currentMode == 'writeMode') {
-			currentMode = writeMode;
+			currentMode.leave();
+			$('.' + params.currentMode).switchClass(params.currentMode, newMode, 500);
+			params.currentMode = newMode;
+			if (params.currentMode == 'default') {
+				currentMode = defaultMode;
 
-		} else if (params.currentMode == 'pathMode') {
-			currentMode = pathMode;
+			} else if (params.currentMode == 'writeMode') {
+				currentMode = writeMode;
 
-		}
+			} else if (params.currentMode == 'pathMode') {
+				currentMode = pathMode;
+			}
 
-		currentMode.init();
-		refresh();
-		
+			currentMode.init();
+			refresh();
+
 		}
 	}
 
