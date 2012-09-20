@@ -134,7 +134,7 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 
 	centerTo = function(pos, smooth, fn) {
 		var x = 1 + Math.floor(helper.posToLeft(pos) / 2) * 2, y = 1 + Math.floor(helper.posToTop(pos) / 2) * 2;
-
+		pathWalk.hidePath();
 		if (smooth) {
 			$("#map").animate({
 				left : Math.floor($(document).width() / 2) - x,
