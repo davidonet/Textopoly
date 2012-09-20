@@ -64,18 +64,18 @@ define(['helper'], function(helper) {
 		return aPath;
 	}
 
-	function resize(){
+	function resize() {
 		if (paper !== undefined)
-				if (paper.canvas !== undefined)
-					$(paper.canvas).remove();
-			paper = Raphael('content');
-			$(paper.canvas).css({
-				'z-index' : '-10',
-				'position' : 'fixed',
-				'top' : '0px',
-				'left' : '0px'
-			});
-			$('#uiWrap').after($(paper.canvas));
+			if (paper.canvas !== undefined)
+				$(paper.canvas).remove();
+		paper = Raphael('content');
+		$(paper.canvas).css({
+			'z-index' : '-10',
+			'position' : 'fixed',
+			'top' : '0px',
+			'left' : '0px'
+		});
+		$('#uiWrap').after($(paper.canvas));
 	}
 
 	return {
