@@ -2,11 +2,29 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 	return {
 		init : function() {
 			params.findAuthor = "davidonet";
+
+			// récupère la liste des auteurs
+
+			var authors = $.ajax({
+				url : 'http://localhost:3000/authors',
+				type : 'get',
+				dataType : JSON,
+				async: false
+	
+			}).responseText;
+			
+			console.log(typeof(authors),authors);
+
+			$('#searchMap').autocomplete({
+				source: authors
+
+			})
+
 		},
 		refresh : function(localParams) {
 			var postTxtLoad = function() {
 				if (params.zoom == 2) {
-					
+
 				} else {
 					$('.msg').dblclick(function(e) {
 						mapModule.centerTo([helper.xToPos(e.pageX), helper.yToPos(e.pageY)], false, function() {
