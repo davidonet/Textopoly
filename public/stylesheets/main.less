@@ -9,6 +9,7 @@
 /* BUTTONS MIXIN*/
 
 .button (@radius) {
+    z-index:5000;
     display: block;
     cursor: default;
     width: @radius;
@@ -135,9 +136,11 @@ label {
   >p {
   font-family: @NotCourier;
   color: @aluminium2D;
+  white-space:pre-wrap;
+    word-wrap: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  word-wrap: break-word;
+
   }
   
   >img {
