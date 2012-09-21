@@ -10,8 +10,8 @@ block body
 					h1 TEXTOPOLY
 					div#blink
 				div#topmenu
-					div#btnHelp.normal ππ
-					div#btnFocus.normal kk   
+					div#btnHelp.normal
+					div#btnFocus.normal 
 				div#leftA
 					<
 				div#slider
@@ -29,8 +29,14 @@ block body
 				div#zoom
 					div#zoomSlider
 			div#footer
-				p#posInfo
-				input#searchMap(type="text", name="s")
+				p#posInfo 0,0
+				div#filter(style='display:none')
+					h2 Filtrer la carte
+					select
+						option billets de :
+						option chemins de :
+					input#searchMap(type="text", name="s")
+					div#results
 		div.grid#map(class='z'+params.zoom)
 			div#removebox(style='display:none')
 				small
