@@ -58,28 +58,24 @@
 
 /* WRITING BOX */
 
-
-.editArea {
-    &.s{
-       .lS(2)     
+.editArea {&.s{
+    .lS(2)
     }
     &.l{
-       .lL(2)     
+    .lL(2)
     }
     &.t{
-       .lT(2)     
-    }        
+    .lT(2)
+    }
     &.f{
-       .lF(2)     
+    .lF(2)
     }
 }
-
 
 .infoArea {
     position: relative;
     top: 0px;
     left: 0px;
-
 }
 
 .msgInfo {
@@ -132,10 +128,8 @@ div.editArea.f > #write {
  * POIGNÉES
  ***********************************************************************************/
 
-.handle {
-    .button(16px);
+.handle {.button(16px);
     position: absolute;
-    
 }
 
 /***********************************************************************************
@@ -208,20 +202,45 @@ div.editArea.f > #write {
  *  JQUERYUI
  ***********************************************************************************/
 
-#zoomSlider{
+#zoomSlider {
     position: relative;
     margin-left: auto;
     margin-right: auto;
     top: 20px;
-    width:10px;
-    height: 180px;  
-}  
+    width: 10px;
+    height: 180px;
+}
 
-.ui-slider-handle { 
-.button(16px); 
-position: absolute;  
-margin-bottom: -8px;
-margin-left:-5px;
+.ui-slider-handle {.button(16px);
+    position: absolute;
+    margin-bottom: -8px;
+    margin-left: -5px;
+}
+
+.ui-autocomplete {
+        width: 100px;
+        max-height: 70px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+        /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+
+.ui-menu {
+    width: 100px;
+    font-family: @Futura;
+    text-align: left;
+    background: white;
+    
+    li a:hover{
+         background: red;
+   
+    }
+}
+
+#searchMap {
+    width: 120px;
 }
 
 /***********************************************************************************
