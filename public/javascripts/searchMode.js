@@ -20,7 +20,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			});
 
 			$('#footer').animate({
-				bottom: -400
+				bottom : -400
+			}, function() {
+				$('#searchMap').focus();
 			});
 
 		},
@@ -47,9 +49,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			$('.msg').unbind('dblclick');
 			$('.filter').removeClass('filter');
 			params.findAuthor = undefined;
-			
+
 			$('#footer').animate({
-				bottom: -470
+				bottom : -470
 			});
 
 		}
