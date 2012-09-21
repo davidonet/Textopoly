@@ -4,21 +4,11 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			params.findAuthor = "davidonet";
 
 			// récupère la liste des auteurs
-
-			var authors = $.ajax({
-				url : 'http://localhost:3000/authors',
-				type : 'get',
-				dataType : JSON,
-				async: false
-	
-			}).responseText;
-			
-			console.log(typeof(authors),authors);
-
-			$('#searchMap').autocomplete({
-				source: authors
-
-			})
+			$.getJSON('/authors', function(data) {
+				$('#searchMap').autocomplete({
+					source : data
+				});
+			});
 
 		},
 		refresh : function(localParams) {
