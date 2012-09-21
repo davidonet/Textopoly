@@ -9,6 +9,7 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 				$('#searchMap').autocomplete({
 					source : data,
 					minLength : 2,
+					appendTo : $('#footer'),
 					select : function(event, ui) {
 						$('.filter').removeClass('filter');
 						params.findAuthor = ui.item.label;
@@ -18,13 +19,13 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 					}
 				});
 			});
-
+			$('#posInfo').hide();
+			$('#filter').show();
 			$('#footer').animate({
-				bottom : -400
+				bottom : -380
 			}, function() {
 				$('#searchMap').focus();
 			});
-
 		},
 		refresh : function(localParams) {
 			var postTxtLoad = function() {
@@ -53,6 +54,8 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			$('#footer').animate({
 				bottom : -470
 			});
+			$('#posInfo').show();
+			$('#filter').hide();
 
 		}
 	};
