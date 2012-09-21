@@ -25,6 +25,8 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 		leave : function() {
 			infoBox.unbindMsg();
 			$('.msg').unbind('dblclick');
+			$('#informationBox').fadeOut(100);
+
 		}
 	};
 });
