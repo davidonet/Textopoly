@@ -69,7 +69,7 @@ html {
 body {
   height: 100%;
   
-  &.default {
+  &.default  {
       background: @aluminium1;
       cursor: default;
 
@@ -84,10 +84,41 @@ body {
       background: @aluminium1;  
       cursor: text;
 
-      *.msg{
+      >#content>#map>.msg{
        background: rgba(136, 138, 133, 0.2);
-       
+      }  
+  }
+  
+  &.searchMode {
+      background: @aluminium1;
+      cursor: default;
+             >#content>#map.z20>.msg,>#content>#map.z40>.msg{
+                 background-color: @aluminium2;
 
+
+                &.butter:hover,{
+                         background-color: @butterL;
+                 }
+                &.orange:hover{
+                         background-color: @orangeL;
+                 }                 
+                &.chocolate:hover{
+                         background-color: @chocolateL;
+                 }
+                &.chameleon:hover{
+                         background-color: @chamelonL;
+                 }                 
+                &.skyblue:hover{
+                         background-color: @skyblueL;
+                 }
+                &.plum:hover{
+                         background-color: @plumL;
+                 }
+                &.scarletred:hover{
+                         background-color: @scarletredL;
+                 }                  
+                 
+                                                                    
       }  
   }
   
