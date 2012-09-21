@@ -64,7 +64,7 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 			});
 			helper.btnClic("#btnCenter", function(event) {
 				mapModule.centerTo([0, 0], true, function() {
-					mapModule.zoomTo(params.zoom);
+					refresh();
 					return false;
 				});
 
