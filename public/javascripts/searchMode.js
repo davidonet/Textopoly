@@ -1,4 +1,5 @@
 define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, pathWalk, infoBox, mapModule, helper) {
+
 	return {
 		init : function() {
 			params.findAuthor = undefined;
@@ -9,16 +10,17 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 					source : data,
 					minLength : 2,
 					select : function(event, ui) {
-						console.log(ui.item.label);
+						$('.filter').removeClass('filter');
 						params.findAuthor = ui.item.label;
-
+						require(["modeHandler"], function(modeHandler) {
+							modeHandler.refresh();
+						});
 					}
 				});
 			});
 
 		},
 		refresh : function(localParams) {
-
 			var postTxtLoad = function() {
 				if (params.zoom == 2) {
 
