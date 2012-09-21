@@ -19,6 +19,10 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 				});
 			});
 
+			$('#footer').animate({
+				bottom: -400
+			});
+
 		},
 		refresh : function(localParams) {
 			var postTxtLoad = function() {
@@ -43,6 +47,11 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			$('.msg').unbind('dblclick');
 			$('.filter').removeClass('filter');
 			params.findAuthor = undefined;
+			
+			$('#footer').animate({
+				bottom: -470
+			});
+
 		}
 	};
 });
