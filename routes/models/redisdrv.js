@@ -1,10 +1,18 @@
-var redis = require("redis"), sensible = require('../../sensible');
-
-global.red = redis.createClient(6379, sensible.redisHost());
-global.red.on("error", function(err) {
-	console.log("Error " + err);
-});
-
+var redis = require("redis");
+try {
+	var sensible = require('../../sensible');
+	global.red = redis.createClient(6379, sensible.redisHost());
+	global.red.on("error", function(err) {
+		console.log("Error " + err);
+	});
+} catch(err) {
+	console.log("No sensible file");
+	global.red = redis.createClient(9400, "ray.redistogo.com");
+	global.red.auth("33029b00c40476bb30fe53c042447442");
+	global.red.on("error", function(err) {
+		console.log("Error " + err);
+	});
+}
 redis.debug_mode = false;
 
 global.red.on("connect", function() {

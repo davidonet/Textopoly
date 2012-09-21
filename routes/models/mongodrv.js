@@ -1,7 +1,11 @@
 var mongo = require('mongoskin');
-var sensible = require('../../sensible');
-
-global.db = mongo.db(sensible.mongourl());
+try {
+	var sensible = require('../../sensible');
+	global.db = mongo.db(sensible.mongourl());
+} catch(err) {
+	console.log("No sensible file");
+	global.db = mongo.db('mongodb://dataserver:9ricer4@alex.mongohq.com:10016/app7779771');
+}
 
 global.normalizePos = function(nTxt) {
 	if (nTxt.p === undefined) {
@@ -140,7 +144,7 @@ db.bind('txt', {
 	},
 	removeTxt : function(nTxt, fn) {
 		normalizePos(nTxt);
-		this.findOne(nTxt, function(err,data) {
+		this.findOne(nTxt, function(err, data) {
 			red.unbook(data, function(err, ret) {
 				db.txt.remove(nTxt, function(err) {
 					fn({
@@ -150,7 +154,9 @@ db.bind('txt', {
 			});
 		});
 	},
-	last20 : function(fn){
-		this.find().sort({d:-1}).limit(20).toArray(fn);
+	last20 : function(fn) {
+		this.find().sort({
+			d : -1
+		}).limit(20).toArray(fn);
 	}
 });
