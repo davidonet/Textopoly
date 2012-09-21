@@ -1,17 +1,24 @@
 define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, pathWalk, infoBox, mapModule, helper) {
 	return {
 		init : function() {
-			params.findAuthor = "davidonet";
+			params.findAuthor = undefined;
 
 			// récupère la liste des auteurs
 			$.getJSON('/authors', function(data) {
 				$('#searchMap').autocomplete({
-					source : data
+					source : data,
+					minLength : 2,
+					select : function(event, ui) {
+						console.log(ui.item.label);
+						params.findAuthor = ui.item.label;
+
+					}
 				});
 			});
 
 		},
 		refresh : function(localParams) {
+
 			var postTxtLoad = function() {
 				if (params.zoom == 2) {
 
