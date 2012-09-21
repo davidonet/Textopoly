@@ -95,7 +95,6 @@ body {
              >#content>#map.z20>.msg,>#content>#map.z40>.msg{
                  background-color: @aluminium2;
 
-
                 &.butter:hover,{
                          background-color: @butterL;
                  }
@@ -117,7 +116,9 @@ body {
                 &.scarletred:hover{
                          background-color: @scarletredL;
                  }                  
-                 
+                &.image:hover{
+                        background-color: @aluminium2L;
+                 }                      
                                                                     
       }  
   }
@@ -217,6 +218,7 @@ label {
 }
 
 
+
 .z20 > .msg.butter,.z40 > .msg.butter {
     background-color: @butterD;
 }
@@ -239,6 +241,40 @@ label {
     background-color: @scarletredD; 
 }
 
+/* IMAGES COLORS */
+.z20 > .msg.image, .z40 > .msg.image, {
+  &.s{
+   background: url('img/image_bg_s.svg') no-repeat;
+   background-size: 100%;
+   background-color: @aluminium2;
+  }
+  
+  &.l{
+   background: url('img/image_bg_l.svg') no-repeat;
+   background-size: 100%;
+   background-color: @aluminium2;
+  }
+  
+  &.t{
+   background: url('img/image_bg_t.svg') no-repeat;
+   background-size: 100%;
+   background-color: @aluminium2;
+  }
+      
+  &.f{
+   background: url('img/image_bg_f.svg') no-repeat;
+   background-size: 100%;
+   background-color: @aluminium2;
+  }
+  
+
+
+&:hover {
+    background-color: @aluminium2L;
+
+}
+  
+}
 
 /***********************************************************************************
  *  ZONING
