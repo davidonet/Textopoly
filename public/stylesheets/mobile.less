@@ -1,0 +1,90 @@
+@import "reset.css";
+@import "fonts.css";
+@import "tango";
+
+@NotCourier: "NotCourierSansRegular", monospace;
+@Futura: 'FuturaCondensedMedium',sans-serif;
+
+body {
+ background: @aluminium1;
+ }
+ 
+.msg {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  cursor: move;
+
+  
+  >p {
+  font-family: @NotCourier;
+  color: @aluminium2D;
+  white-space:pre-wrap;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+
+  }
+  
+  >img {
+  width: 100%;
+  height: 100%;
+
+  }
+}
+
+#content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#map {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: move;
+}
+@import "typography";
+
+/* MSG SIZE DEFAULT */
+
+.small(@zoom) {
+width: 480px/@zoom;
+height: 320px/@zoom;
+}
+
+.long(@zoom){
+width: 960px/@zoom;
+height: 320px/@zoom;
+}
+
+.tall(@zoom){
+width: 480px/@zoom;
+height: 640px/@zoom;
+}
+
+.fat(@zoom){
+width: 960px/@zoom;
+height: 640px/@zoom;
+}
+
+.z2 {>.s{
+    .small(2);
+    .lS(2)
+    }
+    >.l{
+    .long(2);
+    .lL(2);
+    }
+    >.t{
+    .tall(2);
+    .lT(2);
+    }
+    >.f{
+    .fat(2);
+    .lF(2);
+    }
+}
+
