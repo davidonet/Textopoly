@@ -11,7 +11,14 @@ var bookC = require('./controllers/book');
 var mobC = require('./controllers/mobile');
 
 module.exports = function(app) {
-	app.get('/', mapC.view);
+	app.get('/', function(req, res) {
+		var ua = req.header('user-agent');
+		console.log(ua);
+		if( (/Android/i.test(ua)) ||  (/Mobile/i.test(ua)) || (/IEMobile/i.test(ua)) ) 
+			mobC.v(req,res);
+		else
+			mapC.view(req,res);
+	});
 	app.get('/view', mapC.view);
 	app.get('/getimg/:pos', imgC.getimg);
 	app.get('/t/:x/:y', jsonC.atxt);
@@ -27,15 +34,15 @@ module.exports = function(app) {
 	app.post('/newpath', jsonC.newpath);
 	app.get('/allpath', jsonC.allpath);
 	app.get('/msg', jsonC.msg);
-	
-	app.get('/rss',jsonC.rss);
-	
+
+	app.get('/rss', jsonC.rss);
+
 	app.get('/mbook/:id', bookC.path);
 	app.get('/mpath/:a', bookC.choice);
 	app.get('/mauth', bookC.authors);
 	app.get('/mtxt/:x/:y', bookC.txt);
-	
-	app.get('/m/v',mobC.v);
-	app.get('/m/t/:x/:y',mobC.t);
-	
+
+	app.get('/m/v', mobC.v);
+	app.get('/m/t/:x/:y', mobC.t);
+
 };
