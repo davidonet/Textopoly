@@ -18,6 +18,25 @@ redis.debug_mode = false;
 global.red.on("connect", function() {
 });
 
+global.red.find = function(xmin, ymin, range, fn) {
+	var multi = this.multi();
+	for (var y = ymin; y < ymin + range; y++)
+		for (var x = xmin; x < xmin + range; x++) {
+			multi.sismember("b", x + "," + y);
+		}
+	multi.exec(function(err, ret) {
+		var data = [];
+		for (var y = 0; y < range; y++)
+			for (var x = 0; x < range; x++) {
+				var i = x + y * range;
+				if (ret[i + 0] + ret[i + 1] + ret[i + range] + ret[i + range + 1] === 0) {
+					data.push([xmin + x, ymin + y]);
+				}
+			}
+		fn(err, data);
+	});
+};
+
 global.red.single = function(x, y, fn) {
 	/* Check free surrounding space
 	 *    0  1  2  3

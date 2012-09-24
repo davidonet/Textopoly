@@ -1,5 +1,6 @@
 var request = require('superagent');
 var app = require('../app');
+var async = require('async');
 var should = require('should');
 var expect = require('expect.js'), Browser = require('zombie'), browser = new Browser();
 
@@ -24,6 +25,21 @@ function equalTxt(txta, textb) {
 function testPath(path) {
 	path.should.have.property("pw");
 }
+
+describe('Internal function', function() {
+	describe('Free cell search', function(done) {
+		it("shouldn't have any occupied cell", function() {
+			var memcache = require('../routes/models/redisdrv');
+			red.find(0, 0, 32, function(err, ret) {
+				async.forEach(ret, function(value) {
+					red.single(value[0], value[1], function(err, ret) {
+						 ret.s.should.equal(0);
+					});
+				}, done);
+			});
+		});
+	});
+});
 
 describe('Textopoly Server Side', function() {
 	var aTxt = {
@@ -203,7 +219,7 @@ describe('Textopoly Server Side', function() {
 	});
 	describe('Mobile author page', function() {
 		it("should respond a author html page", function(done) {
-			browser.visit('http://localhost:3000/m/a/' + aTxt.a , function() {
+			browser.visit('http://localhost:3000/m/a/' + aTxt.a, function() {
 				done();
 			});
 		});
