@@ -30,7 +30,7 @@ describe('Internal function', function() {
 	describe('Free cell search', function(done) {
 		it("shouldn't have any occupied cell", function() {
 			var memcache = require('../routes/models/redisdrv');
-			red.find(0, 0, 32, function(err, ret) {
+			red.find(0, 0, 16, function(err, ret) {
 				async.forEach(ret, function(value) {
 					red.single(value[0], value[1], function(err, ret) {
 						 ret.s.should.equal(0);
