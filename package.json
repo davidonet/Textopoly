@@ -43,7 +43,8 @@
 		"expect.js": "*",
 		"zombie": "*",
 		"superagent":"*",
-		"assert":"*"
+		"assert":"*",
+		"async":"*"
 	},
 	"license": "GPL",
 	"engines": {
