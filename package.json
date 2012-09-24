@@ -42,7 +42,8 @@
 		"should": "*",
 		"expect.js": "*",
 		"zombie": "*",
-		"superagent":"*"
+		"superagent":"*",
+		"assert":"*"
 	},
 	"license": "GPL",
 	"engines": {
