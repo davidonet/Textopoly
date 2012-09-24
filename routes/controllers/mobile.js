@@ -81,10 +81,24 @@ exports.t = function(req, res) {
 		x : req.params.x,
 		y : req.params.y
 	}, function(err, items) {
+		var lc = (items.t ? txtLen2Class(items.t.length) : 'notext');
 		var data = {
 			t : items,
-			lc : txtLen2Class(items.t)
+			lc : lc
 		};
 		res.render('mtxt.jade', data);
+	});
+};
+
+exports.a = function(req, res) {
+	db.path.fromAuth(req.params.a, function(err, items) {
+		db.txt.authorTxt(req.params.a, function(err, txts) {
+			res.render('mauth.jade', {
+				title : "Textopoly | Chemins de " + req.params.a,
+				a : req.params.a,
+				paths : items,
+				txts : txts
+			});
+		});
 	});
 };

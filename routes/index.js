@@ -43,5 +43,6 @@ module.exports = function(app) {
 
 	app.get('/m/v', mobC.v);
 	app.get('/m/t/:x/:y', mobC.t);
+	app.get('/m/a/:a',mobC.a);
 
 };
