@@ -13,7 +13,6 @@ var mobC = require('./controllers/mobile');
 module.exports = function(app) {
 	app.get('/', function(req, res) {
 		var ua = req.header('user-agent');
-		console.log(ua);
 		if( (/Android/i.test(ua)) ||  (/Mobile/i.test(ua)) || (/IEMobile/i.test(ua)) ) 
 			mobC.v(req,res);
 		else
