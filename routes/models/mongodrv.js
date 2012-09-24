@@ -4,7 +4,7 @@ try {
 	global.db = mongo.db(sensible.mongourl());
 } catch(err) {
 	console.log("No sensible file");
-	global.db = mongo.db('mongodb://dataserver:9ricer4@alex.mongohq.com:10016/app7779771');
+	global.db = mongo.db('mongodb://dataserver:9ricer4@alex.mongohq.com:10055/app7857202');
 }
 
 global.normalizePos = function(nTxt) {
