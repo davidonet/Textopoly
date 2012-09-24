@@ -33,9 +33,6 @@ var server = http.createServer(app).listen(app.get('port'));
 global.io = socket.listen(server, {
 	log : false
 });
-io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
+
 io.set('log level', 0);
 
