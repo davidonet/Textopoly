@@ -11,7 +11,7 @@ block body
 						img(src='/getimg/['+txt.p+']')
 					if txt.t
 						p #{txt.t}
-		div(style="background-color:grey;position:fixed;top:0;left:0;width:3%;height:100%;z-index:100;",onclick="document.location='/m/v?xcenter="+leftC+"&ycenter="+params.ycenter+"'")
-		div(style="background-color:grey;position:fixed;top:0;right:0;width:3%;height:100%;z-index:100;",onclick="document.location='/m/v?xcenter="+rightC+"&ycenter="+params.ycenter+"'")
-		div(style="background-color:grey;position:fixed;top:0;left:0;height:3%;width:100%;z-index:100;",onclick="document.location='/m/v?xcenter="+params.xcenter+"&ycenter="+topC+"'")
-		div(style="background-color:grey;position:fixed;bottom:0;left:0;height:3%;width:100%;z-index:100;",onclick="document.location='/m/v?xcenter="+params.xcenter+"&ycenter="+bottomC+"'")			
+		div(style="background-color:grey;position:fixed;top:0;left:0;width:3%;height:100%;z-index:100;",onclick="document.location='/m/v/"+leftC+"/"+params.ycenter+"'")
+		div(style="background-color:grey;position:fixed;top:0;right:0;width:3%;height:100%;z-index:100;",onclick="document.location='/m/v/"+rightC+"/"+params.ycenter+"'")
+		div(style="background-color:grey;position:fixed;top:0;left:0;height:3%;width:100%;z-index:100;",onclick="document.location='/m/v/"+params.xcenter+"/"+topC+"'")
+		div(style="background-color:grey;position:fixed;bottom:0;left:0;height:3%;width:100%;z-index:100;",onclick="document.location='/m/v/"+params.xcenter+"/"+bottomC+"'")			

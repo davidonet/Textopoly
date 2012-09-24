@@ -41,7 +41,7 @@ module.exports = function(app) {
 	app.get('/mauth', bookC.authors);
 	app.get('/mtxt/:x/:y', bookC.txt);
 
-	app.get('/m/v', mobC.v);
+	app.get('/m/v/:x/:y', mobC.v);
 	app.get('/m/t/:x/:y', mobC.t);
 	app.get('/m/a/:a',mobC.a);
 

@@ -1,17 +1,17 @@
 extend mobile
 block head
 	title='textopoly situé au '+t.p
-	meta(name="viewport",content="initial-scale=1,width=device-width")
+	meta(name="viewport",content="initial-scale=1,maximum-scale=1,minimum-scale=1,,width=device-width")
 block body
 	h1 
-		a(href="/m/v?xcenter="+t.p[0]+'&ycenter='+t.p[1]) #{t.p}
+		a(href="/m/v/"+t.p[0]+'/'+t.p[1]) #{t.p}
 	br
 	if t.i
-		img(src='/getimg/['+t.p+']')
+		img(style='width:100%',src='/getimg/['+t.p+']')
 	else
 		p(class=t.s+' '+t.c+' '+lc) #{t.t}
-	hr
-	p.sig
+
+	h2.sig
 		span par	
 		a(href="/m/a/"+t.a)	#{t.a}
 		span  le #{t.d.toDateString()}

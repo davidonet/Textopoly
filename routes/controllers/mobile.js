@@ -68,8 +68,8 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 }
 
 exports.v = function(req, res) {
-	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
-	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
+	var xcenter = (req.params.x ? Number(req.params.x) : 0);
+	var ycenter = (req.params.y ? Number(req.params.y) : 0);
 	var zoom = 2;
 	prepareMapData(xcenter, ycenter, zoom, function(data) {
 		res.render('mview.jade', data);
