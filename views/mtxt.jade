@@ -1,0 +1,12 @@
+extend mobile
+block body
+	h3 #{t.p}
+	if t.i
+		img(src='/getimg/['+t.p+']')
+	else
+		p(class=t.s+' '+t.c+' '+lc) #{t.t}
+	hr
+	p.sig
+		a(href="/m/a/"+t.a) #{t.a} 
+		le #{t.d.toDateString()}
+	a(href="/m/a") Auteurs

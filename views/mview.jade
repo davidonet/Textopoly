@@ -1,16 +1,17 @@
 extends mobile
 block head
-	meta(name="viewport",content="initial-scale=0.5, maximum-scale=2,minimum-scale=0.5,width="+ width +"px,height="+ height+"px")
+	title=title
+	meta(name="viewport",content="initial-scale=0.5, maximum-scale=2,minimum-scale=0.5,width="+ width +",height="+ height+"")
 block body
 	div#content
 		div.grid#map(class='z'+params.zoom,style='top:-'+height/2+'px;left:-'+width/2+'px')
 			each txt in texts
-				div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c)
+				div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c,onclick="document.location='/m/t/"+txt.p[0]+"/"+txt.p[1]+"'")
 					if txt.i
 						img(src='/getimg/['+txt.p+']')
 					if txt.t
 						p #{txt.t}
-		div(style="background-color:grey;position:fixed;top:0;left:0;width:2%;height:100%",onclick="document.location='/m/v?xcenter="+leftC+"&ycenter="+params.ycenter+"'")
-		div(style="background-color:grey;position:fixed;top:0;right:0;width:2%;height:100%",onclick="document.location='/m/v?xcenter="+rightC+"&ycenter="+params.ycenter+"'")
-		div(style="background-color:grey;position:fixed;top:0;left:0;height:2%;width:100%",onclick="document.location='/m/v?xcenter="+params.xcenter+"&ycenter="+topC+"'")
-		div(style="background-color:grey;position:fixed;bottom:0;left:0;height:2%;width:100%",onclick="document.location='/m/v?xcenter="+params.xcenter+"&ycenter="+bottomC+"'")			
+		div(style="background-color:grey;position:fixed;top:0;left:0;width:3%;height:100%;z-index:100;",onclick="document.location='/m/v?xcenter="+leftC+"&ycenter="+params.ycenter+"'")
+		div(style="background-color:grey;position:fixed;top:0;right:0;width:3%;height:100%;z-index:100;",onclick="document.location='/m/v?xcenter="+rightC+"&ycenter="+params.ycenter+"'")
+		div(style="background-color:grey;position:fixed;top:0;left:0;height:3%;width:100%;z-index:100;",onclick="document.location='/m/v?xcenter="+params.xcenter+"&ycenter="+topC+"'")
+		div(style="background-color:grey;position:fixed;bottom:0;left:0;height:3%;width:100%;z-index:100;",onclick="document.location='/m/v?xcenter="+params.xcenter+"&ycenter="+bottomC+"'")			

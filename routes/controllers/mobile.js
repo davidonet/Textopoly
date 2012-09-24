@@ -1,5 +1,27 @@
 var models = require('../models/mongodrv');
 
+function txtLen2Class(txtlen) {
+	var lclass = '';
+	if (txtlen < 1) {
+		lclass = 'l0';
+	} else if (txtlen < 4) {
+		lclass = 'l4';
+	} else if (txtlen < 15) {
+		lclass = 'l15';
+	} else if (txtlen < 50) {
+		lclass = 'l50';
+	} else if (txtlen < 150) {
+		lclass = 'l150';
+	} else if (txtlen < 300) {
+		lclass = 'l300';
+	} else if (txtlen < 601) {
+		lclass = 'l600';
+	} else {
+		lclass = 'warning';
+	}
+	return lclass;
+}
+
 function prepareMapData(xcenter, ycenter, zoom, fn) {
 	var range = 16;
 	var stepX = 120;
@@ -8,28 +30,6 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 	var xmax = xcenter + range;
 	var ymin = ycenter - range;
 	var ymax = ycenter + range;
-
-	function txtLen2Class(txtlen) {
-		var lclass = '';
-		if (txtlen < 1) {
-			lclass = 'l0';
-		} else if (txtlen < 4) {
-			lclass = 'l4';
-		} else if (txtlen < 15) {
-			lclass = 'l15';
-		} else if (txtlen < 50) {
-			lclass = 'l50';
-		} else if (txtlen < 150) {
-			lclass = 'l150';
-		} else if (txtlen < 300) {
-			lclass = 'l300';
-		} else if (txtlen < 601) {
-			lclass = 'l600';
-		} else {
-			lclass = 'warning';
-		}
-		return lclass;
-	}
 
 	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
 
@@ -57,21 +57,34 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 			},
 			texts : items,
 			width : stepX * range,
-			height :stepY * range,
+			height : stepY * range,
 			range : range,
-			leftC : xcenter-range/2,
-			rightC : xcenter+range/2,
-			topC : ycenter-range/2,
-			bottomC : ycenter+range/2
+			leftC : xcenter - range / 2,
+			rightC : xcenter + range / 2,
+			topC : ycenter - range / 2,
+			bottomC : ycenter + range / 2
 		});
 	});
 }
 
 exports.v = function(req, res) {
-	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 10);
-	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 10);
+	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
+	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
 	var zoom = 2;
 	prepareMapData(xcenter, ycenter, zoom, function(data) {
 		res.render('mview.jade', data);
+	});
+};
+
+exports.t = function(req, res) {
+	db.txt.aTxt({
+		x : req.params.x,
+		y : req.params.y
+	}, function(err, items) {
+		var data = {
+			t : items,
+			lc : txtLen2Class(items.t)
+		};
+		res.render('mtxt.jade', data);
 	});
 };
