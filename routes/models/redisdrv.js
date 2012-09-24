@@ -7,7 +7,7 @@ try {
 	});
 } catch(err) {
 	console.log("No sensible file");
-	global.red = redis.createClient(9981, "ray.redistogo.com");
+	global.red = redis.createClient(9981, "tetra.redistogo.com");
 	global.red.auth("cb0b3a14304efd537cff5ec2313c9d26");
 	global.red.on("error", function(err) {
 		console.log("Error " + err);
