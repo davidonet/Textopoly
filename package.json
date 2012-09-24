@@ -41,7 +41,8 @@
 		"mocha": "*",
 		"should": "*",
 		"expect.js": "*",
-		"zombie": "*"
+		"zombie": "*",
+		"superagent":"*"
 	},
 	"license": "GPL",
 	"engines": {

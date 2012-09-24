@@ -1,8 +1,6 @@
 requirejs.config({
 	paths : {
-		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min',
-		'hammer' : 'http://eightmedia.github.com/hammer.js/hammer',
-		'jqhammer' : 'http://eightmedia.github.com/hammer.js/jquery.hammer'
+		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
 	}
 });
 require(["jquery", "jquery-ui", "modeHandler", "mapModule", "uievent"], function($, jqui, modeHandler, mapModule, uievent) {

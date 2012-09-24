@@ -1,4 +1,4 @@
-var express = require('express'), routes = require('./routes'), http = require('http'), path = require('path'), socket = require('socket.io');
+var express = require('express'), routes = require('./routes'), http = require('http'), path = require('path'), socket = require('socket.io'), fs = require('fs');
 var app = express();
 
 app.configure(function() {
@@ -9,12 +9,15 @@ app.configure(function() {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
-	var pubpath = (process.env.JS_COV ? '/public-cov' : '/public');
-	app.use(require('less-middleware')({
-		src : __dirname + pubpath
-	}));
-	app.use(express['static'](__dirname + pubpath));
-	app.enable('quiet');
+	fs.stat('public-optimize', function(er, s) {
+		var pubpath = (process.env.JS_COV ? '/public-cov' : (!er ? '/public-optimize' : '/public'));
+
+		app.use(require('less-middleware')({
+			src : __dirname + pubpath
+		}));
+		app.use(express['static'](__dirname + pubpath));
+		app.enable('quiet');
+	});
 });
 
 app.configure('development', function() {
@@ -27,6 +30,8 @@ require(libpath)(app);
 
 var server = http.createServer(app).listen(app.get('port'));
 
-global.io = socket.listen(server,{ log: false });
+global.io = socket.listen(server, {
+	log : false
+});
 io.set('log level', 0);
 
