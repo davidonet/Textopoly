@@ -8,6 +8,7 @@ var mapC = require('./controllers/map');
 var imgC = require('./controllers/img');
 var jsonC = require('./controllers/json');
 var bookC = require('./controllers/book');
+var mobC = require('./controllers/mobile');
 
 module.exports = function(app) {
 	app.get('/', mapC.view);
@@ -33,4 +34,7 @@ module.exports = function(app) {
 	app.get('/mpath/:a', bookC.choice);
 	app.get('/mauth', bookC.authors);
 	app.get('/mtxt/:x/:y', bookC.txt);
+	
+	app.get('/m/v',mobC.v);
+	
 };
