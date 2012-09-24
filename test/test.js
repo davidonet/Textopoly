@@ -26,6 +26,13 @@ function testPath(path) {
 }
 
 describe('Textopoly Server Side', function() {
+	var aTxt = {
+		p : [-7000, 7000],
+		a : 'mocha',
+		t : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+		c : 'butter',
+		s : 'f'
+	};
 	describe('GET /section', function() {
 		it("should respond with a list of txt", function(done) {
 			request.get('http://localhost:3000/section?xmin=-5&xmax=5&ymin=-5&ymax=5').set('Accept', 'application/json').end(function(res) {
@@ -86,13 +93,7 @@ describe('Textopoly Server Side', function() {
 		});
 	});
 	describe('Txt cell consistency', function() {
-		var aTxt = {
-			p : [-7000, 7000],
-			a : 'mocha',
-			t : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-			c : 'butter',
-			s : 'f'
-		};
+
 		describe('Insert', function() {
 			it("should insert a msg a db", function(done) {
 				request.post('http://localhost:3000/insert').send(aTxt).set('Accept', 'application/json').end(function(res) {
@@ -133,34 +134,7 @@ describe('Textopoly Server Side', function() {
 				});
 			});
 		});
-		describe('Remove', function() {
-			it("should remove msg txt", function(done) {
-				request.get('http://localhost:3000/remove?x=' + aTxt.p[0] + '&y=' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
-					should.exist(res.body);
-					done();
-				});
-			});
-		});
-		describe('Read', function() {
-			it("should read a null", function(done) {
-				request.get('http://localhost:3000/t/' + aTxt.p[0] + '/' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
-					should.exist(res.body);
-					done();
-				});
-			});
-		});
-		describe('Freespace freed', function() {
-			it("should have booked 16 cells", function(done) {
-				request.get('http://localhost:3000/fa/-2000/2000').set('Accept', 'application/json').end(function(res) {
-					should.exist(res.body);
-					res.body.should.have.property("s").equal(0);
-					res.body.should.have.property("l").equal(0);
-					res.body.should.have.property("t").equal(0);
-					res.body.should.have.property("f").equal(0);
-					done();
-				});
-			});
-		});
+
 	});
 	describe('Authors list', function() {
 		it("should give a list of authors", function(done) {
@@ -174,6 +148,13 @@ describe('Textopoly Server Side', function() {
 		it("should give a list of paths", function(done) {
 			request.get('http://localhost:3000/allpath').set('Accept', 'application/json').end(function(res) {
 				should.exist(res.body);
+				done();
+			});
+		});
+	});
+	describe('Image', function() {
+		it("should respond an image", function(done) {
+			request.get('http://localhost:3000/getimg/[-7,-3]').set('Accept', 'image/jpeg').end(function() {
 				done();
 			});
 		});
@@ -206,5 +187,53 @@ describe('Textopoly Server Side', function() {
 			});
 		});
 	});
-
+	describe('Mobile page', function() {
+		it("should respond a mobile map page", function(done) {
+			browser.visit('http://localhost:3000/m/v/0/0', function() {
+				done();
+			});
+		});
+	});
+	describe('Mobile msg page', function() {
+		it("should respond a msg html page", function(done) {
+			browser.visit('http://localhost:3000/m/t/' + aTxt.p[0] + '/' + aTxt.p[1], function() {
+				done();
+			});
+		});
+	});
+	describe('Mobile author page', function() {
+		it("should respond a author html page", function(done) {
+			browser.visit('http://localhost:3000/m/a/' + aTxt.a , function() {
+				done();
+			});
+		});
+	});
+	describe('Remove', function() {
+		it("should remove msg txt", function(done) {
+			request.get('http://localhost:3000/remove?x=' + aTxt.p[0] + '&y=' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
+				should.exist(res.body);
+				done();
+			});
+		});
+	});
+	describe('Read', function() {
+		it("should read a null", function(done) {
+			request.get('http://localhost:3000/t/' + aTxt.p[0] + '/' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
+				should.exist(res.body);
+				done();
+			});
+		});
+	});
+	describe('Freespace freed', function() {
+		it("should have freed 16 cells", function(done) {
+			request.get('http://localhost:3000/fa/' + aTxt.p[0] + '/' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
+				should.exist(res.body);
+				res.body.should.have.property("s").equal(0);
+				res.body.should.have.property("l").equal(0);
+				res.body.should.have.property("t").equal(0);
+				res.body.should.have.property("f").equal(0);
+				done();
+			});
+		});
+	});
 });
