@@ -175,6 +175,13 @@ describe('Textopoly Server Side', function() {
 			});
 		});
 	});
+	describe('Image', function() {
+		it("should respond an image", function(done) {
+			request.get('http://localhost:3000/getimg/s[-7,-3]').set('Accept', 'image/jpeg').end(function() {
+				done();
+			});
+		});
+	});
 	describe('Authors page', function() {
 		it("should give an authors list", function(done) {
 			browser.visit('http://localhost:3000/mauth', function() {
