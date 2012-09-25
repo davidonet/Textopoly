@@ -13,6 +13,9 @@ define(["helper"], function(helper) {
 					if (data.t !== undefined) {
 						newTxt.addClass(helper.txtLen2Class(data.t.length));
 					}
+					else{
+						newTxt.addClass("l0");
+					}
 				}
 				newTxt.attr('dc', data.p);
 				newTxt.css(helper.posToCSS(data.p));
