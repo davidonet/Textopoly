@@ -112,6 +112,8 @@ exports.insert = function(req, res) {
 exports.remove = function(req, res) {
 	db.gridfs().unlink('[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
 	});
+	db.gridfs().unlink('s[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
+	});
 	var aTxt = req.query;
 	normalizePos(aTxt);
 	db.txt.removeTxt(aTxt, function(err) {
