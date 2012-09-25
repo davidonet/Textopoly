@@ -26,21 +26,6 @@ function testPath(path) {
 	path.should.have.property("pw");
 }
 
-describe('Internal function', function() {
-	describe('Free cell search', function(done) {
-		it("shouldn't have any occupied cell", function() {
-			var memcache = require('../routes/models/redisdrv');
-			red.find(-16, -16, 32, function(err, ret) {
-				async.forEach(ret, function(value) {
-					red.single(value[0], value[1], function(err, ret) {
-						ret.s.should.equal(0, 'on ' + value);
-					});
-				}, done);
-			});
-		});
-	});
-});
-
 describe('Textopoly Server Side', function() {
 	var aTxt = {
 		p : [-7000, 7000],
@@ -259,4 +244,19 @@ describe('Textopoly Server Side', function() {
 			});
 		});
 	});
-});
+
+	describe('Internal function', function() {
+		describe('Free cell search', function(done) {
+			it("shouldn't have any occupied cell", function() {
+				var memcache = require('../routes/models/redisdrv');
+				red.find(-16, -16, 32, function(err, ret) {
+					async.forEach(ret, function(value) {
+						red.single(value[0], value[1], function(err, ret) {
+							ret.s.should.equal(0, 'on ' + value);
+						});
+					}, done);
+				});
+			});
+		});
+	});
+}); 
