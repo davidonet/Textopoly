@@ -1,18 +1,10 @@
 var redis = require("redis");
-try {
-	var sensible = require('../../sensible');
-	global.red = redis.createClient(6379, sensible.redisHost());
-	global.red.on("error", function(err) {
-		console.log("Error " + err);
-	});
-} catch(err) {
-	console.log("No sensible file");
-	global.red = redis.createClient(9981, "tetra.redistogo.com");
-	global.red.auth("cb0b3a14304efd537cff5ec2313c9d26");
-	global.red.on("error", function(err) {
-		console.log("Error " + err);
-	});
-}
+var sensible = require('../../sensible');
+global.red = redis.createClient(6379, sensible.redisHost());
+global.red.on("error", function(err) {
+	console.log("Error " + err);
+});
+
 redis.debug_mode = false;
 
 global.red.on("connect", function() {
@@ -28,8 +20,8 @@ global.red.find = function(xmin, ymin, range, fn) {
 			multi.sismember("b", x + "," + y);
 		}
 	multi.exec(function(err, ret) {
-		for (var ypos = 0; ypos < (range-1); ypos++)
-			for (var xpos = 0; xpos < (range-1); xpos++) {
+		for (var ypos = 0; ypos < (range - 1); ypos++)
+			for (var xpos = 0; xpos < (range - 1); xpos++) {
 				var i = xpos + ypos * range;
 				if (ret[i + 0] + ret[i + 1] + ret[i + range] + ret[i + range + 1] === 0) {
 					data.push([xmin + xpos, ymin + ypos]);

@@ -1,11 +1,6 @@
 var mongo = require('mongoskin');
-try {
-	var sensible = require('../../sensible');
-	global.db = mongo.db(sensible.mongourl());
-} catch(err) {
-	console.log("No sensible file");
-	global.db = mongo.db('mongodb://dataserver:9ricer4@alex.mongohq.com:10055/app7857202');
-}
+var sensible = require('../../sensible');
+global.db = mongo.db(sensible.mongourl());
 
 global.normalizePos = function(nTxt) {
 	if (nTxt.p === undefined) {
@@ -17,23 +12,20 @@ global.normalizePos = function(nTxt) {
 
 exports.bounds = function(fn) {
 	/*jshint evil:true,es5: true*/
-	srvBounds = function() {
+	// Never called in node the function is executed in mongo server
+	var srvBounds = function() {
 		var bnd = [0, 0, 0, 0];
 		db.txt.find({}, {
 			p : 1
 		}).forEach(function(obj) {
-			if (obj.p[0] < bnd[0]) {
+			if (obj.p[0] < bnd[0])
 				bnd[0] = obj.p[0];
-			}
-			if (obj.p[1] < bnd[1]) {
+			if (obj.p[1] < bnd[1])
 				bnd[1] = obj.p[1];
-			}
-			if (bnd[2] < obj.p[0]) {
+			if (bnd[2] < obj.p[0])
 				bnd[2] = obj.p[0];
-			}
-			if (bnd[3] < obj.p[1]) {
+			if (bnd[3] < obj.p[1])
 				bnd[3] = obj.p[1];
-			}
 		});
 		return bnd;
 	};
@@ -80,25 +72,9 @@ db.bind('path', {
 });
 
 db.bind('txt', {
-	cells : function(fn) {
-		this.find({}, {
-			"p" : 1,
-			"s" : 1,
-			"c" : 1
-		}).toArray(fn);
-	},
 	aTxt : function(pos, fn) {
 		normalizePos(pos);
 		this.findOne(pos, fn);
-	},
-	exist : function(box, fn) {
-		this.find({
-			"p" : {
-				"$within" : {
-					"$box" : box
-				}
-			}
-		}).count(fn);
 	},
 	authors : function(fn) {
 		this.distinct("a", fn);
@@ -127,13 +103,7 @@ db.bind('txt', {
 		this.findOne({
 			p : nTxt.p
 		}, function(err, aTxt) {
-			if (aTxt) {
-				myColl.remove(aTxt, function(err) {
-					myColl.insert(nTxt, function(err) {
-						fn(err, nTxt);
-					});
-				});
-			} else {
+			if (!aTxt) {
 				myColl.insert(nTxt, function(err) {
 					red.book(nTxt, function(err, ret) {
 						fn(err, nTxt);

@@ -46,12 +46,6 @@ exports.authorboard = function(req, res) {
 	});
 };
 
-exports.authpath = function(req, res) {
-	db.path.fromAuth(req.params.a, function(err, items) {
-		res.json(items);
-	});
-};
-
 exports.path = function(req, res) {
 	db.path.expand(req.params.id, function(err, items) {
 		res.json(items);
@@ -90,11 +84,6 @@ exports.fa = function(req, res) {
 	});
 };
 
-exports.msg = function(req, res) {
-	db.txt.aTxt(req.query, function(err, ret) {
-		res.json(ret);
-	});
-};
 
 exports.authors = function(req, res) {
 	db.txt.authors(function(err, items) {

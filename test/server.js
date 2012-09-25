@@ -1,8 +1,7 @@
 var request = require('superagent');
 var app = require('../app');
-var async = require('async');
 var should = require('should');
-var expect = require('expect.js'), Browser = require('zombie'), browser = new Browser();
+var expect = require('expect.js');
 
 function testTxt(txt) {
 	txt.should.have.property("a").and.be.a('string');
@@ -45,6 +44,7 @@ describe('Textopoly Server Side', function() {
 				res.body.should.have.property("ymax");
 				res.body.should.have.property("texts");
 				res.body.texts.length.should.be.above(2);
+				should.exist(res.body.texts[0]);
 				testTxt(res.body.texts[0]);
 				done();
 			});
@@ -167,55 +167,7 @@ describe('Textopoly Server Side', function() {
 			});
 		});
 	});
-	describe('Authors page', function() {
-		it("should give an authors list", function(done) {
-			browser.visit('http://localhost:3000/mauth', function() {
-				done();
-			});
-		});
-	});
-	describe('Author page', function() {
-		it("should give a txt list and pathwalk list", function(done) {
-			browser.visit('http://localhost:3000/mpath/Adrien', function() {
-				done();
-			});
-		});
-	});
-	describe('Path page', function() {
-		it("should give a txt list and pathwalk list", function(done) {
-			browser.visit('http://localhost:3000/mbook/4fc4b9ad4d71520266000120', function() {
-				done();
-			});
-		});
-	});
-	describe('Main page', function() {
-		it("should respond an html page", function(done) {
-			browser.visit('http://localhost:3000/', function() {
-				done();
-			});
-		});
-	});
-	describe('Mobile page', function() {
-		it("should respond a mobile map page", function(done) {
-			browser.visit('http://localhost:3000/m/v/0/0', function() {
-				done();
-			});
-		});
-	});
-	describe('Mobile msg page', function() {
-		it("should respond a msg html page", function(done) {
-			browser.visit('http://localhost:3000/m/t/' + aTxt.p[0] + '/' + aTxt.p[1], function() {
-				done();
-			});
-		});
-	});
-	describe('Mobile author page', function() {
-		it("should respond a author html page", function(done) {
-			browser.visit('http://localhost:3000/m/a/' + aTxt.a, function() {
-				done();
-			});
-		});
-	});
+	
 	describe('Remove', function() {
 		it("should remove msg txt", function(done) {
 			request.get('http://localhost:3000/remove?x=' + aTxt.p[0] + '&y=' + aTxt.p[1]).set('Accept', 'application/json').end(function(res) {
@@ -244,19 +196,5 @@ describe('Textopoly Server Side', function() {
 			});
 		});
 	});
-
-	describe('Internal function', function() {
-		describe('Free cell search', function(done) {
-			it("shouldn't have any occupied cell", function() {
-				var memcache = require('../routes/models/redisdrv');
-				red.find(-16, -16, 32, function(err, ret) {
-					async.forEach(ret, function(value) {
-						red.single(value[0], value[1], function(err, ret) {
-							ret.s.should.equal(0, 'on ' + value);
-						});
-					}, done);
-				});
-			});
-		});
-	});
-}); 
+	
+});

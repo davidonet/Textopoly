@@ -24,7 +24,6 @@ module.exports = function(app) {
 	app.get('/fa/:x/:y', jsonC.fa);
 	app.get('/a/:a', jsonC.authorboard);
 	app.get('/p/:id', jsonC.path);
-	app.get('/ap/:a', jsonC.authpath);
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
 	app.post('/insert', jsonC.insert);
@@ -32,7 +31,6 @@ module.exports = function(app) {
 	app.get('/authors', jsonC.authors);
 	app.post('/newpath', jsonC.newpath);
 	app.get('/allpath', jsonC.allpath);
-	app.get('/msg', jsonC.msg);
 
 	app.get('/rss', jsonC.rss);
 

@@ -24,7 +24,6 @@ define(["txt", "uievent", "pathWalk", "pathBox", "mapModule", "helper"], functio
 			$('.msg').bind('dblclick');
 			uievent.bindZoom();
 			$('#zoomWrap').fadeIn(250);
-
 		}
 	};
 

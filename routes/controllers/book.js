@@ -43,18 +43,6 @@ exports.authors = function(req, res) {
 	});
 };
 
-exports.txt = function(req, res) {
-	db.txt.aTxt({
-		x : req.params.x,
-		y : req.params.y
-	}, function(err, items) {
-		res.render('txt.jade', {
-			title : "Textopoly | " + req.params.x + "," + req.params.y,
-			t : items,
-			lc : txtLen2Class(items.t.length)
-		});
-	});
-};
 
 exports.choice = function(req, res) {
 	db.path.fromAuth(req.params.a, function(err, items) {
