@@ -2,6 +2,8 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 
 	return {
 		init : function() {
+			mapModule.zoomTo(40);
+
 			params.findAuthor = undefined;
 
 			// récupère la liste des auteurs

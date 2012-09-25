@@ -1,6 +1,9 @@
-define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, pathWalk, infoBox, mapModule, helper) {
+define(["txt", "uievent","pathWalk", "infoBox", "mapModule", "helper", ], function(txt, uievent,pathWalk, infoBox, mapModule, helper) {
 	return {
 		init : function() {
+			mapModule.zoomTo(4);
+			uievent.unbindZoom();
+			$('#zoomWrap').fadeOut(250);
 
 		},
 		refresh : function(localParams) {
@@ -25,6 +28,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 		leave : function() {
 			infoBox.unbindMsg();
 			$('.msg').unbind('dblclick');
+			uievent.bindZoom();
+			$('#zoomWrap').fadeIn(250);
+
 		}
 	};
 });
