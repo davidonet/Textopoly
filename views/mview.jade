@@ -8,7 +8,7 @@ block body
 			each txt in texts
 				div.msg(dc=txt.p,style='left:#{txt.absx}px;top:#{txt.absy}px;',class=txt.s+' '+txt.lclass+' '+txt.c,onclick="document.location='/m/t/"+txt.p[0]+"/"+txt.p[1]+"'")
 					if txt.i
-						img(src='/getimg/['+txt.p+']')
+						img(src='/getimg/s['+txt.p+']')
 					if txt.t
 						p #{txt.t}
 		div(style="background-color:grey;position:fixed;top:0;left:0;width:3%;height:100%;z-index:100;",onclick="document.location='/m/v/"+leftC+"/"+params.ycenter+"'")
