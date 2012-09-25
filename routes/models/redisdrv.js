@@ -19,16 +19,18 @@ global.red.on("connect", function() {
 });
 
 global.red.find = function(xmin, ymin, range, fn) {
+	var data = [];
+
 	var multi = this.multi();
+
 	for (var y = ymin; y < ymin + range; y++)
 		for (var x = xmin; x < xmin + range; x++) {
 			multi.sismember("b", x + "," + y);
 		}
 	multi.exec(function(err, ret) {
-		var data = [];
-		for (var y = 0; y < range; y++)
-			for (var x = 0; x < range; x++) {
-				var i = x + y * range;
+		for (var ypos = 0; ypos < range-1; ypos++)
+			for (var xpos = 0; xpos < range-1; xpos++) {
+				var i = xpos + ypos * range;
 				if (ret[i + 0] + ret[i + 1] + ret[i + range] + ret[i + range + 1] === 0) {
 					data.push([xmin + x, ymin + y]);
 				}
