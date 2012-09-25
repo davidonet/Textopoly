@@ -4,19 +4,13 @@ define(["txt", "uievent", "pathWalk", "pathBox", "mapModule", "helper"], functio
 			mapModule.zoomTo(4);
 			uievent.unbindZoom();
 			$('#zoomWrap').fadeOut(250);
-						pathBox.bindPath();
-
+			pathBox.bindMsg();
 
 		},
 		refresh : function(localParams) {
+			pathBox.bindMsg();
 
 			var postTxtLoad = function() {
-
-				$('.msg').dblclick(function(e) {
-					mapModule.centerTo([helper.xToPos(e.pageX), helper.yToPos(e.pageY)], false, function() {
-						mapModule.zoomTo(2);
-					});
-				});
 
 				if ((1 < params.zoom) && (params.zoom < 20)) {
 					//Activate path display
