@@ -3,7 +3,7 @@ var im = require('imagemagick');
 
 exports.postimg = function(req, res, next) {
 
-	if(req.xhr) {
+	if (req.xhr) {
 		var fName = req.header('x-file-name'), fSize = req.header('x-file-size'), fType = req.header('x-file-type'), ws = fs.createWriteStream('/tmp/' + fName);
 
 		var aGSData = {
@@ -39,18 +39,41 @@ exports.postimg = function(req, res, next) {
 
 					gs.writeFile('/tmp/' + fName, function(err, gs) {
 						fs.unlink('/tmp/' + fName, function(err) {
-							if(err)
+							if (err)
 								throw err;
 						});
 						aGSData.metadata.i = gs._id;
 						db.txt.insertTxt(aGSData.metadata, function(err, aTxt) {
-							aTxt.success=true;
+							aTxt.success = true;
 							res.json(aTxt);
 							io.sockets.emit('book', aTxt);
 						});
 					});
 				});
 
+				im.resize({
+					srcPath : '/tmp/' + fName,
+					dstPath : '/tmp/t' + fName,
+					format : 'jpg',
+					progressive : false,
+					width : 192,
+					height : 128,
+					strip : true,
+					filter : 'Lagrange',
+					sharpening : 0.2
+				}, function(err, stdout, stderr) {
+
+					db.gridfs().open('s[' + req.query.x + ',' + req.query.y + ']', 'w', aGSData, function(err, gs) {
+
+						gs.writeFile('/tmp/t' + fName, function(err, gs) {
+							fs.unlink('/tmp/t' + fName, function(err) {
+								if (err)
+									throw err;
+							});
+						});
+					});
+
+				});
 			});
 		});
 	}
@@ -59,7 +82,7 @@ exports.postimg = function(req, res, next) {
 exports.getimg = function(req, res, next) {
 	db.gridfs().open(req.params.pos, 'r', function(err, gs) {
 		gs.read(function(err, reply) {
-			if(err)
+			if (err)
 				next(err);
 			else {
 				res.writeHead('200', {
