@@ -42,6 +42,7 @@ module.exports = function(app) {
 	app.get('/mtxt/:x/:y', bookC.txt);
 
 	app.get('/m/v/:x/:y', mobC.v);
+	app.get('/m/w/:x/:y', mobC.w);
 	app.get('/m/t/:x/:y', mobC.t);
 	app.get('/m/a/:a',mobC.a);
 

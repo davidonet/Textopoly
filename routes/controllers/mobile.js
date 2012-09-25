@@ -22,10 +22,12 @@ function txtLen2Class(txtlen) {
 	return lclass;
 }
 
+var range = 16;
+var stepX = 120;
+var stepY = 80;
+
 function prepareMapData(xcenter, ycenter, zoom, fn) {
-	var range = 16;
-	var stepX = 120;
-	var stepY = 80;
+
 	var xmin = xcenter - range;
 	var xmax = xcenter + range;
 	var ymin = ycenter - range;
@@ -66,6 +68,16 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 		});
 	});
 }
+
+exports.w = function(req, res) {
+	var xcenter = (req.params.x ? Number(req.params.x) : 0);
+	var ycenter = (req.params.y ? Number(req.params.y) : 0);
+	var xmin = xcenter - range ;
+	var ymin = ycenter - range ;
+	red.find(xmin, ymin, 2*range, function(err, ret) {
+		res.json(ret);
+	});
+};
 
 exports.v = function(req, res) {
 	var xcenter = (req.params.x ? Number(req.params.x) : 0);
