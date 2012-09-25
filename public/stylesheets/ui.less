@@ -39,6 +39,18 @@
     cursor: default;
 }
 
+#pathBox {
+    z-index: 1000;
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 0px;
+    border: dashed 2px @aluminium1L;
+    padding: 8px;
+    cursor: default;
+}
+
+
 #writingBox * h2, #informationBox * h2 {
     padding-top: 20px;
 }
@@ -72,7 +84,7 @@
     }
 }
 
-.infoArea {
+.infoArea, .pathArea {
     position: relative;
     top: 0px;
     left: 0px;
@@ -102,6 +114,26 @@ div.editArea.f, div.infoArea.f, .f > div.msgInfo {
     width: 480px;
     height: 320px;
 }
+
+/* PATH AREA */
+
+div.pathArea.s{
+    width: 120px;
+    height: 80px;
+}
+div.pathArea.l{
+    width: 240px;
+    height: 80px;
+}
+div.pathArea.t{
+    width: 120px;
+    height: 160px;
+}
+div.pathArea.f {
+    width: 240px;
+    height: 160px;
+}
+
 
 /* TEXT AREA */
 
