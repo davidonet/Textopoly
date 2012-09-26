@@ -1,13 +1,20 @@
 define(["txt", "uievent", "pathWalk", "pathBox", "mapModule", "helper"], function(txt, uievent, pathWalk, pathBox, mapModule, helper) {
 	return {
 		init : function() {
+/*
+			require(["modeHandler"], function(modeHandler) {
+           		modeHandler.refresh();
+            );
+ */
 			mapModule.zoomTo(4);
 			uievent.unbindZoom();
 			$('#zoomWrap').fadeOut(250);
 			pathBox.bindMsg();
 
+
 		},
 		refresh : function(localParams) {
+
 			pathBox.bindMsg();
 
 			var postTxtLoad = function() {
@@ -23,6 +30,7 @@ define(["txt", "uievent", "pathWalk", "pathBox", "mapModule", "helper"], functio
 		leave : function() {
 			$('.msg').bind('dblclick');
 			uievent.bindZoom();
+			$('#pathBox').fadeOut(100);
 			$('#zoomWrap').fadeIn(250);
 		}
 	};

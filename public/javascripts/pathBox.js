@@ -58,9 +58,9 @@ define(["lib/jquery.tipsy"], function() {
 
 		init : function() {
 
-			$('.pathArea > .n.handle').tipsy({
+			$('.pathArea > .n.handle.pa').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Cheminer', // fallback text to use when no tooltip text
+				fallback : 'Commencer un chemin', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 			bindMsg();
