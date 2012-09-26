@@ -7,7 +7,8 @@
 	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
 <g id="plus">
 	<g>
-		<polygon fill="#EEEEEC" points="15,6 10,6 10,1 6,1 6,6 1,6 1,10 6,10 6,15 10,15 10,10 15,10 		"/>
+		<polygon fill="#EEEEEC" points="14,6.286 9.714,6.286 9.714,2 6.286,2 6.286,6.286 2,6.286 2,9.714 6.286,9.714 6.286,14 
+			9.714,14 9.714,9.714 14,9.714 		"/>
 	</g>
 </g>
 </svg>
