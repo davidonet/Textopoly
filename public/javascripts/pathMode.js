@@ -8,12 +8,8 @@ define(["txt", "uievent", "pathWalk", "pathBox", "mapModule", "helper"], functio
 		},
 		refresh : function(localParams) {
 			var postTxtLoad = function() {
-
-				if ((1 < params.zoom) && (params.zoom < 20)) {
-					//Activate path display
-					pathWalk.updatePath();
-					pathBox.bindMsg();
-				}
+				pathWalk.updatePath();
+				pathBox.bindMsg();
 			};
 			txt.loadSection(localParams, postTxtLoad);
 		},
