@@ -10,4 +10,4 @@
 		name : "main",
 		exclude : ["jquery"]
 	}]
-});
+})
