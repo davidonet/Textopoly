@@ -5,7 +5,9 @@
 	 id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:cc="http://creativecommons.org/ns#"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
 	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<g id="arrow_x5F_right">
-	<polygon fill="#EEEEEC" points="5,1 12,8 5,15 	"/>
+<g id="view">
+	<circle fill="#EEEEEC" cx="8" cy="8" r="3"/>
+	<path fill="#EEEEEC" d="M8,3C3,3,0,7.969,0,7.969S3,13,8,13s8-5,8-5S13,3,8,3z M8,12c-4.375,0-6.75-4-6.75-4S3.625,4,8,4
+		s6.75,4,6.75,4S12.375,12,8,12z"/>
 </g>
 </svg>
