@@ -5,9 +5,9 @@
 	 id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:cc="http://creativecommons.org/ns#"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
 	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<g id="view">
-	<circle fill="#EEEEEC" cx="8" cy="8" r="2.625"/>
-	<path fill="#EEEEEC" d="M8,3.625c-4.375,0-7,4.348-7,4.348s2.625,4.402,7,4.402S15,8,15,8S12.375,3.625,8,3.625z M8,11.5
-		C4.172,11.5,2.094,8,2.094,8S4.172,4.5,8,4.5S13.906,8,13.906,8S11.828,11.5,8,11.5z"/>
+<g>
+	<path fill="#EEEEEC" d="M8,3.625c-4.375,0-7,4.348-7,4.348s2.625,4.402,7,4.402S15,8,15,8S12.375,3.625,8,3.625z M8,10.853
+		C4.879,10.853,3.186,8,3.186,8S4.879,5.147,8,5.147C11.12,5.147,12.814,8,12.814,8S11.12,10.853,8,10.853z"/>
+	<circle fill="#EEEEEC" cx="8" cy="8" r="2.198"/>
 </g>
 </svg>
