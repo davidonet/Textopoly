@@ -20,10 +20,12 @@ module.exports = function(app) {
 	});
 	app.get('/view', mapC.view);
 	app.get('/getimg/:pos', imgC.getimg);
+	app.get('/info/:x/:y', jsonC.info);
 	app.get('/t/:x/:y', jsonC.atxt);
 	app.get('/fa/:x/:y', jsonC.fa);
 	app.get('/a/:a', jsonC.authorboard);
 	app.get('/p/:id', jsonC.path);
+	
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
 	app.post('/insert', jsonC.insert);

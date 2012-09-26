@@ -33,7 +33,7 @@ define(['lib/jquery.cookie', "lib/syronex-colorpicker"], function() {
 	});
 	return {
 		msgInfo : function(x, y, fn) {
-			$.getJSON('/msg?x=' + x + '&y=' + y, function(data) {
+			$.getJSON('/info/' + x + '/' + y, function(data) {
 				fn(data);
 			});
 		},

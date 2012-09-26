@@ -84,6 +84,11 @@ exports.fa = function(req, res) {
 	});
 };
 
+exports.info = function(req, res) {
+	db.txt.aTxt(req.params, function(err, ret) {
+		res.json(ret);
+	});
+};
 
 exports.authors = function(req, res) {
 	db.txt.authors(function(err, items) {
