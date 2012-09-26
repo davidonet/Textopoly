@@ -64,6 +64,58 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 			bindZoom();
 			infoBox.init();
 
+			// TIPSY ON TOP MENU
+
+			$('#btnHelp').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Obtenir de l\'aide', // fallback text to use when no tooltip text
+				gravity : 'e' // gravity
+			});
+			
+						$('#btnFocus').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Mode concentration', // fallback text to use when no tooltip text
+				gravity : 'e' // gravity
+			});
+
+			// TIPSY ON MAIN MENU
+			$('#btnShow').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Naviguer sur la carte', // fallback text to use when no tooltip text
+				gravity : 'n' // gravity
+			});
+
+			$('#btnText').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Écrire sur la carte', // fallback text to use when no tooltip text
+				gravity : 'n' // gravity
+			});
+
+			$('#btnPath').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Cheminer sur la carte', // fallback text to use when no tooltip text
+				gravity : 'n' // gravity
+			});
+
+			$('#btnFind').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Filtrer la carte', // fallback text to use when no tooltip text
+				gravity : 'n' // gravity
+			});
+
+			$('#btnCenter').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Aller sur le dernier billet', // fallback text to use when no tooltip text
+				gravity : 'n' // gravity
+			});
+			
+				$('.ui-slider-handle').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Zoomer sur la carte', // fallback text to use when no tooltip text
+				gravity : 'w' // gravity
+			});
+			
+
 		},
 		bindZoom : bindZoom,
 		unbindZoom : unbindZoom
