@@ -1,0 +1,26 @@
+extend mobile
+block head
+	title='textopoly situé au ' + p
+	meta(name="viewport",content="initial-scale=1,maximum-scale=1,minimum-scale=1,,width=device-width")
+block body
+	h1 #{p}
+	br
+	form(action='/insert',method='post')
+		textarea(name='t',rows='10',style="width:100%")
+		input(name='x',value=p[0],hidden,style='display:none')
+		input(name='y',value=p[1],hidden,style='display:none')
+		input(name='s',value='s',hidden,style='display:none')
+		input(name='a',value='auteur mobile')
+		select(name="c",value="butter")
+			option butter
+			option orange
+			option chocolate
+			option chameleon
+			option skyblue
+			option plum
+			option scarletred
+		input(type='submit',value='Ajouter')
+			
+		
+		
+		
