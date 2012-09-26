@@ -6,8 +6,8 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
 	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
 <g id="view">
-	<circle fill="#EEEEEC" cx="8" cy="8" r="3"/>
-	<path fill="#EEEEEC" d="M8,3C3,3,0,7.969,0,7.969S3,13,8,13s8-5,8-5S13,3,8,3z M8,12c-4.375,0-6.75-4-6.75-4S3.625,4,8,4
-		s6.75,4,6.75,4S12.375,12,8,12z"/>
+	<circle fill="#EEEEEC" cx="8" cy="8" r="2.625"/>
+	<path fill="#EEEEEC" d="M8,3.625c-4.375,0-7,4.348-7,4.348s2.625,4.402,7,4.402S15,8,15,8S12.375,3.625,8,3.625z M8,11.5
+		C4.172,11.5,2.094,8,2.094,8S4.172,4.5,8,4.5S13.906,8,13.906,8S11.828,11.5,8,11.5z"/>
 </g>
 </svg>
