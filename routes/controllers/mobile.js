@@ -47,16 +47,6 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 	});
 }
 
-exports.w = function(req, res) {
-	var xcenter = (req.params.x ? Number(req.params.x) : 0);
-	var ycenter = (req.params.y ? Number(req.params.y) : 0);
-	var xmin = xcenter - range ;
-	var ymin = ycenter - range ;
-	red.find(xmin, ymin, 2*range, function(err, ret) {
-		res.json(ret);
-	});
-};
-
 exports.v = function(req, res) {
 	var xcenter = (req.params.x ? Number(req.params.x) : 0);
 	var ycenter = (req.params.y ? Number(req.params.y) : 0);
@@ -90,5 +80,18 @@ exports.a = function(req, res) {
 				txts : txts
 			});
 		});
+	});
+};
+
+exports.w = function(req, res) {
+	var xcenter = (req.params.x ? Number(req.params.x) : 0);
+	var ycenter = (req.params.y ? Number(req.params.y) : 0);
+	var xmin = xcenter - range;
+	var ymin = ycenter - range;
+	red.find(xmin, ymin, 2 * range, function(err, ret) {
+		var data = {
+			p : ret[(Math.random() * ret.length).toFixed(0)]
+		};
+		res.render('mwrite.jade', data);
 	});
 };
