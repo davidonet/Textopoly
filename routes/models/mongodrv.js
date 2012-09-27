@@ -1,6 +1,6 @@
 var mongo = require('mongoskin');
 var sensible = require('../../sensible');
-var crypto = require('crypto');
+
 
 global.db = mongo.db(sensible.mongourl());
 
