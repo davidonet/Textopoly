@@ -64,7 +64,9 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 			});
 			helper.btnClic("#btnCenter", function(event) {
 				mapModule.centerTo([0, 0], true, function() {
-					refresh();
+					require(["modeHandler"], function(modeHandler) {
+						modeHandler.refresh();
+					});
 					return false;
 				});
 
