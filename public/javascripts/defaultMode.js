@@ -11,6 +11,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 					$('.msg').dblclick(function(e) {
 						mapModule.centerTo([helper.xToPos(e.pageX), helper.yToPos(e.pageY)], false, function() {
 							mapModule.zoomTo(2);
+							require(["modeHandler"], function(modeHandler) {
+								modeHandler.refresh();
+							});
 						});
 					});
 				}
@@ -18,7 +21,6 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 					//Activate path display
 					pathWalk.updatePath();
 				}
-
 			};
 			txt.loadSection(localParams, postTxtLoad);
 		},
