@@ -1,4 +1,4 @@
-var express = require('express'), routes = require('./routes'), http = require('http'), path = require('path'), socket = require('socket.io'), fs = require('fs');
+var express = require('express'), routes = require('./routes'), http = require('http'), path = require('path'), socket = require('socket.io'), fs = require('fs'), passport = require('passport');
 var app = express();
 
 app.configure(function() {
@@ -6,7 +6,13 @@ app.configure(function() {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
+	app.use(express.cookieParser());
 	app.use(express.bodyParser());
+	app.use(express.session({
+		secret : 'keyboard cat'
+	}));
+	app.use(passport.initialize());
+	app.use(passport.session());
 	app.use(express.methodOverride());
 	app.use(app.router);
 	fs.stat('public-optimize', function(er, s) {

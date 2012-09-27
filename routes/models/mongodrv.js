@@ -1,5 +1,7 @@
 var mongo = require('mongoskin');
 var sensible = require('../../sensible');
+var crypto = require('crypto');
+
 global.db = mongo.db(sensible.mongourl());
 
 global.normalizePos = function(nTxt) {
@@ -53,6 +55,38 @@ exports.bounds = function(fn) {
 	};
 	db.eval(srvBounds, fn);
 };
+
+db.bind('author', {
+	newUser : function(author, password, fn) {
+		var pwmd5 = crypto.createHash('md5').update(password).digest("hex");
+		this.insert({
+			author : author,
+			password : pwmd5
+		}, fn);
+	},
+	checkUser : function(author, password, done) {
+		this.findOne({
+			author : author
+		}, function(err, user) {
+			var pwmd5 = crypto.createHash('md5').update(password).digest("hex");
+
+			if (err) {
+				return done(err);
+			}
+			if (!user) {
+				return done(null, false, {
+					message : 'Unknown user'
+				});
+			}
+			if (user.password != pwmd5) {
+				return done(null, false, {
+					message : 'Invalid password'
+				});
+			}
+			return done(null, user);
+		});
+	}
+});
 
 db.bind('path', {
 	newPath : function(aPath, fn) {
