@@ -27,7 +27,7 @@
 /* BIG BUTTONS MIXIN*/
 
 .bigButton (@radius: 50px) {
-    z-index: 100;
+    z-index: 5000;
     float: left;
     margin-right: 35px;
     margin-left: 35px;
@@ -376,12 +376,12 @@ label {
     margin-top: 10px;
     
     
-#btnHelp, div#btnFocus {
+#btnLog, #btnHelp, div#btnFocus {
     float:left;
     .button(16px);
 
 }
-#btnHelp{
+#btnLog, #btnHelp{
         margin-right: 4px;
 
     
@@ -434,10 +434,11 @@ div#leftA {
 }
 
 #slider {
-    float: left;
-    margin-left: 100px;
-    width: 440px;
-    margin-top: 17px;
+    position:absolute;
+    z-index:-1000;
+    right:20px;
+    width: 620px;
+    margin-top: 15px;
     text-align: center;
     color: @aluminium2L;
     
@@ -593,7 +594,6 @@ div#btnFind {
     background-color: @aluminium1Lt;
     background-image: url('slider.svg');
 
-    
     
 }  
 }

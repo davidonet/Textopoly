@@ -5,8 +5,12 @@
 	 id="svg2" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
 	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<g id="cancel">
-	<polygon fill="#EEEEEC" points="2.532,11.904 4.094,13.468 8,9.562 11.904,13.468 13.468,11.904 9.562,8 13.468,4.094 
-		11.904,2.532 8,6.438 4.094,2.532 2.532,4.094 6.438,8 	"/>
+<g id="settings">
+	<path fill="#EEEEEC" d="M15,9V7h-2.102c-0.125-0.613-0.363-1.184-0.69-1.693l1.499-1.5l-1.415-1.414l-1.478,1.477
+		C10.275,3.5,9.662,3.234,9,3.1V1H7v2.102C6.361,3.23,5.77,3.482,5.244,3.83L3.807,2.393L2.393,3.807l1.437,1.438
+		C3.482,5.77,3.229,6.361,3.1,7H1v2h2.102c0.133,0.662,0.399,1.275,0.769,1.814l-1.478,1.478l1.416,1.415l1.498-1.5
+		c0.51,0.327,1.08,0.566,1.693,0.691V15h2v-2.102c0.639-0.129,1.23-0.381,1.756-0.729l1.537,1.537l1.414-1.415l-1.537-1.536
+		c0.348-0.525,0.6-1.117,0.729-1.756H15z M8,11c-1.656-0.004-2.997-1.346-3-3c0.004-1.656,1.344-2.997,3-3
+		c1.656,0.003,2.996,1.343,3,3C10.996,9.656,9.656,10.996,8,11z"/>
 </g>
 </svg>
