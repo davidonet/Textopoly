@@ -34,17 +34,20 @@
 		"socket.io": ">=0.9",
 		"imagemagick": ">=0.1.2",
 		"redis": ">=0.8",
-		"hiredis": "0.1",
-		"rss": ">=0.0.4"
+		"hiredis": "*",
+		"rss": "*",
+		"passport": "*",
+		"passport-local": "*",
+		"crypto": "*"
 	},
 	"devDependencies": {
 		"mocha": "*",
 		"should": "*",
 		"expect.js": "*",
 		"zombie": "*",
-		"superagent":"*",
-		"assert":"*",
-		"async":"*"
+		"superagent": "*",
+		"assert": "*",
+		"async": "*"
 	},
 	"license": "GPL",
 	"engines": {
