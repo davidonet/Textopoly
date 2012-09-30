@@ -255,8 +255,10 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	$('.editArea > .sw.handle').click(function() {
 		require(["userinfo"], function(userinfo) {
 			if (textarea === true) {
+				/*
 				$('textarea#write').val('');
 				$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
+				*/
 				$('textarea#write').hide();
 
 				$('.imageArea').show();
