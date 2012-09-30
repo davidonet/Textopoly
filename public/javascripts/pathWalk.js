@@ -61,7 +61,7 @@ define(['helper'], function(helper) {
 					var shiftx = Math.floor((Number(value.left) + Number(aPosList[index - 1].left)) / 2 + (Math.random() - 2.0) * params.stepx);
 					var shifty = Math.floor((Number(value.top) + Number(aPosList[index - 1].top)) / 2 + (Math.random() - 2.0) * params.stepy);
 					if (index < (aPosList.length - 1))
-						paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#eeeeee").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
+						paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#D3D7CF").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
 					else
 						paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#eeeeee").attr("stroke", "#eeeeee").attr("stroke-width", 5 / params.zoom);
 				} else {
