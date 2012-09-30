@@ -73,9 +73,9 @@ describe('Textopoly Server Side', function() {
 	});
 	describe('GET /a/:a', function() {
 		it("should respond an array of occupied cells", function(done) {
-			request.get('http://localhost:3000/a/Adrien').set('Accept', 'application/json').end(function(res) {
+			request.get('http://localhost:3000/a/davidonet').set('Accept', 'application/json').end(function(res) {
 				should.exist(res.body);
-				res.body.should.have.property("a").and.equal("Adrien");
+				res.body.should.have.property("a").and.equal("davidonet");
 				res.body.should.have.property("paths");
 				testPath(res.body.paths[0]);
 				res.body.should.have.property("txts");
@@ -85,7 +85,7 @@ describe('Textopoly Server Side', function() {
 	});
 	describe('GET /p/:id', function() {
 		it("should respond an array of txts following a path", function(done) {
-			request.get('http://localhost:3000/p/4fc4b9ad4d71520266000120').set('Accept', 'application/json').end(function(res) {
+			request.get('http://localhost:3000/p/5067d206700f94fb1b000007').set('Accept', 'application/json').end(function(res) {
 				should.exist(res.body);
 				res.body.should.have.property("pw");
 				testTxt(res.body.pw[0]);

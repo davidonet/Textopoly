@@ -11,6 +11,7 @@ describe('Browsing test', function() {
 		c : 'butter',
 		s : 'f'
 	};
+	var pwid='5067d206700f94fb1b000007';
 	describe('Authors page', function() {
 		it("should give an authors list", function(done) {
 			browser.visit('http://localhost:3000/mauth', function() {
@@ -20,14 +21,14 @@ describe('Browsing test', function() {
 	});
 	describe('Author page', function() {
 		it("should give a txt list and pathwalk list", function(done) {
-			browser.visit('http://localhost:3000/mpath/Adrien', function() {
+			browser.visit('http://localhost:3000/mpath/davidonet', function() {
 				done();
 			});
 		});
 	});
 	describe('Path page', function() {
 		it("should give a txt list and pathwalk list", function(done) {
-			browser.visit('http://localhost:3000/mbook/4fc4b9ad4d71520266000120', function() {
+			browser.visit('http://localhost:3000/mbook/'+pwid, function() {
 				done();
 			});
 		});
