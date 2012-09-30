@@ -11,7 +11,7 @@ describe('Browsing test', function() {
 		c : 'butter',
 		s : 'f'
 	};
-	var pwid='5067d206700f94fb1b000007';
+	var pwid='5067d96c64cf0b4824000001';
 	describe('Authors page', function() {
 		it("should give an authors list", function(done) {
 			browser.visit('http://localhost:3000/mauth', function() {
