@@ -91,6 +91,21 @@ define(['helper'], function(helper) {
 		$('#uiWrap').after($(paper.canvas));
 	}
 
+	var updatePath = function() {
+		if (paper === undefined) {
+			resize();
+		} else {
+			paper.clear();
+		}
+		if (aPathPack)
+			drawPath(aPathPack.msgPath, true);
+		$.getJSON('/allpath', function(data) {
+			$(data).each(function(index, path) {
+				drawPath(path.pw);
+			});
+		});
+	};
+
 	return {
 		startPath : function() {
 			aPathPack = {
@@ -127,6 +142,7 @@ define(['helper'], function(helper) {
 				},
 				success : function(res) {
 					aPathPack.msgPath = [];
+					updatePath();
 				},
 				dataType : 'json'
 			});
@@ -137,19 +153,6 @@ define(['helper'], function(helper) {
 			paper.clear();
 		},
 		resize : resize,
-		updatePath : function() {
-			if (paper === undefined) {
-				resize();
-			} else {
-				paper.clear();
-			}
-			if (aPathPack)
-				drawPath(aPathPack.msgPath, true);
-			$.getJSON('/allpath', function(data) {
-				$(data).each(function(index, path) {
-					drawPath(path.pw);
-				});
-			});
-		}
+		updatePath : updatePath
 	};
 });
