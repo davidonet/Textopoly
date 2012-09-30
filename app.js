@@ -1,5 +1,8 @@
 var express = require('express'), routes = require('./routes'), http = require('http'), path = require('path'), socket = require('socket.io'), fs = require('fs'), passport = require('passport');
 var app = express();
+var sensible = require('./sensible');
+var redis = require("redis").createClient(6379, sensible.redisHost());
+var RedisStore = require('connect-redis')(express);
 
 app.configure(function() {
 	app.set('port', process.env.PORT || 3000);
@@ -8,12 +11,15 @@ app.configure(function() {
 	app.use(express.favicon());
 	app.use(express.cookieParser());
 	app.use(express.bodyParser());
+	app.use(express.methodOverride());
 	app.use(express.session({
-		secret : 'keyboard cat'
+		secret : 'ylopotxet',
+		store : new RedisStore({
+			client : redis
+		})
 	}));
 	app.use(passport.initialize());
 	app.use(passport.session());
-	app.use(express.methodOverride());
 	app.use(app.router);
 	fs.stat('public-optimize', function(er, s) {
 		var pubpath = (process.env.JS_COV ? '/public-cov' : (!er ? '/public-optimize' : '/public'));
