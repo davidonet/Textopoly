@@ -68,10 +68,12 @@ exports.newpath = function(req, res) {
 			ymin = y;
 		if (ymax < y)
 			ymax = y;
-		aNP.pw.push(x + "," + y);
+		aNP.pw.push([x,y]);
 	});
 	aNP.pmin = [xmin, ymin];
 	aNP.pmax = [xmax, ymax];
+	aNP.sp = aNP.pw[0];
+	aNP.d = new Date();
 	db.path.newPath(aNP, function(err, aRes) {
 		res.json(aRes);
 	});

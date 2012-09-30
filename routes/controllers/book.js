@@ -1,13 +1,16 @@
 exports.path = function(req, res) {
 	db.path.expand(req.params.id, function(err, items) {
-		
-		items.pw.forEach(function(item,idx){
-			items.pw[idx].lc = txtLen2Class(item.t.length);
+
+		items.pw.forEach(function(item, idx) {
+			if (item.t)
+				items.pw[idx].lc = txtLen2Class(item.t.length);
+			else
+				items.pw[idx].lc = 'l0';
 		});
 		res.render('book.jade', {
 			title : "Textopoly | Chemin de " + items.a,
 			a : items.a,
-			pathwalk : items			
+			pathwalk : items
 		});
 	});
 };
@@ -20,7 +23,6 @@ exports.authors = function(req, res) {
 		});
 	});
 };
-
 
 exports.choice = function(req, res) {
 	db.path.fromAuth(req.params.a, function(err, items) {

@@ -68,18 +68,19 @@ define(["lib/jquery.tipsy", "pathWalk"], function(tip, pathWalk) {
 				gravity : 'n' // gravity
 			});			
 
-
 			var aPPack;
 			$('.pathArea > .n.handle.pa').click(function() {
-				if (aPPack === undefined)
+				if (aPPack === undefined){
 					aPPack = pathWalk.startPath();
+					$('.pathArea > .so.handle.ok').show();
+				}
 				pathWalk.addNode(aPPack, $(this).parent().parent().attr('dc'));
-				console.log(aPPack);
 			});
 			$('.pathArea > .so.handle.ok').click(function() {
 				if (aPPack !== undefined)
 					pathWalk.endPath(aPPack);
 				aPPack = undefined;
+				$('.pathArea > .so.handle.ok').hide();
 			});
 			bindMsg();
 		},

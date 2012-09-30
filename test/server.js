@@ -27,7 +27,7 @@ function testPath(path) {
 
 describe('Textopoly Server Side', function() {
 	var aTxt = {
-		p : [-7000, 7000],
+		p : [7000, -7000],
 		a : 'mocha',
 		t : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 		c : 'butter',
@@ -73,9 +73,9 @@ describe('Textopoly Server Side', function() {
 	});
 	describe('GET /a/:a', function() {
 		it("should respond an array of occupied cells", function(done) {
-			request.get('http://localhost:3000/a/Adrien').set('Accept', 'application/json').end(function(res) {
+			request.get('http://localhost:3000/a/davidonet').set('Accept', 'application/json').end(function(res) {
 				should.exist(res.body);
-				res.body.should.have.property("a").and.equal("Adrien");
+				res.body.should.have.property("a").and.equal("davidonet");
 				res.body.should.have.property("paths");
 				testPath(res.body.paths[0]);
 				res.body.should.have.property("txts");
@@ -85,7 +85,7 @@ describe('Textopoly Server Side', function() {
 	});
 	describe('GET /p/:id', function() {
 		it("should respond an array of txts following a path", function(done) {
-			request.get('http://localhost:3000/p/4fc4b9ad4d71520266000120').set('Accept', 'application/json').end(function(res) {
+			request.get('http://localhost:3000/p/5067d96c64cf0b4824000001').set('Accept', 'application/json').end(function(res) {
 				should.exist(res.body);
 				res.body.should.have.property("pw");
 				testTxt(res.body.pw[0]);

@@ -64,10 +64,17 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 			});
 			helper.btnClic("#btnCenter", function(event) {
 				mapModule.centerTo([0, 0], true, function() {
-					refresh();
-					return false;
+					var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
+					var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
+					var lparam = {
+						"xmin" : xmin - 2,
+						"ymin" : ymin - 2,
+						"xmax" : xmin + params.txtwidth + 2,
+						"ymax" : ymin + params.txtheight + 2
+					};
+					refresh(lparam);
 				});
-
+				return false;
 			});
 		},
 		refresh : refresh
