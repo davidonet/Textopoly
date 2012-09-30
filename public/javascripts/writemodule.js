@@ -10,6 +10,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 		element : $('.imageArea')[0],
 		action : '/postimg',
 		debug : false,
+		uploadButtonText : 'cliquer ou déposer une image',
 		onComplete : function() {
 			resetWritingBox();
 		}
