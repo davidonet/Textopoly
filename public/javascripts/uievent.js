@@ -126,7 +126,12 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 				fallback : 'Zoomer sur la carte', // fallback text to use when no tooltip text
 				gravity : 'w' // gravity
 			});
-
+			$("#cancelLogin").click(function() {
+				$('#login').hide();
+				$('#footer').animate({
+					bottom : -470
+				});
+			});
 		},
 		bindZoom : bindZoom,
 		unbindZoom : unbindZoom

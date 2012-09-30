@@ -1,4 +1,4 @@
-define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModule'], function(helper, defaultMode, writeMode, pathMode, searchMode, mapModule) {
+define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModule', 'authentification'], function(helper, defaultMode, writeMode, pathMode, searchMode, mapModule, authentification) {
 	params.currentMode = 'default';
 	var currentMode = defaultMode;
 
@@ -45,15 +45,20 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 				return false;
 			});
 			helper.btnClic("#btnPath", function(event) {
-				$('.active').switchClass('active', 'normal');
-				$(this).switchClass('normal', 'active');
-				changeMode('pathMode');
+				authentification.check(function() {
+					$('.active').switchClass('active', 'normal');
+					$("#btnPath").switchClass('normal', 'active');
+					changeMode('pathMode');
+				});
 				return false;
 			});
 			helper.btnClic("#btnText", function(event) {
-				$('.active').switchClass('active', 'normal');
-				$(this).switchClass('normal', 'active');
-				changeMode('writeMode');
+				
+				authentification.check(function() {
+					$('.active').switchClass('active', 'normal');
+					$("#btnText").switchClass('normal', 'active');
+					changeMode('writeMode');
+				});
 				return false;
 			});
 			helper.btnClic("#btnFind", function(event) {

@@ -37,6 +37,16 @@ block body
 						option chemins de :
 					input#searchMap(type="text", name="s")
 					div#results
+				div#login(style='display:none')
+					h2 Authentification
+					form(method="post",id="loginform",action="/login")
+						label signature
+						input(type='text',name='username')
+						label mot de passe
+						input(type='password',name='password')
+						input(type="submit",value="Ok")
+					input(id="cancelLogin",type="button",value="Annuler")	
+					span(id="loginresult")
 		div.grid#map(class='z'+params.zoom)
 			div#removebox(style='display:none')
 				small

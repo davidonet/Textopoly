@@ -44,10 +44,10 @@ module.exports = function(app) {
 
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
-	app.post('/insert',ensureJSONAuth, jsonC.insert);
-	app.get('/remove',ensureJSONAuth, jsonC.remove);
+	app.post('/insert', ensureJSONAuth, jsonC.insert);
+	app.get('/remove', ensureJSONAuth, jsonC.remove);
 	app.get('/authors', jsonC.authors);
-	app.post('/newpath',ensureJSONAuth, jsonC.newpath);
+	app.post('/newpath', ensureJSONAuth, jsonC.newpath);
 	app.get('/allpath', jsonC.allpath);
 
 	app.get('/rss', jsonC.rss);
@@ -58,10 +58,18 @@ module.exports = function(app) {
 	app.get('/mtxt/:x/:y', bookC.txt);
 
 	app.get('/m/v/:x/:y', mobC.v);
-	app.get('/m/w/:x/:y',ensureMobileAuth, mobC.w);
+	app.get('/m/w/:x/:y', ensureMobileAuth, mobC.w);
 	app.get('/m/t/:x/:y', mobC.t);
 	app.get('/m/a/:a', mobC.a);
 
+	app.get('/logout', function(req, res) {
+		req.logOut();
+		res.redirect('/');
+	});
+
+	app.post('/login', passport.authenticate('local'), function(req, res) {
+		res.json(req.user);
+	});
 
 	app.post('/m/login', passport.authenticate('local', {
 		successRedirect : '/',

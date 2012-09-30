@@ -3,7 +3,7 @@ requirejs.config({
 		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min'
 	}
 });
-require(["jquery", "jquery-ui", "modeHandler", "mapModule", "uievent","pathBox"], function($, jqui, modeHandler, mapModule, uievent,pathBox) {
+require(["jquery", "jquery-ui","lib/jquery.form","modeHandler", "mapModule", "uievent","pathBox"], function($, jqui,jqf, modeHandler, mapModule, uievent,pathBox) {
 	$(function() {
 		(function($, sr) {
 			// debouncing function from John Hann

@@ -12,6 +12,8 @@ exports.view = function(req, res) {
 			ycenter : ycenter
 		}
 	};
+	if (req.isAuthenticated())
+		data.params.user = req.user;
 	res.render('view', data);
 };
 

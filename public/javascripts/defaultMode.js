@@ -1,7 +1,10 @@
 define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, pathWalk, infoBox, mapModule, helper) {
 	return {
 		init : function() {
-
+			$('#login').hide();
+			$('#footer').animate({
+				bottom : -470
+			});
 		},
 		refresh : function(localParams) {
 			var postTxtLoad = function() {
