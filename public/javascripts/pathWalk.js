@@ -53,7 +53,7 @@ define(['helper'], function(helper) {
 				}
 			}
 		});
-		var aPath = paper.path(aSVG).attr("stroke", ( strokecolor ? "#fce94f" : "#eeeeee")).attr("stroke-width", 1.5);
+		var aPath = paper.path(aSVG).attr("stroke", ( strokecolor ? "#fce94f" : "#eeeeee")).attr("stroke-width", 8 / params.zoom);
 
 		if (!strokecolor) {
 			$.each(aPosList, function(index, value) {
