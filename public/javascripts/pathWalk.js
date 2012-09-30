@@ -133,20 +133,21 @@ define(['helper'], function(helper) {
 			$.each(aPathPack.svgList, function(index, value) {
 				value.remove();
 			});
-			$.ajax({
-				type : 'POST',
-				url : '/newpath',
-				data : {
-					'a' : $('#current_author').val(),
-					'pw' : aPathPack.msgPath
-				},
-				success : function(res) {
-					aPathPack.msgPath = [];
-					updatePath();
-				},
-				dataType : 'json'
+			require(["userinfo"], function(userinfo) {
+				$.ajax({
+					type : 'POST',
+					url : '/newpath',
+					data : {
+						'a' : userinfo.get(),
+						'pw' : aPathPack.msgPath
+					},
+					success : function(res) {
+						aPathPack.msgPath = [];
+						updatePath();
+					},
+					dataType : 'json'
+				});
 			});
-
 		},
 		pathPlay : pathPlay,
 		hidePath : function() {
