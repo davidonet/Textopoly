@@ -30,6 +30,7 @@ block body
 					div#zoomSlider
 			div#footer
 				p#posInfo 0,0
+				div#colorPicker(style='display:none')
 				div#filter(style='display:none')
 					h2 Filtrer la carte
 					select
@@ -62,10 +63,7 @@ block body
 					div.sw.handle.me
 					textarea#write(name='t',rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='soft')
 					div.imageArea(style='display:none')
-					div.authorArea(style='display:none')
-						h2 Choisir un nom et une couleur
-						input#current_author(type="text", name="a")
-						div#colorPicker
+					
 			div#informationBox(style='display:none')
 				div.infoArea.s
 					div.nw.handle.ca

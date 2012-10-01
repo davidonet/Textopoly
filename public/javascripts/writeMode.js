@@ -4,6 +4,18 @@ define(["mapModule", "txt", "uievent", "writemodule"], function(mapModule, txt, 
 			uievent.unbindZoom();
 			mapModule.zoomTo(2);
 			$('#zoomWrap').fadeOut(250);
+			$('#colorPicker').show();
+			$('#footer').animate({
+				bottom : -420
+			});
+			$('#footer').click(function(event) {
+				event.preventDefault();
+				return false;
+			});
+			$('.msg').click(function(event) {
+				event.preventDefault();
+				return false;
+			});
 		},
 		refresh : function(localParams) {
 			txt.loadSection(localParams, writemodule.updateClick);
@@ -14,6 +26,7 @@ define(["mapModule", "txt", "uievent", "writemodule"], function(mapModule, txt, 
 			uievent.bindZoom();
 			$('#zoomWrap').fadeIn(250);
 			$('#writingBox').fadeOut(100);
+			$('#footer').unbind('click');
 		}
 	};
 });

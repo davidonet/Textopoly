@@ -1,4 +1,4 @@
-define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModule', 'authentification'], function(helper, defaultMode, writeMode, pathMode, searchMode, mapModule, authentification) {
+define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModule', 'userinfo'], function(helper, defaultMode, writeMode, pathMode, searchMode, mapModule, userinfo) {
 	params.currentMode = 'default';
 	var currentMode = defaultMode;
 
@@ -45,7 +45,7 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 				return false;
 			});
 			helper.btnClic("#btnPath", function(event) {
-				authentification.check(function() {
+				userinfo.check(function() {
 					$('.active').switchClass('active', 'normal');
 					$("#btnPath").switchClass('normal', 'active');
 					changeMode('pathMode');
@@ -53,8 +53,7 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 				return false;
 			});
 			helper.btnClic("#btnText", function(event) {
-				
-				authentification.check(function() {
+				userinfo.check(function() {
 					$('.active').switchClass('active', 'normal');
 					$("#btnText").switchClass('normal', 'active');
 					changeMode('writeMode');

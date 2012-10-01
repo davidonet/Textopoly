@@ -36,7 +36,6 @@ module.exports = function(app) {
 	});
 	app.get('/view', mapC.view);
 	app.get('/getimg/:pos', imgC.getimg);
-	app.get('/info/:x/:y', jsonC.info);
 	app.get('/t/:x/:y', jsonC.atxt);
 	app.get('/fa/:x/:y', jsonC.fa);
 	app.get('/a/:a', jsonC.authorboard);
@@ -64,7 +63,9 @@ module.exports = function(app) {
 
 	app.get('/logout', function(req, res) {
 		req.logOut();
-		res.redirect('/');
+		res.json({
+			success : true
+		});
 	});
 
 	app.post('/login', passport.authenticate('local'), function(req, res) {

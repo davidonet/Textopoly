@@ -138,7 +138,7 @@ define(['helper'], function(helper) {
 					type : 'POST',
 					url : '/newpath',
 					data : {
-						'a' : userinfo.get(),
+						'a' : params.user.author,
 						'pw' : aPathPack.msgPath
 					},
 					success : function(res) {

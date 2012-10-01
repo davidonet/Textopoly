@@ -77,7 +77,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 			// récupère x de dc
 			var yGrid = dc[1];
 			// récupère y de dc
-			booking.book(xGrid, yGrid, 's', params.c, userinfo.get());
+			booking.book(xGrid, yGrid, 's', params.c, params.user.author);
 			var position = $('#writingBox').position();
 			freeZone = data.freeZone;
 			$('.editArea > .e.handle').hide();
@@ -98,7 +98,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 			var aDC = $('#writingBox').attr('dc').split(',');
 			require(["booking", "userinfo"], function(booking, userinfo) {
 				booking.unbook(aDC[0], aDC[1]);
-				booking.book(aDC[0], aDC[1], s, params.c, userinfo.get());
+				booking.book(aDC[0], aDC[1], s, params.c, params.user.author);
 			});
 		}
 	}
@@ -166,44 +166,33 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 
 	// WRITINGBOX SOUTH EAST > validate form / author informations
 	$('.editArea > .se.handle').click(function() {
-		if ($('textarea#write').val() !== "")
-			require(["userinfo"], function(userinfo) {
-				if (userinfo.get() === null) {
-					$('.editArea > .sw.handle').hide();
-					$('.editArea > .e.handle').hide();
-					$('.editArea > .so.handle').hide();
-					$('.imageArea').hide();
-					$('textarea#write').hide();
-					$('.authorArea').show();
-
-				} else {
-					var dc = $('#writingBox').attr('dc').split(',');
-					var aSize = 's';
-					if ($('.editArea').hasClass('l'))
-						aSize = 'l';
-					else if ($('.editArea').hasClass('t'))
-						aSize = 't';
-					else if ($('.editArea').hasClass('f'))
-						aSize = 'f';
-					var data = {
-						'a' : userinfo.get(),
-						'c' : params.c,
-						'x' : dc[0],
-						'y' : dc[1],
-						't' : $('textarea#write').val(),
-						's' : aSize
-					};
-					$.ajax({
-						type : 'POST',
-						url : '/insert',
-						data : data,
-						success : function(res) {
-							resetWritingBox();
-						},
-						dataType : 'json'
-					});
-				}
+		if ($('textarea#write').val() !== "") {
+			var dc = $('#writingBox').attr('dc').split(',');
+			var aSize = 's';
+			if ($('.editArea').hasClass('l'))
+				aSize = 'l';
+			else if ($('.editArea').hasClass('t'))
+				aSize = 't';
+			else if ($('.editArea').hasClass('f'))
+				aSize = 'f';
+			var data = {
+				'a' : params.user.author,
+				'c' : params.c,
+				'x' : dc[0],
+				'y' : dc[1],
+				't' : $('textarea#write').val(),
+				's' : aSize
+			};
+			$.ajax({
+				type : 'POST',
+				url : '/insert',
+				data : data,
+				success : function(res) {
+					resetWritingBox();
+				},
+				dataType : 'json'
 			});
+		}
 		return false;
 	});
 
@@ -254,63 +243,42 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 
 	// WRITINGBOX SOUTH WEST > media uploader
 	$('.editArea > .sw.handle').click(function() {
-		require(["userinfo"], function(userinfo) {
-			if (textarea === true) {
-				/*
-				$('textarea#write').val('');
-				$('.editArea').addClass('l4').removeClass('l15 l50 l150 l300 l600');
-				*/
-				$('textarea#write').hide();
 
-				$('.imageArea').show();
-				var dc = $('#writingBox').attr('dc').split(',');
-				var aSize = 's';
-				if ($('.editArea').hasClass('l'))
-					aSize = 'l';
-				else if ($('.editArea').hasClass('t'))
-					aSize = 't';
-				else if ($('.editArea').hasClass('f'))
-					aSize = 'f';
+		if (textarea === true) {
+			$('textarea#write').hide();
+			$('.imageArea').show();
+			var dc = $('#writingBox').attr('dc').split(',');
+			var aSize = 's';
+			if ($('.editArea').hasClass('l'))
+				aSize = 'l';
+			else if ($('.editArea').hasClass('t'))
+				aSize = 't';
+			else if ($('.editArea').hasClass('f'))
+				aSize = 'f';
 
-				var data = {
-					'a' : userinfo.get(),
-					'c' : 'image',
-					'x' : dc[0],
-					'y' : dc[1],
-					's' : aSize
-				};
-				uploader.setParams(data);
-				textarea = false;
-				$('.editArea > .sw.handle').switchClass('me', 'tx', 0);
-			} else {
-				$('input[name*=image]').val('');
-				$('.imageArea').hide();
-				$('textarea#write').show();
-				$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
-				textarea = true;
-			}
-		});
+			var data = {
+				'a' : params.user.author,
+				'c' : 'image',
+				'x' : dc[0],
+				'y' : dc[1],
+				's' : aSize
+			};
+			uploader.setParams(data);
+			textarea = false;
+			$('.editArea > .sw.handle').switchClass('me', 'tx', 0);
+		} else {
+			$('input[name*=image]').val('');
+			$('.imageArea').hide();
+			$('textarea#write').show();
+			$('.editArea > .sw.handle').switchClass('tx', 'me', 0);
+			textarea = true;
+		}
+
 		return false;
 	});
 
 	/***********************************************************************************
 	 * END INTERACTIONS ON WRITINGBOX HANDLES
-	 ***********************************************************************************/
-
-	/***********************************************************************************
-	 * BEGIN INFOBOX
-	 ***********************************************************************************/
-
-	/***********************************************************************************
-	 * END INFOBOX
-	 ***********************************************************************************/
-
-	/***********************************************************************************
-	 * BEGIN INTERACTIONS ON INFOBOX HANDLES
-	 ***********************************************************************************/
-
-	/***********************************************************************************
-	 * END INTERACTIONS ON INFOBOX HANDLES
 	 ***********************************************************************************/
 
 	/***********************************************************************************

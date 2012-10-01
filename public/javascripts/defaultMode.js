@@ -3,7 +3,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 		init : function() {
 			$('#login').hide();
 			$('#footer').animate({
-				bottom : -470
+				bottom : -480
+			}, function() {
+				$('#colorPicker').hide();
 			});
 		},
 		refresh : function(localParams) {
