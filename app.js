@@ -25,7 +25,9 @@ app.configure(function() {
 		var pubpath = (process.env.JS_COV ? '/public-cov' : (!er ? '/public-optimize' : '/public'));
 
 		app.use(require('less-middleware')({
-			src : __dirname + pubpath
+			src : __dirname + pubpath,
+			compress : true,
+			optimization : 2
 		}));
 		app.use(express['static'](__dirname + pubpath));
 		app.enable('quiet');
