@@ -12,8 +12,13 @@ exports.view = function(req, res) {
 			ycenter : ycenter
 		}
 	};
-	if (req.isAuthenticated())
+	if (req.isAuthenticated()){
+		console.log(req.user);
 		data.params.user = req.user;
+		data.params.xcenter = req.user.lastT[0];
+		data.params.ycenter = req.user.lastT[1];
+		}
+		
 	res.render('view', data);
 };
 
