@@ -189,6 +189,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 				data : data,
 				success : function(res) {
 					resetWritingBox();
+					params.user.lastT = dc;
 				},
 				dataType : 'json'
 			});

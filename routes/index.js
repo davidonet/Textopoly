@@ -69,7 +69,10 @@ module.exports = function(app) {
 	});
 
 	app.post('/login', passport.authenticate('local'), function(req, res) {
-		res.json(req.user);
+		db.txt.lastForA(req.user.author, function(err, items) {
+			req.user.lastT = items[0].p;
+			res.json(req.user);
+		});
 	});
 
 	app.post('/m/login', passport.authenticate('local', {
