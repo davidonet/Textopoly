@@ -1,7 +1,6 @@
 var mongo = require('mongoskin');
 var sensible = require('../../sensible');
 
-
 global.db = mongo.db(sensible.mongourl());
 
 global.normalizePos = function(nTxt) {
@@ -184,5 +183,10 @@ db.bind('txt', {
 		this.find().sort({
 			d : -1
 		}).limit(20).toArray(fn);
+	},
+	lastForA : function(a, fn) {
+		this.find({a:a}).sort({
+			d : -1
+		}).limit(1).toArray(fn);
 	}
 });

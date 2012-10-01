@@ -67,17 +67,31 @@ define(['helper', 'defaultMode', 'writeMode', 'pathMode', 'searchMode', 'mapModu
 				return false;
 			});
 			helper.btnClic("#btnCenter", function(event) {
-				mapModule.centerTo([0, 0], true, function() {
-					var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
-					var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
-					var lparam = {
-						"xmin" : xmin - 2,
-						"ymin" : ymin - 2,
-						"xmax" : xmin + params.txtwidth + 2,
-						"ymax" : ymin + params.txtheight + 2
-					};
-					refresh(lparam);
-				});
+				if (params.user) {
+					mapModule.centerTo(params.user.lastT, true, function() {
+						var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
+						var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
+						var lparam = {
+							"xmin" : xmin - 2,
+							"ymin" : ymin - 2,
+							"xmax" : xmin + params.txtwidth + 2,
+							"ymax" : ymin + params.txtheight + 2
+						};
+						refresh(lparam);
+					});
+				} else {
+					mapModule.centerTo([0, 0], true, function() {
+						var xmin = params.xmin + Math.ceil((-$('#map').position().left - params.stepx) / (params.stepx));
+						var ymin = params.ymin + Math.ceil((-$('#map').position().top - params.stepy) / (params.stepy));
+						var lparam = {
+							"xmin" : xmin - 2,
+							"ymin" : ymin - 2,
+							"xmax" : xmin + params.txtwidth + 2,
+							"ymax" : ymin + params.txtheight + 2
+						};
+						refresh(lparam);
+					});
+				}
 				return false;
 			});
 		},

@@ -1,4 +1,5 @@
-var passport = require('passport'), LocalStrategy = require('passport-local').Strategy;var crypto = require('crypto');
+var passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
+var crypto = require('crypto');
 
 passport.use(new LocalStrategy(function(username, password, done) {
 	db.author.findOne({
@@ -30,7 +31,10 @@ passport.deserializeUser(function(id, done) {
 	db.author.findOne({
 		_id : new db.ObjectID(id)
 	}, function(err, user) {
-		done(err, user);
+		db.txt.lastForA(user.author, function(err, items) {
+			user.lastT = items[0].p;
+			done(err, user);
+		});
 	});
 });
 
