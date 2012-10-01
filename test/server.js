@@ -93,8 +93,8 @@ describe('Textopoly Server Side', function() {
 			});
 		});
 	});
+	/*
 	describe('Txt cell consistency', function() {
-
 		describe('Insert', function() {
 			it("should insert a msg a db", function(done) {
 				request.post('http://localhost:3000/insert').send(aTxt).set('Accept', 'application/json').end(function(res) {
@@ -137,6 +137,7 @@ describe('Textopoly Server Side', function() {
 		});
 
 	});
+	*/
 	describe('Authors list', function() {
 		it("should give a list of authors", function(done) {
 			request.get('http://localhost:3000/authors').set('Accept', 'application/json').end(function(res) {
