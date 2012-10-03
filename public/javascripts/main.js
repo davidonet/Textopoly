@@ -18,7 +18,6 @@ require(["jquery", "jquery-ui", "lib/jquery.form", "modeHandler", "mapModule", "
 							func.apply(obj, args);
 						timeout = null;
 					}
-
 					if (timeout)
 						clearTimeout(timeout);
 					else if (execAsap)
