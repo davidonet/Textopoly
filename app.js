@@ -43,11 +43,34 @@ app.configure('development', function() {
 var libpath = (process.env.NODE_COV ? './routes-cov' : './routes');
 require(libpath)(app);
 
+
 var server = http.createServer(app).listen(app.get('port'));
 
 global.io = socket.listen(server, {
-	log : false
+	log : true
 });
 
 io.set('log level', 0);
+var events = require('events');
+global.serverEmitter = new events.EventEmitter();
+
+io.sockets.on('connection', function(socket) {
+	socket.on('book', function(data) {
+		normalizePos(data);
+		socket.broadcast.emit('book', data);
+	});
+	socket.on('unbook', function(data) {
+		normalizePos(data);
+		socket.broadcast.emit('unbook', data);
+	});
+	serverEmitter.on('set', function(data) {
+		socket.broadcast.emit('set', data);
+	});
+	serverEmitter.on('unset', function(data) {
+		socket.broadcast.emit('unset', data);
+	});
+});
+
+
+//io.set('log level', 0);
 
