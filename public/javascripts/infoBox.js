@@ -102,13 +102,13 @@ define(["lib/jquery.tipsy"], function() {
 				fallback : 'Supprimer', // fallback text to use when no tooltip text
 				gravity : 'w' // gravity
 			});
-
-			$('.infoArea > .e.handle').tipsy({
+			
+			$('.infoArea > .sw.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Créer un chemin', // fallback text to use when no tooltip text
-				gravity : 'w' // gravity
-			});
-
+				fallback : 'Éditer', // fallback text to use when no tooltip text
+				gravity : 'e' // gravity
+			});			
+			
 			$('.infoArea > .se.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Infos', // fallback text to use when no tooltip text
