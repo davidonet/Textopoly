@@ -68,7 +68,7 @@ exports.newpath = function(req, res) {
 			ymin = y;
 		if (ymax < y)
 			ymax = y;
-		aNP.pw.push([x,y]);
+		aNP.pw.push([x, y]);
 	});
 	aNP.pmin = [xmin, ymin];
 	aNP.pmax = [xmax, ymax];
@@ -95,8 +95,12 @@ exports.authors = function(req, res) {
 exports.insert = function(req, res) {
 	req.body.a = req.user.author;
 	db.txt.insertTxt(req.body, function(err, aTxt) {
-		res.json(aTxt);
 		io.sockets.emit('book', aTxt);
+		var ua = req.header('user-agent');
+		if ((/Android/i.test(ua)) || (/Mobile/i.test(ua)) || (/IEMobile/i.test(ua)))
+			res.redirect("/m/t/"+aTxt.p[0]+'/'+aTxt.p[1]);
+		else
+			res.json(aTxt);
 	});
 };
 

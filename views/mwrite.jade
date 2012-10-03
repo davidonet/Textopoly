@@ -1,7 +1,7 @@
 extend mobile
 block head
 	title='textopoly situé au ' + p
-	meta(name="viewport",content="initial-scale=1,maximum-scale=1,minimum-scale=1,,width=device-width")
+	meta(name="viewport",content="initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width")
 block body
 	h1 #{p}
 	br
@@ -10,7 +10,7 @@ block body
 		input(name='x',value=p[0],hidden,style='display:none')
 		input(name='y',value=p[1],hidden,style='display:none')
 		input(name='s',value='s',hidden,style='display:none')
-		input(name='a',value='auteur mobile')
+		input(name='a',value=a,hidden)
 		select(name="c",value="butter")
 			option butter
 			option orange

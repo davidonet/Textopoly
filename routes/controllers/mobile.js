@@ -91,7 +91,8 @@ exports.w = function(req, res) {
 	var ymin = ycenter - range;
 	red.find(xmin, ymin, 2 * range, function(err, ret) {
 		var data = {
-			p : ret[(Math.random() * ret.length).toFixed(0)]
+			p : ret[(Math.random() * ret.length).toFixed(0)],
+			a : req.user.author
 		};
 		res.render('mwrite.jade', data);
 	});
