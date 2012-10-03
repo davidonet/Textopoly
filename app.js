@@ -14,6 +14,7 @@ app.configure(function() {
 	app.use(express.methodOverride());
 	app.use(express.session({
 		secret : 'ylopotxet',
+		maxAge: new Date(Date.now() + 3600000),
 		store : new RedisStore({
 			client : redis
 		})
