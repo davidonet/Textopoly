@@ -21,20 +21,37 @@ define(['helper'], function(helper) {
 	function drawPath(aMsgList, strokecolor) {
 
 		var aPosList = [];
+
 		$(aMsgList).each(function(index, point) {
 			var aPN = $('.msg[dc="' + point + '"]');
-			var aPos = aPN.offset();
-			if (aPos) {
-				aPos.left += params.stepx;
-				aPos.top += params.stepy;
-				if (aPN.hasClass('l') || aPN.hasClass('f'))
+			if (aPN != []) {
+				var aPos = aPN.offset();
+				if (aPos) {
 					aPos.left += params.stepx;
-				if (aPN.hasClass('t') || aPN.hasClass('f'))
 					aPos.top += params.stepy;
-				aPosList.push(aPos);
-
+					if (aPN.hasClass('l') || aPN.hasClass('f'))
+						aPos.left += params.stepx;
+					if (aPN.hasClass('t') || aPN.hasClass('f'))
+						aPos.top += params.stepy;
+					aPosList.push(aPos);
+				} else {
+					var p;
+					if ( typeof point == "object") {
+						p = point;
+					} else {
+						p = [];
+						p[0] = parseInt(point.split(',')[0], 10);
+						p[1] = parseInt(point.split(',')[1], 10);
+					}
+					var aOffsetPos = {
+						left : helper.posToLeft(p) + $('#map').offset().left,
+						top : helper.posToTop(p) + $('#map').offset().top
+					};
+					aPosList.push(aOffsetPos);
+				}
 			}
 		});
+
 		var aSVG = "";
 		$.each(aPosList, function(index, value) {
 			if (!strokecolor) {
