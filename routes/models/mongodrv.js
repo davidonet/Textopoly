@@ -1,5 +1,6 @@
 var mongo = require('mongoskin');
 var sensible = require('../../sensible');
+var async = require('async');
 
 global.db = mongo.db(sensible.mongourl());
 
@@ -89,9 +90,24 @@ db.bind('author', {
 
 db.bind('path', {
 	newPath : function(aPath, fn) {
+		/*jshint evil:true*/
 		aPath.d = new Date();
-		this.insert(aPath, function(err) {
-			fn(err, aPath);
+		aPath.title = "";
+		async.forEach(aPath.pw.slice(0, 3), function(pos, doneTxt) {
+			db.txt.findOne({
+				"p" : eval("[" + pos + "]")
+			}, function(err, txt) {
+				if (txt.t)
+					aPath.title += txt.t.split(" ")[0];
+				else
+					aPath.title += 'image';
+				aPath.title += ' .. ';
+				doneTxt();
+			});
+		}, function(err) {
+			db.path.insert(aPath, function(err) {
+				fn(err, aPath);
+			});
 		});
 	},
 	allPath : function(fn) {
@@ -101,8 +117,43 @@ db.bind('path', {
 		this.find({
 			"a" : anAuthor
 		}, {
-			"pw" : 1
+			"title" : 1,
+			"d" : 1
 		}).toArray(fn);
+	},
+	authPathList : function(anAuthor, fn) {
+		/*jshint evil:true*/
+		this.find({
+			"a" : anAuthor
+		}, {
+			"pw" : 1,
+			"d" : 1
+		}).toArray(function(err, paths) {
+			var pa = [];
+			async.forEach(paths, function(path, donePath) {
+				var aP = {
+					id : path._id,
+					pw : ""
+				};
+				async.forEach(path.pw.slice(0, 3), function(pos, doneTxt) {
+					db.txt.findOne({
+						"p" : eval("[" + pos + "]")
+					}, function(err, txt) {
+						if (txt.t)
+							aP.pw += txt.t.split(" ")[0];
+						else
+							aP.pw += 'image';
+						aP.pw += ' .. ';
+						doneTxt();
+					});
+				}, function(err) {
+					pa.push(aP);
+					donePath();
+				});
+			}, function(err) {
+				fn(err, pa);
+			});
+		});
 	},
 	expand : function(id, fn) {
 		/*jshint evil:true*/
@@ -185,7 +236,9 @@ db.bind('txt', {
 		}).limit(20).toArray(fn);
 	},
 	lastForA : function(a, fn) {
-		this.find({a:a}).sort({
+		this.find({
+			a : a
+		}).sort({
 			d : -1
 		}).limit(1).toArray(fn);
 	}
