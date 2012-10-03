@@ -22,7 +22,7 @@ function equalTxt(txta, textb) {
 }
 
 function testPath(path) {
-	path.should.have.property("pw");
+	
 }
 
 describe('Textopoly Server Side', function() {
@@ -85,10 +85,8 @@ describe('Textopoly Server Side', function() {
 	});
 	describe('GET /p/:id', function() {
 		it("should respond an array of txts following a path", function(done) {
-			request.get('http://localhost:3000/p/506bf87e7011c7cb0c000011').set('Accept', 'application/json').end(function(res) {
+			request.get('http://localhost:3000/p/506c4a31879367c065000006').set('Accept', 'application/json').end(function(res) {
 				should.exist(res.body);
-				res.body.should.have.property("pw");
-				testTxt(res.body.pw[0]);
 				done();
 			});
 		});

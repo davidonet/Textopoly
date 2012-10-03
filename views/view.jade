@@ -33,11 +33,8 @@ block body
 				div#colorPicker(style='display:none')
 				div#filter(style='display:none')
 					h2 Filtrer la carte
-					select
-						option billets de :
-						option chemins de :
-					input#searchMap(type="text", name="s")
-					div#results
+						input#searchMap(type="text", name="s")
+					div#results(style="overflow:auto;height:80px")
 				div#login(style='display:none')
 					h2 Authentification
 					form(method="post",id="loginform",action="/login")

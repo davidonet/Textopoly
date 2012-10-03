@@ -3,7 +3,7 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 	return {
 		init : function() {
 			mapModule.zoomTo(40);
-
+			$('#results').empty();
 			params.findAuthor = undefined;
 
 			// récupère la liste des auteurs
@@ -17,6 +17,12 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 						params.findAuthor = ui.item.label;
 						require(["modeHandler"], function(modeHandler) {
 							modeHandler.refresh();
+						});
+						$.getJSON('/ap/' + params.findAuthor, function(res) {
+							$(res.paths).each(function(i, path) {
+								var newPath = $(document.createElement("a")).attr('href','/book/'+path._id).text(path.title);
+								$('#results').append($(document.createElement("p")).append(newPath));
+							});
 						});
 					}
 				});
@@ -32,7 +38,6 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 		refresh : function(localParams) {
 			var postTxtLoad = function() {
 				if (params.zoom == 2) {
-
 				} else {
 					$('.msg').dblclick(function(e) {
 						mapModule.centerTo([helper.xToPos(e.pageX), helper.yToPos(e.pageY)], false, function() {

@@ -4,6 +4,13 @@ var should = require('should');
 var expect = require('expect.js'), Browser = require('zombie'), browser = new Browser();
 
 describe('Browsing test', function() {
+	describe('Main page', function() {
+		it("should respond an html page", function(done) {
+			browser.visit('http://localhost:3000', function() {
+				done();
+			});
+		});
+	});
 	var aTxt = {
 		p : [-7000, 7000],
 		a : 'mocha',
@@ -11,7 +18,7 @@ describe('Browsing test', function() {
 		c : 'butter',
 		s : 'f'
 	};
-	var pwid='506bf87e7011c7cb0c000011';
+	var pwid='506c4a31879367c065000006';
 	describe('Authors page', function() {
 		it("should give an authors list", function(done) {
 			browser.visit('http://localhost:3000/mauth', function() {
@@ -36,13 +43,6 @@ describe('Browsing test', function() {
 	describe('msg page', function() {
 		it("should respond a msg html page", function(done) {
 			browser.visit('http://localhost:3000/t/-2/-1', function() {
-				done();
-			});
-		});
-	});
-	describe('Main page', function() {
-		it("should respond an html page", function(done) {
-			browser.visit('http://localhost:3000/', function() {
 				done();
 			});
 		});

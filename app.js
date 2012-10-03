@@ -37,7 +37,7 @@ app.configure(function() {
 
 app.configure('development', function() {
 	app.use(express.errorHandler());
-	app.use(express.logger('dev'));
+	//app.use(express.logger('dev'));
 });
 
 var libpath = (process.env.NODE_COV ? './routes-cov' : './routes');

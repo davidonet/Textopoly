@@ -13,7 +13,6 @@ exports.view = function(req, res) {
 		}
 	};
 	if (req.isAuthenticated()){
-		console.log(req.user);
 		data.params.user = req.user;
 		data.params.xcenter = req.user.lastT[0];
 		data.params.ycenter = req.user.lastT[1];

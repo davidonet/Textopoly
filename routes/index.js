@@ -39,6 +39,7 @@ module.exports = function(app) {
 	app.get('/t/:x/:y', jsonC.atxt);
 	app.get('/fa/:x/:y', jsonC.fa);
 	app.get('/a/:a', jsonC.authorboard);
+	app.get('/ap/:a', jsonC.authorpaths);
 	app.get('/p/:id', jsonC.path);
 
 	app.post('/postimg', imgC.postimg);
@@ -51,7 +52,7 @@ module.exports = function(app) {
 
 	app.get('/rss', jsonC.rss);
 
-	app.get('/mbook/:id', bookC.path);
+	app.get('/book/:id', bookC.path);
 	app.get('/mpath/:a', bookC.choice);
 	app.get('/mauth', bookC.authors);
 	app.get('/mtxt/:x/:y', bookC.txt);

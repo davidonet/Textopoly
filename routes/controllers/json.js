@@ -46,6 +46,15 @@ exports.authorboard = function(req, res) {
 	});
 };
 
+exports.authorpaths = function(req, res) {
+	db.path.fromAuth(req.params.a, function(err, paths) {
+		res.json({
+			a : req.params.a,
+			paths : paths
+		});
+	});
+};
+
 exports.path = function(req, res) {
 	db.path.expand(req.params.id, function(err, items) {
 		res.json(items);
@@ -98,7 +107,7 @@ exports.insert = function(req, res) {
 		io.sockets.emit('book', aTxt);
 		var ua = req.header('user-agent');
 		if ((/Android/i.test(ua)) || (/Mobile/i.test(ua)) || (/IEMobile/i.test(ua)))
-			res.redirect("/m/t/"+aTxt.p[0]+'/'+aTxt.p[1]);
+			res.redirect("/m/t/" + aTxt.p[0] + '/' + aTxt.p[1]);
 		else
 			res.json(aTxt);
 	});
