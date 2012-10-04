@@ -102,13 +102,13 @@ define(["lib/jquery.tipsy"], function() {
 				fallback : 'Supprimer', // fallback text to use when no tooltip text
 				gravity : 'w' // gravity
 			});
-			
+
 			$('.infoArea > .sw.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Éditer', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
-			});			
-			
+			});
+
 			$('.infoArea > .se.handle').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Infos', // fallback text to use when no tooltip text
@@ -123,31 +123,34 @@ define(["lib/jquery.tipsy"], function() {
 
 			// INFOBOX NORTH EAST >  delete action
 			$('.infoArea > .ne.handle').click(function() {
-				var dc = $('#informationBox').attr('dc').split(',');
-				var xGrid = dc[0];
-				var yGrid = dc[1];
+				$('.infoArea > .msgInfo').hide();
 
-				$('#removebox').dialog({
-					"resizable" : false,
-					"title" : "Suppression ?",
-					buttons : {
-						"Non, je ne préfère pas" : function() {
-							$(this).dialog("close");
-						},
-						"Oui" : function() {
-							$(this).dialog("close");
-							$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
-								$('#informationBox').fadeOut(500);
-							});
-						}
-					}
-
+				$('.infoArea > .msgRemove').toggle('slow', function() {
 				});
+
+				$('#cancelRemove').click(function() {
+					$('.infoArea > .msgRemove').fadeOut(100);
+				});
+				$('#okRemove').click(function() {
+					console.log("OK REMOVE");
+					
+					var dc = $('#informationBox').attr('dc').split(',');
+					var xGrid = dc[0];
+					var yGrid = dc[1];
+
+					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
+						$('.infoArea > .msgRemove').fadeOut(100);
+						$('#informationBox').fadeOut(100);
+					});
+				});
+
 				return false;
 			});
 
 			// INFOBOX SOUTH EAST >  display msgInfo
 			$('.infoArea > .se.handle').click(function() {
+				$('.infoArea > .msgRemove').hide();
+
 				var dc = $('#informationBox').attr('dc').split(',');
 				require(["userinfo"], function(userinfo) {
 					userinfo.msgInfo(dc[0], dc[1], function(data) {

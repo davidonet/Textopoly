@@ -46,11 +46,8 @@ block body
 					input(id="cancelLogin",type="button",value="Annuler")	
 					span(id="loginresult")
 		div.grid#map(class='z'+params.zoom)
-			div#removebox(style='display:none')
-				small
-					span(stle='color:red') Attention
-					br
-					span Cette opération est irréversible.
+			div#removeBox(style='display:none')
+				
 			div#writingBox(style='display:none')
 				div.editArea.s.l4
 					div.nw.handle.ca
@@ -72,6 +69,12 @@ block body
 						h3#infoname John Do
 						h3#infodate le 16 mai 2012 à 17 h 04
 						h3 <a href="#permalink" target="_blank">Permalien </a>
+					div.msgRemove(style='display:none')
+						h2 Effacer le billet
+						h3 Cette opération est irréversible !
+						input(id="cancelRemove",type="button",value="Annuler")
+						input(id="okRemove",type="button",value="OK")
+					
 			div#pathBox(style='display:none')
 				div.pathArea.s
 					div.nw.handle.ca
