@@ -30,21 +30,13 @@ block body
 					div#zoomSlider
 			div#footer
 				p#posInfo 0,0
-				div#colorPicker(style='display:none')
 				div#filter(style='display:none')
 					h2 Filtrer la carte
-						input#searchMap(type="text", name="s")
-					div#results(style="overflow:auto;height:80px")
-				div#login(style='display:none')
-					h2 Authentification
-					form(method="post",id="loginform",action="/login")
-						label signature
-						input(type='text',name='username')
-						label mot de passe
-						input(type='password',name='password')
-						input(type="submit",value="Ok")
-					input(id="cancelLogin",type="button",value="Annuler")	
-					span(id="loginresult")
+					select
+						option billets de :
+						option chemins de :
+					input#searchMap(type="text", name="s")
+					div#results
 		div.grid#map(class='z'+params.zoom)
 			div#removebox(style='display:none')
 				small
@@ -60,13 +52,15 @@ block body
 					div.sw.handle.me
 					textarea#write(name='t',rows='9', maxlength='600', cols='70', spellcheck='false',  wrap='soft')
 					div.imageArea(style='display:none')
-					
+					div.authorArea(style='display:none')
+						h2 Choisir un nom et une couleur
+						input#current_author(type="text", name="a")
+						div#colorPicker
 			div#informationBox(style='display:none')
 				div.infoArea.s
 					div.nw.handle.ca
 					div.ne.handle.de
 					div.se.handle.in
-					div.sw.handle.tx
 					div.msgInfo(style='display:none')
 						h2 Informations sur le billet
 						h3#infoname John Do
@@ -75,4 +69,4 @@ block body
 			div#pathBox(style='display:none')
 				div.pathArea.s
 					div.n.handle.pa
-					div.so.handle.ok(style='display:none')
+					div.so.handle.ok
