@@ -56,6 +56,11 @@ define(["lib/jquery.tipsy", "pathWalk"], function(tip, pathWalk) {
 	};
 	return {
 		init : function() {
+			$('.pathArea > .nw.handle.ca').tipsy({
+				delayIn : 500, // delay before showing tooltip (ms)
+				fallback : 'Annuler le chemin', // fallback text to use when no tooltip text
+				gravity : 'e' // gravity
+			});
 			$('.pathArea > .n.handle.pa').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Commencer un chemin', // fallback text to use when no tooltip text
@@ -66,20 +71,21 @@ define(["lib/jquery.tipsy", "pathWalk"], function(tip, pathWalk) {
 				delayIn : 500, // delay before showing tooltip (ms)
 				fallback : 'Valider mon chemin', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity
-			});			
-
+			});
 
 			var aPPack;
 			$('.pathArea > .n.handle.pa').click(function() {
-				if (aPPack === undefined)
+				if (aPPack === undefined) {
 					aPPack = pathWalk.startPath();
+					$('.pathArea > .so.handle.ok').show();
+				}
 				pathWalk.addNode(aPPack, $(this).parent().parent().attr('dc'));
-				console.log(aPPack);
 			});
 			$('.pathArea > .so.handle.ok').click(function() {
 				if (aPPack !== undefined)
 					pathWalk.endPath(aPPack);
 				aPPack = undefined;
+				$('.pathArea > .so.handle.ok').hide();
 			});
 			bindMsg();
 		},
