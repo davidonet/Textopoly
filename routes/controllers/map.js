@@ -1,23 +1,21 @@
 var models = require('../models/mongodrv');
 
 exports.view = function(req, res) {
-	var xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
-	var ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
-	var zoom = (req.query.zoom ? Number(req.query.zoom) : 4);
 	var data = {
 		title : 'Textopoly',
 		params : {
-			zoom : zoom,
-			xcenter : xcenter,
-			ycenter : ycenter
+			zoom : (req.query.zoom ? Number(req.query.zoom) : 4)
 		}
 	};
-	if (req.isAuthenticated()){
+	if (req.isAuthenticated()) {
 		data.params.user = req.user;
-		data.params.xcenter = req.user.lastT[0];
-		data.params.ycenter = req.user.lastT[1];
-		}
-		
+		data.params.xcenter = (req.query.xcenter ? Number(req.query.xcenter) : req.user.lastT[0]);
+		data.params.ycenter = (req.query.ycenter ? Number(req.query.ycenter) : req.user.lastT[1]);
+	} else {
+
+		data.params.xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
+		data.params.ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
+	}
 	res.render('view', data);
 };
 
