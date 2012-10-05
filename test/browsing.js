@@ -6,6 +6,7 @@ var expect = require('expect.js'), Browser = require('zombie'), browser = new Br
 describe('Browsing test', function() {
 	describe('Main page', function() {
 		it("should respond an html page", function(done) {
+			this.timeout(4000);
 			browser.visit('http://localhost:3000', function() {
 				done();
 			});
@@ -18,7 +19,7 @@ describe('Browsing test', function() {
 		c : 'butter',
 		s : 'f'
 	};
-	var pwid='506c4a31879367c065000006';
+	var pwid = '506c4a31879367c065000006';
 	describe('Authors page', function() {
 		it("should give an authors list", function(done) {
 			browser.visit('http://localhost:3000/mauth', function() {
@@ -35,7 +36,7 @@ describe('Browsing test', function() {
 	});
 	describe('Path page', function() {
 		it("should give a txt list and pathwalk list", function(done) {
-			browser.visit('http://localhost:3000/mbook/'+pwid, function() {
+			browser.visit('http://localhost:3000/mbook/' + pwid, function() {
 				done();
 			});
 		});

@@ -52,7 +52,7 @@ describe('Textopoly Server Side', function() {
 	});
 	describe('GET /t/:x/:y', function() {
 		it("should respond a txt", function(done) {
-			request.get('http://localhost:3000/t/3/0').set('Accept', 'application/json').end(function(res) {
+			request.get('http://localhost:3000/t/-100/-100').set('Accept', 'application/json').end(function(res) {
 				should.exist(res.body);
 				testTxt(res.body);
 				done();
