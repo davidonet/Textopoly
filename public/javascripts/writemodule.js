@@ -49,6 +49,17 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 
 	function writingBox(xPos, yPos, data) {
 		require(["booking", "userinfo", "helper"], function(booking, userinfo, helper) {
+
+			uploader = new qq.FileUploader({
+				element : $('.imageArea')[0],
+				action : '/postimg',
+				debug : false,
+				uploadButtonText : 'cliquer ou déposer une image',
+				onComplete : function() {
+					resetWritingBox();
+				}
+			});
+
 			isFatFree = false;
 			var dc = data.pos;
 			$('#informationBox').fadeOut(100);
@@ -308,7 +319,7 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 			wA.addClass('l600').removeClass('l4 l15 l50 l150 l300');
 		} else {
 		}
-	
+
 		var txt = $(this).val();
 		$(this).val(txt.replace(/[\n\r]+/g, " "));
 
