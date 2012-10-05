@@ -50,16 +50,6 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	function writingBox(xPos, yPos, data) {
 		require(["booking", "userinfo", "helper"], function(booking, userinfo, helper) {
 
-			uploader = new qq.FileUploader({
-				element : $('.imageArea')[0],
-				action : '/postimg',
-				debug : false,
-				uploadButtonText : 'cliquer ou déposer une image',
-				onComplete : function() {
-					resetWritingBox();
-				}
-			});
-
 			isFatFree = false;
 			var dc = data.pos;
 			$('#informationBox').fadeOut(100);
