@@ -41,6 +41,7 @@ module.exports = function(app) {
 	app.get('/a/:a', jsonC.authorboard);
 	app.get('/ap/:a', jsonC.authorpaths);
 	app.get('/p/:id', jsonC.path);
+	app.get('/dp/:id', ensureJSONAuth,jsonC.delpath);
 	app.get('/sp/:x/:y',jsonC.startpath);
 	app.get('/del/:x/:y', ensureJSONAuth, jsonC.remove);
 	app.post('/update/:x/:y', ensureJSONAuth, jsonC.update);

@@ -76,6 +76,12 @@ exports.path = function(req, res) {
 	});
 };
 
+exports.delpath = function(req, res) {
+	db.path.del(req.params.id, function(err, ret) {
+		res.json(ret);
+	});
+};
+
 exports.newpath = function(req, res) {
 	var xmin = 0, ymin = 0, xmax = 0, ymax = 0;
 	var aNP = {
