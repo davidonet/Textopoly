@@ -1,0 +1,42 @@
+extends base
+	
+block body
+	h1 #{author}
+	h2 
+		a(href="mailto"+email) #{email}
+	a(href=url) #{url}
+	hr
+	h2 Liste des textes
+	div#paths(style="overflow:auto;height:300px;border:2px #eee solid")
+		table
+			each t in txts
+				tr
+					td
+						p.p 
+							a(href='/view?zoom=2&xcenter='+t.p[0]+'&ycenter='+t.p[1]) #{t.p}
+					td
+						p.t #{t.t}
+	hr
+	h2 Liste des chemins
+	div#paths(style="overflow:auto;height:200px;border:1px #eee solid")
+		table
+			tr
+				th Voir
+				th Nb
+				th Titre
+			each p in paths
+				tr
+					td
+						p.p
+							a(href='/book/'+p._id) #{p.sp}
+					td 
+						p #{p.pw.length}
+					td
+						p.t #{p.title}
+	hr
+	div(style="width:100%")
+		input(type="button",value="Supprimer")
+		input(type="button",value="Liste d'auteurs",style="float:right",onclick="document.location='/admin'")
+	
+	
+

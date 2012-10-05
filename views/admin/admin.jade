@@ -1,0 +1,16 @@
+extends base
+	
+block body
+	h1 Liste des utilisateurs enregistrés
+	table
+		each a in authors
+			tr
+				td
+					p
+						a(href="/admin/user/"+a.author) #{a.author}
+				td
+					p
+						a(href="mailto:"+a.email) #{a.email}
+				td
+					p
+						a(href="url") #{a.url}

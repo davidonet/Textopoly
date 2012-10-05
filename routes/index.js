@@ -10,6 +10,7 @@ var jsonC = require('./controllers/json');
 var bookC = require('./controllers/book');
 var mobC = require('./controllers/mobile');
 var authC = require('./controllers/authent');
+var adminC = require('./controllers/admin');
 
 function ensureJSONAuth(req, res, next) {
 	if (req.isAuthenticated()) {
@@ -45,6 +46,9 @@ module.exports = function(app) {
 	app.get('/sp/:x/:y',jsonC.startpath);
 	app.get('/del/:x/:y', ensureJSONAuth, jsonC.remove);
 	app.post('/update/:x/:y', ensureJSONAuth, jsonC.update);
+	
+	app.get('/admin',ensureMobileAuth,adminC.list_author);
+	app.get('/admin/user/:a',ensureMobileAuth,adminC.edit_author);
 	
 
 	app.post('/postimg', imgC.postimg);

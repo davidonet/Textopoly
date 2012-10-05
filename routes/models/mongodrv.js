@@ -57,11 +57,13 @@ exports.bounds = function(fn) {
 };
 
 db.bind('author', {
-	newUser : function(author, password, fn) {
+	newUser : function(author, password, email, url, fn) {
 		var pwmd5 = crypto.createHash('md5').update(password).digest("hex");
 		this.insert({
 			author : author,
-			password : pwmd5
+			password : pwmd5,
+			email : email,
+			url : url
 		}, fn);
 	},
 	checkUser : function(author, password, done) {
@@ -127,7 +129,9 @@ db.bind('path', {
 			"a" : anAuthor
 		}, {
 			"title" : 1,
-			"d" : 1
+			"d" : 1,
+			"sp" : 1,
+			"pw" : 1
 		}).toArray(fn);
 	},
 	authPathList : function(anAuthor, fn) {
@@ -210,7 +214,8 @@ db.bind('txt', {
 		this.find({
 			a : a
 		}, {
-			p : 1
+			p : 1,
+			t : 1
 		}).toArray(fn);
 	},
 	boxedTxt : function(box, fn) {

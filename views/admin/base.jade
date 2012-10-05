@@ -1,0 +1,38 @@
+doctype 5
+html
+	head
+		title Textopoly Admin Page
+		link(rel='stylesheet',href='/stylesheets/styles.css',type='text/css',media="screen")
+		style(type="text/css")		
+			body.default {
+				width:70%;
+				margin-left:auto;
+				margin-right:auto;
+				font-family:"NotCourierSansRegular",monospace;
+				}
+			p.t {
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width:100%
+			}
+			p.p {
+				font-weight:bold;
+				text-align:center;
+			}
+			td{
+				border:1px #eee solid;
+				padding: 5px 5px 5px 5px;
+			}
+			th{
+				color:#111;
+				background-color:#eee;
+				padding: 5px 5px 5px 5px;
+				font-weight:bold;
+				
+			}
+			input{
+				padding:5px 5px 5px 5px;
+			}
+		block head
+	body.default
+		block body
