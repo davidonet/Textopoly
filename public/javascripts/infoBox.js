@@ -185,7 +185,7 @@ define(["lib/jquery.tipsy"], function() {
 
 			// controls character input/counter
 			$('#edit').keyup(function() {
-				var wA = $('.infoArea > .editArea')
+				var wA = $('.infoArea > .editArea');
 				var charLength = $(this).val().length;
 				if (charLength >= 0 && 3 >= charLength) {
 					wA.addClass('l4').removeClass('l15 l50 l150 l300 l600');
@@ -226,7 +226,7 @@ define(["lib/jquery.tipsy"], function() {
 									$('.msg[dc="' + dc + '"]').removeClass('l4 l15 l50 l150 l300 l600');
 									$('.msg[dc="' + dc + '"]').addClass(helper.txtLen2Class(aT.length));
 								});
-								$('.msg[dc="' + dc + '"] > p').text(aT)
+								$('.msg[dc="' + dc + '"] > p').text(aT);
 								$('.infoArea > .editArea').fadeOut();
 							},
 							dataType : 'json'
