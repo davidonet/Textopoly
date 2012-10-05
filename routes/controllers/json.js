@@ -24,10 +24,16 @@ exports.atxt = function(req, res) {
 		x : req.params.x,
 		y : req.params.y
 	}, function(err, items) {
-		db.path.startpath([parseInt(req.params.x, 10), parseInt(req.params.y, 10)], function(err, paths) {
-			items.spw = paths;
-			res.json(items);
-		});
+		if (items) {
+			db.path.startpath([parseInt(req.params.x, 10), parseInt(req.params.y, 10)], function(err, paths) {
+				items.spw = paths;
+				res.json(items);
+			});
+		} else {
+			res.json({
+				success : false
+			});
+		}
 	});
 };
 
