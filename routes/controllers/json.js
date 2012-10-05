@@ -114,15 +114,22 @@ exports.insert = function(req, res) {
 };
 
 exports.remove = function(req, res) {
-	db.gridfs().unlink('[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
-	});
-	db.gridfs().unlink('s[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
-	});
-	var aTxt = req.query;
-	normalizePos(aTxt);
-	db.txt.removeTxt(aTxt, function(err) {
-		res.json(err);
-		io.sockets.emit('unbook', aTxt);
+	db.txt.aTxt({
+		x : req.params.x,
+		y : req.params.y
+	}, function(err, item) {
+		if ((item.a == req.user.author) || (item.superuser)) {
+			db.gridfs().unlink('[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
+			});
+			db.gridfs().unlink('s[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
+			});
+			var aTxt = req.query;
+			normalizePos(aTxt);
+			db.txt.removeTxt(aTxt, function(err) {
+				res.json(err);
+				io.sockets.emit('unbook', aTxt);
+			});
+		}
 	});
 };
 
