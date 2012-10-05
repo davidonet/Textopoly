@@ -52,7 +52,7 @@ exports.v = function(req, res) {
 	var ycenter = (req.params.y ? Number(req.params.y) : 0);
 	var zoom = 2;
 	prepareMapData(xcenter, ycenter, zoom, function(data) {
-		res.render('mview.jade', data);
+		res.render('mobile/mview.jade', data);
 	});
 };
 
@@ -66,14 +66,14 @@ exports.t = function(req, res) {
 			t : items,
 			lc : lc
 		};
-		res.render('mtxt.jade', data);
+		res.render('mobile/mtxt.jade', data);
 	});
 };
 
 exports.a = function(req, res) {
 	db.path.fromAuth(req.params.a, function(err, items) {
 		db.txt.authorTxt(req.params.a, function(err, txts) {
-			res.render('mauth.jade', {
+			res.render('mobile/mauth.jade', {
 				title : "Textopoly | Chemins de " + req.params.a,
 				a : req.params.a,
 				paths : items,
@@ -94,6 +94,6 @@ exports.w = function(req, res) {
 			p : ret[(Math.random() * ret.length).toFixed(0)],
 			a : req.user.author
 		};
-		res.render('mwrite.jade', data);
+		res.render('mobile/mwrite.jade', data);
 	});
 };
