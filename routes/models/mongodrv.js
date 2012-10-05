@@ -110,6 +110,13 @@ db.bind('path', {
 			});
 		});
 	},
+	startpath : function(p, fn) {
+		db.path.find({
+			sp : p
+		}, {
+			title : 1
+		}).toArray(fn);
+	},
 	allPath : function(fn) {
 		this.find({}).toArray(fn);
 	},

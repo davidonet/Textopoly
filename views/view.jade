@@ -2,6 +2,8 @@ extends layout
 block head
 	script(type='text/javascript',src='javascripts/lib/raphael-min.js')
 	script(data-main='javascripts/main',src='javascripts/lib/require-jquery.js')
+	script(type='text/javascript')
+			var params=!{JSON.stringify(params)};
 block body
 	div#content
 		div#uiWrap
@@ -69,6 +71,8 @@ block body
 						h3#infoname John Do
 						h3#infodate le 16 mai 2012 à 17 h 04
 						h3 <a href="#permalink" target="_blank">Permalien </a>
+						select#pathList
+						input(id="pathGo",type="button",value="Voir")
 					div.msgRemove(style='display:none')
 						h2 Effacer le billet
 						h3 Cette opération est irréversible !

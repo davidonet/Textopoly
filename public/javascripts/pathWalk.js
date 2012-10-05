@@ -80,9 +80,9 @@ define(['helper'], function(helper) {
 					if (index < (aPosList.length - 1))
 						paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#D3D7CF").attr("stroke", "#eeeeee").attr("stroke-width", 12 / params.zoom);
 					else
-						paper.circle(value.left, value.top, 20 / params.zoom).attr("fill", "#eeeeee").attr("stroke", "#eeeeee").attr("stroke-width", 12 / params.zoom);
+						paper.circle(value.left, value.top, 10 / params.zoom).attr("fill", "#D3D7CF").attr("stroke", "#eeeeee").attr("stroke-width", 12 / params.zoom);
 				} else {
-					paper.circle(value.left, value.top, 30 / params.zoom).attr("fill", "#fff").attr("stroke", "#eee").attr("stroke-width", 12 / params.zoom);
+					paper.circle(value.left, value.top, 50 / params.zoom).attr("fill", "#D3D7CF").attr("stroke", "#eeeeee").attr("stroke-width", 12 / params.zoom);
 				}
 			});
 		} else {

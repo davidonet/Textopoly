@@ -24,12 +24,21 @@ exports.atxt = function(req, res) {
 		x : req.params.x,
 		y : req.params.y
 	}, function(err, items) {
-		res.json(items);
+		db.path.startpath([parseInt(req.params.x, 10), parseInt(req.params.y, 10)], function(err, paths) {
+			items.spw = paths;
+			res.json(items);
+		});
 	});
 };
 
 exports.allpath = function(req, res) {
 	db.path.allPath(function(err, items) {
+		res.json(items);
+	});
+};
+
+exports.startpath = function(req, res) {
+	db.path.startpath([parseInt(req.params.x, 10), parseInt(req.params.y, 10)], function(err, items) {
 		res.json(items);
 	});
 };

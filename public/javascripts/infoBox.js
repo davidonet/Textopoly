@@ -155,10 +155,14 @@ define(["lib/jquery.tipsy"], function() {
 				return false;
 			});
 
+			$('#pathGo').click(function() {
+				document.location = $('#pathList').val();
+			});
+
 			// INFOBOX SOUTH EAST >  display msgInfo
 			$('.infoArea > .se.handle').click(function() {
 				$('.infoArea > .msgRemove').hide();
-
+				$('#pathList').empty();
 				var dc = $('#informationBox').attr('dc').split(',');
 				require(["userinfo"], function(userinfo) {
 					userinfo.msgInfo(dc[0], dc[1], function(data) {
@@ -166,7 +170,10 @@ define(["lib/jquery.tipsy"], function() {
 						var aDate = new Date(data.d);
 						$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
 						$("a[href='#permalink']").attr('href', 'http://dev.textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
-
+						$(data.spw).each(function(index, path) {
+							var newPath = $(document.createElement("option")).attr('value', '/book/' + path._id).text(path.title);
+							$('#pathList').append(newPath);
+						});
 					});
 				});
 				$('.infoArea > .msgInfo').toggle('slow', function() {
