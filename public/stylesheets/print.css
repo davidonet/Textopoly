@@ -1,0 +1,48 @@
+@import "reset.css";
+
+@import "fonts.css";
+/***********************************************************************************
+ *  PRINT LESS
+ ***********************************************************************************/
+body {
+  background: white;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+input {
+  font-family: 'FuturaCondensedMedium', sans-serif;
+  color: black;
+}
+h1 {
+  font-size: 24pt;
+  margin-bottom: 20pt;
+  letter-spacing: 5pt;
+}
+h2 {
+  font-size: 16pt;
+  margin-bottom: 10pt;
+  letter-spacing: 2pt;
+}
+h3 {
+  font-size: 12pt;
+  margin-bottom: 10pt;
+  letter-spacing: 2pt;
+}
+p {
+  font-family: "NotCourierSansRegular", monospace;
+  font-size: 12pt;
+  color: black;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+}
+img {
+  width: 50%;
+  height: 50%;
+}
