@@ -118,6 +118,8 @@ define(["lib/jquery.tipsy"], function() {
 
 			$('.infoArea > .nw.handle').click(function() {
 				$('#informationBox').fadeOut(200);
+				$('.infoArea > .msgRemove').hide();
+				$('.infoArea > .editArea').hide();
 				return false;
 
 			});
@@ -149,6 +151,7 @@ define(["lib/jquery.tipsy"], function() {
 							} else {
 								$('#msgDel').text("Ce billet ne vous appartient pas.");
 							}
+							$('#informationBox').effect("shake", 50);
 						}
 					});
 				});
@@ -240,11 +243,15 @@ define(["lib/jquery.tipsy"], function() {
 							userinfo.msgInfo(dc[0], dc[1], function(data) {
 								if ((params.user.author == data.a) || (params.user.superuser)) {
 									$('#edit').text(data.t);
-
 									$('.infoArea > .editArea').addClass(data.s);
 									$('.infoArea > .editArea').addClass(helper.txtLen2Class(data.t.length));
-									$('.infoArea > .editArea').fadeIn();
+									$('.infoArea > .editArea').fadeIn(function() {
+										$('#edit').focus();
+									});
+								} else {
+									$('#informationBox').effect("shake", 50);
 								}
+
 							});
 						});
 					}
