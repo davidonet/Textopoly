@@ -215,7 +215,8 @@ db.bind('txt', {
 			a : a
 		}, {
 			p : 1,
-			t : 1
+			t : 1,
+			d : 1
 		}).toArray(fn);
 	},
 	boxedTxt : function(box, fn) {

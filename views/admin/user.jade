@@ -7,7 +7,7 @@ block body
 	a(href=url) #{url}
 	hr
 	h2 Liste des textes
-	div#paths(style="overflow:auto;height:300px;border:2px #eee solid")
+	div#paths(style="overflow-x:hidden;height:300px;border:2px #eee solid")
 		table
 			each t in txts
 				tr
@@ -15,20 +15,20 @@ block body
 						p.p 
 							a(href='/view?zoom=2&xcenter='+t.p[0]+'&ycenter='+t.p[1]) #{t.p}
 					td
+						p #{t.d.toDateString()} 
+					td
 						p.t #{t.t}
 	hr
 	h2 Liste des chemins
 	div#paths(style="overflow:auto;height:200px;border:1px #eee solid")
 		table
-			tr
-				th Voir
-				th Nb
-				th Titre
 			each p in paths
 				tr
 					td
 						p.p
 							a(href='/book/'+p._id) #{p.sp}
+					td
+						p #{p.d.toDateString()} 	
 					td 
 						p #{p.pw.length}
 					td
