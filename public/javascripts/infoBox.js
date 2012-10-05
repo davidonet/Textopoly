@@ -241,7 +241,7 @@ define(["lib/jquery.tipsy"], function() {
 							$('.infoArea > .editArea').removeClass('l4 l15 l50 l150 l300 l600');
 							$('#edit').text("");
 							userinfo.msgInfo(dc[0], dc[1], function(data) {
-								if ((params.user.author == data.a) || (params.user.superuser)) {
+								if (((params.user.author == data.a) || (params.user.superuser)) && data.t) {
 									$('#edit').text(data.t);
 									$('.infoArea > .editArea').addClass(data.s);
 									$('.infoArea > .editArea').addClass(helper.txtLen2Class(data.t.length));
