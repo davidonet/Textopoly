@@ -114,20 +114,26 @@ exports.insert = function(req, res) {
 };
 
 exports.remove = function(req, res) {
-	db.txt.aTxt({
+	var aTxt = {
 		x : req.params.x,
 		y : req.params.y
-	}, function(err, item) {
+	};
+	normalizePos(aTxt);
+	db.txt.aTxt(aTxt, function(err, item) {
 		if ((item.a == req.user.author) || (item.superuser)) {
-			db.gridfs().unlink('[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
+			db.gridfs().unlink('[' + req.params.x + ',' + req.params.y + ']', function(err, gs) {
 			});
-			db.gridfs().unlink('s[' + req.query.x + ',' + req.query.y + ']', function(err, gs) {
+			db.gridfs().unlink('s[' + req.params.x + ',' + req.params.y + ']', function(err, gs) {
 			});
-			var aTxt = req.query;
-			normalizePos(aTxt);
 			db.txt.removeTxt(aTxt, function(err) {
-				res.json(err);
+				res.json({
+					success : true
+				});
 				io.sockets.emit('unbook', aTxt);
+			});
+		} else {
+			res.json({
+				success : false
 			});
 		}
 	});
@@ -139,7 +145,7 @@ exports.rss = function(req, res) {
 	var feed = new RSS({
 		title : 'Textopoly',
 		description : 'un outil d’écriture en ligne',
-		feed_url : 'http://dev.textopoloy.org/rss.xml',
+		feed_url : 'http://dev.textopoloy.org/rss',
 		site_url : 'http://dev.textopoloy.org',
 		author : 'La Panacée'
 	});

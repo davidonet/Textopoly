@@ -123,6 +123,7 @@ define(["lib/jquery.tipsy"], function() {
 
 			// INFOBOX NORTH EAST >  delete action
 			$('.infoArea > .ne.handle').click(function() {
+				$('#msgDel').text("");
 				$('.infoArea > .msgInfo').hide();
 
 				$('.infoArea > .msgRemove').toggle('slow', function() {
@@ -132,15 +133,22 @@ define(["lib/jquery.tipsy"], function() {
 					$('.infoArea > .msgRemove').fadeOut(100);
 				});
 				$('#okRemove').click(function() {
-					console.log("OK REMOVE");
-					
+
 					var dc = $('#informationBox').attr('dc').split(',');
 					var xGrid = dc[0];
 					var yGrid = dc[1];
 
-					$.getJSON('/remove?x=' + xGrid + '&y=' + yGrid, function(data) {
-						$('.infoArea > .msgRemove').fadeOut(100);
-						$('#informationBox').fadeOut(100);
+					$.getJSON('/del/' + xGrid + '/' + yGrid, function(data) {
+						if (data.success) {
+							$('.infoArea > .msgRemove').fadeOut(100);
+							$('#informationBox').fadeOut(100);
+						} else {
+							if (data.notAuth) {
+								$('#msgDel').text("Vous n'êtes pas authentifié.");
+							} else {
+								$('#msgDel').text("Ce billet ne vous appartient pas.");
+							}
+						}
 					});
 				});
 

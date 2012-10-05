@@ -1,34 +1,36 @@
 define(["lib/syronex-colorpicker"], function() {
 
 	var updateCP = function() {
-		$('#colorPicker').colorPicker({
-			color : new Array("#fce94f", "#fcaf3e", "#8ae234", "#729fcf", "#ad7fa8", "#ef2929"),
-			defaultColor : params.user.color,
-			columns : 6,
-			click : function(color) {
-				switch(color) {
-					case "#fce94f" :
-						params.c = "butter";
-						break;
-					case "#fcaf3e" :
-						params.c = "orange";
-						break;
-					case "#8ae234" :
-						params.c = "chameleon";
-						break;
-					case "#729fcf" :
-						params.c = "skyblue";
-						break;
-					case "#ad7fa8" :
-						params.c = "plum";
-						break;
-					case "#ef2929" :
-						params.c = "scarletred";
-						break;
+		if (params.user) {
+			$('#colorPicker').colorPicker({
+				color : new Array("#fce94f", "#fcaf3e", "#8ae234", "#729fcf", "#ad7fa8", "#ef2929"),
+				defaultColor : params.user.color,
+				columns : 6,
+				click : function(color) {
+					switch(color) {
+						case "#fce94f" :
+							params.c = "butter";
+							break;
+						case "#fcaf3e" :
+							params.c = "orange";
+							break;
+						case "#8ae234" :
+							params.c = "chameleon";
+							break;
+						case "#729fcf" :
+							params.c = "skyblue";
+							break;
+						case "#ad7fa8" :
+							params.c = "plum";
+							break;
+						case "#ef2929" :
+							params.c = "scarletred";
+							break;
+					}
+					params.user.color = color;
 				}
-				params.user.color = color;
-			}
-		});
+			});
+		}
 	};
 
 	var check = function(fn) {

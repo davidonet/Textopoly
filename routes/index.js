@@ -41,11 +41,12 @@ module.exports = function(app) {
 	app.get('/a/:a', jsonC.authorboard);
 	app.get('/ap/:a', jsonC.authorpaths);
 	app.get('/p/:id', jsonC.path);
+	app.get('/del/:x/:y', ensureJSONAuth, jsonC.remove);
+	
 
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
 	app.post('/insert', ensureJSONAuth, jsonC.insert);
-	app.get('/remove', ensureJSONAuth, jsonC.remove);
 	app.get('/authors', jsonC.authors);
 	app.post('/newpath', ensureJSONAuth, jsonC.newpath);
 	app.get('/allpath', jsonC.allpath);
