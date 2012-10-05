@@ -2,7 +2,6 @@ var models = require('../models/mongodrv');
 
 exports.list_author = function(req, res) {
 	db.author.find({}).toArray(function(err, items) {
-		console.log(items);
 		res.render('admin/admin.jade', {
 			authors : items
 		});
