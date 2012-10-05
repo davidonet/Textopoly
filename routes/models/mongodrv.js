@@ -97,9 +97,11 @@ db.bind('path', {
 			db.txt.findOne({
 				"p" : eval("[" + pos + "]")
 			}, function(err, txt) {
-				if (txt.t)
+				if (txt.t) {
+					if (12 < txt.t.length)
+						txt.t = txt.t.slice(0, 12);
 					aPath.title += txt.t.split(" ")[0];
-				else
+				} else
 					aPath.title += 'image';
 				aPath.title += ' .. ';
 				doneTxt();
@@ -146,10 +148,13 @@ db.bind('path', {
 					db.txt.findOne({
 						"p" : eval("[" + pos + "]")
 					}, function(err, txt) {
-						if (txt.t)
+						if (txt.t) {
+							if (12 < txt.t.length)
+								txt.t = txt.t.slice(0, 12);
 							aP.pw += txt.t.split(" ")[0];
-						else
+						} else {
 							aP.pw += 'image';
+						}
 						aP.pw += ' .. ';
 						doneTxt();
 					});
@@ -179,6 +184,15 @@ db.bind('path', {
 							pw : txta
 						});
 				});
+			});
+		});
+	},
+	del : function(id, fn) {
+		this.remove({
+			"_id" : new this.ObjectID(id)
+		}, function(err) {
+			fn({
+				success : true
 			});
 		});
 	}
@@ -234,7 +248,7 @@ db.bind('txt', {
 				t : nTxt.t,
 				d : new Date()
 			}
-		},fn);
+		}, fn);
 	},
 	removeTxt : function(nTxt, fn) {
 		normalizePos(nTxt);
