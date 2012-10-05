@@ -146,6 +146,16 @@ define(['helper'], function(helper) {
 				drawPath(aPathPack.msgPath, true);
 			}
 		},
+		cancelPath : function(aPathPack) {
+			if (aPathPack) {
+				$.each(aPathPack.svgList, function(index, value) {
+					value.remove();
+				});
+				aPathPack.msgPath = [];
+				updatePath();
+			}
+			$('#pathBox').fadeOut(100);
+		},
 		endPath : function(aPathPack) {
 			$.each(aPathPack.svgList, function(index, value) {
 				value.remove();

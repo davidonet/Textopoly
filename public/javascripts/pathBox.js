@@ -87,6 +87,11 @@ define(["lib/jquery.tipsy", "pathWalk"], function(tip, pathWalk) {
 				aPPack = undefined;
 				$('.pathArea > .so.handle.ok').hide();
 			});
+
+			$('.pathArea > .nw.handle.ca').click(function() {
+				pathWalk.cancelPath(aPPack);
+				aPPack = undefined;
+			});
 			bindMsg();
 		},
 		bindMsg : bindMsg,
