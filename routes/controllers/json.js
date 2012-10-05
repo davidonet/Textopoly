@@ -128,6 +128,19 @@ exports.insert = function(req, res) {
 	});
 };
 
+exports.update = function(req, res) {
+	var aTxt = {
+		x : req.params.x,
+		y : req.params.y,
+		t : req.body.t
+	};
+	db.txt.updateTxt(aTxt, function(err) {
+		res.json({
+			success : true
+		});
+	});
+};
+
 exports.remove = function(req, res) {
 	var aTxt = {
 		x : req.params.x,

@@ -286,38 +286,31 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 	 * BEGIN SWITCHLIVETYPE
 	 ***********************************************************************************/
 
-	var wT = 'textarea#write';
-	var wA = '.editArea';
-	// controls character input/counter
-	$(wT).keyup(function() {
+	$('#write').keyup(function() {
+		var wA = $('.editArea');
 		var charLength = $(this).val().length;
+		if (charLength >= 0 && 3 >= charLength) {
+			wA.addClass('l4').removeClass('l15 l50 l150 l300 l600');
 
-		if ($(this).val().length >= 0 && 3 >= $(this).val().length) {
-			$(wA).addClass('l4').removeClass('l15 l50 l150 l300 l600');
+		} else if (charLength >= 4 && 14 >= charLength) {
+			wA.addClass('l15').removeClass('l4 l50 l150 l300 l600');
 
-		} else if ($(this).val().length >= 4 && 14 >= $(this).val().length) {
-			$(wA).addClass('l15').removeClass('l4 l50 l150 l300 l600');
+		} else if (charLength >= 15 && 49 >= charLength) {
+			wA.addClass('l50').removeClass('l4 l15 l150 l300 l600');
 
-		} else if ($(this).val().length >= 15 && 49 >= $(this).val().length) {
-			$(wA).addClass('l50').removeClass('l4 l15 l150 l300 l600');
+		} else if (charLength >= 50 && 149 >= charLength) {
+			wA.addClass('l150').removeClass('l4 l15 l50 l300 l600');
 
-		} else if ($(this).val().length >= 50 && 149 >= $(this).val().length) {
-			$(wA).addClass('l150').removeClass('l4 l15 l50 l300 l600');
+		} else if (charLength >= 150 && 299 >= charLength) {
+			wA.addClass('l300').removeClass('l4 l15 l50 l150 l600');
 
-		} else if ($(this).val().length >= 150 && 299 >= $(this).val().length) {
-			$(wA).addClass('l300').removeClass('l4 l15 l50 l150 l600');
-
-		} else if ($(this).val().length >= 300 && 600 >= $(this).val().length) {
-			$(wA).addClass('l600').removeClass('l4 l15 l50 l150 l300');
+		} else if (charLength >= 300 && 600 >= charLength) {
+			wA.addClass('l600').removeClass('l4 l15 l50 l150 l300');
 		} else {
 		}
-	});
-
-	// Remplace les sauts de ligne par des espaces
-
-	$(wT).keyup(function() {
-		var txt = $(wT).val();
-		$(wT).val(txt.replace(/[\n\r]+/g, " "));
+	
+		var txt = $(this).val();
+		$(this).val(txt.replace(/[\n\r]+/g, " "));
 
 	});
 

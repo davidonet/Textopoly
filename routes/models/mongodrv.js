@@ -225,6 +225,17 @@ db.bind('txt', {
 			}
 		});
 	},
+	updateTxt : function(nTxt, fn) {
+		normalizePos(nTxt);
+		db.txt.update({
+			p : nTxt.p
+		}, {
+			$set : {
+				t : nTxt.t,
+				d : new Date()
+			}
+		},fn);
+	},
 	removeTxt : function(nTxt, fn) {
 		normalizePos(nTxt);
 		this.findOne(nTxt, function(err, data) {

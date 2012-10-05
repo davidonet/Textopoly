@@ -15,7 +15,8 @@ define(["txt", "uievent", "pathWalk", "pathBox", "mapModule", "helper"], functio
 		},
 		leave : function() {
 			uievent.bindZoom();
-			$('#pathBox').fadeOut(100);
+			$('.msg').unbind('click');
+			pathWalk.cancelPath();
 			$('#zoomWrap').fadeIn(250);
 		}
 	};

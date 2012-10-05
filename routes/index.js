@@ -43,6 +43,7 @@ module.exports = function(app) {
 	app.get('/p/:id', jsonC.path);
 	app.get('/sp/:x/:y',jsonC.startpath);
 	app.get('/del/:x/:y', ensureJSONAuth, jsonC.remove);
+	app.post('/update/:x/:y', ensureJSONAuth, jsonC.update);
 	
 
 	app.post('/postimg', imgC.postimg);

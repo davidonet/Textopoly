@@ -18,6 +18,7 @@ define(["lib/jquery.tipsy"], function() {
 				// positionnement du formulaire d'écriture
 				//$('#writingBox').fadeOut(100);
 				$('.infoArea > .msgInfo').hide();
+				$('.infoArea > .editArea').hide();
 				$('#informationBox').css({
 					'left' : xPos - 10,
 					'top' : yPos - 10
@@ -179,6 +180,75 @@ define(["lib/jquery.tipsy"], function() {
 				$('.infoArea > .msgInfo').toggle('slow', function() {
 					// Animation complete.
 				});
+				return false;
+			});
+
+			// controls character input/counter
+			$('#edit').keyup(function() {
+				var wA = $('.infoArea > .editArea')
+				var charLength = $(this).val().length;
+				if (charLength >= 0 && 3 >= charLength) {
+					wA.addClass('l4').removeClass('l15 l50 l150 l300 l600');
+
+				} else if (charLength >= 4 && 14 >= charLength) {
+					wA.addClass('l15').removeClass('l4 l50 l150 l300 l600');
+
+				} else if (charLength >= 15 && 49 >= charLength) {
+					wA.addClass('l50').removeClass('l4 l15 l150 l300 l600');
+
+				} else if (charLength >= 50 && 149 >= charLength) {
+					wA.addClass('l150').removeClass('l4 l15 l50 l300 l600');
+
+				} else if (charLength >= 150 && 299 >= charLength) {
+					wA.addClass('l300').removeClass('l4 l15 l50 l150 l600');
+
+				} else if (charLength >= 300 && 600 >= charLength) {
+					wA.addClass('l600').removeClass('l4 l15 l50 l150 l300');
+				} else {
+				}
+			});
+
+			$('.infoArea > .sw.handle.tx').click(function() {
+				if (params.user) {
+					var dc = $('#informationBox').attr('dc').split(',');
+					if ($('.infoArea > .editArea').is(":visible")) {
+						var aT = $('#edit').val();
+						$.ajax({
+							type : 'POST',
+							url : '/update/' + dc[0] + '/' + dc[1],
+							data : {
+								t : aT
+							},
+							success : function(res) {
+								params.user.lastT = dc;
+
+								require(["helper"], function(helper) {
+									$('.msg[dc="' + dc + '"]').removeClass('l4 l15 l50 l150 l300 l600');
+									$('.msg[dc="' + dc + '"]').addClass(helper.txtLen2Class(aT.length));
+								});
+								$('.msg[dc="' + dc + '"] > p').text(aT)
+								$('.infoArea > .editArea').fadeOut();
+							},
+							dataType : 'json'
+						});
+
+					} else {
+						require(["userinfo", "helper"], function(userinfo, helper) {
+							$('.infoArea > .editArea').removeClass("s l t f");
+							$('.infoArea > .editArea').removeClass('l4 l15 l50 l150 l300 l600');
+							$('#edit').text("");
+							userinfo.msgInfo(dc[0], dc[1], function(data) {
+								if ((params.user.author == data.a) || (params.user.superuser)) {
+									$('#edit').text(data.t);
+
+									$('.infoArea > .editArea').addClass(data.s);
+									$('.infoArea > .editArea').addClass(helper.txtLen2Class(data.t.length));
+									$('.infoArea > .editArea').fadeIn();
+								}
+							});
+						});
+					}
+				}
 				return false;
 			});
 			bindMsg();
