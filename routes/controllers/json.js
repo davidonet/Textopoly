@@ -154,7 +154,7 @@ exports.remove = function(req, res) {
 	};
 	normalizePos(aTxt);
 	db.txt.aTxt(aTxt, function(err, item) {
-		if ((item.a == req.user.author) || (item.superuser)) {
+		if ((item.a == req.user.author) || (req.user.superuser)) {
 			db.gridfs().unlink('[' + req.params.x + ',' + req.params.y + ']', function(err, gs) {
 			});
 			db.gridfs().unlink('s[' + req.params.x + ',' + req.params.y + ']', function(err, gs) {

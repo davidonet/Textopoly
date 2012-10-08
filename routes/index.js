@@ -42,14 +42,22 @@ module.exports = function(app) {
 	app.get('/a/:a', jsonC.authorboard);
 	app.get('/ap/:a', jsonC.authorpaths);
 	app.get('/p/:id', jsonC.path);
-	app.get('/dp/:id', ensureJSONAuth,jsonC.delpath);
-	app.get('/sp/:x/:y',jsonC.startpath);
+	app.get('/dp/:id', ensureJSONAuth, jsonC.delpath);
+	app.get('/sp/:x/:y', jsonC.startpath);
 	app.get('/del/:x/:y', ensureJSONAuth, jsonC.remove);
 	app.post('/update/:x/:y', ensureJSONAuth, jsonC.update);
-	
-	app.get('/admin',ensureMobileAuth,adminC.list_author);
-	app.get('/admin/user/:a',ensureMobileAuth,adminC.edit_author);
-	
+
+	function superUserPower(req, res, next) {
+		if (req.isAuthenticated()) {
+			if (req.user.superuser)
+				return next();
+		}
+		res.redirect("/");
+	}
+
+	app.get('/admin', superUserPower, adminC.list_author);
+	app.get('/admin/user/:a', ensureMobileAuth, adminC.edit_author);
+	app.get('/admin/del/:a', superUserPower, adminC.remove_author);
 
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);

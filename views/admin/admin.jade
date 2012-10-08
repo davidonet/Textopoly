@@ -1,5 +1,5 @@
 extends base
-	
+
 block body
 	h1 Liste des utilisateurs enregistrés
 	table
@@ -16,4 +16,12 @@ block body
 						a(href="url") #{a.url}
 				td
 					p
-						input(type="button",value="Supprimer")
+						input(type="button",value="Supprimer",onclick="del_author('"+a.author+"')")
+	script(type="text/javascript")
+		function del_author(author){
+			if(confirm("Suppression irrémédiable de l'utilisateur '"+author+"' et de toutes ses données associées")){
+				document.location="/admin/del/"+author;
+			}else{
+
+			}
+		}

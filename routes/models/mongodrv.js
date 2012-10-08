@@ -63,7 +63,7 @@ db.bind('author', {
 			author : author,
 			password : pwmd5,
 			email : email,
-			url : url
+			url : ( url ? url : "http://textopoly.org")
 		}, fn);
 	},
 	checkUser : function(author, password, done) {
