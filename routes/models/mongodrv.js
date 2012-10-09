@@ -2,7 +2,7 @@ var mongo = require('mongoskin');
 var sensible = require('../../sensible');
 var async = require('async');
 
-global.db = mongo.db(sensible.mongourl(),{
+global.db = mongo.db(sensible.mongourl(), {
 	safe : false
 });
 
@@ -222,12 +222,11 @@ db.bind('txt', {
 		}).toArray(fn);
 	},
 	boxedTxt : function(box, mini, fn) {
-		var fields={};
-		if(mini)
-		{
-			fields.p=1;
-			fields.s=1;
-			fields.c=1;
+		var fields = {};
+		if (mini) {
+			fields.p = 1;
+			fields.s = 1;
+			fields.c = 1;
 		}
 		this.find({
 			"p" : {

@@ -12,8 +12,7 @@ define(["helper"], function(helper) {
 				if (data !== undefined) {
 					if (data.t !== undefined) {
 						newTxt.addClass(helper.txtLen2Class(data.t.length));
-					}
-					else{
+					} else {
 						newTxt.addClass("l0");
 					}
 				}
@@ -64,8 +63,9 @@ define(["helper"], function(helper) {
 		removeInvisible : removeInvisible,
 		loadSection : function(bounds, fn) {
 			removeInvisible();
-			if(10<params.zoom)
-				bounds.mini=1;
+			if (10 < params.zoom)
+				bounds.mini = 1;
+				$('#map').draggable("disable");
 			$.ajax({
 				url : 'section',
 				dataType : 'json',
@@ -74,6 +74,7 @@ define(["helper"], function(helper) {
 					$(section.texts).each(function(index, data) {
 						insert(data);
 					});
+					$('#map').draggable("enable");
 					fn();
 				}
 			});
