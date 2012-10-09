@@ -13,7 +13,7 @@ function prepareMapData(xcenter, ycenter, zoom, fn) {
 
 	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
 
-	db.txt.boxedTxt(aBoundingBox, function(err, items) {
+	db.txt.boxedTxt(aBoundingBox,false, function(err, items) {
 		items.forEach(function(value, index) {
 			value.absx = (value.p[0] - xmin) * stepX;
 			value.absy = (value.p[1] - ymin) * stepY;
