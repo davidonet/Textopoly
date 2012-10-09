@@ -56,4 +56,4 @@ exports.remove_author = function(req, res) {
 			});
 		});
 	});
-}
+};

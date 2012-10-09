@@ -2,7 +2,9 @@ var mongo = require('mongoskin');
 var sensible = require('../../sensible');
 var async = require('async');
 
-global.db = mongo.db(sensible.mongourl());
+global.db = mongo.db(sensible.mongourl(),{
+	safe : false
+});
 
 global.normalizePos = function(nTxt) {
 	if (nTxt.p === undefined) {
