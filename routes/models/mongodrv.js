@@ -219,14 +219,21 @@ db.bind('txt', {
 			d : 1
 		}).toArray(fn);
 	},
-	boxedTxt : function(box, fn) {
+	boxedTxt : function(box, mini, fn) {
+		var fields={};
+		if(mini)
+		{
+			fields.p=1;
+			fields.s=1;
+			fields.c=1;
+		}
 		this.find({
 			"p" : {
 				"$within" : {
 					"$box" : box
 				}
 			}
-		}).toArray(fn);
+		}, fields).toArray(fn);
 	},
 	insertTxt : function(nTxt, fn) {
 		nTxt.d = new Date();
