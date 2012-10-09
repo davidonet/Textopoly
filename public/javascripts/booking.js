@@ -1,4 +1,4 @@
-define(["/socket.io/socket.io.js", "helper", "txt"], function(socket_io, helper, txt) {
+define(["socket.io", "helper", "txt"], function(socket_io, helper, txt) {
 	// Connection to the server
 	var socket = io.connect();
 
