@@ -3,10 +3,10 @@ exports.section = function(req, res) {
 	var xmax = (req.query.xmax ? Number(req.query.xmax) : 0);
 	var ymin = (req.query.ymin ? Number(req.query.ymin) : xmin + 1);
 	var ymax = (req.query.ymax ? Number(req.query.ymax) : ymin + 1);
-	var mini = (req.query.mini ? true : false);
+	var mini = (req.query.mini == 1 ? true : false);
 	var aBoundingBox = [[xmin, ymin], [xmax, ymax]];
 
-	db.txt.boxedTxt(aBoundingBox,mini, function(err, items) {
+	db.txt.boxedTxt(aBoundingBox, mini, function(err, items) {
 		var response = {
 			success : true,
 			xmin : xmin,
