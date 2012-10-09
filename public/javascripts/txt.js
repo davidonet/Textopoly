@@ -1,4 +1,4 @@
-define(["helper"], function(helper) {
+define(["helper", "uievent"], function(helper, uievent) {
 
 	var insert = function(data) {
 		var aMsg = $('.msg[dc="' + data.p + '"]');
@@ -65,7 +65,6 @@ define(["helper"], function(helper) {
 			removeInvisible();
 			if (10 < params.zoom)
 				bounds.mini = 1;
-				$('#map').draggable("disable");
 			$.ajax({
 				url : 'section',
 				dataType : 'json',
@@ -74,7 +73,6 @@ define(["helper"], function(helper) {
 					$(section.texts).each(function(index, data) {
 						insert(data);
 					});
-					$('#map').draggable("enable");
 					fn();
 				}
 			});
