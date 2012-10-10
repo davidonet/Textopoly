@@ -87,7 +87,11 @@ module.exports = function(app) {
 
 	app.post('/login', passport.authenticate('local'), function(req, res) {
 		db.txt.lastForA(req.user.author, function(err, items) {
-			req.user.lastT = items[0].p;
+			if(items[0])
+				req.user.lastT = items[0].p;
+			else
+				req.user.lastT = [0,0];
+				
 			res.json(req.user);
 		});
 	});
