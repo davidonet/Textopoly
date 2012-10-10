@@ -32,7 +32,10 @@ passport.deserializeUser(function(id, done) {
 		_id : new db.ObjectID(id)
 	}, function(err, user) {
 		db.txt.lastForA(user.author, function(err, items) {
-			user.lastT = items[0].p;
+			if (!err)
+				user.lastT = items[0].p;
+			else
+				user.lastT = [0, 0];
 			done(err, user);
 		});
 	});
