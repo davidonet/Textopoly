@@ -149,12 +149,13 @@ define(['helper'], function(helper) {
 		cancelPath : function(myPathPack) {
 			if (!myPathPack)
 				myPathPack = aPathPack;
-			$.each(aPathPack.svgList, function(index, value) {
-				value.remove();
-			});
-			aPathPack.msgPath = [];
-			updatePath();
-
+			if (myPathPack) {
+				$.each(myPathPack.svgList, function(index, value) {
+					value.remove();
+				});
+				myPathPack.msgPath = [];
+				updatePath();
+			}
 			$('#pathBox').fadeOut(100);
 		},
 		endPath : function(aPathPack) {
