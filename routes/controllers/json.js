@@ -188,7 +188,7 @@ exports.rss = function(req, res) {
 			feed.item({
 				title : txt.p,
 				description : txt.t,
-				url : 'http://dev.textopoly.org/view?zoom=2&xcenter=' + txt.p[0] + '&ycenter=' + txt.p[1],
+				url : 'http://textopoly.org/view?zoom=2&xcenter=' + txt.p[0] + '&ycenter=' + txt.p[1],
 				guid : txt._id.toString(),
 				author : txt.a,
 				date : txt.d
