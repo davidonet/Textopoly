@@ -38,10 +38,6 @@ exports.postimg = function(req, res, next) {
 				db.gridfs().open('[' + req.query.x + ',' + req.query.y + ']', 'w', aGSData, function(err, gs) {
 
 					gs.writeFile('/tmp/' + fName, function(err, gs) {
-						fs.unlink('/tmp/' + fName, function(err) {
-							if (err)
-								throw err;
-						});
 						aGSData.metadata.i = gs._id;
 						db.txt.insertTxt(aGSData.metadata, function(err, aTxt) {
 							aTxt.success = true;
@@ -64,9 +60,12 @@ exports.postimg = function(req, res, next) {
 				}, function(err, stdout, stderr) {
 
 					db.gridfs().open('s[' + req.query.x + ',' + req.query.y + ']', 'w', aGSData, function(err, gs) {
-
 						gs.writeFile('/tmp/t' + fName, function(err, gs) {
 							fs.unlink('/tmp/t' + fName, function(err) {
+								if (err)
+									throw err;
+							});
+							fs.unlink('/tmp/' + fName, function(err) {
 								if (err)
 									throw err;
 							});
