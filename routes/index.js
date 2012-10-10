@@ -55,9 +55,11 @@ module.exports = function(app) {
 		res.redirect("/");
 	}
 
+
 	app.get('/admin', superUserPower, adminC.list_author);
 	app.get('/admin/user/:a', ensureMobileAuth, adminC.edit_author);
 	app.get('/admin/del/:a', superUserPower, adminC.remove_author);
+	app.post('/admin/user/new', superUserPower, adminC.new_author);
 
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
@@ -87,11 +89,11 @@ module.exports = function(app) {
 
 	app.post('/login', passport.authenticate('local'), function(req, res) {
 		db.txt.lastForA(req.user.author, function(err, items) {
-			if(items[0])
+			if (items[0])
 				req.user.lastT = items[0].p;
 			else
-				req.user.lastT = [0,0];
-				
+				req.user.lastT = [0, 0];
+
 			res.json(req.user);
 		});
 	});

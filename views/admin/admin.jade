@@ -1,6 +1,29 @@
 extends base
 
 block body
+	h1 Ajouter un utilisateur
+	form(action='/admin/user/new',method='post')
+		table
+			tr
+				td Pseudo
+				td 
+					input(name="author")
+			tr
+				td Mot de passe 
+				td
+					input(name="password",value="MotDePasse")
+			tr
+				td Email
+				td
+					input(name="email",size="50",value="moi@textopoly.org")
+			tr
+				td Site Web
+				td
+					input(name="url",size="50",value="http://textopoly.org")
+			tr
+				td
+					input(style="width:100%",type='submit',value='Ajouter')
+	br
 	h1 Liste des utilisateurs enregistrés
 	table
 		each a in authors

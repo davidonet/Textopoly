@@ -1,6 +1,6 @@
 var models = require('../models/mongodrv');
 var async = require('async');
-
+var crypto = require('crypto');
 exports.list_author = function(req, res) {
 	db.author.find({}).toArray(function(err, items) {
 		res.render('admin/admin.jade', {
@@ -28,6 +28,22 @@ exports.edit_author = function(req, res) {
 	}
 };
 
+exports.new_author = function(req, res) {
+	if ((req.body.author !== "") && (req.body.password !== "")) {
+		var pwmd5 = crypto.createHash('md5').update(req.body.password).digest("hex");
+		db.author.insert({
+			author : req.body.author,
+			password : pwmd5,
+			email : req.body.email,
+			url : (req.body.url ? req.body.url : "http://textopoly.org")
+		}, function(err) {
+			res.redirect("/admin/user/" + req.body.author);
+		});
+	} else {
+		res.redirect("/admin/");
+	}
+};
+
 exports.remove_author = function(req, res) {
 	db.author.findOne({
 		author : req.params.a
@@ -43,7 +59,7 @@ exports.remove_author = function(req, res) {
 					});
 					db.gridfs().unlink('s[' + txt.p[0] + ',' + txt.p[1] + ']', function(err, gs) {
 					});
-					db.txt.remove(txt,done);
+					db.txt.remove(txt, done);
 				}, function(err) {
 					db.author.remove({
 						author : req.params.a

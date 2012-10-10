@@ -4,6 +4,10 @@ html
 		title Textopoly Admin Page
 		link(rel='stylesheet',href='/stylesheets/styles.css',type='text/css',media="screen")
 		style(type="text/css")		
+			body
+			{
+				width:70%;
+			}
 			body.default {
 				width:70%;
 				margin-left:auto;
@@ -28,8 +32,17 @@ html
 				
 			}
 			input{
-				padding:5px 5px 5px 5px;
+				padding:2px 2px 2px 2px;
+				margin:2px 2px 2px 2px;
+				font-family:"NotCourierSansRegular",monospace;
+					border:1px #eee solid;
 			}
+			label{
+				text-decoration:underline;
+				margin-right:1em;
+				margin-left:1em;
+			}
+			
 		block head
 	body.default
 		block body
