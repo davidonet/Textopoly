@@ -35,7 +35,7 @@ exports.new_author = function(req, res) {
 			author : req.body.author,
 			password : pwmd5,
 			email : req.body.email,
-			url : (req.body.url ? req.body.url : "http://textopoly.org")
+			url : req.body.url
 		}, function(err) {
 			res.redirect("/admin/user/" + req.body.author);
 		});
@@ -64,9 +64,7 @@ exports.remove_author = function(req, res) {
 					db.author.remove({
 						author : req.params.a
 					}, function(err) {
-						res.json({
-							success : true
-						});
+						res.redirect("/admin/");
 					});
 				});
 			});
