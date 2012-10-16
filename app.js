@@ -46,6 +46,8 @@ require(libpath)(app);
 
 var server = http.createServer(app).listen(app.get('port'));
 
+
+
 global.io = socket.listen(server, {
 	log : false
 });
@@ -63,12 +65,7 @@ io.sockets.on('connection', function(socket) {
 		normalizePos(data);
 		socket.broadcast.emit('unbook', data);
 	});
-	serverEmitter.on('set', function(data) {
-		socket.broadcast.emit('set', data);
-	});
-	serverEmitter.on('unset', function(data) {
-		socket.broadcast.emit('unset', data);
-	});
+	this.setMaxListeners(0);
 });
 
 
