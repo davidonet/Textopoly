@@ -84,7 +84,6 @@ exports.a = function(req, res) {
 };
 
 exports.w = function(req, res) {
-	console.log(req.user);
 	var xcenter = (req.params.x ? Number(req.params.x) : 0);
 	var ycenter = (req.params.y ? Number(req.params.y) : 0);
 	var xmin = xcenter - range;

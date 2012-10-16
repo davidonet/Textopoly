@@ -190,7 +190,7 @@ db.bind('path', {
 					done();
 				});
 			}, function() {
-				console.log(txta);
+
 				fn(err, {
 					a : p.a,
 					pw : txta
