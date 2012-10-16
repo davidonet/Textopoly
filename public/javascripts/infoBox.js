@@ -235,6 +235,8 @@ define(["lib/jquery.tipsy"], function() {
 									});
 									$('.msg[dc="' + dc + '"] > p').text(aT);
 									$('.infoArea > .editArea').fadeOut();
+									$('.infoArea > .msgRemove').hide();
+									$('.infoArea > .editArea').hide();
 									$('#edit').val("");
 								},
 								dataType : 'json'
@@ -250,10 +252,9 @@ define(["lib/jquery.tipsy"], function() {
 						require(["userinfo", "helper"], function(userinfo, helper) {
 							$('.infoArea > .editArea').removeClass("s l t f");
 							$('.infoArea > .editArea').removeClass('l4 l15 l50 l150 l300 l600');
-							$('#edit').text("");
 							userinfo.msgInfo(dc[0], dc[1], function(data) {
 								if (((params.user.author == data.a) || (params.user.superuser)) && data.t) {
-									$('#edit').text(data.t);
+									$('#edit').val(data.t);
 									$('.infoArea > .editArea').addClass(data.s);
 									$('.infoArea > .editArea').addClass(helper.txtLen2Class(data.t.length));
 									$('.infoArea > .editArea').fadeIn(function() {
