@@ -3,7 +3,7 @@ var sensible = require('../../sensible');
 var async = require('async');
 
 global.db = mongo.db(sensible.mongourl(), {
-	safe : false
+	safe : true
 });
 
 global.normalizePos = function(nTxt) {
@@ -227,6 +227,7 @@ db.bind('txt', {
 			fields.p = 1;
 			fields.s = 1;
 			fields.c = 1;
+			fields.a = 1;
 		}
 		this.find({
 			"p" : {
