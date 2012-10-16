@@ -10,22 +10,21 @@ exports.list_author = function(req, res) {
 };
 
 exports.edit_author = function(req, res) {
-	if ((req.user.author == req.params.a) || (req.user.superuser)) {
-		db.author.findOne({
-			author : req.params.a
-		}, function(err, item) {
-			db.path.fromAuth(req.params.a, function(err, paths) {
-				db.txt.authorTxt(req.params.a, function(err, txts) {
-					item.paths = paths;
-					item.txts = txts;
-					item.su = req.user.superuser;
-					res.render('admin/user.jade', item);
-				});
+
+	db.author.findOne({
+		author : req.params.a
+	}, function(err, item) {
+		db.path.fromAuth(req.params.a, function(err, paths) {
+			db.txt.authorTxt(req.params.a, function(err, txts) {
+				item.author = req.params.a;
+				item.paths = paths;
+				item.txts = txts;
+				item.su = (req.user?req.user.superuser:false);
+				res.render('admin/user.jade', item);
 			});
 		});
-	} else {
-		res.redirect("/");
-	}
+	});
+
 };
 
 exports.new_author = function(req, res) {

@@ -13,8 +13,8 @@ exports.view = function(req, res) {
 		data.params.ycenter = (req.query.ycenter ? Number(req.query.ycenter) : req.user.lastT[1]);
 	} else {
 
-		data.params.xcenter = (req.query.xcenter ? Number(req.query.xcenter) : 0);
-		data.params.ycenter = (req.query.ycenter ? Number(req.query.ycenter) : 0);
+		data.params.xcenter = (req.query.xcenter ? Number(req.query.xcenter) : -6);
+		data.params.ycenter = (req.query.ycenter ? Number(req.query.ycenter) : -30);
 	}
 	res.render('view', data);
 };

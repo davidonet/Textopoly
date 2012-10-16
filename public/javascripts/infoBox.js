@@ -172,7 +172,7 @@ define(["lib/jquery.tipsy"], function() {
 					var dc = $('#informationBox').attr('dc').split(',');
 					require(["userinfo"], function(userinfo) {
 						userinfo.msgInfo(dc[0], dc[1], function(data) {
-							$('#infoname').text('Écrit par : ' + data.a);
+							$('#infoname').html('Écrit par : <a href="/admin/user/' + data.a + '">' + data.a + '</a>');
 							var aDate = new Date(data.d);
 							$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
 							$("a[href='#permalink']").attr('href', 'http://textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
@@ -270,6 +270,9 @@ define(["lib/jquery.tipsy"], function() {
 							});
 						});
 					}
+				} else {
+					if (!params.user)
+						$('#informationBox').effect("shake", 50);
 				}
 				return false;
 			});

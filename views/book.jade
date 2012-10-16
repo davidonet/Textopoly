@@ -16,9 +16,12 @@ block body
 				each txt in pathwalk.pw
 					if txt.i
 						img(src='/getimg/['+txt.p+']')
-					else
-						p(class=txt.s+' '+txt.c+' '+txt.lc) #{txt.t}
-						br      
+					else if txt.t
+							p(class=txt.s+' '+txt.c+' '+txt.lc) #{txt.t}
+						else if txt.e
+								p(style="background-color:grey") &nbsp;       
+						br
 			div#footer
-				a(href="/mpath/"+a) #{a} | 
-				a(href="/mauth") Auteurs
+				h2
+					a(href="/") Textopoly |
+					a(href="/admin/user/"+a) #{a}

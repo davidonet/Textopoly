@@ -57,7 +57,7 @@ module.exports = function(app) {
 
 
 	app.get('/admin', superUserPower, adminC.list_author);
-	app.get('/admin/user/:a', ensureMobileAuth, adminC.edit_author);
+	app.get('/admin/user/:a', adminC.edit_author);
 	app.get('/admin/del/:a', superUserPower, adminC.remove_author);
 	app.post('/admin/user/new', superUserPower, adminC.new_author);
 
