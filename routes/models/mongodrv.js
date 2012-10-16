@@ -3,7 +3,7 @@ var sensible = require('../../sensible');
 var async = require('async');
 
 global.db = mongo.db(sensible.mongourl(), {
-	safe : true
+	safe : false
 });
 
 global.normalizePos = function(nTxt) {
@@ -179,16 +179,21 @@ db.bind('path', {
 		this.findOne({
 			"_id" : new this.ObjectID(id)
 		}, function(err, p) {
-			p.pw.forEach(function(pos, i) {
+			async.forEach(p.pw, function(pos, done) {
 				db.txt.findOne({
 					"p" : eval("[" + pos + "]")
 				}, function(err, txt) {
-					txta[i] = txt;
-					if (txta.length == p.pw.length)
-						fn(err, {
-							a : p.a,
-							pw : txta
-						});
+					if(txt)
+						txta.push(txt);
+					else
+						txta.push({e:true});
+					done();
+				});
+			}, function() {
+				console.log(txta);
+				fn(err, {
+					a : p.a,
+					pw : txta
 				});
 			});
 		});
