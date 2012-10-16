@@ -2,8 +2,9 @@ extends base
 	
 block body
 	h1 #{author}
-	h2 
-		a(href="mailto"+email) #{email}
+	if su
+		h2 
+			a(href="mailto"+email) #{email}
 	a(href=url) #{url}
 	hr
 	h2 Liste des textes
@@ -34,9 +35,10 @@ block body
 					td
 						p.t #{p.title}
 	if su
-		hr
-		div(style="width:100%")
-			input(type="button",value="Liste d'auteurs",style="float:right",onclick="document.location='/admin'")
-		
+		input(type="button",value="Liste d'auteurs",style="float:right",onclick="document.location='/admin'")
+	div#footer
+				h2
+					a(href="/") Textopoly
+
 	
 
