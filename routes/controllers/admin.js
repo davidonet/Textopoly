@@ -19,7 +19,7 @@ exports.edit_author = function(req, res) {
 				item.author = req.params.a;
 				item.paths = paths;
 				item.txts = txts;
-				item.su = (req.user?req.user.superuser:false);
+				item.su = (req.user ? req.user.superuser : false);
 				res.render('admin/user.jade', item);
 			});
 		});
@@ -41,6 +41,23 @@ exports.new_author = function(req, res) {
 	} else {
 		res.redirect("/admin/");
 	}
+};
+
+exports.remove_book = function(req, res) {
+	db.path.findOne({
+		_id : db.path.ObjectID(req.params.id)
+	}, function(err, item) {
+		if ((item.a == req.user.author) || (req.user.superuser)) {
+			db.path.remove({
+				_id : db.path.ObjectID(req.params.id)
+			}, function(err) {
+				res.redirect("/admin/user/"+item.a);
+			});
+		}
+		else{
+			res.redirect("/admin/user/"+item.a);
+		}
+	});
 };
 
 exports.remove_author = function(req, res) {
