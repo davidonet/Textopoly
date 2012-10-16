@@ -13,7 +13,7 @@ app.configure(function() {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(express.session({
-		secret : 'ylopotxet',
+		secret : 'cosmopolette',
 		maxAge: new Date(Date.now() + 3600000),
 		store : new RedisStore({
 			client : redis
