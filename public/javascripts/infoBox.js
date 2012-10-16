@@ -126,36 +126,37 @@ define(["lib/jquery.tipsy"], function() {
 
 			// INFOBOX NORTH EAST >  delete action
 			$('.infoArea > .ne.handle').click(function() {
-				$('#msgDel').text("");
-				$('.infoArea > .msgInfo').hide();
+				if (!$('.infoArea > .editArea').is(":visible")) {
+					$('#msgDel').text("");
+					$('.infoArea > .msgInfo').hide();
 
-				$('.infoArea > .msgRemove').toggle('slow', function() {
-				});
-
-				$('#cancelRemove').click(function() {
-					$('.infoArea > .msgRemove').fadeOut(100);
-				});
-				$('#okRemove').click(function() {
-
-					var dc = $('#informationBox').attr('dc').split(',');
-					var xGrid = dc[0];
-					var yGrid = dc[1];
-
-					$.getJSON('/del/' + xGrid + '/' + yGrid, function(data) {
-						if (data.success) {
-							$('.infoArea > .msgRemove').fadeOut(100);
-							$('#informationBox').fadeOut(100);
-						} else {
-							if (data.notAuth) {
-								$('#msgDel').text("Vous n'êtes pas authentifié.");
-							} else {
-								$('#msgDel').text("Ce billet ne vous appartient pas.");
-							}
-							$('#informationBox').effect("shake", 50);
-						}
+					$('.infoArea > .msgRemove').toggle('slow', function() {
 					});
-				});
 
+					$('#cancelRemove').click(function() {
+						$('.infoArea > .msgRemove').fadeOut(100);
+					});
+					$('#okRemove').click(function() {
+
+						var dc = $('#informationBox').attr('dc').split(',');
+						var xGrid = dc[0];
+						var yGrid = dc[1];
+
+						$.getJSON('/del/' + xGrid + '/' + yGrid, function(data) {
+							if (data.success) {
+								$('.infoArea > .msgRemove').fadeOut(100);
+								$('#informationBox').fadeOut(100);
+							} else {
+								if (data.notAuth) {
+									$('#msgDel').text("Vous n'êtes pas authentifié.");
+								} else {
+									$('#msgDel').text("Ce billet ne vous appartient pas.");
+								}
+								$('#informationBox').effect("shake", 50);
+							}
+						});
+					});
+				}
 				return false;
 			});
 
@@ -165,24 +166,26 @@ define(["lib/jquery.tipsy"], function() {
 
 			// INFOBOX SOUTH EAST >  display msgInfo
 			$('.infoArea > .se.handle').click(function() {
-				$('.infoArea > .msgRemove').hide();
-				$('#pathList').empty();
-				var dc = $('#informationBox').attr('dc').split(',');
-				require(["userinfo"], function(userinfo) {
-					userinfo.msgInfo(dc[0], dc[1], function(data) {
-						$('#infoname').text('Écrit par : ' + data.a);
-						var aDate = new Date(data.d);
-						$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
-						$("a[href='#permalink']").attr('href', 'http://textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
-						$(data.spw).each(function(index, path) {
-							var newPath = $(document.createElement("option")).attr('value', '/book/' + path._id).text(path.title);
-							$('#pathList').append(newPath);
+				if (!$('.infoArea > .editArea').is(":visible")) {
+					$('.infoArea > .msgRemove').hide();
+					$('#pathList').empty();
+					var dc = $('#informationBox').attr('dc').split(',');
+					require(["userinfo"], function(userinfo) {
+						userinfo.msgInfo(dc[0], dc[1], function(data) {
+							$('#infoname').text('Écrit par : ' + data.a);
+							var aDate = new Date(data.d);
+							$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
+							$("a[href='#permalink']").attr('href', 'http://textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+							$(data.spw).each(function(index, path) {
+								var newPath = $(document.createElement("option")).attr('value', '/book/' + path._id).text(path.title);
+								$('#pathList').append(newPath);
+							});
 						});
 					});
-				});
-				$('.infoArea > .msgInfo').toggle('slow', function() {
-					// Animation complete.
-				});
+					$('.infoArea > .msgInfo').toggle('slow', function() {
+						// Animation complete.
+					});
+				}
 				return false;
 			});
 
@@ -214,7 +217,7 @@ define(["lib/jquery.tipsy"], function() {
 			});
 
 			$('.infoArea > .sw.handle.tx').click(function() {
-				if (params.user) {
+				if ((params.user) && (!$('.infoArea > .msgInfo').is(":visible")) && (!$('.infoArea > .msgRemove').is(":visible"))) {
 					var dc = $('#informationBox').attr('dc').split(',');
 					if ($('.infoArea > .editArea').is(":visible")) {
 						var aT = $('#edit').val();
