@@ -209,6 +209,8 @@ define(["lib/jquery.tipsy"], function() {
 					wA.addClass('l600').removeClass('l4 l15 l50 l150 l300');
 				} else {
 				}
+				var txt = $(this).val();
+				$(this).val(txt.replace(/[\n\r]+/g, " "));
 			});
 
 			$('.infoArea > .sw.handle.tx').click(function() {
@@ -216,25 +218,34 @@ define(["lib/jquery.tipsy"], function() {
 					var dc = $('#informationBox').attr('dc').split(',');
 					if ($('.infoArea > .editArea').is(":visible")) {
 						var aT = $('#edit').val();
-						$.ajax({
-							type : 'POST',
-							url : '/update/' + dc[0] + '/' + dc[1],
-							data : {
-								t : aT
-							},
-							success : function(res) {
-								params.user.lastT = dc;
 
-								require(["helper"], function(helper) {
-									$('.msg[dc="' + dc + '"]').removeClass('l4 l15 l50 l150 l300 l600');
-									$('.msg[dc="' + dc + '"]').addClass(helper.txtLen2Class(aT.length));
-								});
-								$('.msg[dc="' + dc + '"] > p').text(aT);
-								$('.infoArea > .editArea').fadeOut();
-							},
-							dataType : 'json'
-						});
+						if ((aT !== "") && ((aT.replace(/\s/g, '').length) !== 0)) {
+							$.ajax({
+								type : 'POST',
+								url : '/update/' + dc[0] + '/' + dc[1],
+								data : {
+									t : aT
+								},
+								success : function(res) {
+									params.user.lastT = dc;
 
+									require(["helper"], function(helper) {
+										$('.msg[dc="' + dc + '"]').removeClass('l4 l15 l50 l150 l300 l600');
+										$('.msg[dc="' + dc + '"]').addClass(helper.txtLen2Class(aT.length));
+									});
+									$('.msg[dc="' + dc + '"] > p').text(aT);
+									$('.infoArea > .editArea').fadeOut();
+									$('#edit').val("");
+								},
+								dataType : 'json'
+							});
+						} else {
+							$('#informationBox').fadeOut(200);
+							$('.infoArea > .msgRemove').hide();
+							$('.infoArea > .editArea').hide();
+							$('#edit').val("");
+							return false;
+						}
 					} else {
 						require(["userinfo", "helper"], function(userinfo, helper) {
 							$('.infoArea > .editArea').removeClass("s l t f");
