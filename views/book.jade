@@ -21,7 +21,16 @@ block body
 						else if txt.e
 								p(style="background-color:grey") &nbsp;       
 						br
+				p
+					input(style="float:right",type="button",value="Supprimer ce chemin",onclick="del_book('"+id+"')")
 			div#footer
 				h2
 					a(href="/") Textopoly |
 					a(href="/admin/user/"+a) #{a}
+	script(type="text/javascript")
+		function del_book(id){
+			if(confirm("Suppression irrémédiable d'un chemin")){
+				document.location="/admin/delbook/"+id;
+			}else{
+			}
+		}

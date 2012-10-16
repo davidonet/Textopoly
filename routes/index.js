@@ -59,6 +59,7 @@ module.exports = function(app) {
 	app.get('/admin', superUserPower, adminC.list_author);
 	app.get('/admin/user/:a', adminC.edit_author);
 	app.get('/admin/del/:a', superUserPower, adminC.remove_author);
+	app.get('/admin/delbook/:id', ensureJSONAuth, adminC.remove_book);
 	app.post('/admin/user/new', superUserPower, adminC.new_author);
 
 	app.post('/postimg', imgC.postimg);
@@ -71,6 +72,7 @@ module.exports = function(app) {
 	app.get('/rss', jsonC.rss);
 
 	app.get('/book/:id', bookC.path);
+
 	app.get('/mpath/:a', bookC.choice);
 	app.get('/mauth', bookC.authors);
 	app.get('/mtxt/:x/:y', bookC.txt);

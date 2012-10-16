@@ -10,6 +10,7 @@ exports.path = function(req, res) {
 		res.render('book.jade', {
 			title : "Textopoly | Chemin de " + items.a,
 			a : items.a,
+			id : req.params.id,
 			pathwalk : items
 		});
 	});
