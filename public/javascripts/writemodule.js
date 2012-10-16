@@ -169,7 +169,8 @@ define(["lib/fileuploader", 'lib/jquery.cookie'], function(fileUploader) {
 
 	// WRITINGBOX SOUTH EAST > validate form / author informations
 	$('.editArea > .se.handle').click(function() {
-		if ($('textarea#write').val() !== "") {
+		var aT = $('textarea#write').val();
+		if ((aT !== "") && ((aT.replace(/\s/g, '').length) !== 0)){
 			var dc = $('#writingBox').attr('dc').split(',');
 			var aSize = 's';
 			if ($('.editArea').hasClass('l'))
