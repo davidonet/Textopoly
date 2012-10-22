@@ -99,7 +99,7 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 
 			$('#btnText').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Écrire sur la carte', // fallback text to use when no tooltip text
+				fallback : 'Écrire / Ajouter', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity
 			});
 
