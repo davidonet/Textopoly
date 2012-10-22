@@ -86,7 +86,7 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 
 			$('#btnFocus').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Mode concentration', // fallback text to use when no tooltip text
+				fallback : 'Masquer', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 
