@@ -105,7 +105,7 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 
 			$('#btnPath').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Cheminer sur la carte', // fallback text to use when no tooltip text
+				fallback : 'Tracer un chemin', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity
 			});
 
