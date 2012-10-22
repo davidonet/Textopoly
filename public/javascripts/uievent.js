@@ -93,7 +93,7 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 			// TIPSY ON MAIN MENU
 			$('#btnShow').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Naviguer sur la carte', // fallback text to use when no tooltip text
+				fallback : 'Explorer', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity
 			});
 
