@@ -80,7 +80,7 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 
 			$('#btnHelp').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Obtenir de l\'aide', // fallback text to use when no tooltip text
+				fallback : 'Aide', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 
