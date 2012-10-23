@@ -64,17 +64,18 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 			bindZoom();
 			infoBox.init();
 
+			if (params.user) {
+
+				$("#btnLog").removeClass('log').addClass('out');
+
+			} else {
+
+			}
+
 			// TIPSY ON TOP MENU
-
-			$('#btnLog.log').tipsy({
+			$('#btnLog').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Se connecter', // fallback text to use when no tooltip text
-				gravity : 'e' // gravity
-			});
-
-			$('#btnLog.set').tipsy({
-				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Paramètres', // fallback text to use when no tooltip text
+				fallback : 'Connecter / Déconnecter', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 
@@ -127,7 +128,6 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 				gravity : 'w' // gravity
 			});
 
-			
 		},
 		bindZoom : bindZoom,
 		unbindZoom : unbindZoom
