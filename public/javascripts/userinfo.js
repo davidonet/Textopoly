@@ -67,7 +67,7 @@ define(["lib/syronex-colorpicker"], function() {
 					bottom : -480
 				});
 			});
-			$("#btnLog").click(function() {
+			$("#btnLog.log").click(function() {
 				if (params.user) {
 					$.getJSON("/logout", function() {
 						$("#btnShow").click();
