@@ -4,7 +4,7 @@
 
 /* WRITINGBOX */
 
-#write,#edit {
+#write, #edit {
     font-family: @NotCourier;
     color: @aluminium2D;
     -webkit-hyphens: auto;
@@ -50,7 +50,6 @@
     cursor: default;
 }
 
-
 #writingBox * h2, #informationBox * h2 {
     padding-top: 20px;
 }
@@ -90,7 +89,7 @@
     left: 0px;
 }
 
-.msgInfo,.msgRemove {
+.msgInfo, .msgRemove {
     text-align: center;
     -webkit-user-select: text;
     background-color: @aluminium1L;
@@ -98,11 +97,11 @@
 
 /* WRITING AREA */
 
-div.editArea.s, div.infoArea.s, .s > div.msgInfo,.s > div.msgRemove {
+div.editArea.s, div.infoArea.s, .s > div.msgInfo, .s > div.msgRemove {
     width: 240px;
     height: 160px;
 }
-div.editArea.l, div.infoArea.l, .l > div.msgInfo,.l > div.msgRemove {
+div.editArea.l, div.infoArea.l, .l > div.msgInfo, .l > div.msgRemove {
     width: 480px;
     height: 160px;
 }
@@ -117,15 +116,15 @@ div.editArea.f, div.infoArea.f, .f > div.msgInfo, .f > div.msgRemove {
 
 /* PATH AREA */
 
-div.pathArea.s{
+div.pathArea.s {
     width: 120px;
     height: 80px;
 }
-div.pathArea.l{
+div.pathArea.l {
     width: 240px;
     height: 80px;
 }
-div.pathArea.t{
+div.pathArea.t {
     width: 120px;
     height: 160px;
 }
@@ -134,24 +133,23 @@ div.pathArea.f {
     height: 160px;
 }
 
-
 /* TEXT AREA */
 
-div.editArea.s >#write,div.editArea.s >#edit {
+div.editArea.s > #write, div.editArea.s > #edit {
     width: 220px;
     height: 160px;
 }
 
-div.editArea.l > #write,div.editArea.l > #edit {
+div.editArea.l > #write, div.editArea.l > #edit {
     width: 460px;
     height: 160px;
 }
 
-div.editArea.t > #write,div.editArea.t > #edit {
+div.editArea.t > #write, div.editArea.t > #edit {
     width: 220px;
     height: 320px;
 }
-div.editArea.f > #write,div.editArea.f > #edit {
+div.editArea.f > #write, div.editArea.f > #edit {
     width: 460px;
     height: 320px;
 }
@@ -276,25 +274,37 @@ div.editArea.f > #write,div.editArea.f > #edit {
 }
 
 .ui-autocomplete {
-        width: 100px;
-        max-height: 170px;
-        overflow-y: auto;
-        /* prevent horizontal scrollbar */
-        overflow-x: hidden;
-        /* add padding to account for vertical scrollbar */
-        padding-right: 20px;
+    width: 100px;
+    max-height: 170px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+}
+
+#results {
+    font-family: @Futura;
+    text-align: center;
+    width: 460px;
+    max-height: 170px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+    
+    >p {
+    padding-left: 20px;
     }
+}
 
 .ui-menu {
     width: 100px;
     font-family: @Futura;
     text-align: left;
-    background: white;
-    
-    li a:hover{
-         background: red;
-   
-    }
+    background: white;li a:hover{
+}
 }
 
 #searchMap {
