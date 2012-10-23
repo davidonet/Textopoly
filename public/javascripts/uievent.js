@@ -71,6 +71,10 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 			} else {
 
 			}
+			$('#btnHelp').click(function() {
+				var url = 'http://blog.textopoly.org/?p=119';
+				window.open(url);
+			});
 
 			// TIPSY ON TOP MENU
 			$('#btnLog').tipsy({
