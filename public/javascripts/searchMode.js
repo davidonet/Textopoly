@@ -20,20 +20,22 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 						});
 						$.getJSON('/ap/' + params.findAuthor, function(res) {
 							$(res.paths).each(function(i, path) {
-								var newPath = $(document.createElement("a")).attr('href','/book/'+path._id).text(path.title);
+								var newPath = $(document.createElement("a")).attr('href', '/book/' + path._id).text(path.title);
 								$('#results').append($(document.createElement("p")).append(newPath));
 							});
 						});
 					}
 				});
 			});
+			$('#colorPicker').hide();
 			$('#posInfo').hide();
 			$('#filter').show();
 			$('#footer').animate({
-				bottom : -380
+				bottom : -280
 			}, function() {
 				$('#searchMap').focus();
 			});
+
 		},
 		refresh : function(localParams) {
 			var postTxtLoad = function() {

@@ -27,6 +27,7 @@ define(["mapModule", "txt", "uievent", "writemodule"], function(mapModule, txt, 
 			$('#zoomWrap').fadeIn(250);
 			$('#writingBox').fadeOut(100);
 			$('#footer').unbind('click');
+
 		}
 	};
 });

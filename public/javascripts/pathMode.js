@@ -5,6 +5,11 @@ define(["txt", "uievent", "pathWalk", "pathBox", "mapModule", "helper"], functio
 			mapModule.zoomTo(4);
 			$('#zoomWrap').fadeOut(250);
 			pathBox.bindMsg();
+			$('#footer').animate({
+				bottom : -480
+			}, function() {
+				$('#colorPicker').hide();
+			});
 		},
 		refresh : function(localParams) {
 			var postTxtLoad = function() {
