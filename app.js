@@ -3,6 +3,7 @@ var app = express();
 var sensible = require('./sensible');
 var redis = require("redis").createClient(6379, sensible.redisHost());
 var RedisStore = require('connect-redis')(express);
+var connect = require('connect');
 
 app.configure(function() {
 	app.set('port', process.env.PORT || 3000);
@@ -21,6 +22,7 @@ app.configure(function() {
 	}));
 	app.use(passport.initialize());
 	app.use(passport.session());
+	app.use(connect.compress());
 	app.use(app.router);
 	fs.stat('public-optimize', function(er, s) {
 		var pubpath = (process.env.JS_COV ? '/public-cov' : (!er ? '/public-optimize' : '/public'));
@@ -44,7 +46,7 @@ var libpath = (process.env.NODE_COV ? './routes-cov' : './routes');
 require(libpath)(app);
 
 
-var server = http.createServer(app).listen(app.get('port'));
+var server = http.createServer(app).listen(app.get('port'),process.env.LISTENADDR);
 
 
 
