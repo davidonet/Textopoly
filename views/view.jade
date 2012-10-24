@@ -17,11 +17,11 @@ block body
 					div#blink
 				div#topmenu
 					div#btnLog.log
-					div#btnHelp.in
+					div#btnHelp.hlp
 					div#btnFocus.fo 
 				div#leftA
 				div#slider
-					h2 TEXTOPOLY est en <strong>version dev</strong>
+					h2 TEXTOPOLY est en <strong>version beta</strong>
 					p pour en savoir plus <a href="http://blog.textopoly.org" target="_blank">cliquez ici</a>
 				div#rightA
 				div#mainMenu
@@ -38,8 +38,8 @@ block body
 				div#colorPicker(style='display:none')
 				div#filter(style='display:none')
 					h2 Filtrer la carte
-						input#searchMap(type="text", name="s")
-					div#results(style="overflow:auto;height:80px")
+					input#searchMap(type="text", name="s")
+					div#results
 				div#login(style='display:none')
 					h2 Authentification
 					form(method="post",id="loginform",action="/login")
