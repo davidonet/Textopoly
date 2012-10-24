@@ -83,7 +83,7 @@ exports.getimg = function(req, res, next) {
 			else {
 				res.writeHead('200', {
 					'Content-Type' : 'image/jpeg',
-					'Cache-Control' : 'public, max-age= 3600'
+					'Cache-Control' : 'max-age=3600,public'
 				});
 				res.end(reply, 'image/jpeg');
 			}
