@@ -53,6 +53,10 @@ require(["jquery", "jquery-ui", "lib/jquery.form", "modeHandler", "mapModule", "
 			uievent.init();
 			modeHandler.refresh();
 			userinfo.init();
+			try {
+				clicky.init(100536354);
+			} catch(e) {
+			}
 		});
 	});
 });
