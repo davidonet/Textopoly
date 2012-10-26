@@ -1,12 +1,11 @@
 #!/usr/bin/python
 
 from pymongo import Connection
-connection = Connection('my.david-o.net')
+connection = Connection('192.168.122.1')
 db = connection.textopoly
-db.authenticate('dataserver', '9ricer4')
 
 import redis
-r = redis.Redis(host='redis.david-o.net', port=6379, db=0)
+r = redis.Redis(host='192.168.122.1', port=6379, db=0)
 
 
 def normalizePos():

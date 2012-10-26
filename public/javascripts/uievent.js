@@ -64,48 +64,53 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 			bindZoom();
 			infoBox.init();
 
-			// TIPSY ON TOP MENU
+			if (params.user) {
 
-			$('#btnLog.log').tipsy({
-				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Se connecter', // fallback text to use when no tooltip text
-				gravity : 'e' // gravity
+				$("#btnLog").removeClass('log').addClass('out');
+
+			} else {
+
+			}
+			$('#btnHelp').click(function() {
+				var url = 'http://blog.textopoly.org/?p=119';
+				window.open(url);
 			});
 
-			$('#btnLog.set').tipsy({
+			// TIPSY ON TOP MENU
+			$('#btnLog').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Paramètres', // fallback text to use when no tooltip text
+				fallback : 'Connecter / Déconnecter', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 
 			$('#btnHelp').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Obtenir de l\'aide', // fallback text to use when no tooltip text
+				fallback : 'Aide', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 
 			$('#btnFocus').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Mode concentration', // fallback text to use when no tooltip text
+				fallback : 'Masquer', // fallback text to use when no tooltip text
 				gravity : 'e' // gravity
 			});
 
 			// TIPSY ON MAIN MENU
 			$('#btnShow').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Naviguer sur la carte', // fallback text to use when no tooltip text
+				fallback : 'Explorer', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity
 			});
 
 			$('#btnText').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Écrire sur la carte', // fallback text to use when no tooltip text
+				fallback : 'Écrire / Ajouter', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity
 			});
 
 			$('#btnPath').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
-				fallback : 'Cheminer sur la carte', // fallback text to use when no tooltip text
+				fallback : 'Tracer un chemin', // fallback text to use when no tooltip text
 				gravity : 'n' // gravity
 			});
 
@@ -127,7 +132,6 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 				gravity : 'w' // gravity
 			});
 
-			
 		},
 		bindZoom : bindZoom,
 		unbindZoom : unbindZoom
