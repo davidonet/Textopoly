@@ -1,7 +1,8 @@
 define(["helper", "uievent"], function(helper, uievent) {
 
 	var insert = function(data) {
-		var aMsg = $('.msg[dc="' + data.p + '"]');
+		//var aMsg = $('.msg[dc="' + data.p + '"]');
+		var aMsg =$("#p"+data.p.toString().replace(",","y").replace("-","m"));
 		if (aMsg !== undefined) {
 			if (0 === aMsg.length) {
 				var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c).appendTo("#map");
@@ -17,6 +18,7 @@ define(["helper", "uievent"], function(helper, uievent) {
 					}
 				}
 				newTxt.attr('dc', data.p);
+				newTxt.attr('id', "p"+data.p.toString().replace(",","y").replace("-","m"));
 				newTxt.css(helper.posToCSS(data.p));
 
 				if (params.zoom < 20) {
