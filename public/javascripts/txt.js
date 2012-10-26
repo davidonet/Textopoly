@@ -65,10 +65,6 @@ define(["helper", "uievent"], function(helper, uievent) {
 		removeInvisible : removeInvisible,
 		loadSection : function(bounds, fn) {
 			removeInvisible();
-			if (10 < params.zoom)
-				bounds.mini = 1;
-			else
-				bounds.mini = 0;
 			$.ajax({
 				url : 'section',
 				dataType : 'json',
