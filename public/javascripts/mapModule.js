@@ -89,7 +89,7 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 		return zoom;
 	}
 
-	var zoomTo = function(zoomLevel) {
+	var zoomTo = function(zoomLevel, center) {
 		if (params.zoom != zoomLevel) {
 			$('#writingBox').hide();
 			$('#informationBox').hide();
@@ -118,8 +118,13 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 
 				$('.msg').remove();
 				pathWalk.hidePath();
-				params.xcenter = helper.getCenterX();
-				params.ycenter = helper.getCenterY();
+				if (center) {
+					params.xcenter = center[0];
+					params.ycenter = center[1];
+				} else {
+					params.xcenter = helper.getCenterX();
+					params.ycenter = helper.getCenterY();
+				}
 				$('#map').css({
 					top : 0,
 					left : 0

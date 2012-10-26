@@ -14,11 +14,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 					infoBox.bindMsg();
 				} else {
 					$('.msg').dblclick(function(e) {
-						mapModule.centerTo([helper.xToPos(e.pageX), helper.yToPos(e.pageY)], false, function() {
-							mapModule.zoomTo(2);
-							require(["modeHandler"], function(modeHandler) {
-								modeHandler.refresh();
-							});
+						mapModule.zoomTo(2, [helper.xToPos(e.pageX), helper.yToPos(e.pageY)]);
+						require(["modeHandler"], function(modeHandler) {
+							modeHandler.refresh();
 						});
 					});
 				}
