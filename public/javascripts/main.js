@@ -1,10 +1,11 @@
 requirejs.config({
 	paths : {
 		'jquery-ui' : 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min',
-		'socket.io' : '/socket.io/socket.io'
+		'socket.io' : '/socket.io/socket.io',
+		'stratus' : 'http://stratus.sc/stratus'
 	}
 });
-require(["jquery", "jquery-ui", "lib/jquery.form", "modeHandler", "mapModule", "uievent", "pathBox", "userinfo", "booking"], function($, jqui, jqf, modeHandler, mapModule, uievent, pathBox, userinfo) {
+require(["jquery", "jquery-ui", "lib/jquery.form", "modeHandler", "mapModule", "uievent", "pathBox", "userinfo", "booking", 'stratus'], function($, jqui, jqf, modeHandler, mapModule, uievent, pathBox, userinfo) {
 	$(function() {
 		(function($, sr) {
 			// debouncing function from John Hann
@@ -46,7 +47,7 @@ require(["jquery", "jquery-ui", "lib/jquery.form", "modeHandler", "mapModule", "
 						}
 					}());
 			}
-
+			
 			modeHandler.init();
 			mapModule.init();
 			pathBox.init();

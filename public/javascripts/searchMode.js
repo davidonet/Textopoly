@@ -31,7 +31,7 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			$('#posInfo').hide();
 			$('#filter').show();
 			$('#footer').animate({
-				bottom : -280
+				bottom : -248
 			}, function() {
 				$('#searchMap').focus();
 			});
@@ -64,7 +64,7 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			params.findAuthor = undefined;
 
 			$('#footer').animate({
-				bottom : -470
+				bottom : -438
 			});
 			$('#posInfo').show();
 			$('#filter').hide();

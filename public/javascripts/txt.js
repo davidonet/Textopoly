@@ -2,7 +2,7 @@ define(["helper", "uievent"], function(helper, uievent) {
 
 	var insert = function(data) {
 		//var aMsg = $('.msg[dc="' + data.p + '"]');
-		var aMsg =$("#p"+data.p.toString().replace(",","y").replace("-","m"));
+		var aMsg = $("#p" + data.p.toString().replace(",", "y").replace("-", "m"));
 		if (aMsg !== undefined) {
 			if (0 === aMsg.length) {
 				var newTxt = $(document.createElement("div")).addClass("msg").addClass(data.s).addClass(data.c).appendTo("#map");
@@ -16,9 +16,34 @@ define(["helper", "uievent"], function(helper, uievent) {
 					} else {
 						newTxt.addClass("l0");
 					}
+					if (params.zoom == 2)
+						if (data.m) {
+							var sndelt = $(document.createElement("div")).addClass("sndcld").attr("url", data.m).appendTo(newTxt);
+							$(sndelt).click(function() {
+								if ($('#stratus').length > 0) {
+									var src = 'http://stratus.sc/player?' + $.param({
+										auto_play : false,
+										links : data.m,
+										download : false,
+										buying : false,
+										stats : false
+									}, true) + '&link=' + encodeURIComponent(document.location.href);
+									$.postMessage(data.m, src, $('#stratus iframe')[0].contentWindow);
+								} else {
+									$.stratus({
+										auto_play : false,
+										links : data.m,
+										download : false,
+										buying : false,
+										stats : false
+									});
+								}
+							});
+
+						}
 				}
 				newTxt.attr('dc', data.p);
-				newTxt.attr('id', "p"+data.p.toString().replace(",","y").replace("-","m"));
+				newTxt.attr('id', "p" + data.p.toString().replace(",", "y").replace("-", "m"));
 				newTxt.css(helper.posToCSS(data.p));
 
 				if (params.zoom < 20) {

@@ -51,7 +51,7 @@ define(["lib/syronex-colorpicker"], function() {
 					updateCP();
 					$('#login').hide();
 					$('#footer').animate({
-						bottom : -470
+						bottom : -438
 					}, fn);
 					$("#btnLog").removeClass('log').addClass('out');
 
@@ -62,7 +62,7 @@ define(["lib/syronex-colorpicker"], function() {
 			});
 			$('#login').show();
 			$('#footer').animate({
-				bottom : -380
+				bottom : -342
 			});
 		}
 	};
@@ -72,7 +72,7 @@ define(["lib/syronex-colorpicker"], function() {
 			$("#cancelLogin").click(function() {
 				$('#login').hide();
 				$('#footer').animate({
-					bottom : -480
+					bottom : -448
 				});
 			});
 			$("#btnLog").click(function() {

@@ -6,7 +6,7 @@ define(["mapModule", "txt", "uievent", "writemodule"], function(mapModule, txt, 
 			$('#zoomWrap').fadeOut(250);
 			$('#colorPicker').show();
 			$('#footer').animate({
-				bottom : -420
+				bottom : -388
 			});
 			$('#footer').click(function(event) {
 				event.preventDefault();
