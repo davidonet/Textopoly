@@ -1,11 +1,10 @@
 var express = require('express'), routes = require('./routes'), http = require('http'), path = require('path'), socket = require('socket.io'), fs = require('fs'), passport = require('passport');
 var app = express();
 var sensible = require('./sensible');
-var redis = require("redis").createClient(6379, sensible.redisHost());
 var RedisStore = require('connect-redis')(express);
 
 app.configure(function() {
-	app.set('port', process.env.PORT || 3000);
+	app.set('port', 5020);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
@@ -16,7 +15,9 @@ app.configure(function() {
 		secret : 'cosmopolette',
 		maxAge: new Date(Date.now() + 3600000),
 		store : new RedisStore({
-			client : redis
+			host : sensible.redisHost(),
+			port : 6379,
+			db : 8
 		})
 	}));
 	app.use(passport.initialize());

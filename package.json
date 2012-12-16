@@ -27,7 +27,7 @@
 		"url": "https://github.com/davidonet/Textopoly"
 	},
 	"dependencies": {
-		"express": ">=3.0.0rc5",
+		"express": "3.0.3",
 		"jade": "*",
 		"connect": "*",
 		"connect-redis": "*",
