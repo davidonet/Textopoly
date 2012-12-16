@@ -38,6 +38,9 @@ client.get(app.name, function(err) {
 		client.start(app, function(err, result) {
 			if (err) {
 				console.log('Error spawning app: ' + app.name);
+				client.clean(app, function() {
+					console.log("cleaned");
+				});
 				return eyes.inspect(err);
 			}
 

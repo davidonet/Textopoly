@@ -40,7 +40,8 @@
 		"rss": "*",
 		"passport": "*",
 		"passport-local": "*",
-		"crypto": "*"
+		"crypto": "*",
+		"async":"*"
 	},
 	"devDependencies": {
 		"mocha": "*",
