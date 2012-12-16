@@ -17,7 +17,7 @@
 	],
 	"private": true,
 	"scripts": {
-		"start": "node app",
+		"start": "node textopoly",
 		"test": "mocha",
 		"predeploy": "echo This will be run before deploying the app",
 		"postdeploy": "echo This will be run after deploying the app"
