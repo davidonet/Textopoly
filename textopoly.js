@@ -1,3 +1,9 @@
+
+require('nodefly').profile(
+    'd6e3996055b0a06e6ff8bd15844d52ba',
+    'Textopoly'
+);
+
 var express = require('express'), routes = require('./routes'), http = require('http'), path = require('path'), socket = require('socket.io'), fs = require('fs'), passport = require('passport');
 var app = express();
 var sensible = require('./sensible');
