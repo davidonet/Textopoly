@@ -43,7 +43,6 @@ client.get(app.name, function(err) {
 				});
 				return eyes.inspect(err);
 			}
-
 			console.log('Successfully spawned app:');
 			eyes.inspect(result);
 		});

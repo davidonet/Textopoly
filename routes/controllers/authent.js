@@ -19,6 +19,11 @@ passport.use(new LocalStrategy(function(username, password, done) {
 				message : 'Invalid password'
 			});
 		}
+		if (user.key) {
+			return done(null, false, {
+				message : 'Email not confirm'
+			});
+		}
 		return done(null, user);
 	});
 }));

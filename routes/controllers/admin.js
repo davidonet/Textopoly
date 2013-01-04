@@ -1,6 +1,16 @@
 var models = require('../models/mongodrv');
 var async = require('async');
 var crypto = require('crypto');
+var uuid = require('node-uuid');
+var sensible = require('../../sensible');
+var nodemailer = require("nodemailer");
+
+exports.new_user = function(req, res) {
+	res.render('newuser.jade', {
+		title : "Nouvel Utilisateur"
+	});
+};
+
 exports.list_author = function(req, res) {
 	db.author.find({}).toArray(function(err, items) {
 		res.render('admin/admin.jade', {
@@ -30,17 +40,64 @@ exports.edit_author = function(req, res) {
 exports.new_author = function(req, res) {
 	if ((req.body.author !== "") && (req.body.password !== "")) {
 		var pwmd5 = crypto.createHash('md5').update(req.body.password).digest("hex");
+		var key = uuid.v1()
 		db.author.insert({
 			author : req.body.author,
 			password : pwmd5,
 			email : req.body.email,
-			url : req.body.url
+			url : req.body.url,
+			key : key
 		}, function(err) {
+			var link = "http://textopoly.org/confirm?key=" + key;
+			var mailOptions = {
+				from : "Textopoly <textopoly@lapanacee.org>", // sender address
+				to : req.body.email, // list of receivers
+				subject : "Inscription à Textopoly", // Subject line
+				text : "Bonjour " + req.body.author + "\nPour confirmer votre inscription ouvrez l'adresse " + link + " dans un navigateur.", // plaintext body
+				html : "<h1>Confirmation de votre inscription à Textopoly</h1><h2>" + req.body.author + "</h2><p>Cliquer sur le lien : <a href='" + link + "'>ici</a>" // html body
+			};
+			var smtpTransport = nodemailer.createTransport("SMTP", {
+				service : "Gmail",
+				auth : {
+					user : sensible.gmailMail().user,
+					pass : sensible.gmailMail().pwd
+				}
+			});
+
+			smtpTransport.sendMail(mailOptions, function(error, response) {
+				if (error) {
+					console.log(error);
+				} else {
+					console.log("Message sent: " + response.message);
+				}
+				smtpTransport.close();
+			});
 			res.redirect("/admin/user/" + req.body.author);
 		});
 	} else {
 		res.redirect("/admin/");
 	}
+};
+
+exports.confirm_user = function(req, res) {
+	db.author.findOne({
+		key : req.query.key
+	}, function(err, user) {
+		console.log(err, user);
+		if (user === null)
+			res.redirect("/");
+		else {
+			db.author.update({
+				key : req.query.key
+			}, {
+				$unset : {
+					key : 1
+				}
+			}, function(err, item) {
+				res.redirect("/admin/user/" + user.author);
+			});
+		}
+	});
 };
 
 exports.remove_book = function(req, res) {
@@ -51,11 +108,10 @@ exports.remove_book = function(req, res) {
 			db.path.remove({
 				_id : db.path.ObjectID(req.params.id)
 			}, function(err) {
-				res.redirect("/admin/user/"+item.a);
+				res.redirect("/admin/user/" + item.a);
 			});
-		}
-		else{
-			res.redirect("/admin/user/"+item.a);
+		} else {
+			res.redirect("/admin/user/" + item.a);
 		}
 	});
 };

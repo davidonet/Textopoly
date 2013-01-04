@@ -41,8 +41,9 @@
 		"passport": "*",
 		"passport-local": "*",
 		"crypto": "*",
-		"async":"*",
-		"nodefly": "stable"
+		"async": "*",
+		"node-uuid": "*",
+		"nodemailer":"*"
 	},
 	"devDependencies": {
 		"mocha": "*",

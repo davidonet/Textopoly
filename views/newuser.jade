@@ -1,0 +1,74 @@
+extend layout
+
+block head
+	style(type="text/css")		
+		body
+		{
+			width:70%;
+		}
+		body.default {
+			width:70%;
+			margin-left:auto;
+			margin-right:auto;
+			font-family:"NotCourierSansRegular",monospace;
+			}
+		p.t {
+		}
+		p.p {
+			font-weight:bold;
+			text-align:center;
+		}
+		td{
+			border:1px #eee solid;
+			padding: 5px 5px 5px 5px;
+		}
+		th{
+			color:#111;
+			background-color:#eee;
+			padding: 5px 5px 5px 5px;
+			font-weight:bold;
+			
+		}
+		input{
+			padding:2px 2px 2px 2px;
+			margin:2px 2px 2px 2px;
+			font-family:"NotCourierSansRegular",monospace;
+				border:1px #eee solid;
+		}
+		label{
+			text-decoration:underline;
+			margin-right:1em;
+			margin-left:1em;
+		}
+
+block body
+	h1 Nouvel utilisateur
+	form(action='/admin/user/new',method='post')
+		table
+			tr
+				td Pseudo
+				td 
+					input(name="author",placeholder="MonNom")
+			tr
+				td Mot de passe 
+				td
+					input(name="password",placeholder="MotDePasse")
+			tr
+				td Email
+				td
+					input(name="email",size="50",placeholder="moi@textopoly.org")
+			tr
+				td Site Web
+				td
+					input(name="url",size="50",placeholder="http://textopoly.org")
+			tr
+				td
+					
+				td
+					En cliquant sur le bouton "S'inscrire", j'accepte sans condition
+					br
+					la	Charte d'Utilisation. Lisible : 
+					a(href="http://blog.textopoly.org/?page_id=138",target='_new') ici
+			tr
+				td
+					input(style="width:100%",type='submit',value="S'inscrire")
