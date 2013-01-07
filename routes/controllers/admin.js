@@ -56,12 +56,8 @@ exports.new_author = function(req, res) {
 				text : "Bonjour " + req.body.author + "\nPour confirmer votre inscription ouvrez l'adresse " + link + " dans un navigateur.", // plaintext body
 				html : "<h1>Confirmation de votre inscription à Textopoly</h1><h2>" + req.body.author + "</h2><p>Cliquer sur le lien : <a href='" + link + "'>ici</a>" // html body
 			};
-			var smtpTransport = nodemailer.createTransport("SMTP", {
-				service : "Gmail",
-				auth : {
-					user : sensible.gmailMail().user,
-					pass : sensible.gmailMail().pwd
-				}
+			var smtpTransport = nodemailer.createTransport("sendmail", {
+
 			});
 
 			smtpTransport.sendMail(mailOptions, function(error, response) {
