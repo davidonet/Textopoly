@@ -22,7 +22,7 @@ define(["helper", "uievent"], function(helper, uievent) {
 							$(sndelt).click(function() {
 								if ($('#stratus').length > 0) {
 									var src = 'http://stratus.sc/player?' + $.param({
-										auto_play : false,
+										auto_play : true,
 										links : data.m,
 										download : false,
 										buying : false,
@@ -31,7 +31,7 @@ define(["helper", "uievent"], function(helper, uievent) {
 									$.postMessage(data.m, src, $('#stratus iframe')[0].contentWindow);
 								} else {
 									$.stratus({
-										auto_play : false,
+										auto_play : true,
 										links : data.m,
 										download : false,
 										buying : false,

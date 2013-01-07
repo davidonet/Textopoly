@@ -266,6 +266,7 @@ db.bind('txt', {
 		}, {
 			$set : {
 				t : nTxt.t,
+				m : nTxt.m,
 				d : new Date()
 			}
 		}, fn);

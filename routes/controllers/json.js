@@ -124,6 +124,10 @@ exports.authors = function(req, res) {
 
 exports.insert = function(req, res) {
 	req.body.a = req.user.author;
+	var urlRegex = /(https:\/\/soundcloud\.com\/[^\s]+\/[^\s]+)/;
+	if (-1 < req.body.t.search(urlRegex)) {
+		req.body.m = req.body.t;
+	}
 	db.txt.insertTxt(req.body, function(err, aTxt) {
 		io.sockets.emit('book', aTxt);
 		var ua = req.header('user-agent');
@@ -140,6 +144,13 @@ exports.update = function(req, res) {
 		y : req.params.y,
 		t : req.body.t
 	};
+	var urlRegex = /(https:\/\/soundcloud\.com\/[^\s]+\/[^\s]+)/;
+	if (-1 < aTxt.t.search(urlRegex)) {
+		aTxt.m = aTxt.t;
+	} else {
+		aTxt.m = null;
+	}
+
 	db.txt.updateTxt(aTxt, function(err) {
 		res.json({
 			success : true
