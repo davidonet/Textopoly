@@ -2,6 +2,7 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 
 	return {
 		init : function() {
+
 			mapModule.zoomTo(40);
 			$('#results').empty();
 			params.findAuthor = undefined;
@@ -27,14 +28,17 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 					}
 				});
 			});
+			$('#login').dialog("close");
 			$('#colorPicker').hide();
-			$('#posInfo').hide();
-			$('#filter').show();
-			$('#footer').animate({
-				bottom : -248
-			}, function() {
-				$('#searchMap').focus();
-			});
+			$('#filter').dialog(
+				{
+				modal: true,
+				draggable: false,
+				height: 200,
+				width: 400,
+
+				});
+			$('#searchMap').focus()
 
 		},
 		refresh : function(localParams) {
@@ -63,11 +67,7 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			$('.filter').removeClass('filter');
 			params.findAuthor = undefined;
 
-			$('#footer').animate({
-				bottom : -438
-			});
-			$('#posInfo').show();
-			$('#filter').hide();
+			$('#filter').dialog("close");
 
 		}
 	};

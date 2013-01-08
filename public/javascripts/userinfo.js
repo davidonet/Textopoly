@@ -45,19 +45,15 @@ define(["lib/syronex-colorpicker"], function() {
 
 		} else {
 			var content = $('#content')
-
+			$('#filter').dialog("close");
 			$('#login').dialog(
 				{
 				modal: true,
 				draggable: false,
 				height: 200,
 				width: 400,
-				my: "center",
-				at: "center",
-				of: content
 				});
 
-			$('#loginresult').text("");
 			$('#loginform').ajaxForm({
 				success : function(data) {
 					params.user = data;

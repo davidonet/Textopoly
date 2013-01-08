@@ -35,10 +35,7 @@ block body
 			div#footer
 				p#posInfo 0,0
 				div#colorPicker(style='display:none')
-				div#filter(style='display:none')
-					h2 Filtrer la carte
-					input#searchMap(type="text", name="s")
-					div#results
+				
 
 			div#login(style='display:none')
 				h2 Authentification
@@ -52,6 +49,12 @@ block body
 				p <a href ="/newuser" >créér un compte </a>
 				p <a href ="/lostpwd" >mot de passe oublié </a>
 		div.grid#map(class='z'+params.zoom)
+
+			div#filter(style='display:none')
+				h2 Filtrer la carte
+				input#searchMap(type="text", name="s")
+				div#results
+
 			div#removeBox(style='display:none')
 				
 			div#writingBox(style='display:none')
