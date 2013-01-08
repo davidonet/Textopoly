@@ -6,7 +6,7 @@ define(["txt", "uievent", "pathWalk", "pathBox", "mapModule", "helper"], functio
 			$('#zoomWrap').fadeOut(250);
 			pathBox.bindMsg();
 			$('#footer').animate({
-				bottom : -438
+				bottom : -20
 			}, function() {
 				$('#colorPicker').hide();
 			});
