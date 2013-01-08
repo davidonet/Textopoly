@@ -44,25 +44,31 @@ define(["lib/syronex-colorpicker"], function() {
 
 
 		} else {
+			var content = $('#content')
+
+			$('#login').dialog(
+				{
+				modal: true,
+				draggable: false,
+				height: 200,
+				width: 400,
+				my: "center",
+				at: "center",
+				of: content
+				});
+
 			$('#loginresult').text("");
 			$('#loginform').ajaxForm({
 				success : function(data) {
 					params.user = data;
 					updateCP();
-					$('#login').hide();
-					$('#footer').animate({
-						bottom : -438
-					}, fn);
+					$('#login').dialog("close");
 					$("#btnLog").removeClass('log').addClass('out');
 
 				},
 				error : function() {
-					$('#loginresult').text("Identification invalide");
+					$('#login').effect("shake", 50);
 				}
-			});
-			$('#login').show();
-			$('#footer').animate({
-				bottom : -342
 			});
 		}
 	};
@@ -70,10 +76,8 @@ define(["lib/syronex-colorpicker"], function() {
 		init : function() {
 			updateCP();
 			$("#cancelLogin").click(function() {
-				$('#login').hide();
-				$('#footer').animate({
-					bottom : -448
-				});
+				$('#login').dialog("close");
+
 			});
 			$("#btnLog").click(function() {
 				if (params.user) {

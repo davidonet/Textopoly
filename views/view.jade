@@ -39,16 +39,18 @@ block body
 					h2 Filtrer la carte
 					input#searchMap(type="text", name="s")
 					div#results
-				div#login(style='display:none')
-					h2 Authentification
-					form(method="post",id="loginform",action="/login")
-						label signature
-						input(type='text',name='username')
-						label mot de passe
-						input(type='password',name='password')
-						input(type="submit",value="Ok")
-					input(id="cancelLogin",type="button",value="Annuler")	
-					span(id="loginresult")
+
+			div#login(style='display:none')
+				h2 Authentification
+				form(method="post",id="loginform",action="/login")
+					label signature
+					input(type='text',name='username')
+					label mot de passe
+					input(type='password',name='password')
+					input(type="submit",value="Ok")
+				input(id="cancelLogin",type="button",value="Annuler")	
+				p <a href ="/newuser" >créér un compte </a>
+				p <a href ="/lostpwd" >mot de passe oublié </a>
 		div.grid#map(class='z'+params.zoom)
 			div#removeBox(style='display:none')
 				
