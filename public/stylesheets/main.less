@@ -31,7 +31,7 @@ a{
 }
 
 a:hover{
-  color:@skyblueL;
+  text-decoration:underline;
 }
 
 .button (@radius) {
@@ -210,7 +210,7 @@ body {
   
 }
 
-h1, h2, h3, h4, h5, h6, label, input {
+h1, h2, h3, h4, h5, h6, label,p {
     font-family: @Futura;
     color: @aluminium2;
     }
@@ -224,17 +224,61 @@ h2 {
     font-size: 16px;
     margin-bottom: 10px;
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
 h3 {
     font-size: 12px;
     margin-bottom: 10px;
     letter-spacing: 2px;
 }
-input {
-    font-size: 14px;
+input[type=text],input[type=password],  {
+    font-family: @Futura;
+    color: @aluminium2;
+    border: solid 1px @aluminium1D;
+    background-color: @aluminium1L;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-align: center;
+
+    display: block;
+    width: 240px;
+    height: 20px;
+    padding: 2px;
+    margin-right:auto;
+    margin-left:auto;
+    margin-bottom: 10px;
+
 }
+
+input[type=submit],input[type=button] {
+  font-family: @Futura;
+  font-size: 16px;
+  margin: 5px;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  
+  color: @aluminium1L;
+  border: solid 2px @aluminium1L;
+  background-color: @aluminium2L;        
+  
+    &:hover {
+       border: solid 2px @aluminium2D;
+       background-color: @aluminium2;   
+    }  
+}
+
+p {
+  font-size: 14px;
+}
+
 label {
-    font-size: 14px;
+    font-size: 12px;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
@@ -467,6 +511,7 @@ div#leftA {
     color: @aluminium2L;
     
             >h2 {
+              margin-top: 0;
     font-size: 22px;
     line-height: 28px;
     

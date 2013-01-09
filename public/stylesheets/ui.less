@@ -260,26 +260,47 @@ div.editArea.f > #write, div.editArea.f > #edit {
 
  .windowBox{
     position: absolute;
-    margin-left: 280px;
+    margin-left: 240px;
     background-color: @aluminium1Lt;
     z-index: 1500;
+    text-align: center;
+    border: dashed 2px @aluminium2;
+    padding-top: 20px;
  }
 
 #login {
-    width: 400px;
+    width: 480px;
     height: 220px;
 
     top: 50%;
     margin-top: -65px;
 }
 #filter {
-    width: 400px;
+    width: 480px;
     height: 220px;
 
     top: 50%;
     margin-top: -65px;
 
     
+}
+
+
+
+#results {
+    font-family: @Futura;
+    text-align: center;
+    width: 460px;
+    max-height: 170px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+    
+    >p {
+    padding-left: 20px;
+    }
 }
 
 
@@ -313,21 +334,7 @@ div.editArea.f > #write, div.editArea.f > #edit {
     padding-right: 20px;
 }
 
-#results {
-    font-family: @Futura;
-    text-align: center;
-    width: 460px;
-    max-height: 170px;
-    overflow-y: auto;
-    /* prevent horizontal scrollbar */
-    overflow-x: hidden;
-    /* add padding to account for vertical scrollbar */
-    padding-right: 20px;
-    
-    >p {
-    padding-left: 20px;
-    }
-}
+
 
 .ui-menu {
     width: 100px;
@@ -335,10 +342,6 @@ div.editArea.f > #write, div.editArea.f > #edit {
     text-align: left;
     background: white;li a:hover{
 }
-}
-
-#searchMap {
-    width: 120px;
 }
 
 
