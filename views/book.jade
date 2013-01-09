@@ -5,11 +5,11 @@ block body
 			div#header.small
 				div#topbar
 				div#title
-					h1 TEXTOPOLY
+					h1 <a href="/">TEXTOPOLY</a>
 					div#blink
 				div#topmenu
-					div#btnHelp.normal
-					div#btnFocus.normal
+					div#btnLog.log
+					div#btnHelp.hlp
     
 			div#bookView
 				h2 chemin de #{a}
@@ -22,10 +22,9 @@ block body
 								p(style="background-color:grey") &nbsp;       
 						br
 				p
-					input(style="float:right",type="button",value="Supprimer ce chemin",onclick="del_book('"+id+"')")
+					input(style="float:left",type="button",value="Supprimer",onclick="del_book('"+id+"')")
 			div#footer
-				h2
-					a(href="/") Textopoly |
+				h3 Utilisateur : 
 					a(href="/admin/user/"+a) #{a}
 	script(type="text/javascript")
 		function del_book(id){
