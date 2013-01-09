@@ -20,8 +20,9 @@ block body
 						br
 				p
 					input(style="float:left",type="button",value="Supprimer",onclick="del_book('"+id+"')")
+
 			div#footer
-				h3 Profil de : 
+				h3 <a href="javascript:history.go(-1)">Retour</a> • Profil de : 
 					a(href="/admin/user/"+a) #{a}
 	script(type="text/javascript")
 		function del_book(id){

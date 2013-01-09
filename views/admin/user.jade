@@ -32,9 +32,10 @@ block body
 										p #{t.d.toDateString()} 
 									td.text
 										p.t #{t.t}
-									td.button
-										p
-											input(type="button",value="Supprimer",onclick="")
+									if su
+										td.button
+											p
+												input(type="button",value="Supprimer",onclick="")
 
 					hr
 					h2 Liste des chemins
@@ -52,14 +53,17 @@ block body
 									td.text
 										p.t #{p.title}
 									td.length
-										p #{p.pw.length}										
-									td.button
-										p
-											input(type="button",value="Supprimer",onclick="del_book('"+p._id+"')")
+										p #{p.pw.length}
+
+									if su									
+										td.button
+											p
+												input(type="button",value="Supprimer",onclick="del_book('"+p._id+"')")
 
 			div#footer
-				if su
-					h3 <a href="/admin">Liste d'auteurs</a>
+				h3 <a href="javascript:history.go(-1)">Retour</a>
+					if su
+						<a href="/admin"> • Super Admin !</a>
 
 
 
