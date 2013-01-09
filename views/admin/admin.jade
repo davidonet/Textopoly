@@ -1,45 +1,64 @@
 extends base
 
 block body
-	h1 Ajouter un utilisateur
-	form(action='/admin/user/new',method='post')
-		table
-			tr
-				td Pseudo
-				td 
-					input(name="author")
-			tr
-				td Mot de passe 
-				td
-					input(name="password",value="MotDePasse")
-			tr
-				td Email
-				td
-					input(name="email",size="50",value="moi@textopoly.org")
-			tr
-				td Site Web
-				td
-					input(name="url",size="50",value="http://textopoly.org")
-			tr
-				td
-					input(style="width:100%",type='submit',value='Ajouter')
-	br
-	h1 Liste des utilisateurs enregistrés
-	table
-		each a in authors
-			tr
-				td
-					p
-						a(href="/admin/user/"+a.author) #{a.author}
-				td
-					p
-						a(href="mailto:"+a.email) #{a.email}
-				td
-					p
-						a(href=a.url) #{a.url}
-				td
-					p
-						input(type="button",value="Supprimer",onclick="del_author('"+a.author+"')")
+
+
+	div#content
+		div#uiWrap
+			div#header.small
+				div#topbar
+				div#title
+					h1 <a href="/">TEXTOPOLY</a>
+					div#blink
+
+			div#main
+				h1 Super Admin !
+				hr	
+				h2 Ajouter un utilisateur
+				hr
+				form(action='/admin/user/new',method='post')
+					label Pseudo 
+					
+					input(type='text', name="author")
+					br
+					label Mot de passe 
+					
+					input(type='text', name="password",value="MotDePasse")
+					br
+					label Email 
+					
+					input(type='text', name="email",size="50",value="moi@textopoly.org")
+					br
+					label Site Web 
+					
+					input(type='text', name="url",size="50",value="http://textopoly.org")
+					br
+					br
+					input(type='submit',value='Ajouter')
+				br
+				hr
+				h2 Liste des utilisateurs enregistrés
+				hr
+				div#users(style="overflow:auto;height:350px")
+					table
+						each a in authors
+							tr
+								td
+									p
+										a(href="/admin/user/"+a.author) #{a.author}
+								td
+									p
+										a(href="mailto:"+a.email) #{a.email}
+								td
+									p
+										a(href=a.url) #{a.url}
+								td.button
+									p
+										input(type="button",value="Supprimer",onclick="del_author('"+a.author+"')")
+	
+			div#footer
+				h3 <a href="/logout">Fermer la session</a>
+
 	script(type="text/javascript")
 		function del_author(author){
 			if(confirm("Suppression irrémédiable de l'utilisateur '"+author+"' et de toutes ses données associées")){
