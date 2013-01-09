@@ -38,7 +38,8 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 				width: 400,
 
 				});
-			$('#searchMap').focus()
+			$('#searchMap').val('');
+			$('#searchMap').focus();
 
 		},
 		refresh : function(localParams) {
