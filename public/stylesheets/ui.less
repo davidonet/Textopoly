@@ -19,6 +19,9 @@
 
 
 }
+#writingBox * h2, #informationBox * h2 {
+    padding-top: 10px;
+}
 
 #writingBox {
     z-index: 1000;
@@ -41,6 +44,22 @@
     padding: 8px;
     cursor: default;
 }
+#permalink a{
+    color: @aluminium2D;
+}
+#pathGo {
+ .button(16px);
+ margin-left: 5px;
+ display: inline-block;
+ vertical-align: middle;
+
+}
+#pathCont{
+padding-top: 10px;
+height: 20px;
+width: 100%;
+
+}
 
 #pathBox {
     z-index: 1000;
@@ -53,10 +72,11 @@
     cursor: default;
 }
 
-#writingBox * h2, #informationBox * h2 {
-    padding-top: 20px;
+#pathList {
+    position: relative;
+    top:0px;
+    left: 0px;
 }
-
 #current_author {
     width: 150px;
     height: 20px;
@@ -283,6 +303,8 @@ div.editArea.f > #write, div.editArea.f > #edit {
 line-height: 40px;
 }
 
+
+
 #filter {
     width: 480px;
     height: 208px;
@@ -353,7 +375,7 @@ line-height: 40px;
     width: 100px;
     font-family: @Futura;
     text-align: center;
-    font-size: 16p
+    font-size: 16px;
 
 }
 

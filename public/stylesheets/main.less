@@ -11,7 +11,7 @@
 .sndcld{
     width:33px;
     height:21px;
-    z-index:2000;
+    z-index:500;
     background-image: url('img/sndcld.png');
     float:right;
     bottom:0;
@@ -224,12 +224,12 @@ h2 {
     margin-bottom: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-        color: @aluminium2D;
+    color: @aluminium2D;
 
 }
 h3 {
     font-size: 14px;
-    margin-bottom: 10px;
+  line-height: 24px;
     letter-spacing: 2px;
 }
 input[type=text],input[type=password],  {
@@ -276,10 +276,40 @@ p, span {
   font-size: 14px;
 }
 
+select {
+  display: inline;
+    width: 120px;
+  height: 20px;
+    margin: 0;
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+    -webkit-box-shadow: 0;
+    -moz-box-shadow: 0;
+    box-shadow: 0;
+    background: url('icons/arrow_down.svg') no-repeat right @aluminium2L;
+    color:@aluminium1L;
+    border: solid 2px @aluminium1L;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+
+    &:hover {
+       border: solid 2px @aluminium2D;
+       background-color: @aluminium2;   
+    }  
+
+}
+
+
 label {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
+     vertical-align: middle;
 }
 
 input:focus {
