@@ -41,12 +41,12 @@ block body
 				h2 Authentification
 				form(method="post",id="loginform",action="/login")
 					label signature
-					input(type='text',name='username')
+					input(type='text',name='username',autocomplete="off")
 					label mot de passe
 					input(type='password',name='password')
 					input(id="cancelLogin",type="button",value="Annuler")	
 					input(type="submit",value="OK")
-				p <a href ="/newuser" >créér un compte </a> | <a href ="/lostpwd" >mot de passe oublié </a>
+				span#account <a href ="/newuser" >créér un compte </a> | <a href ="/lostpwd" >mot de passe oublié </a>
 			
 			div#filter.windowBox(style='display:none')
 				h2 Filtrer la carte
