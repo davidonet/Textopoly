@@ -1,5 +1,5 @@
 /***********************************************************************************
- * WRITEBOX / INFOBOX WORK IN PROGRESS
+ * WRITEBOX
  ***********************************************************************************/
 
 /* WRITINGBOX */
@@ -255,6 +255,35 @@ div.editArea.f > #write, div.editArea.f > #edit {
 }
 
 /***********************************************************************************
+ * WINDOW BOX
+ ***********************************************************************************/
+
+ .windowBox{
+    position: absolute;
+    margin-left: 280px;
+    background-color: @aluminium1Lt;
+    z-index: 1500;
+ }
+
+#login {
+    width: 400px;
+    height: 220px;
+
+    top: 50%;
+    margin-top: -65px;
+}
+#filter {
+    width: 400px;
+    height: 220px;
+
+    top: 50%;
+    margin-top: -65px;
+
+    
+}
+
+
+/***********************************************************************************
  *  JQUERYUI
  ***********************************************************************************/
 
@@ -274,6 +303,7 @@ div.editArea.f > #write, div.editArea.f > #edit {
 }
 
 .ui-autocomplete {
+    z-index: 3000;
     width: 100px;
     max-height: 170px;
     overflow-y: auto;
@@ -311,13 +341,7 @@ div.editArea.f > #write, div.editArea.f > #edit {
     width: 120px;
 }
 
-.ui-dialog-content {
-    background-color: @aluminium1Lt;
 
-}
-.ui-dialog-titlebar-close {
-  visibility: hidden;
-}
 
 /***********************************************************************************
  *  COLORPICKER

@@ -28,16 +28,9 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 					}
 				});
 			});
-			$('#login').dialog("close");
+			$('#login').hide();
 			$('#colorPicker').hide();
-			$('#filter').dialog(
-				{
-				modal: true,
-				draggable: false,
-				height: 200,
-				width: 400,
-
-				});
+			$('#filter').show();
 			$('#searchMap').val('');
 			$('#searchMap').focus();
 
@@ -68,7 +61,7 @@ define(["txt", "pathWalk", "infoBox", "mapModule", "helper"], function(txt, path
 			$('.filter').removeClass('filter');
 			params.findAuthor = undefined;
 
-			$('#filter').dialog("close");
+			$('#filter').hide();
 
 		}
 	};

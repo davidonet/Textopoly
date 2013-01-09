@@ -41,24 +41,20 @@ define(["lib/syronex-colorpicker"], function() {
 			$("#btnLog").removeClass('log').addClass('out');
 			
 		
-
+/***********************************************************************************
+ * LOGIN
+ ***********************************************************************************/
 
 		} else {
-			var content = $('#content')
-			$('#filter').dialog("close");
-			$('#login').dialog(
-				{
-				modal: true,
-				draggable: false,
-				height: 200,
-				width: 400,
-				});
+			$('#filter').hide();
+			$('#login').show();
+
 
 			$('#loginform').ajaxForm({
 				success : function(data) {
 					params.user = data;
 					updateCP();
-					$('#login').dialog("close");
+					$('#login').hide();
 					$("#btnLog").removeClass('log').addClass('out');
 
 				},
@@ -72,7 +68,7 @@ define(["lib/syronex-colorpicker"], function() {
 		init : function() {
 			updateCP();
 			$("#cancelLogin").click(function() {
-				$('#login').dialog("close");
+				$('#login').hide();
 
 			});
 			$("#btnLog").click(function() {

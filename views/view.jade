@@ -37,7 +37,7 @@ block body
 				div#colorPicker(style='display:none')
 				
 
-			div#login(style='display:none')
+			div#login.windowBox(style='display:none')
 				h2 Authentification
 				form(method="post",id="loginform",action="/login")
 					label signature
@@ -48,12 +48,13 @@ block body
 				input(id="cancelLogin",type="button",value="Annuler")	
 				p <a href ="/newuser" >créér un compte </a>
 				p <a href ="/lostpwd" >mot de passe oublié </a>
-		div.grid#map(class='z'+params.zoom)
-
-			div#filter(style='display:none')
+			
+			div#filter.windowBox(style='display:none')
 				h2 Filtrer la carte
 				input#searchMap(type="text", name="s")
 				div#results
+
+		div.grid#map(class='z'+params.zoom)
 
 			div#removeBox(style='display:none')
 				
