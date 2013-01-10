@@ -76,6 +76,27 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 				window.open(url);
 			});
 
+
+			$('#btnFocus').click(function() {
+				console.log("Focus");
+
+				if ($('#header').hasClass('big')=== true){
+					$('#slider').hide();
+					$('#header').removeClass('big').addClass('small');
+
+
+				} else if ($('#header').hasClass('small')=== true) {
+					$('#slider').show();
+					$('#header').removeClass('small').addClass('big');
+
+
+				}
+
+				
+
+
+			});
+
 			// TIPSY ON TOP MENU
 			$('#btnLog').tipsy({
 				delayIn : 500, // delay before showing tooltip (ms)
