@@ -78,18 +78,12 @@ define(['helper', "infoBox", "mapModule"], function(helper, infoBox, mapModule) 
 
 
 			$('#btnFocus').click(function() {
-				console.log("Focus");
-
 				if ($('#header').hasClass('big')=== true){
 					$('#slider').hide();
 					$('#header').removeClass('big').addClass('small');
-
-
 				} else if ($('#header').hasClass('small')=== true) {
 					$('#slider').show();
 					$('#header').removeClass('small').addClass('big');
-
-
 				}
 
 				
