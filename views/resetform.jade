@@ -1,0 +1,23 @@
+extend layout
+
+block body
+	div#content
+			div#uiWrap
+				div#header.small
+					div#topbar
+					div#title
+						h1 <a href="/">TEXTOPOLY</a>
+						div#blink
+	
+				div#main(style="font-align:center;")
+					h1 Bienvenue sur Textopoly !
+					hr	
+					h2 Changer votre mot de passe
+					hr
+					form(action='/reset',method='post')
+						label Mot de passe
+						input(type='hidden',name='key',value=key)
+						input(type='text', name="password",size="50")
+						input(type='submit',value="Aidez moi",style="margin-top:10px;")
+				div#footer
+					h3 <a href="/">TEXTOPOLY</a>

@@ -63,6 +63,10 @@ module.exports = function(app) {
 	app.post('/admin/user/new', adminC.new_author);
 	app.get('/newuser', adminC.new_user);
 	app.get('/confirm', adminC.confirm_user);
+	app.get('/lostpwd', adminC.lostpwd);
+	app.get('/user/reset', adminC.resetpwd);
+	app.get('/resetform', adminC.resetform);
+	app.post('/reset', adminC.reset);
 	
 
 	app.post('/postimg', imgC.postimg);

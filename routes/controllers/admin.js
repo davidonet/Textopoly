@@ -11,6 +11,73 @@ exports.new_user = function(req, res) {
 	});
 };
 
+exports.lostpwd = function(req, res) {
+	res.render('lostpwd.jade', {
+		title : "Mot de Passe perdu"
+	});
+};
+
+exports.resetform = function(req, res) {
+	res.render('resetform.jade', {
+		title : "Mot de Passe perdu",
+		key : req.query.key
+	});
+};
+
+exports.reset = function(req, res) {
+	db.author.findOne({
+		key : req.body.key
+	}, function(err, user) {
+		var pwmd5 = crypto.createHash('md5').update(req.body.password).digest("hex");
+		if (user === null)
+			res.redirect("/");
+		else {
+			db.author.update({
+				key : req.body.key
+			}, {
+				$unset : {
+					key : 1
+				},
+				$set : {
+					password : pwmd5
+				}
+			}, function(err, item) {
+				res.redirect("/");
+			});
+		}
+	});
+};
+
+exports.resetpwd = function(req, res) {
+	var key = uuid.v1();
+	db.author.update({
+		email : req.query.email
+	}, {
+		$set : {
+			key : key
+		}
+	}, function(err, item) {
+		var link = "http://textopoly.org/resetform?key=" + key;
+		var mailOptions = {
+			from : "Textopoly <textopoly@lapanacee.org>", // sender address
+			to : req.query.email, // list of receivers
+			subject : "Inscription à Textopoly", // Subject line
+			text : "Bonjour \nPour réinitialiser votre mot de de passe ouvrez l'adresse " + link + " dans un navigateur.", // plaintext body
+			html : "<h1>Pour réinitialiser votre mot de de passe</h1><p>Cliquer sur le lien : <a href='" + link + "'>ici</a>" // html body
+		};
+		var smtpTransport = nodemailer.createTransport("SMTP", {});
+		smtpTransport.sendMail(mailOptions, function(error, response) {
+			if (error) {
+				console.log(error);
+			} else {
+				console.log("Message sent: " + response.message);
+			}
+			smtpTransport.close();
+		});
+		res.redirect("/");
+	});
+};
+
 exports.list_author = function(req, res) {
 	db.author.find({}).toArray(function(err, items) {
 		res.render('admin/admin.jade', {
@@ -20,7 +87,6 @@ exports.list_author = function(req, res) {
 };
 
 exports.edit_author = function(req, res) {
-
 	db.author.findOne({
 		author : req.params.a
 	}, function(err, item) {
