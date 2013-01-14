@@ -176,10 +176,15 @@ define(["lib/jquery.tipsy"], function() {
 							var aDate = new Date(data.d);
 							$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
 							$("a[href='#permalink']").attr('href', 'http://textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
-							$(data.spw).each(function(index, path) {
-								var newPath = $(document.createElement("option")).attr('value', '/book/' + path._id).text(path.title);
-								$('#pathList').append(newPath);
-							});
+							if (0 == $(data.spw).length) {
+								$('#pathCont').hide();
+							} else {
+								$('#pathCont').show();
+								$(data.spw).each(function(index, path) {
+									var newPath = $(document.createElement("option")).attr('value', '/book/' + path._id).text(path.title);
+									$('#pathList').append(newPath);
+								});
+							}
 						});
 					});
 					$('.infoArea > .msgInfo').toggle('slow', function() {
