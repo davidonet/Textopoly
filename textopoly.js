@@ -47,13 +47,17 @@ require(libpath)(app);
 
 var server = http.createServer(app).listen(app.get('port'));
 
+io.configure(function() {
+	io.set("transports", ["xhr-polling"]);
+	io.set("polling duration", 10);
+	io.set('log level', 0);
 
+});
 
 global.io = socket.listen(server, {
 	log : false
 });
 
-io.set('log level', 0);
 var events = require('events');
 global.serverEmitter = new events.EventEmitter();
 
