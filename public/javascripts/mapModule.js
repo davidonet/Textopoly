@@ -93,46 +93,45 @@ define(['helper', 'pathWalk'], function(helper, pathWalk) {
 		if (params.zoom != zoomLevel) {
 			$('#writingBox').hide();
 			$('#informationBox').hide();
-			$('#map').fadeOut(100, function() {
-				$('#map').removeClass('z1').removeClass('z2').removeClass('z4').removeClass('z10').removeClass('z20').removeClass('z40');
-				params.zoom = zoomLevel;
-				switch(zoomLevel) {
-					case 40:
-						$('#map').addClass('z40');
-						break;
-					case 20:
-						$('#map').addClass('z20');
-						break;
-					case 10:
-						$('#map').addClass('z10');
-						break;
-					case 4:
-						$('#map').addClass('z4');
-						break;
-					case 2:
-						$('#map').addClass('z2');
-						break;
-					case 1:
-						$('#map').addClass('z1');
-				}
+			$('#map').removeClass('z1').removeClass('z2').removeClass('z4').removeClass('z10').removeClass('z20').removeClass('z40');
+			params.zoom = zoomLevel;
+			switch(zoomLevel) {
+				case 40:
+					$('#map').addClass('z40');
+					break;
+				case 20:
+					$('#map').addClass('z20');
+					break;
+				case 10:
+					$('#map').addClass('z10');
+					break;
+				case 4:
+					$('#map').addClass('z4');
+					break;
+				case 2:
+					$('#map').addClass('z2');
+					break;
+				case 1:
+					$('#map').addClass('z1');
+			}
 
-				$('.msg').remove();
-				pathWalk.hidePath();
-				if (center) {
-					params.xcenter = center[0];
-					params.ycenter = center[1];
-				} else {
-					params.xcenter = helper.getCenterX();
-					params.ycenter = helper.getCenterY();
-				}
-				$('#map').css({
-					top : 0,
-					left : 0
-				});
-				computeCellSize();
-				computeParams();
-				$('#zoomSlider').slider('value', getZoomSlider());
+			$('.msg').remove();
+			pathWalk.hidePath();
+			if (center) {
+				params.xcenter = center[0];
+				params.ycenter = center[1];
+			} else {
+				params.xcenter = helper.getCenterX();
+				params.ycenter = helper.getCenterY();
+			}
+			$('#map').css({
+				top : 0,
+				left : 0
 			});
+			computeCellSize();
+			computeParams();
+			$('#zoomSlider').slider('value', getZoomSlider());
+
 		}
 	};
 
