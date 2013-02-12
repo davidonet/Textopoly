@@ -1,4 +1,4 @@
-define(["helper", "uievent"], function(helper, uievent) {
+define(["helper", "uievent", "lib/async"], function(helper, uievent, async) {
 
 	var insert = function(data) {
 		//var aMsg = $('.msg[dc="' + data.p + '"]');
@@ -98,10 +98,11 @@ define(["helper", "uievent"], function(helper, uievent) {
 				dataType : 'json',
 				data : bounds,
 				success : function(section) {
-					$(section.texts).each(function(index, data) {
+					async.each($(section.texts), function(data, done) {
 						insert(data);
-					});
-					fn();
+						done();
+					}, fn);
+
 				}
 			});
 		}
