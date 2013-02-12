@@ -49,10 +49,13 @@ define(["helper", "uievent"], function(helper, uievent) {
 				if (params.zoom < 20) {
 
 					if ('image' === data.c) {
-						var newImage = $(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]").hide().load(function() {
-							$(this).appendTo(newTxt);
-							$(this).fadeIn(1000);
-						});
+						if (params.zoom < 4) {
+							$(document.createElement("img")).attr("src", "/getimg/[" + data.p + "]").appendTo(newTxt);
+
+						} else {
+							$(document.createElement("img")).attr("src", "/getimg/s[" + data.p + "]").appendTo(newTxt);
+						}
+
 					} else {
 						var newContent = null;
 						if (data.t) {
