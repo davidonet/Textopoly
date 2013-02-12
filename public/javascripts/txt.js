@@ -80,11 +80,14 @@ define(["helper", "uievent", "lib/async"], function(helper, uievent, async) {
 		}
 	};
 	var removeInvisible = function() {
-		$('.msg').each(function(elt) {
-			var off = $(this).offset(), t = off.top, l = off.left, h = $(this).height(), w = $(this).width(), docH = $(window).height() + 4 * params.stepx, docW = $(window).width() + 4 * params.stepx, isEntirelyVisible = (t > -4 * params.stepy && l > -4 * params.stepx && t + h < docH && l + w < docW);
+		async.each($('.msg'), function(elt, done) {
+			
+			var off = $(elt).offset(), t = off.top, l = off.left, h = $(elt).height(), w = $(elt).width(), docH = $(window).height() + 4 * params.stepx, docW = $(window).width() + 4 * params.stepx, isEntirelyVisible = (t > -4 * params.stepy && l > -4 * params.stepx && t + h < docH && l + w < docW);
 			if (!isEntirelyVisible) {
-				$(this).remove();
+				$(elt).remove();
 			}
+			done();
+		}, function() {
 		});
 	};
 
@@ -92,7 +95,7 @@ define(["helper", "uievent", "lib/async"], function(helper, uievent, async) {
 		insert : insert,
 		removeInvisible : removeInvisible,
 		loadSection : function(bounds, fn) {
-			removeInvisible();
+
 			$.ajax({
 				url : 'section',
 				dataType : 'json',
@@ -101,7 +104,10 @@ define(["helper", "uievent", "lib/async"], function(helper, uievent, async) {
 					async.each($(section.texts), function(data, done) {
 						insert(data);
 						done();
-					}, fn);
+					}, function() {
+						removeInvisible();
+						fn();
+					});
 
 				}
 			});
