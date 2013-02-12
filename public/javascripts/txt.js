@@ -81,7 +81,7 @@ define(["helper", "uievent", "lib/async"], function(helper, uievent, async) {
 	};
 	var removeInvisible = function() {
 		async.each($('.msg'), function(elt, done) {
-			
+
 			var off = $(elt).offset(), t = off.top, l = off.left, h = $(elt).height(), w = $(elt).width(), docH = $(window).height() + 4 * params.stepx, docW = $(window).width() + 4 * params.stepx, isEntirelyVisible = (t > -4 * params.stepy && l > -4 * params.stepx && t + h < docH && l + w < docW);
 			if (!isEntirelyVisible) {
 				$(elt).remove();
@@ -95,11 +95,13 @@ define(["helper", "uievent", "lib/async"], function(helper, uievent, async) {
 		insert : insert,
 		removeInvisible : removeInvisible,
 		loadSection : function(bounds, fn) {
-
-			$.ajax({
+			if (xhr)
+				xhr.abort();
+			xhr = $.ajax({
 				url : 'section',
 				dataType : 'json',
 				data : bounds,
+				async : true,
 				success : function(section) {
 					async.each($(section.texts), function(data, done) {
 						insert(data);

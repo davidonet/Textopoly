@@ -5,6 +5,8 @@ requirejs.config({
 		'stratus' : 'http://stratus.sc/stratus'
 	}
 });
+
+var xhr;
 require(["jquery", "jquery-ui", "lib/jquery.form", "modeHandler", "mapModule", "uievent", "pathBox", "userinfo", "booking", 'stratus'], function($, jqui, jqf, modeHandler, mapModule, uievent, pathBox, userinfo) {
 	$(function() {
 		(function($, sr) {
@@ -47,7 +49,7 @@ require(["jquery", "jquery-ui", "lib/jquery.form", "modeHandler", "mapModule", "
 						}
 					}());
 			}
-			
+
 			modeHandler.init();
 			mapModule.init();
 			pathBox.init();
