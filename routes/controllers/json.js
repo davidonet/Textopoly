@@ -190,8 +190,8 @@ exports.rss = function(req, res) {
 	var feed = new RSS({
 		title : 'Textopoly',
 		description : 'un outil d’écriture en ligne',
-		feed_url : 'http://dev.textopoloy.org/rss',
-		site_url : 'http://dev.textopoloy.org',
+		feed_url : 'http://textopoloy.org/rss',
+		site_url : 'http://textopoloy.org',
 		author : 'La Panacée'
 	});
 	db.txt.last20(function(err, items) {
