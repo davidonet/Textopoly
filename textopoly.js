@@ -53,6 +53,7 @@ global.io = socket.listen(server, {
 });
 
 global.io.configure(function() {
+	io.set("polling duration", 10);
 	io.set('log level', 0);
 });
 
