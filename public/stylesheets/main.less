@@ -8,51 +8,51 @@
 
 /* SoundCloud */
 
-.sndcld{
-    width:33px;
-    height:21px;
-    z-index:500;
+.sndcld {
+    width: 33px;
+    height: 21px;
+    z-index: 500;
     background-image: url('img/sndcld.png');
-    float:right;
-    bottom:0;
-    right:0;
-    margin:10px 10px 10px 10px;
-    opacity:0.8;
+    float: right;
+    bottom: 0;
+    right: 0;
+    margin: 10px 10px 10px 10px;
+    opacity: 0.8;
     cursor: pointer;
-    position:absolute;
+    position: absolute;
 }
-
 
 /* BUTTONS MIXIN*/
 
-a{
-  text-decoration:none;
-  color:@aluminium2;
+a {
+    text-decoration: none;
+    color: @aluminium2;
 }
 
-a:hover{
-  color:@skyblueL;
+a:hover {
+    color: @skyblueL;
 }
 
 .button (@radius) {
-    z-index:5000;
-    display: block;
-    cursor: default;
-    width: @radius;
-    height: @radius;
-    border-radius: @radius*2;
-    border: solid 2px @aluminium1L;
-    background-color: @aluminium2L;
-    
-    &:hover{
-     border: solid 2px @aluminium2D;
-     background-color: @aluminium2;   
+z-index:5000;
+display: block;
+cursor: default;
+width: @radius;
+height: @radius;
+border-radius: @radius*2;
+border: solid 2px @aluminium1L;
+background-color: @aluminium2L;
+
+&
+:hover {
+    border: solid 2px @aluminium2D;
+    background-color: @aluminium2;
     }
-}
+    }
 
-/* BIG BUTTONS MIXIN*/
+    /* BIG BUTTONS MIXIN*/
 
-.bigButton (@radius: 50px) {
+    .bigButton (@radius: 50px) {
     z-index: 5000;
     float: left;
     margin-right: 35px;
@@ -62,158 +62,144 @@ a:hover{
     width: @radius;
     height: @radius;
     border-radius: @radius*2;
-    
+
     &.normal {
-      border: solid 2px @aluminium1L;
-      background-color: @aluminium2L;        
+    border: solid 2px @aluminium1L;
+    background-color: @aluminium2L;
     }
     &.over {
-     border: solid 2px @aluminium2D;
-     background-color: @aluminium2;   
-    }   
-    &.active {
-     border: solid 2px @aluminium2D;
-     background-color: @aluminium2;
-   
-   
+    border: solid 2px @aluminium2D;
+    background-color: @aluminium2;
     }
-     
-    
-}
+    &.active {
+    border: solid 2px @aluminium2D;
+    background-color: @aluminium2;
 
+    }
+}
 
 /***********************************************************************************
  *  GLOBALS
  ***********************************************************************************/
 
 html {
-  -webkit-font-smoothing: subpixel-antialiased;
-  -webkit-user-select: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-user-select: none;
 }
 
 body {
-  height: 100%;
-
-  
-  &.default  {
-      background: @aluminium1;
-      cursor: default;
-
-      }
-  &.pathMode {
-      background: @aluminium2L;
-      cursor: default;
-  
-  }
-  
-    &.writeMode {
-      background: @aluminium1;  
-      cursor: text;
-
-      >#content>#map>.msg{
-       background: rgba(136, 138, 133, 0.2);
-      }  
-  }
-  
-  &.searchMode {
-      background: @aluminium1;
-      cursor: default;
-             >#content>#map.z20>.msg,>#content>#map.z40>.msg{
-                 background-color: @aluminium2D;
-                 
-
-                &.butter:hover,{
-                         background-color: @butterL;
-                 }
-                &.orange:hover{
-                         background-color: @orangeL;
-                 }                 
-                &.chocolate:hover{
-                         background-color: @chocolateL;
-                 }
-                &.chameleon:hover{
-                         background-color: @chameleonL;
-                 }                 
-                &.skyblue:hover{
-                         background-color: @skyblueL;
-                 }
-                &.plum:hover{
-                         background-color: @plumL;
-                 }
-                &.scarletred:hover{
-                         background-color: @scarletredL;
-                 }                  
-                &.image:hover{
-                        background-color: @aluminium2;
-                 }
-         
-         
-                   
-                                                                    
-      }  
-      
-                  >#content>#map>.msg.filter{
-
-                &.butter{
-                         background-color: @butter;
-                         
-                            &:hover{
-                                    background-color: @butterL;
-  
-                            }
-                 }
-                &.orange{
-                         background-color: @orange;
-                         
-                            &:hover{
-                                    background-color: @orangeL;
-  
-                            }                         
-                 }                 
-                &.chocolate{
-                         background-color: @chocolate;
-                         
-                            &:hover{
-                                    background-color: @chocolateL;
-  
-                            }                         
-                 }
-                
-                &.skyblue{
-                         background-color: @skyblue;
-                         
-                            &:hover{
-                                    background-color: @skyblueL;
-  
-                            }                         
-                 }
-                &.plum{
-                         background-color: @plum;
-                         
-                            &:hover{
-                                    background-color: @plumL;
-  
-                            }                         
-                 }
-                &.scarletred{
-                         background-color: @scarletred;
-                         
-                            &:hover{
-                                    background-color: @scarletredL;
-                            }                         
-                 }                  
-
-         
-                }
-  }
-  
+    height: 100%;&.default  {
+    background: white;
+    cursor: default;
+}
+&
+.pathMode {
+    background: @aluminium2L;
+    cursor: default;
 }
 
-h1, h2, h3, h4, h5, h6, label,p, span {
+&
+.writeMode {
+    background: @aluminium1;
+    cursor: text;>#content>#map>.msg{
+    background: rgba(136, 138, 133, 0.2);
+}
+}
+
+&
+.searchMode {
+    background: @aluminium1;
+    cursor: default;>#content>#map.z20>.msg,>#content>#map.z40>.msg{
+    background-color: @aluminium2D;
+
+    &.butter:hover,{
+    background-color: @butterL;
+    }
+    &.orange:hover{
+    background-color: @orangeL;
+    }
+    &.chocolate:hover{
+    background-color: @chocolateL;
+    }
+    &.chameleon:hover{
+    background-color: @chameleonL;
+    }
+    &.skyblue:hover{
+    background-color: @skyblueL;
+    }
+    &.plum:hover{
+    background-color: @plumL;
+    }
+    &.scarletred:hover{
+    background-color: @scarletredL;
+    }
+    &.image:hover{
+    background-color: @aluminium2;
+    }
+
+    }
+
+    >#content>#map>.msg.filter{
+
+    &.butter{
+    background-color: @butter;
+
+    &:hover{
+    background-color: @butterL;
+
+    }
+    }
+    &.orange{
+    background-color: @orange;
+
+    &:hover{
+    background-color: @orangeL;
+
+    }
+    }
+    &.chocolate{
+    background-color: @chocolate;
+
+    &:hover{
+    background-color: @chocolateL;
+
+    }
+    }
+
+    &.skyblue{
+    background-color: @skyblue;
+
+    &:hover{
+    background-color: @skyblueL;
+
+    }
+    }
+    &.plum{
+    background-color: @plum;
+
+    &:hover{
+    background-color: @plumL;
+
+    }
+    }
+    &.scarletred{
+    background-color: @scarletred;
+
+    &:hover{
+    background-color: @scarletredL;
+    }
+    }
+
+    }
+    }
+
+}
+
+h1, h2, h3, h4, h5, h6, label, p, span {
     font-family: @Futura;
     color: @aluminium2;
-    }
-    
+}
+
 h1 {
     font-size: 24px;
     letter-spacing: 5px;
@@ -224,14 +210,13 @@ h2 {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: @aluminium2D;
-
 }
 h3 {
     font-size: 14px;
-  line-height: 24px;
+    line-height: 24px;
     letter-spacing: 2px;
 }
-input[type=text],input[type=password]{
+input[type=text], input[type=password] {
     font-family: @Futura;
     color: @aluminium2;
     border: solid 1px @aluminium1D;
@@ -239,84 +224,76 @@ input[type=text],input[type=password]{
     font-size: 16px;
     letter-spacing: 2px;
     text-align: center;
-
     display: block;
     width: 240px;
     height: 20px;
     padding: 2px;
-    margin-right:auto;
-    margin-left:auto;
+    margin-right: auto;
+    margin-left: auto;
     margin-bottom: 10px;
 }
-#main * input[type=text]{
+#main * input[type=text] {
 
-      margin-left:0;
-      margin-bottom: 0px;
-      height: 15px;
-      text-align: left;
-
+    margin-left: 0;
+    margin-bottom: 0px;
+    height: 15px;
+    text-align: left;
 }
 
-input[type=submit],input[type=button] {
-  font-family: @Futura;
-  font-size: 16px;
-  margin-right: 5px;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
+input[type=submit], input[type=button] {
+    font-family: @Futura;
+    font-size: 16px;
+    margin-right: 5px;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: @aluminium1L;
+    border: solid 2px @aluminium1L;
+    background-color: @aluminium2L;
 
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  
-  color: @aluminium1L;
-  border: solid 2px @aluminium1L;
-  background-color: @aluminium2L;        
-  
     &:hover {
-       border: solid 2px @aluminium2D;
-       background-color: @aluminium2;   
-    }  
+    border: solid 2px @aluminium2D;
+    background-color: @aluminium2;
+    }
 }
 
 p, span {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 select {
-  display: inline;
+    display: inline;
     width: 120px;
-  height: 20px;
+    height: 20px;
     margin: 0;
-    -webkit-border-radius:0px;
-    -moz-border-radius:0px;
-    border-radius:0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
     -webkit-box-shadow: 0;
     -moz-box-shadow: 0;
     box-shadow: 0;
     background: url('icons/arrow_down.svg') no-repeat right @aluminium2L;
-    color:@aluminium1L;
+    color: @aluminium1L;
     border: solid 2px @aluminium1L;
-    outline:none;
+    outline: none;
     display: inline-block;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-    cursor:pointer;
-
-    &:hover {
-       border: solid 2px @aluminium2D;
-       background-color: @aluminium2;   
-    }  
-
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;&:hover {
+    border: solid 2px @aluminium2D;
+    background-color: @aluminium2;
+    }
 }
-
 
 label {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
-     vertical-align: middle;
+    vertical-align: middle;
 }
 
 input:focus {
@@ -325,7 +302,7 @@ input:focus {
     background-color: white;
 }
 
-    textarea:focus {
+textarea:focus {
     outline: 0;
     outline: none;
 }
@@ -333,18 +310,16 @@ input:focus {
 hr {
     border: solid 1px @aluminium1D;
 
-
 }
 
 /***********************************************************************************
  *  TABLES
  ***********************************************************************************/
 
-table{
+table {
 
-  width: 100%;
-
-  background: @aluminium1L;
+    width: 100%;
+    background: @aluminium1L;
 }
 
 table * p.t {
@@ -352,136 +327,130 @@ table * p.t {
 }
 
 td {
-  height: 30px;
-  vertical-align: top;
-  padding: 5px;
-  border: 1px solid @aluminium1D;
+    height: 30px;
+    vertical-align: top;
+    padding: 5px;
+    border: 1px solid @aluminium1D;
 }
-td.coord{
-  width: 100px;
+td.coord {
+    width: 100px;
 }
 
-td.date{
-  width: 120px;
+td.date {
+    width: 120px;
 }
-td.text{
+td.text {
 }
-td.lenght{
-  width: 10px;
+td.lenght {
+    width: 10px;
 }
-td.button{
-width: 60px;
-text-align: right;}
+td.button {
+    width: 60px;
+    text-align: right;
+}
 
 /***********************************************************************************
  *  MSG DISPLAY
  ***********************************************************************************/
 .msg {
-  display: block;
-  position: absolute;
- /* overflow: hidden;*/
-  cursor: move;
 
-  
-  >p {
-  font-family: @NotCourier;
-  color: @aluminium2D;
-  white-space:pre-wrap;
-  word-wrap: break-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-
-  }
-  
-  >img {
-  width: 100%;
-  height: 100%;
-
-}
+    display: block;
+    position: absolute;
+    /* overflow: hidden;*/
+    cursor: move;>p {
+    font-family: @NotCourier;
+    color: @aluminium2D;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
 }
 
-
-
+>
+img {
+    width: 100%;
+    height: 100%;
+}
+}
+/*
+.msg {
+    border: solid 1px #f0f0f0;
+}
+*/
 /* MSG COLORS */
 
-
-.z1 > .msg.butter:hover, .z2 > .msg.butter:hover, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
+.z1 > .msg.butter, .z4 > .msg.butter:hover, .z10 > .msg.butter:hover, .z20 > .msg.butter:hover, .z40 > .msg.butter:hover {
     background-color: @butterL;
-    
 }
-.z1 > .msg.orange:hover, .z2 > .msg.orange:hover, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
+.z1 > .msg.orange, .z4 > .msg.orange:hover, .z10 > .msg.orange:hover, .z20 > .msg.orange:hover, .z40 > .msg.orange:hover {
     background-color: @orangeL;
 }
-.z1 > .msg.chocolate:hover, .z2 > .msg.chocolate:hover, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
+.z1 > .msg.chocolate, .z4 > .msg.chocolate:hover, .z10 > .msg.chocolate:hover, .z20 > .msg.chocolate:hover, .z40 > .msg.chocolate:hover {
     background-color: @chocolateL;
 }
-.z1 > .msg.chameleon:hover, .z2 > .msg.chameleon:hover, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
+.z1 > .msg.chameleon, .z4 > .msg.chameleon:hover, .z10 > .msg.chameleon:hover, .z20 > .msg.chameleon:hover, .z40 > .msg.chameleon:hover {
     background-color: @chameleonL;
 }
-.z1 > .msg.skyblue:hover, .z2 > .msg.skyblue:hover, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
+.z1 > .msg.skyblue, .z4 > .msg.skyblue:hover, .z10 > .msg.skyblue:hover, .z20 > .msg.skyblue:hover, .z40 > .msg.skyblue:hover {
     background-color: @skyblueL;
 }
-.z1 > .msg.plum:hover, .z2 > .msg.plum:hover, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
+.z1 > .msg.plum, .z4 > .msg.plum:hover, .z10 > .msg.plum:hover, .z20 > .msg.plum:hover, .z40 > .msg.plum:hover {
     background-color: @plumL;
 }
-.z1 > .msg.scarletred:hover, .z2 > .msg.scarletred:hover, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
+.z1 > .msg.scarletred, .z4 > .msg.scarletred:hover, .z10 > .msg.scarletred:hover, .z20 > .msg.scarletred:hover, .z40 > .msg.scarletred:hover {
     background-color: @scarletredL;
 }
 
-
-
-.z20 > .msg.butter,.z40 > .msg.butter {
+.z20 > .msg.butter, .z40 > .msg.butter {
     background-color: @butterD;
 }
 .z20 > .msg.orange, .z40 > .msg.orange {
     background-color: @orangeD;
 }
-.z20 > .msg.chocolate,.z40 > .msg.chocolate  {
+.z20 > .msg.chocolate, .z40 > .msg.chocolate {
     background-color: @chocolateD;
 }
 .z20 > .msg.chameleon, .z40 > .msg.chameleon {
-    background-color: @chameleonD; 
+    background-color: @chameleonD;
 }
-.z20 > .msg.skyblue, .z40 > .msg.skyblue{
-    background-color: @skyblueD; 
+.z20 > .msg.skyblue, .z40 > .msg.skyblue {
+    background-color: @skyblueD;
 }
 .z20 > .msg.plum, .z40 > .msg.plum {
-    background-color: @plumD; 
+    background-color: @plumD;
 }
-.z20 > .msg.scarletred,.z40 > .msg.scarletred {
-    background-color: @scarletredD; 
+.z20 > .msg.scarletred, .z40 > .msg.scarletred {
+    background-color: @scarletredD;
 }
 
 /* IMAGES COLORS */
 .z20 > .msg.image, .z40 > .msg.image, {
-  &.s{
-   background-size: 100%;
-   background-color: @aluminium2D;
-  }
-  
-  &.l{
-   background-size: 100%;
-   background-color: @aluminium2D;
-  }
-  
-  &.t{
-   background-size: 100%;
-   background-color: @aluminium2D;
-  }
-      
-  &.f{
-   background-size: 100%;
-   background-color: @aluminium2D;
-  }
-  
+&
+.s {
+    background-size: 100%;
+    background-color: @aluminium2D;
+    }
 
+    &.l{
+    background-size: 100%;
+    background-color: @aluminium2D;
+    }
 
-&:hover {
+    &.t{
+    background-size: 100%;
+    background-color: @aluminium2D;
+    }
+
+    &.f{
+    background-size: 100%;
+    background-color: @aluminium2D;
+    }
+
+    &:hover {
     background-color: @aluminium2L;
 
-}
-  
+    }
 }
 
 /***********************************************************************************
@@ -505,7 +474,6 @@ text-align: right;}
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 #header {
@@ -516,45 +484,31 @@ text-align: right;}
     top: 0px;
     margin: 0px auto;
     background-color: @aluminium1Lt;
-  
-  
-    /* TOP MENU*/  
-    
-      
+
+    /* TOP MENU*/
+
     #topmenu {
     z-index: 2000;
     display: block;
     float: right;
     margin-right: 10px;
-    margin-top: 10px;
-    
-    
-#btnLog, #btnHelp, div#btnFocus {
-    float:left;
-    .button(16px);
-
+    margin-top: 10px;#btnLog, #btnHelp, div#btnFocus {
+    float: left;.button(16px);
 }
-#btnLog, #btnHelp{
-        margin-right: 4px;
-
-    
+#btnLog, #btnHelp {
+    margin-right: 4px;
 }
 
 }
-    
-  /* HEADER BIG*/  
-  
-    &.big {
-            height: 120px;
-          
-          
-        #title {
-                
-             float: left;
-             width: 320px;
-            height: 84px;
-        
-        h1 {
+
+/* HEADER BIG*/
+
+&
+.big {
+    height: 120px;#title {
+    float: left;
+    width: 320px;
+    height: 84px;h1 {
     float: left;
     margin-left: 10px;
     margin-top: 10px;
@@ -570,16 +524,15 @@ text-align: right;}
     margin-left: 10px;
     width: 3px;
     height: 72px;
-    background-color:@aluminium2D;
-}}
-
+    background-color: @aluminium2D;
+    }
+}
 
 div#leftA, div#rightA {
     position: absolute;
     font-size: 30px;
     top: 38px;
     color: @aluminium2L;
-
 }
 
 div#leftA {
@@ -587,52 +540,43 @@ div#leftA {
 }
 
 #slider {
-    position:absolute;
-    z-index:-1000;
-    right:20px;
+    position: absolute;
+    z-index: -1000;
+    right: 20px;
     width: 620px;
     margin-top: 15px;
     text-align: center;
     color: @aluminium2L;
-    
-            >h2 {
-              margin-top: 0;
-    font-size: 22px;
-    line-height: 28px;
-    
-    >strong {
-    color: @aluminium2;
-}
-    
-    
-}
 
->p {
+    >h2 {
+    margin-top: 0;
+    font-size: 22px;
+    line-height: 28px;>strong {
+    color: @aluminium2;
+    }
+
+    }
+
+    >p {
     font-size: 18px;
     line-height: 28px;
-    letter-spacing: 1px;
-    
-    a {
+    letter-spacing: 1px;a {
     color: @aluminium2L;
-    
+
     &:hover {
     color: @aluminium2;
-}
-}
-    
-    
-}
-            
-            
     }
+    }
+
+    }
+
+}
 
 div#rightA {
     left: 870px;
 }
 
-
-  /*MAIN MENU*/  
-
+/*MAIN MENU*/
 
 div#mainMenu {
     display: block;
@@ -643,9 +587,8 @@ div#mainMenu {
     height: 50px;
     z-index: 100;
 }
-   
-div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {
-.bigButton();
+
+div#btnCenter, div#btnText, div#btnPath, div#btnShow, div#btnFind {.bigButton();
 }
 
 div#btnCenter {
@@ -664,33 +607,26 @@ div#btnShow {
 div#btnFind {
     background: url('btn/btnFind.svg');
 }
-                 
-    }
-    
-    /* HEADER SMALL*/
 
-    
-    &.small {
-    height: 42px;
-    
-    #title {
+}
+
+/* HEADER SMALL*/
+
+&
+.small {
+    height: 42px;#title {
     float: left;
     width: 320px;
-    height: 42px;
-    
-    h1, h1 a {
+    height: 42px;h1, h1 a {
     float: left;
     margin-left: 10px;
     margin-top: 0px;
     height: 42px;
     font-size: 32px;
     color: #2e3436; /* Aluminium 2 Darker */
-    letter-spacing: 2px;
-
-    &:hover{
-      text-decoration: none;
-    };
-
+    letter-spacing: 2px;&:hover{
+    text-decoration: none;
+};
 
 }
 
@@ -701,19 +637,18 @@ div#btnFind {
     width: 2px;
     height: 32px;
     background-color: @aluminium2D;
-} } }
+    } } }
 
     /* TOP BAR*/
 
     >#topbar {
     position: relative;
-    width: @siteWidth - 20px;
+    width: @siteWidth  - 20px;
     height: 4px;
     top: 0px;
     margin: 0px auto;
     background-color: @aluminium2D;
-}
-    
+    }
 }
 
 /* END HEADER */
@@ -725,51 +660,44 @@ div#btnFind {
     bottom: 40px;
     margin-left: 10px;
     overflow-y: scroll;
-    overflow-x: hidden;
-    
->p {
+    overflow-x: hidden;>p {
     width: 90%;
     font-family: @NotCourier;
-    font-size:16px;
+    font-size: 16px;
     line-height: 24px;
     text-align: left;
-    background:@aluminium1L;
+    background: @aluminium1L;
 
-}
->img{
+    }
+    >img{
     width: 50%;
 }
 }
 
 #main {
     position: absolute;
-    left:20px;
+    left: 20px;
     width: 920px;
-    top: 50px;
-
->p {
+    top: 50px;>p {
     width: 90%;
     font-family: @NotCourier;
-    font-size:16px;
+    font-size: 16px;
     line-height: 24px;
     text-align: left;
-    background:@aluminium1L;
+    background: @aluminium1L;
 
-}
->img{
+    }
+    >img{
     width: 50%;
 }
 }
-
 
 #zoomWrap {
     position: absolute;
     top: 120px;
     bottom: 30px;
     width: 24px;
-    margin-left: 10px;
-    
-  >#zoom {
+    margin-left: 10px;>#zoom {
     position: absolute;
     top: 50%;
     margin-top: -110px;
@@ -778,28 +706,25 @@ div#btnFind {
     width: 24px;
     background-color: @aluminium1Lt;
     background-image: url('slider.svg');
-
-    
-}  
+}
 }
 
 #footer {
-    text-align:center;
+    text-align: center;
     position: absolute;
     bottom: -20px;
-    left:240px;
+    left: 240px;
     z-index: 2000;
     width: 480px;
     height: 40px;
     background-color: @aluminium1Lt;
-    
-    >#posInfo{
-        width: 100%;
-        font-family:@Futura;
-        font-size:16px;
-        color: @aluminium2D;
-        letter-spacing: 2px;
-    }   
-}
 
+    >#posInfo{
+    width: 100%;
+    font-family: @Futura;
+    font-size: 16px;
+    color: @aluminium2D;
+    letter-spacing: 2px;
+}
+}
 
