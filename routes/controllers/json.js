@@ -165,17 +165,23 @@ exports.remove = function(req, res) {
 	};
 	normalizePos(aTxt);
 	db.txt.aTxt(aTxt, function(err, item) {
-		if ((item.a == req.user.author) || (req.user.superuser)) {
-			db.gridfs().unlink('[' + req.params.x + ',' + req.params.y + ']', function(err, gs) {
-			});
-			db.gridfs().unlink('s[' + req.params.x + ',' + req.params.y + ']', function(err, gs) {
-			});
-			db.txt.removeTxt(aTxt, function(err) {
-				res.json({
-					success : true
+		if (!err && item) {
+			if ((req.user.superuser) || (item.a == req.user.author)) {
+				db.gridfs().unlink('[' + req.params.x + ',' + req.params.y + ']', function(err, gs) {
 				});
-				io.sockets.emit('unbook', aTxt);
-			});
+				db.gridfs().unlink('s[' + req.params.x + ',' + req.params.y + ']', function(err, gs) {
+				});
+				db.txt.removeTxt(aTxt, function(err) {
+					res.json({
+						success : true
+					});
+					io.sockets.emit('unbook', aTxt);
+				});
+			} else {
+				res.json({
+					success : false
+				});
+			}
 		} else {
 			res.json({
 				success : false
