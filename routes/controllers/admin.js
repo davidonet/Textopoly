@@ -66,7 +66,7 @@ exports.resetpwd = function(req, res) {
 			text : "Bonjour \nPour réinitialiser votre mot de de passe ouvrez l'adresse " + link + " dans un navigateur.", // plaintext body
 			html : "<h1>Pour réinitialiser votre mot de de passe</h1><p>Cliquer sur le lien : <a href='" + link + "'>ici</a>" // html body
 		};
-		var transport = nodemailer.createTransport("SMTP", {
+		var smtpTransport = nodemailer.createTransport("SMTP", {
 			service : "Gmail",
 			auth : {
 				user : "textopoly.lapanacee@gmail.com",
@@ -130,7 +130,7 @@ exports.new_author = function(req, res) {
 				html : "<h1>Confirmation de votre inscription à Textopoly</h1><h2>" + req.body.author + "</h2><p>Cliquer sur le lien : <a href='" + link + "'>ici</a>" // html body
 			};
 
-			var transport = nodemailer.createTransport("SMTP", {
+			var smtpTransport = nodemailer.createTransport("SMTP", {
 				service : "Gmail",
 				auth : {
 					user : "textopoly.lapanacee@gmail.com",
