@@ -4,7 +4,7 @@ var crypto = require('crypto');
 var uuid = require('node-uuid');
 var sensible = require('../../sensible');
 var nodemailer = require("nodemailer");
-var sensible = require('./sensible');
+var sensible = require('../../sensible');
 
 exports.new_user = function(req, res) {
 	res.render('newuser.jade', {
