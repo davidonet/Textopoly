@@ -4,6 +4,7 @@ var crypto = require('crypto');
 var uuid = require('node-uuid');
 var sensible = require('../../sensible');
 var nodemailer = require("nodemailer");
+var sensible = require('./sensible');
 
 exports.new_user = function(req, res) {
 	res.render('newuser.jade', {
@@ -65,7 +66,13 @@ exports.resetpwd = function(req, res) {
 			text : "Bonjour \nPour réinitialiser votre mot de de passe ouvrez l'adresse " + link + " dans un navigateur.", // plaintext body
 			html : "<h1>Pour réinitialiser votre mot de de passe</h1><p>Cliquer sur le lien : <a href='" + link + "'>ici</a>" // html body
 		};
-		var smtpTransport = nodemailer.createTransport("SMTP", {});
+		var transport = nodemailer.createTransport("SMTP", {
+			service : "Gmail",
+			auth : {
+				user : "textopoly.lapanacee@gmail.com",
+				pass : sensible.getPwd()
+			}
+		});
 		smtpTransport.sendMail(mailOptions, function(error, response) {
 			if (error) {
 				console.log(error);
@@ -122,10 +129,14 @@ exports.new_author = function(req, res) {
 				text : "Bonjour " + req.body.author + "\nPour confirmer votre inscription ouvrez l'adresse " + link + " dans un navigateur.", // plaintext body
 				html : "<h1>Confirmation de votre inscription à Textopoly</h1><h2>" + req.body.author + "</h2><p>Cliquer sur le lien : <a href='" + link + "'>ici</a>" // html body
 			};
-			var smtpTransport = nodemailer.createTransport("sendmail", {
 
+			var transport = nodemailer.createTransport("SMTP", {
+				service : "Gmail",
+				auth : {
+					user : "textopoly.lapanacee@gmail.com",
+					pass : sensible.getPwd()
+				}
 			});
-
 			smtpTransport.sendMail(mailOptions, function(error, response) {
 				if (error) {
 					console.log(error);
