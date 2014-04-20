@@ -16,8 +16,7 @@ function ensureJSONAuth(req, res, next) {
 	if (req.isAuthenticated()) {
 		return next();
 	}
-	req.body.notAuth = true;
-	res.json(req.body);
+	res.redirect('/')
 }
 
 function ensureMobileAuth(req, res, next) {
@@ -60,7 +59,7 @@ module.exports = function(app) {
 	app.get('/admin/user/:a', adminC.edit_author);
 	app.get('/admin/del/:a', superUserPower, adminC.remove_author);
 	app.get('/admin/delbook/:id', ensureJSONAuth, adminC.remove_book);
-	app.post('/admin/user/new', adminC.new_author);
+	app.post('/admin/user/new', ensureJSONAuth, adminC.new_author);
 	app.get('/newuser', adminC.new_user);
 	app.get('/confirm', adminC.confirm_user);
 	app.get('/lostpwd', adminC.lostpwd);
@@ -95,7 +94,9 @@ module.exports = function(app) {
 		});
 	});
 
-	app.post('/auth/browserid', passport.authenticate('persona'), function(req, res) {
+	app.post('/auth/browserid', passport.authenticate('persona', {
+		failureRedirect : '/newuser'
+	}), function(req, res) {
 		res.redirect('/');
 	});
 

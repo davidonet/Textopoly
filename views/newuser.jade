@@ -1,4 +1,6 @@
 extend layout
+block head
+	script(src="//code.jquery.com/jquery-1.11.0.min.js")
 
 block body
 	div#content
@@ -19,16 +21,17 @@ block body
 						
 						input(type='text', name="author", value="MonNom")
 						label Mot de passe 
-						
-						input(type='text', name="password",value="MotDePasse")
-						label Email 
-						
-						input(type='text', name="email",size="50",value="moi@textopoly.org")
+					
+						input(type='text', name="email",size="50",value=email)
 						label Site Web 
 						
 						input(type='text', name="url",size="50",value="http://textopoly.org")
 						p(style="margin-top:10px;") En cliquant sur le bouton "S'inscrire", </br>j'accepte sans condition la <a href="http://blog.textopoly.org/?page_id=138" target="_new">Charte d'Utilisation</a>.
 
 						input(type='submit',value="S'inscrire",style="margin-top:10px;")
+						input(type='button',value="Annuler",style="margin-top:10px;",onclick="$.get('/logout',function(){ window.location='/';})")
+						
+						p(style="margin-top:10px;") Annuler pour revenir à Textopoly sans vous inscrire 
+						
 				div#footer
 					h3 <a href="/">TEXTOPOLY</a>

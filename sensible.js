@@ -5,3 +5,7 @@ exports.mongourl = function() {
 exports.redisHost = function() {
 	return "dbserver";
 };
+
+exports.getPwd = function() {
+        return "1ricerCar2";
+};

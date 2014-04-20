@@ -8,7 +8,10 @@ exports.view = function(req, res) {
 		}
 	};
 	if (req.isAuthenticated()) {
-		console.log("view",req.user)
+		if (req.user.author == undefined) {
+			res.redirect('/newuser?email=' + req.user.email);
+			res.end();
+		}
 		data.params.user = req.user;
 		data.params.xcenter = (req.query.xcenter ? Number(req.query.xcenter) : req.user.lastT[0]);
 		data.params.ycenter = (req.query.ycenter ? Number(req.query.ycenter) : req.user.lastT[1]);

@@ -8,7 +8,8 @@ var sensible = require('../../sensible');
 
 exports.new_user = function(req, res) {
 	res.render('newuser.jade', {
-		title : "Nouvel Utilisateur"
+		title : "Nouvel Utilisateur",
+		email : req.query.email
 	});
 };
 
@@ -111,40 +112,12 @@ exports.edit_author = function(req, res) {
 };
 
 exports.new_author = function(req, res) {
-	if ((req.body.author !== "") && (req.body.password !== "")) {
-		var pwmd5 = crypto.createHash('md5').update(req.body.password).digest("hex");
-		var key = uuid.v1()
+	if ((req.body.author !== "")) {
 		db.author.insert({
 			author : req.body.author,
-			password : pwmd5,
 			email : req.body.email,
 			url : req.body.url,
-			key : key
 		}, function(err) {
-			var link = "http://textopoly.org/confirm?key=" + key;
-			var mailOptions = {
-				from : "Textopoly <textopoly@lapanacee.org>", // sender address
-				to : req.body.email, // list of receivers
-				subject : "Inscription à Textopoly", // Subject line
-				text : "Bonjour " + req.body.author + "\nPour confirmer votre inscription ouvrez l'adresse " + link + " dans un navigateur.", // plaintext body
-				html : "<h1>Confirmation de votre inscription à Textopoly</h1><h2>" + req.body.author + "</h2><p>Cliquer sur le lien : <a href='" + link + "'>ici</a>" // html body
-			};
-
-			var smtpTransport = nodemailer.createTransport("SMTP", {
-				service : "Gmail",
-				auth : {
-					user : "textopoly.lapanacee@gmail.com",
-					pass : sensible.getPwd()
-				}
-			});
-			smtpTransport.sendMail(mailOptions, function(error, response) {
-				if (error) {
-					console.log(error);
-				} else {
-					console.log("Message sent: " + response.message);
-				}
-				smtpTransport.close();
-			});
 			res.redirect("/admin/user/" + req.body.author);
 		});
 	} else {
