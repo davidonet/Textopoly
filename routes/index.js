@@ -67,7 +67,6 @@ module.exports = function(app) {
 	app.get('/user/reset', adminC.resetpwd);
 	app.get('/resetform', adminC.resetform);
 	app.post('/reset', adminC.reset);
-	
 
 	app.post('/postimg', imgC.postimg);
 	app.get('/section', jsonC.section);
@@ -96,18 +95,11 @@ module.exports = function(app) {
 		});
 	});
 
-	app.post('/login', passport.authenticate('local'), function(req, res) {
-		db.txt.lastForA(req.user.author, function(err, items) {
-			if (items[0])
-				req.user.lastT = items[0].p;
-			else
-				req.user.lastT = [0, 0];
-
-			res.json(req.user);
-		});
+	app.post('/auth/browserid', passport.authenticate('persona'), function(req, res) {
+		res.redirect('/');
 	});
 
-	app.post('/m/login', passport.authenticate('local', {
+	app.post('/m/login', passport.authenticate('persona', {
 		successRedirect : '/',
 		failureRedirect : '/m/login.html'
 	}));

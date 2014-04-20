@@ -37,14 +37,12 @@ block body
 
 			div#login.windowBox(style='display:none')
 				h2 Authentification
-				form(method="post",id="loginform",action="/login")
-					label signature
-					input(type='text',name='username',autocomplete="off")
-					label mot de passe
-					input(type='password',name='password')
-					input(id="cancelLogin",type="button",value="Annuler")	
-					input(type="submit",value="OK")
-				span#account <a href ="/newuser" >créér un compte </a> | <a href ="/lostpwd" >mot de passe oublié </a>
+				form#idform(action="/auth/browserid",method="post",style="display:none;")
+					input#assertion(type="text",name="assertion")
+				img#browserid(src="https://developer.mozilla.org/files/3969/plain_sign_in_blue.png")
+				script
+					$("#browserid").click(function(){ navigator.id.get(function(assertion) {  if (assertion) {        $("#assertion").val(assertion);        $("#idform").submit();      } else {        location.reload();      }    });  });
+
 			
 			div#filter.windowBox(style='display:none')
 				h2 Filtrer la carte

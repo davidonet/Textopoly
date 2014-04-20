@@ -8,6 +8,7 @@ exports.view = function(req, res) {
 		}
 	};
 	if (req.isAuthenticated()) {
+		console.log("view",req.user)
 		data.params.user = req.user;
 		data.params.xcenter = (req.query.xcenter ? Number(req.query.xcenter) : req.user.lastT[0]);
 		data.params.ycenter = (req.query.ycenter ? Number(req.query.ycenter) : req.user.lastT[1]);

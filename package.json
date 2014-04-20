@@ -1,62 +1,65 @@
 {
-	"name": "textopoly",
-	"version": "0.0.1",
-	"author": "David O Net <contact@david-o.net>",
-	"description": "A collaborative text application",
-	"contributors": [
-		{
-			"name": "David Olivari",
-			"email": "david.olivari@gmail.com"
-		}, {
-			"name": "Adrien Revel",
-			"email": "adrien@startxxi.eu"
-		}, {
-			"name": "Baptiste Genoyer",
-			"email": "baptiste@startxxi.eu"
-		}
-	],
-	"private": true,
-	"scripts": {
-		"start": "node textopoly",
-		"test": "mocha",
-		"predeploy": "echo This will be run before deploying the app",
-		"postdeploy": "echo This will be run after deploying the app"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/davidonet/Textopoly"
-	},
-	"dependencies": {
-		"express": "3.0.3",
-		"jade": "*",
-		"connect": "*",
-		"connect-redis": "*",
-		"less-middleware": "*",
-		"mongoskin": ">= 0.4",
-		"socket.io": ">=0.9",
-		"imagemagick": ">=0.1.2",
-		"redis": ">=0.8",
-		"hiredis": "*",
-		"rss": "*",
-		"passport": "*",
-		"passport-local": "*",
-		"crypto": "*",
-		"async": "*",
-		"node-uuid": "*",
-		"nodemailer":"*"
-	},
-	"devDependencies": {
-		"mocha": "*",
-		"should": "*",
-		"expect.js": "*",
-		"zombie": "*",
-		"superagent": "*",
-		"assert": "*",
-		"async": "*"
-	},
-	"license": "GPL",
-	"engines": {
-		"node": ">=0.8",
-		"npm": "1.1.x"
-	}
+  "name": "textopoly",
+  "version": "0.0.1",
+  "author": "David O Net <contact@david-o.net>",
+  "description": "A collaborative text application",
+  "contributors": [
+    {
+      "name": "David Olivari",
+      "email": "david.olivari@gmail.com"
+    },
+    {
+      "name": "Adrien Revel",
+      "email": "adrien@startxxi.eu"
+    },
+    {
+      "name": "Baptiste Genoyer",
+      "email": "baptiste@startxxi.eu"
+    }
+  ],
+  "private": true,
+  "scripts": {
+    "start": "node textopoly",
+    "test": "mocha",
+    "predeploy": "echo This will be run before deploying the app",
+    "postdeploy": "echo This will be run after deploying the app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidonet/Textopoly"
+  },
+  "dependencies": {
+    "express": "3.0.3",
+    "jade": "*",
+    "connect": "*",
+    "connect-redis": "*",
+    "less-middleware": "*",
+    "mongoskin": ">= 0.4",
+    "socket.io": ">=0.9",
+    "imagemagick": ">=0.1.2",
+    "redis": ">=0.8",
+    "hiredis": "*",
+    "rss": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "crypto": "*",
+    "async": "*",
+    "node-uuid": "*",
+    "nodemailer": "*",
+    "passport-persona": "^0.1.7"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "expect.js": "*",
+    "zombie": "*",
+    "superagent": "*",
+    "assert": "*",
+    "async": "*"
+  },
+  "license": "GPL",
+  "engines": {
+    "node": ">=0.8",
+    "npm": "1.1.x"
+  }
 }
