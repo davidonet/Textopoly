@@ -13,4 +13,4 @@
 		name : "main",
 		exclude : ["jquery"]
 	}]
-})
+});
