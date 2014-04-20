@@ -175,7 +175,7 @@ define(["lib/jquery.tipsy"], function() {
 							$('#infoname').html('Écrit par : <a href="/admin/user/' + data.a + '">' + data.a + '</a>');
 							var aDate = new Date(data.d);
 							$('#infodate').text($.datepicker.formatDate('le : ' + 'dd/mm/yy', aDate) + " à : " + aDate.getHours() + ":" + aDate.getMinutes());
-							$("a[href='#permalink']").attr('href', 'http://textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
+							$("#permalink").attr('href', 'http://textopoly.org/view?zoom=' + params.zoom + '&xcenter=' + dc[0] + '&ycenter=' + dc[1]);
 							if (0 == $(data.spw).length) {
 								$('#pathCont').hide();
 							} else {
