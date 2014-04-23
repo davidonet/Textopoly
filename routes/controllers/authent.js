@@ -26,7 +26,7 @@ passport.deserializeUser(function(email, done) {
 });
 
 passport.use(new PersonaStrategy({
-	audience : 'http://127.0.0.1:5020'
+	audience : 'http://textopoly.org'
 }, function(email, done) {
 	db.author.findOne({
 		email : email
