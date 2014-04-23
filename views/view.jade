@@ -45,7 +45,12 @@ block body
 				input#browserid(type="button",value='Se connecter avec Persona',style='width:200px;')
 				div(style='margin-left:32px;margin-right:32px;margin-top:16px;text-align:left;line-height:20px')
 					p Si vous êtes déjà inscrit, il vous suffit de vous authentifier avec l'adresse email d'inscription dans la fenêtre Persona pour retrouver votre compte.
+					br
 					p Si vous n'êtes pas inscrit, authentifiez vous avec Persona pour vous inscrire.
+					br
+					p Si vous êtiez enregistré avec une adresse email invalide ou oubliée, vous pouvez envoyer un email à 
+						a(href="mailto:support@textopoly.org") support@textopoly.org 
+						en précisant votre pseudo et l'adresse associée souhaitée.
 				script
 					$("#browserid").click(function(){ navigator.id.get(function(assertion) {  if (assertion) {        $("#assertion").val(assertion);        $("#idform").submit();      } else {        location.reload();      }    });  });
 
